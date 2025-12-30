@@ -1,0 +1,1925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 30: Pediatric Pulmonary Disorders Study Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FF6B9D;
+            --coral: #FF8A5B;
+            --teal: #00CEC9;
+            --purple: #A29BFE;
+            --mint: #55EFC4;
+            --yellow: #FFEAA7;
+            --blue: #74B9FF;
+            --lavender: #DDA0DD;
+            --peach: #FFDAB9;
+            --orange: #FF9F43;
+            --green: #26DE81;
+            --dark: #2D3436;
+            --light: #FAFAFA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '👶';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: -10px;
+            right: 10px;
+        }
+
+        .header::after {
+            content: '🫁';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            bottom: -10px;
+            left: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            background: linear-gradient(135deg, var(--coral), var(--pink), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Big Picture Box */
+        .big-picture {
+            background: linear-gradient(135deg, var(--coral), var(--orange));
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 15px 50px rgba(255,107,157,0.3);
+        }
+
+        .big-picture-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .big-picture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .big-picture-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 15px;
+            font-weight: 700;
+        }
+
+        .big-picture-item strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        /* Navigation Pills */
+        .nav-container {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .nav-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-pill {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .nav-pill.active {
+            transform: scale(1.05);
+        }
+
+        .pill-upper { background: linear-gradient(135deg, var(--pink), var(--coral)); color: white; }
+        .pill-lower { background: linear-gradient(135deg, var(--teal), var(--mint)); color: white; }
+        .pill-newborn { background: linear-gradient(135deg, var(--purple), var(--lavender)); color: white; }
+        .pill-infections { background: linear-gradient(135deg, var(--green), var(--teal)); color: white; }
+        .pill-chronic { background: linear-gradient(135deg, var(--blue), var(--purple)); color: white; }
+        .pill-special { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark); }
+        .pill-terms { background: linear-gradient(135deg, var(--dark), #636e72); color: white; }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        .toggle-icon {
+            margin-left: auto;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .card-content {
+            display: none;
+            padding-top: 15px;
+            border-top: 2px dashed #dfe6e9;
+        }
+
+        .card.expanded .card-content {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .info-box.pink { background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(255,138,91,0.1)); border-left: 5px solid var(--pink); }
+        .info-box.teal { background: linear-gradient(135deg, rgba(0,206,201,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--teal); }
+        .info-box.purple { background: linear-gradient(135deg, rgba(162,155,254,0.2), rgba(221,160,221,0.1)); border-left: 5px solid var(--purple); }
+        .info-box.yellow { background: linear-gradient(135deg, rgba(255,234,167,0.3), rgba(255,218,185,0.2)); border-left: 5px solid var(--coral); }
+        .info-box.blue { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(0,206,201,0.1)); border-left: 5px solid var(--blue); }
+        .info-box.green { background: linear-gradient(135deg, rgba(38,222,129,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--green); }
+        .info-box.orange { background: linear-gradient(135deg, rgba(255,159,67,0.2), rgba(255,234,167,0.1)); border-left: 5px solid var(--orange); }
+
+        .info-box-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Lists */
+        .fancy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fancy-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .fancy-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 800;
+        }
+
+        .fancy-list.pink li::before { color: var(--pink); }
+        .fancy-list.purple li::before { color: var(--purple); }
+        .fancy-list.coral li::before { color: var(--coral); }
+        .fancy-list.blue li::before { color: var(--blue); }
+        .fancy-list.green li::before { color: var(--green); }
+
+        /* Memory Tricks */
+        .memory-trick {
+            background: linear-gradient(135deg, var(--yellow), var(--peach));
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .memory-trick::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .memory-trick-title {
+            font-family: 'Fredoka One', cursive;
+            color: var(--dark);
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        /* Red Flag Box */
+        .red-flag {
+            background: linear-gradient(135deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .red-flag-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Warning Box */
+        .warning-box {
+            background: linear-gradient(135deg, #fdcb6e, #f39c12);
+            color: var(--dark);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .warning-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .compare-table th {
+            padding: 15px;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+        }
+
+        .compare-table th:first-child { background: var(--coral); }
+        .compare-table th:nth-child(2) { background: var(--teal); }
+        .compare-table th:nth-child(3) { background: var(--purple); }
+        .compare-table th:nth-child(4) { background: var(--blue); }
+
+        .compare-table td {
+            padding: 12px 15px;
+            background: white;
+            border-bottom: 1px solid #dfe6e9;
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Age Badge */
+        .age-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--mint), var(--teal));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        /* Differentiator Cards */
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .diff-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--teal);
+            transition: transform 0.3s ease;
+        }
+
+        .diff-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .diff-card:nth-child(2) { border-top-color: var(--pink); }
+        .diff-card:nth-child(3) { border-top-color: var(--purple); }
+        .diff-card:nth-child(4) { border-top-color: var(--orange); }
+        .diff-card:nth-child(5) { border-top-color: var(--blue); }
+        .diff-card:nth-child(6) { border-top-color: var(--green); }
+
+        .diff-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .diff-key {
+            font-weight: 800;
+            color: var(--coral);
+        }
+
+        /* Quiz Section */
+        .quiz-card {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .quiz-question {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.9);
+            color: var(--dark);
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: white;
+        }
+
+        .quiz-option.correct {
+            background: var(--mint);
+            color: white;
+            border-color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #ff7675;
+            color: white;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
+            display: none;
+        }
+
+        /* Flashcard */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            min-height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 200px;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--coral), var(--pink));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--teal), var(--mint));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .flashcard-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+        }
+
+        .flashcard-hint {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        /* Terms Grid */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .term-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .term-name {
+            font-family: 'Fredoka One', cursive;
+            color: var(--coral);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .term-def {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+            display: none;
+        }
+
+        .term-card.show .term-def {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .term-hint {
+            font-size: 0.8rem;
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        .term-card.show .term-hint {
+            display: none;
+        }
+
+        /* Search Box */
+        .search-box {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 3px solid var(--coral);
+            font-size: 1rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--teal);
+            box-shadow: 0 5px 20px rgba(0,206,201,0.3);
+        }
+
+        /* Safe Sleep Box */
+        .safe-sleep {
+            background: linear-gradient(135deg, var(--mint), var(--green));
+            border-radius: 25px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .safe-sleep-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .safe-sleep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .safe-sleep-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .safe-sleep-icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-pills {
+                flex-direction: column;
+            }
+            
+            .nav-pill {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .big-picture-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Icon backgrounds */
+        .icon-pink { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+        .icon-teal { background: linear-gradient(135deg, var(--teal), var(--mint)); }
+        .icon-purple { background: linear-gradient(135deg, var(--purple), var(--lavender)); }
+        .icon-yellow { background: linear-gradient(135deg, var(--yellow), var(--peach)); }
+        .icon-blue { background: linear-gradient(135deg, var(--blue), var(--teal)); }
+        .icon-green { background: linear-gradient(135deg, var(--green), var(--mint)); }
+        .icon-orange { background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>👶🫁 Pediatric Pulmonary Disorders</h1>
+            <p>Chapter 30 Interactive Study Guide</p>
+        </div>
+
+        <!-- Big Picture -->
+        <div class="big-picture">
+            <div class="big-picture-title">🚨 Why Kids Get Sicker FASTER!</div>
+            <div class="big-picture-grid">
+                <div class="big-picture-item">
+                    <strong>🔬 Smaller Airways</strong>
+                    A little swelling = BIG obstruction!
+                </div>
+                <div class="big-picture-item">
+                    <strong>🦴 Compliant Chest Wall</strong>
+                    More elastic → Retractions happen easily
+                </div>
+                <div class="big-picture-item">
+                    <strong>🛡️ Immature Immunity</strong>
+                    Infections spread faster
+                </div>
+                <div class="big-picture-item">
+                    <strong>🫁 Developing Lungs</strong>
+                    Limited reserve (especially preemies!)
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav-title">📚 Jump to a Section</div>
+            <div class="nav-pills">
+                <button class="nav-pill pill-upper active" onclick="showSection('upper')">🗣️ Upper Airway</button>
+                <button class="nav-pill pill-newborn" onclick="showSection('newborn')">👶 Newborn Disorders</button>
+                <button class="nav-pill pill-infections" onclick="showSection('infections')">🦠 Infections</button>
+                <button class="nav-pill pill-chronic" onclick="showSection('chronic')">🫁 Chronic Diseases</button>
+                <button class="nav-pill pill-special" onclick="showSection('special')">⭐ SIDS & Safety</button>
+                <button class="nav-pill pill-lower" onclick="showSection('diff')">🎯 Quick Differentiators</button>
+                <button class="nav-pill pill-terms" onclick="showSection('terms')">📖 Key Terms</button>
+            </div>
+        </div>
+
+        <!-- UPPER AIRWAY SECTION -->
+        <div id="upper" class="section active">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🦭</div>
+                    <div>
+                        <div class="card-title">Croup (Laryngotracheobronchitis)</div>
+                        <div class="card-subtitle">The "Seal Bark" Disease</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <span class="age-badge">👶 Peak: 6 months - 3 years</span>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🦠 Cause</div>
+                        Usually <strong>PARAINFLUENZA</strong> virus<br>
+                        (Also RSV, rhinovirus, adenovirus, metapneumovirus)
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        <strong>Subglottic edema</strong> (cricoid = narrowest area) →<br>
+                        ↑ Airway resistance → ↑ Work of breathing → Can spiral to failure!
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">The Classic Croup Triad</div>
+                        🦭 <strong>Barking "seal-like" cough</strong><br>
+                        🗣️ <strong>Hoarse voice</strong><br>
+                        😤 <strong>Inspiratory STRIDOR</strong>
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">📋 Typical Course</div>
+                        Viral prodrome (runny nose, sore throat, low fever) →<br>
+                        Then the classic triad appears →<br>
+                        Mild cases resolve in ~48 hours
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 Signs of SEVERE Croup</div>
+                        • Stridor AT REST<br>
+                        • Deep retractions<br>
+                        • Agitation, Tachycardia<br>
+                        • Cyanosis
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>Mainstay:</strong> GLUCOCORTICOIDS (oral/inhaled) - reduces symptoms + admissions<br>
+                        <strong>Severe:</strong> Nebulized EPINEPHRINE (↓ edema + bronchodilation)<br>
+                        <strong>Very Severe:</strong> Heliox (helium-O₂) → ↓ airflow resistance<br>
+                        <strong>Rare:</strong> Intubation
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Viral Croup</th>
+                            <th>Spasmodic (Recurrent) Croup</th>
+                        </tr>
+                        <tr>
+                            <td>Viral prodrome present</td>
+                            <td>NO prodrome</td>
+                        </tr>
+                        <tr>
+                            <td>Gradual onset</td>
+                            <td>ABRUPT nighttime onset</td>
+                        </tr>
+                        <tr>
+                            <td>Young kids (6mo-3yr)</td>
+                            <td>Often OLDER kids</td>
+                        </tr>
+                        <tr>
+                            <td>Single episode</td>
+                            <td>2+ episodes</td>
+                        </tr>
+                        <tr>
+                            <td>Just treat</td>
+                            <td>Investigate triggers (GERD, allergies)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">🔥</div>
+                    <div>
+                        <div class="card-title">Bacterial Tracheitis</div>
+                        <div class="card-subtitle">"Toxic Croup" - Rare but DEADLY!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Life-Threatening!</div>
+                        Rare but can be FATAL - often follows viral URI
+                    </div>
+
+                    <div class="info-box orange">
+                        <div class="info-box-title">🦠 Common Organisms</div>
+                        <strong>Staph aureus (including MRSA)</strong><br>
+                        Strep pyogenes, Moraxella, GABHS
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        Edema + Copious PURULENT secretions + Sloughing →<br>
+                        Forms <strong>PSEUDOMEMBRANE</strong> → Obstruction (can perforate!)
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Presentation</div>
+                        <ul class="fancy-list pink">
+                            <li><strong>HIGH FEVER</strong> - Toxic appearance!</li>
+                            <li>Stridor + Hoarse voice + Harsh cough</li>
+                            <li><strong>THICK PURULENT SECRETIONS</strong></li>
+                            <li>Tachypnea</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • <strong>ANTIBIOTICS</strong> (broad spectrum)<br>
+                        • Often needs <strong>EMERGENT INTUBATION</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🚑</div>
+                    <div>
+                        <div class="card-title">Acute Epiglottitis</div>
+                        <div class="card-subtitle">AIRWAY EMERGENCY!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">📊 Epidemiology</div>
+                        Incidence ↓ in children since <strong>Hib vaccine</strong>!<br>
+                        Now more common in adults<br>
+                        Current organisms: S. pneumoniae, S. aureus, Moraxella
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Epiglottitis = The 4 D's + NO COUGH</div>
+                        <strong>D</strong>rooling<br>
+                        <strong>D</strong>ysphagia<br>
+                        <strong>D</strong>ystonia (muffled voice)<br>
+                        <strong>D</strong>istress (tripod position)<br>
+                        + <strong>NO COUGH!</strong> ← Red flag!
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Classic Presentation</div>
+                        <ul class="fancy-list pink">
+                            <li>HIGH fever, severe sore throat</li>
+                            <li>Toxic/anxious appearance</li>
+                            <li><strong>DROOLING</strong> (can't swallow)</li>
+                            <li>Muffled "hot potato" voice</li>
+                            <li>Stridor</li>
+                            <li><strong>TRIPOD POSITION</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚫 What NOT To Do!</div>
+                        <strong>DO NOT examine throat with tongue depressor!</strong><br>
+                        Can trigger LARYNGOSPASM/COLLAPSE!<br><br>
+                        ⚠️ Can progress to DEATH within hours!
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🔬 Diagnosis</div>
+                        <strong>Definitive:</strong> Direct laryngoscopy (in controlled setting!)<br>
+                        X-ray may show swollen epiglottis but don't delay airway safety
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • Keep child CALM - minimize agitation!<br>
+                        • Secure airway if severe obstruction<br>
+                        • <strong>Broad-spectrum antibiotics + Corticosteroids</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">🍬</div>
+                    <div>
+                        <div class="card-title">Tonsillitis & Peritonsillar Abscess</div>
+                        <div class="card-subtitle">Throat Infections Gone Wrong</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">🔴 Tonsillitis</div>
+                        <strong>Mostly VIRAL</strong> (mono common!) but can be bacterial (GABHS, MRSA)<br>
+                        Severe obstruction → Corticosteroids<br>
+                        Bacterial → Antibiotics<br>
+                        Recurrent → Tonsillectomy
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🎯 Peritonsillar Abscess</div>
+                        Pus between tonsillar capsule and pharyngeal muscle<br>
+                        Usually <strong>UNILATERAL</strong> - complication of tonsillitis
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Complications of Abscess</div>
+                        • Upper airway obstruction<br>
+                        • Spread to mediastinum<br>
+                        • Jugular vein obstruction<br>
+                        • Rupture → Aspiration!
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🩺 Abscess Presentation</div>
+                        <ul class="fancy-list purple">
+                            <li>Fever, sore throat, dysphagia, drooling</li>
+                            <li><strong>TRISMUS</strong> (locked jaw!)</li>
+                            <li>"Hot potato" muffled voice</li>
+                            <li>Unilateral swelling + <strong>UVULA DEVIATION</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        Needle aspiration + Empiric antibiotics + Steroids<br>
+                        Sometimes I&D or tonsillectomy
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">👃</div>
+                    <div>
+                        <div class="card-title">Laryngomalacia & Tracheomalacia</div>
+                        <div class="card-subtitle">Floppy Airways</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Laryngomalacia</th>
+                            <th>Tracheomalacia</th>
+                        </tr>
+                        <tr>
+                            <td>What?</td>
+                            <td>Soft LARYNGEAL cartilage</td>
+                            <td>Flaccid TRACHEAL cartilage</td>
+                        </tr>
+                        <tr>
+                            <td>Collapse</td>
+                            <td>On INSPIRATION</td>
+                            <td>On EXPIRATION</td>
+                        </tr>
+                        <tr>
+                            <td>Key Point</td>
+                            <td><strong>#1 cause of chronic stridor in infants!</strong></td>
+                            <td>Primary or secondary (vascular compression)</td>
+                        </tr>
+                        <tr>
+                            <td>Diagnosis</td>
+                            <td>Laryngoscopy</td>
+                            <td>Bronchoscopy</td>
+                        </tr>
+                        <tr>
+                            <td>Prognosis</td>
+                            <td>Most resolve by 1 year</td>
+                            <td>May need surgery if severe</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">🥜</div>
+                    <div>
+                        <div class="card-title">Foreign Body Aspiration</div>
+                        <div class="card-subtitle">Wrong Pipe! Peak: 1-3 Years</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <span class="age-badge">👶 Peak: 1-3 years (exploring everything!)</span>
+
+                    <div class="warning-box">
+                        <div class="warning-title">⚠️ BIG RULE</div>
+                        Symptoms can BRIEFLY RESOLVE → Don't miss occult aspiration!
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Acute Obstruction</th>
+                            <th>Occult Aspiration</th>
+                        </tr>
+                        <tr>
+                            <td>Immediate symptoms</td>
+                            <td>Days to MONTHS later</td>
+                        </tr>
+                        <tr>
+                            <td>Cough, stridor, hoarseness</td>
+                            <td>Chronic cough/wheeze</td>
+                        </tr>
+                        <tr>
+                            <td>Can't speak, distress</td>
+                            <td>Recurrent pneumonia</td>
+                        </tr>
+                        <tr>
+                            <td>Severe → Life-saving maneuvers!</td>
+                            <td>Atelectasis, abscess</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">📍 Location</div>
+                        Often <strong>RIGHT lower lobe bronchus</strong> (more vertical anatomy!)<br>
+                        X-ray shows air trapping/collapse
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>Bronchoscopic removal</strong> ± Antibiotics
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-green">😴</div>
+                    <div>
+                        <div class="card-title">Pediatric Obstructive Sleep Apnea</div>
+                        <div class="card-subtitle">Sleep-Disordered Breathing</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box green">
+                        <div class="info-box-title">📊 Stats</div>
+                        Prevalence ~1-4% of children<br>
+                        Higher risk: Obesity, Black/Hispanic, Preterm, Family history
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🎯 #1 Cause</div>
+                        <strong>ADENOTONSILLAR HYPERTROPHY</strong><br>
+                        Also: Allergic rhinitis, craniofacial abnormalities, Down syndrome, obesity
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🩺 Manifestations</div>
+                        <strong>Sleep:</strong> Snoring, labored breathing, gasping, pauses<br>
+                        <strong>Daytime:</strong> Sleepiness, behavior issues, poor school performance<br>
+                        Sometimes: Enuresis (bed-wetting)
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🔬 Evaluation</div>
+                        Screen ALL children for snoring!<br>
+                        <strong>Gold standard: POLYSOMNOGRAPHY</strong> (sleep study)
+                    </div>
+
+                    <div class="info-box orange">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>If tonsillar cause:</strong> T&A (tonsillectomy/adenoidectomy)<br>
+                        <strong>If persistent/obesity:</strong> PAP therapy<br>
+                        Treat to prevent: HTN, CV disease, learning problems
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEWBORN SECTION -->
+        <div id="newborn" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🫧</div>
+                    <div>
+                        <div class="card-title">Surfactant Deficiency Disorder (RDS)</div>
+                        <div class="card-subtitle">The Preemie Problem</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <span class="age-badge">👶 Almost exclusively PREMATURE infants!</span>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🎯 Risk Factors</div>
+                        <ul class="fancy-list purple">
+                            <li>Prematurity (&lt;28 weeks = highest risk!)</li>
+                            <li>Low birth weight, Male sex</li>
+                            <li>C-section without labor</li>
+                            <li>Maternal diabetes</li>
+                            <li>Perinatal asphyxia</li>
+                        </ul>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Pathophysiology Chain Reaction</div>
+                        <strong>No surfactant</strong> → ↑ Surface tension →<br>
+                        <strong>Alveoli COLLAPSE</strong> at end-expiration →<br>
+                        ↓ Gas exchange → <strong>HYPOXEMIA</strong> →<br>
+                        Hard to reopen → ↑ Work of breathing → <strong>HYPERCAPNIA</strong> →<br>
+                        Pulmonary vasoconstriction → May revert to fetal circulation!
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Presentation (Minutes After Birth!)</div>
+                        <ul class="fancy-list pink">
+                            <li>Tachypnea</li>
+                            <li><strong>GRUNTING</strong></li>
+                            <li>Retractions, Nasal flaring</li>
+                            <li>Cyanosis</li>
+                            <li><strong>Hypoxemia REFRACTORY to O₂!</strong></li>
+                        </ul>
+                        Peaks ~3 days; Many recover in 10-14 days
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>Prevention:</strong> ANTENATAL STEROIDS (accelerate lung maturity!)<br>
+                        <strong>Supportive:</strong> O₂ + Lung-protective ventilation<br>
+                        <strong>Key:</strong> EXOGENOUS SURFACTANT early (15-30 min)<br>
+                        Watch for → BPD risk!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">🫁</div>
+                    <div>
+                        <div class="card-title">Bronchopulmonary Dysplasia (BPD)</div>
+                        <div class="card-subtitle">Chronic Lung Disease of Prematurity</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <span class="age-badge">👶 Smallest preemies: 23-28 weeks</span>
+
+                    <div class="info-box blue">
+                        <div class="info-box-title">⚙️ What Is It?</div>
+                        Chronic inflammatory lung disease from:<br>
+                        • <strong>Arrested lung development</strong><br>
+                        • Mechanical ventilation injury<br>
+                        • Oxygen toxicity
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        Ventilation + O₂ toxicity + Immature lungs →<br>
+                        Inflammatory injury (neutrophils, macrophages) →<br>
+                        Abnormal repair → <strong>Impaired alveolar development</strong> →<br>
+                        Atelectasis, edema, fibrosis, pulmonary HTN
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Manifestations</div>
+                        <ul class="fancy-list pink">
+                            <li>Chronic hypoxemia/hypercapnia</li>
+                            <li>↑ Work of breathing</li>
+                            <li>Feeding difficulty</li>
+                            <li>Bronchospasm, mucus plugging</li>
+                            <li>Pulmonary hypertension</li>
+                            <li>"Dusky spells" with agitation/feeding</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • Prolonged respiratory support (CPAP/nasal vent)<br>
+                        • Diuretics, Low-dose steroids, Caffeine citrate<br>
+                        • Bronchodilators for bronchospasm<br>
+                        • Vasodilators if severe PH<br>
+                        • Vitamin A + Nutrition<br>
+                        • <strong>Monitor into ADULTHOOD!</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFECTIONS SECTION -->
+        <div id="infections" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-green">🦠</div>
+                    <div>
+                        <div class="card-title">Bronchiolitis</div>
+                        <div class="card-subtitle">RSV's Favorite Target</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <span class="age-badge">👶 Mainly &lt;2 years</span>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">🦠 Causes</div>
+                        <strong>#1: RSV</strong> (Respiratory Syncytial Virus)<br>
+                        Also: Rhinovirus, Adenovirus, Influenza, Metapneumovirus
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚠️ High-Risk Infants</div>
+                        Prematurity, BPD, Congenital heart disease, Immunodeficiency
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        RSV starts as URI → Lower infection →<br>
+                        Necrosis of epithelium + Loss of cilia →<br>
+                        Inflammation + Edema + Mucus plugs + Bronchospasm →<br>
+                        <strong>Narrowed small airways</strong> →<br>
+                        Worse on EXPIRATION → Air trapping → ↑ Work of breathing
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Presentation</div>
+                        <strong>Starts:</strong> Runny nose + Cough →<br>
+                        <strong>Then:</strong> Fever, Poor feeding, Lethargy →<br>
+                        <strong>Progresses:</strong> Tachypnea, WHEEZE, Retractions<br><br>
+                        <strong>⚠️ Young infants can present with APNEA FIRST!</strong>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚫 What NOT To Give Routinely!</div>
+                        ❌ Bronchodilators<br>
+                        ❌ Steroids<br>
+                        ❌ Antibiotics<br>
+                        These are NOT recommended routinely!
+                    </div>
+
+                    <div class="info-box orange">
+                        <div class="info-box-title">💊 Treatment = SUPPORTIVE!</div>
+                        • High-flow O₂ / Noninvasive ventilation if needed<br>
+                        • Hand hygiene, Avoid smoke<br>
+                        • Breastfeeding (protective!)<br>
+                        • <strong>Prevention:</strong> NIRSEVIMAB for high-risk infants
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🫁</div>
+                    <div>
+                        <div class="card-title">Pediatric Pneumonia</div>
+                        <div class="card-subtitle">CAP vs HAP/VAP</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Cause</th>
+                            <th>Key Points</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Viral</strong> (Most Common!)</td>
+                            <td>RSV, Rhinovirus, Influenza</td>
+                            <td>Supportive care</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bacterial CAP</strong></td>
+                            <td>S. pneumoniae (#1)</td>
+                            <td>Often follows viral URI</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Atypical</strong></td>
+                            <td>Mycoplasma (school-age)</td>
+                            <td>Gradual onset, dry cough</td>
+                        </tr>
+                        <tr>
+                            <td><strong>HAP/VAP</strong></td>
+                            <td>Resistant organisms</td>
+                            <td>Worse outcomes</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Presentation</div>
+                        Dyspnea, Fever, Cough, Crackles, Wheeze<br>
+                        Tachypnea, Retractions, Nasal flaring<br><br>
+                        <strong>Bacterial clue:</strong> "Viral then SUDDENLY WORSE" + High fever + Toxic
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🔬 Evaluation</div>
+                        Often clinical diagnosis!<br>
+                        CXR not needed outpatient unless severe/no improvement in 48h<br>
+                        Pulse ox helps assess severity
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>Supportive:</strong> O₂, Hydration, Nutrition<br>
+                        <strong>CAP:</strong> Single empiric antibiotic (age-based)<br>
+                        <strong>HAP:</strong> Broad-spectrum → Narrow when pathogen ID'd<br>
+                        <strong>Prevention:</strong> Vaccines! (Flu, RSV, Pneumococcal)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">🍽️</div>
+                    <div>
+                        <div class="card-title">Aspiration Pneumonitis</div>
+                        <div class="card-subtitle">Wrong Pipe Consequences</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box orange">
+                        <div class="info-box-title">📌 What Gets Aspirated?</div>
+                        Meconium, Food, Saliva/Gastric contents, Hydrocarbons
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Severity Depends On</div>
+                        • <strong>Volume</strong> of aspirate<br>
+                        • <strong>pH</strong> (very low/high = worse!)<br>
+                        • <strong>Bacteria</strong> present
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">⚠️ Chronic Aspiration</div>
+                        Kids with neurologic impairment + dysphagia →<br>
+                        Recurrent pneumonia → Bronchiectasis → Fibrosis → Failure
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Acute</th>
+                            <th>Chronic</th>
+                        </tr>
+                        <tr>
+                            <td>Sudden cough, dyspnea, distress</td>
+                            <td>Cough/wheeze + Recurrent pneumonias</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • Antibiotics (often polymicrobial)<br>
+                        • Swallow/feeding therapy<br>
+                        • Anticholinergics for excessive secretions<br>
+                        • Botulinum toxin A salivary gland injection<br>
+                        • Sometimes tracheostomy
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🌊</div>
+                    <div>
+                        <div class="card-title">Pediatric ARDS (PARDS)</div>
+                        <div class="card-subtitle">Acute Respiratory Distress Syndrome</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="red-flag">
+                        <div class="red-flag-title">📊 Mortality ~24%!</div>
+                        Worse with: Immunocompromise, Vasopressors, Multi-organ dysfunction
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🎯 Causes</div>
+                        <strong>Direct:</strong> Pneumonia, Aspiration, Near-drowning, Smoke inhalation<br>
+                        <strong>Indirect:</strong> Sepsis, Pancreatitis, Trauma<br>
+                        Some adolescent cases linked to VAPING!
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">📋 Diagnostic Criteria</div>
+                        <ul class="fancy-list">
+                            <li>Onset within 7 days of insult</li>
+                            <li>NOT explained by heart failure</li>
+                            <li>New BILATERAL opacities on imaging</li>
+                            <li><strong>REFRACTORY HYPOXEMIA</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • <strong>Supportive:</strong> Maintain oxygenation, minimize lung injury<br>
+                        • High-flow nasal cannula ± Positive pressure<br>
+                        • <strong>Lung-protective mechanical ventilation</strong><br>
+                        • <strong>ECMO</strong> if failure of lung-protective strategies<br>
+                        • Prone positioning can help<br>
+                        • Steroids/Surfactant NOT routinely recommended
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHRONIC DISEASES SECTION -->
+        <div id="chronic" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">😤</div>
+                    <div>
+                        <div class="card-title">Childhood Asthma</div>
+                        <div class="card-subtitle">~6.5% of U.S. Children</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box yellow">
+                        <div class="info-box-title">📌 Definition</div>
+                        Chronic inflammatory airway disease with:<br>
+                        • Variable symptoms<br>
+                        • Variable expiratory airflow limitation<br>
+                        • <strong>REVERSIBLE!</strong>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🎯 Risk Factors</div>
+                        <ul class="fancy-list pink">
+                            <li>Genetic susceptibility</li>
+                            <li>Environmental exposures (allergens, smoke, pollution)</li>
+                            <li><strong>Early viral wheezing (RSV/rhinovirus) = STRONG risk!</strong></li>
+                            <li>Dysbiosis, Prematurity, C-section, Antibiotics</li>
+                            <li>Obesity (↑ inflammation)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        Often <strong>Th2-driven Type I hypersensitivity</strong> →<br>
+                        IgE, Mast cells, Eosinophils →<br>
+                        Bronchospasm + Mucus + Edema →<br>
+                        Expiratory obstruction → Air trapping → V/Q mismatch → Hypoxemia
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🩺 Acute Attack</div>
+                        <ul class="fancy-list purple">
+                            <li>Cough, Expiratory WHEEZE, SOB</li>
+                            <li>Tachypnea, Tachycardia</li>
+                            <li>Retractions, Nasal flaring</li>
+                            <li>Infants may "HEAD BOB"</li>
+                            <li>Pulsus paradoxus may appear</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ OMINOUS SIGN!</div>
+                        <strong>FAINT breath sounds = "Tight" chest</strong><br>
+                        Poor air movement → Imminent failure!
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>Education + Trigger control!</strong><br>
+                        <strong>Persistent asthma:</strong> Start with LOW-DOSE inhaled corticosteroid<br>
+                        Before stepping up: Check technique, environment, comorbidities<br>
+                        Step down only after ≥3 months control
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">🧬</div>
+                    <div>
+                        <div class="card-title">Cystic Fibrosis (CF)</div>
+                        <div class="card-subtitle">CFTR Mutation - The Thick Mucus Disease</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box blue">
+                        <div class="info-box-title">🧬 Genetics</div>
+                        <strong>Autosomal RECESSIVE</strong><br>
+                        CFTR gene mutation (chromosome 7) →<br>
+                        Defective chloride transport →<br>
+                        <strong>THICK, DEHYDRATED MUCUS</strong>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">CF Lung Vicious Cycle</div>
+                        Thick mucus → Plugging + Impaired clearance →<br>
+                        <strong>Chronic INFECTION</strong> →<br>
+                        Chronic neutrophilic INFLAMMATION →<br>
+                        <strong>BRONCHIECTASIS</strong> →<br>
+                        Respiratory FAILURE
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">⚠️ High-Yield Complications</div>
+                        <ul class="fancy-list pink">
+                            <li>Recurrent infections/pneumonia</li>
+                            <li>Bronchiectasis, Cysts, Bullae → Pneumothorax risk!</li>
+                            <li>Hemoptysis (enlarged bronchial arteries)</li>
+                            <li>Pulmonary HTN → Cor pulmonale (late)</li>
+                            <li>CF-related DIABETES (worsens outcomes)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🩺 Clinical Features</div>
+                        <ul class="fancy-list purple">
+                            <li>Persistent cough/wheeze, Heavy sputum</li>
+                            <li>Recurrent pneumonia</li>
+                            <li>Barrel chest, <strong>CLUBBING</strong></li>
+                            <li>GI: Malabsorption, obstruction</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🔬 Diagnosis</div>
+                        • Positive newborn screen + Confirmatory testing<br>
+                        • <strong>SWEAT CHLORIDE TEST</strong> (chloride elevated!)<br>
+                        • Genetic testing for CFTR variants
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">💊 Treatment (Game Changer!)</div>
+                        <strong>CFTR MODULATORS</strong> - Major breakthrough! (esp. F508del)<br>
+                        • Airway clearance (Chest PT devices)<br>
+                        • Bronchodilators<br>
+                        • Mucolytics (Dornase alfa)<br>
+                        • Antibiotics (inhaled/oral/IV)<br>
+                        • Nutrition support<br>
+                        • Lung transplant (end-stage)<br>
+                        • Gene therapy emerging!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDS & SAFETY SECTION -->
+        <div id="special" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">💔</div>
+                    <div>
+                        <div class="card-title">Sudden Infant Death Syndrome (SIDS)</div>
+                        <div class="card-subtitle">Prevention is KEY!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <span class="age-badge">👶 Peak: 2-4 months</span>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">📌 Definition</div>
+                        Sudden unexplained death &lt;12 months that remains unexplained after:<br>
+                        • Autopsy<br>
+                        • Scene investigation<br>
+                        • History review<br>
+                        (Excludes confirmed suffocation/strangulation)
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚠️ Risk Factors</div>
+                        <ul class="fancy-list purple">
+                            <li><strong>Prone/side sleeping</strong></li>
+                            <li>Soft bedding, Overheating</li>
+                            <li>Maternal/secondhand SMOKING</li>
+                            <li>Prematurity, Low birth weight, Male</li>
+                            <li>Family history (sibling)</li>
+                            <li>Young maternal age, Substance use</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🧠 Leading Theories</div>
+                        • Brainstem/serotonin abnormalities → Impaired arousal<br>
+                        • Autonomic dysregulation<br>
+                        • Immune/airway inflammation<br>
+                        • Possible infection triggers
+                    </div>
+                </div>
+            </div>
+
+            <div class="safe-sleep">
+                <div class="safe-sleep-title">😴 Safe Sleep = BIGGEST Prevention!</div>
+                <div class="safe-sleep-grid">
+                    <div class="safe-sleep-item">
+                        <div class="safe-sleep-icon">⬆️</div>
+                        <strong>BACK TO SLEEP</strong><br>(Supine!)
+                    </div>
+                    <div class="safe-sleep-item">
+                        <div class="safe-sleep-icon">🛏️</div>
+                        <strong>FIRM Mattress</strong><br>No soft bedding!
+                    </div>
+                    <div class="safe-sleep-item">
+                        <div class="safe-sleep-icon">🌡️</div>
+                        <strong>Don't Overheat</strong><br>Cool is safe
+                    </div>
+                    <div class="safe-sleep-item">
+                        <div class="safe-sleep-icon">👤</div>
+                        <strong>NO Bed-Sharing</strong><br>Own sleep space
+                    </div>
+                    <div class="safe-sleep-item">
+                        <div class="safe-sleep-icon">🤱</div>
+                        <strong>Breastfeed</strong><br>Protective!
+                    </div>
+                    <div class="safe-sleep-item">
+                        <div class="safe-sleep-icon">💉</div>
+                        <strong>Vaccinate</strong><br>Immunizations help
+                    </div>
+                    <div class="safe-sleep-item">
+                        <div class="safe-sleep-icon">🍼</div>
+                        <strong>Pacifier</strong><br>At sleep time
+                    </div>
+                    <div class="safe-sleep-item">
+                        <div class="safe-sleep-icon">🚭</div>
+                        <strong>NO Smoke</strong><br>Before & after birth
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QUICK DIFFERENTIATORS SECTION -->
+        <div id="diff" class="section">
+            <h2 style="font-family: 'Fredoka One', cursive; color: var(--dark); text-align: center; margin-bottom: 20px;">🎯 Quick Exam Differentiators</h2>
+            
+            <div class="diff-grid">
+                <div class="diff-card">
+                    <div class="diff-title">🦭 Croup</div>
+                    <span class="diff-key">Barky "seal" cough + Stridor</span><br>
+                    Responds to steroids<br>
+                    Epi neb if severe
+                </div>
+                
+                <div class="diff-card">
+                    <div class="diff-title">🚑 Epiglottitis</div>
+                    <span class="diff-key">Drooling + Muffled voice + Tripod + NO COUGH</span><br>
+                    DON'T swab throat!<br>
+                    Secure airway!
+                </div>
+                
+                <div class="diff-card">
+                    <div class="diff-title">🔥 Bacterial Tracheitis</div>
+                    <span class="diff-key">"Toxic croup" + HIGH fever + Purulent secretions</span><br>
+                    Antibiotics<br>
+                    Often needs intubation
+                </div>
+                
+                <div class="diff-card">
+                    <div class="diff-title">🦠 Bronchiolitis</div>
+                    <span class="diff-key">Infant + Wheeze + Retractions</span><br>
+                    SUPPORTIVE only!<br>
+                    No routine bronchodilators/steroids
+                </div>
+                
+                <div class="diff-card">
+                    <div class="diff-title">🫧 RDS/SDD</div>
+                    <span class="diff-key">Premature + Grunting + Refractory hypoxemia</span><br>
+                    Surfactant<br>
+                    CPAP/Vent
+                </div>
+                
+                <div class="diff-card">
+                    <div class="diff-title">🫁 BPD</div>
+                    <span class="diff-key">Extreme preemie + Chronic O₂ need</span><br>
+                    After ventilation injury<br>
+                    Arrested lung development
+                </div>
+                
+                <div class="diff-card">
+                    <div class="diff-title">🌊 PARDS</div>
+                    <span class="diff-key">Acute noncardiogenic edema after insult</span><br>
+                    Lung-protective ventilation<br>
+                    ECMO if needed
+                </div>
+                
+                <div class="diff-card">
+                    <div class="diff-title">🧬 Cystic Fibrosis</div>
+                    <span class="diff-key">Thick mucus → Chronic infection → Bronchiectasis</span><br>
+                    CFTR modulators = game-changing!<br>
+                    Clubbing
+                </div>
+                
+                <div class="diff-card">
+                    <div class="diff-title">💔 SIDS</div>
+                    <span class="diff-key">Safe sleep = BIGGEST prevention!</span><br>
+                    Back to sleep<br>
+                    Firm mattress, No soft bedding
+                </div>
+            </div>
+        </div>
+
+        <!-- KEY TERMS SECTION -->
+        <div id="terms" class="section">
+            <input type="text" class="search-box" placeholder="🔍 Search terms..." oninput="filterTerms(this.value)">
+            
+            <div class="terms-grid" id="termsGrid">
+                <!-- Terms will be dynamically populated -->
+            </div>
+        </div>
+
+        <!-- QUIZ & FLASHCARD -->
+        <div style="margin-top: 30px;">
+            <div class="quiz-card">
+                <div class="quiz-question">🎯 Quick Quiz: What is the MOST COMMON cause of chronic stridor in infants?</div>
+                <div class="quiz-options" id="quiz1">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) Croup</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) Laryngomalacia</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) Foreign body aspiration</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) Epiglottitis</div>
+                </div>
+                <div class="quiz-feedback" id="quiz1-feedback"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <div class="flashcard-label">Question</div>
+                        <div class="flashcard-text">A child presents with drooling, muffled voice, tripod position, and NO cough. What is it?</div>
+                        <div class="flashcard-hint">👆 Tap to reveal</div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-label">Answer</div>
+                        <div class="flashcard-text">EPIGLOTTITIS!</div>
+                        <div class="flashcard-hint">Don't examine throat with tongue depressor!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="background: linear-gradient(135deg, var(--teal), var(--mint));">
+                <div class="quiz-question">🎯 Which treatment is NOT routinely recommended for bronchiolitis?</div>
+                <div class="quiz-options" id="quiz2">
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">A) Supplemental oxygen</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">B) Supportive care</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, true)">C) Corticosteroids</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">D) High-flow nasal cannula</div>
+                </div>
+                <div class="quiz-feedback" id="quiz2-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Terms data
+        const terms = [
+            { name: "Acute Epiglottitis", def: "Rapid, life-threatening infection of the epiglottis causing severe upper airway obstruction (drooling, muffled voice, tripod position, NO cough)" },
+            { name: "Asthma (Childhood)", def: "Chronic inflammatory airway disease with variable symptoms and REVERSIBLE airflow limitation, often triggered by allergens or viral infections" },
+            { name: "Bacterial Tracheitis", def: "Severe bacterial infection of the trachea with edema and thick purulent secretions forming a pseudomembrane → airway obstruction" },
+            { name: "Bronchiolitis", def: "Viral infection of bronchioles (usually RSV) in infants causing wheezing, air trapping, increased work of breathing, and possible apnea" },
+            { name: "BPD", def: "Bronchopulmonary Dysplasia - Chronic lung disease of prematurity from arrested lung development and ventilation/oxygen injury" },
+            { name: "CAP (Pediatric)", def: "Community-acquired pneumonia outside healthcare settings; most often viral in children, with S. pneumoniae being the most common bacterial cause" },
+            { name: "Croup", def: "Upper airway illness (usually viral) causing subglottic edema → barking cough, hoarseness, and inspiratory stridor" },
+            { name: "Cystic Fibrosis", def: "Autosomal recessive CFTR mutation causing thick dehydrated secretions → chronic lung infections, bronchiectasis, and multisystem involvement" },
+            { name: "Foreign Body Aspiration", def: "Aspiration of objects (peak 1-3 years) causing acute obstruction or occult symptoms; often right lower lobe; requires bronchoscopic removal" },
+            { name: "HAP/VAP", def: "Hospital/Ventilator-associated pneumonia occurring ≥48 hours after hospitalization; often resistant organisms; worse outcomes" },
+            { name: "Laryngomalacia", def: "MOST COMMON cause of chronic stridor in infants; soft laryngeal structures collapse inward during inspiration; usually resolves by 1 year" },
+            { name: "PARDS", def: "Pediatric Acute Respiratory Distress Syndrome - Acute hypoxemic respiratory failure with noncardiogenic pulmonary edema and bilateral infiltrates" },
+            { name: "Pediatric OSA", def: "Sleep-disordered breathing from intermittent upper airway obstruction (often adenotonsillar hypertrophy) causing snoring and neurobehavior effects" },
+            { name: "Peritonsillar Abscess", def: "Pus collection near tonsil causing unilateral swelling, uvula deviation, muffled voice, drooling, and TRISMUS (locked jaw)" },
+            { name: "RDS/SDD", def: "Surfactant Deficiency Disorder of newborn - Prematurity-associated surfactant lack → alveolar collapse, refractory hypoxemia; treat with antenatal steroids + surfactant" },
+            { name: "SIDS", def: "Sudden Infant Death Syndrome - Unexplained death <12 months after full investigation; peak 2-4 months; prevented by safe sleep practices" },
+            { name: "Tracheomalacia", def: "Flaccid tracheal cartilage leading to airway collapse during EXPIRATION, causing stridor, cough, wheeze, and recurrent infections" }
+        ];
+
+        // Populate terms grid
+        function populateTerms() {
+            const grid = document.getElementById('termsGrid');
+            grid.innerHTML = terms.map(term => `
+                <div class="term-card" onclick="this.classList.toggle('show')">
+                    <div class="term-name">${term.name}</div>
+                    <div class="term-hint">Tap to reveal definition</div>
+                    <div class="term-def">${term.def}</div>
+                </div>
+            `).join('');
+        }
+
+        // Filter terms
+        function filterTerms(query) {
+            const cards = document.querySelectorAll('.term-card');
+            cards.forEach(card => {
+                const name = card.querySelector('.term-name').textContent.toLowerCase();
+                const def = card.querySelector('.term-def').textContent.toLowerCase();
+                if (name.includes(query.toLowerCase()) || def.includes(query.toLowerCase())) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Show section
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Toggle card
+        function toggleCard(header) {
+            header.parentElement.classList.toggle('expanded');
+        }
+
+        // Check quiz answer
+        function checkAnswer(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz1-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! Laryngomalacia is the #1 cause of chronic stridor in infants!' :
+                '❌ Not quite! The answer is Laryngomalacia - soft laryngeal cartilages collapse on inspiration.';
+        }
+
+        function checkAnswer2(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz2-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! Steroids, bronchodilators, and antibiotics are NOT routinely recommended for bronchiolitis!' :
+                '❌ Not quite! Corticosteroids, bronchodilators, and antibiotics are NOT routinely recommended for bronchiolitis - treatment is mainly supportive!';
+        }
+
+        // Initialize
+        populateTerms();
+    </script>
+</body>
+</html>
