@@ -1,0 +1,1901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🫘 Renal & Urologic System Study Guide - Chapter 31</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kidney-red: #E63946;
+            --kidney-red-light: #FFE5E7;
+            --ocean-blue: #457B9D;
+            --ocean-blue-light: #E3EEF5;
+            --sky-blue: #A8DADC;
+            --sky-blue-light: #E8F6F7;
+            --cream: #F1FAEE;
+            --navy: #1D3557;
+            --gold: #F4A261;
+            --gold-light: #FEF0E3;
+            --sage: #2A9D8F;
+            --sage-light: #E0F5F2;
+            --coral: #E76F51;
+            --coral-light: #FCEAE6;
+            --lavender: #9D8DF1;
+            --lavender-light: #EDE9FE;
+            --mint: #52B788;
+            --mint-light: #E3F5ED;
+            --peach: #FFB5A7;
+            --peach-light: #FFF0ED;
+            --dark: #264653;
+            --gray: #6B7280;
+            --light-gray: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #1D3557 0%, #457B9D 50%, #A8DADC 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, var(--cream) 100%);
+            border-radius: 30px;
+            padding: 35px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--kidney-red), var(--coral), var(--gold), var(--sage), var(--ocean-blue), var(--lavender));
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, var(--sky-blue) 0%, transparent 70%);
+            opacity: 0.5;
+        }
+
+        .header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.6em;
+            background: linear-gradient(135deg, var(--kidney-red), var(--ocean-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.15em;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .kidney-icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 transparent); }
+            50% { transform: scale(1.05); filter: drop-shadow(0 0 20px rgba(230, 57, 70, 0.3)); }
+        }
+
+        /* Navigation */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .nav-btn {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            padding: 14px 10px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-btn span.icon {
+            font-size: 1.5em;
+        }
+
+        .nav-btn.red { border-bottom: 4px solid var(--kidney-red); color: var(--kidney-red); }
+        .nav-btn.blue { border-bottom: 4px solid var(--ocean-blue); color: var(--ocean-blue); }
+        .nav-btn.sage { border-bottom: 4px solid var(--sage); color: var(--sage); }
+        .nav-btn.gold { border-bottom: 4px solid var(--gold); color: #C2410C; }
+        .nav-btn.coral { border-bottom: 4px solid var(--coral); color: var(--coral); }
+        .nav-btn.lavender { border-bottom: 4px solid var(--lavender); color: var(--lavender); }
+        .nav-btn.mint { border-bottom: 4px solid var(--mint); color: var(--mint); }
+        .nav-btn.peach { border-bottom: 4px solid var(--peach); color: #C2410C; }
+
+        /* Section Cards */
+        .section {
+            background: white;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            padding: 22px 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .section-header:hover {
+            background: var(--light-gray);
+        }
+
+        .section-icon {
+            font-size: 2.2em;
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.35em;
+            font-weight: 700;
+            flex-grow: 1;
+        }
+
+        .section-toggle {
+            font-size: 1.3em;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--gray);
+        }
+
+        .section.open .section-toggle {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section.open .section-content {
+            max-height: 15000px;
+        }
+
+        .content-inner {
+            padding: 0 28px 28px;
+        }
+
+        /* Color themes for sections */
+        .section.red .section-header { border-left: 6px solid var(--kidney-red); }
+        .section.red .section-icon { background: var(--kidney-red-light); }
+        .section.red .section-title { color: var(--kidney-red); }
+
+        .section.blue .section-header { border-left: 6px solid var(--ocean-blue); }
+        .section.blue .section-icon { background: var(--ocean-blue-light); }
+        .section.blue .section-title { color: var(--ocean-blue); }
+
+        .section.sage .section-header { border-left: 6px solid var(--sage); }
+        .section.sage .section-icon { background: var(--sage-light); }
+        .section.sage .section-title { color: var(--sage); }
+
+        .section.gold .section-header { border-left: 6px solid var(--gold); }
+        .section.gold .section-icon { background: var(--gold-light); }
+        .section.gold .section-title { color: #B45309; }
+
+        .section.coral .section-header { border-left: 6px solid var(--coral); }
+        .section.coral .section-icon { background: var(--coral-light); }
+        .section.coral .section-title { color: var(--coral); }
+
+        .section.lavender .section-header { border-left: 6px solid var(--lavender); }
+        .section.lavender .section-icon { background: var(--lavender-light); }
+        .section.lavender .section-title { color: #7C3AED; }
+
+        .section.mint .section-header { border-left: 6px solid var(--mint); }
+        .section.mint .section-icon { background: var(--mint-light); }
+        .section.mint .section-title { color: var(--mint); }
+
+        .section.peach .section-header { border-left: 6px solid var(--peach); }
+        .section.peach .section-icon { background: var(--peach-light); }
+        .section.peach .section-title { color: #C2410C; }
+
+        /* Info boxes */
+        .info-box {
+            border-radius: 16px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .info-box.nclex {
+            background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+            border-left: 5px solid var(--gold);
+            position: relative;
+        }
+
+        .info-box.nclex::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-size: 1.5em;
+        }
+
+        .info-box.clinical {
+            background: linear-gradient(135deg, var(--kidney-red-light), #FECACA);
+            border-left: 5px solid var(--kidney-red);
+        }
+
+        .info-box.pearl {
+            background: linear-gradient(135deg, var(--sage-light), #A7F3D0);
+            border-left: 5px solid var(--sage);
+        }
+
+        .info-box.formula {
+            background: linear-gradient(135deg, var(--lavender-light), #DDD6FE);
+            border-left: 5px solid var(--lavender);
+        }
+
+        .info-box.pathway {
+            background: linear-gradient(135deg, var(--ocean-blue-light), #BFDBFE);
+            border-left: 5px solid var(--ocean-blue);
+        }
+
+        .info-box-title {
+            font-weight: 700;
+            font-size: 0.95em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Flow Pathway */
+        .flow-pathway {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--cream), white);
+            border-radius: 16px;
+            margin: 15px 0;
+        }
+
+        .flow-step {
+            background: var(--ocean-blue);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 4px 10px rgba(69, 123, 157, 0.3);
+        }
+
+        .flow-arrow {
+            color: var(--gold);
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .styled-list li {
+            padding: 12px 18px;
+            margin: 10px 0;
+            background: var(--light-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .styled-list li:hover {
+            background: var(--cream);
+            transform: translateX(5px);
+        }
+
+        .styled-list li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            background: var(--sage);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.8em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .numbered-list {
+            counter-reset: item;
+        }
+
+        .numbered-list li::before {
+            content: counter(item);
+            counter-increment: item;
+            background: var(--ocean-blue);
+        }
+
+        /* Subsections */
+        .subsection {
+            margin: 22px 0;
+        }
+
+        .subsection h4 {
+            color: var(--dark);
+            font-size: 1.15em;
+            font-weight: 700;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 3px dotted var(--sky-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Comparison Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 18px 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--navy), var(--ocean-blue));
+            color: white;
+            padding: 16px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .comparison-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover td {
+            background: var(--cream);
+        }
+
+        /* Flip Cards */
+        .flip-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin: 20px 0;
+        }
+
+        .flip-card {
+            height: 180px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .flip-card-front {
+            background: linear-gradient(135deg, var(--ocean-blue), var(--navy));
+            color: white;
+        }
+
+        .flip-card-front h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.15em;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .flip-card-front .tap-hint {
+            font-size: 0.8em;
+            opacity: 0.75;
+            margin-top: 12px;
+        }
+
+        .flip-card-back {
+            background: white;
+            transform: rotateY(180deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            font-size: 0.92em;
+            line-height: 1.6;
+            border: 3px solid var(--sky-blue);
+        }
+
+        /* Memory Aid Cards */
+        .memory-card {
+            background: linear-gradient(135deg, var(--gold-light), #FDE68A);
+            border-radius: 18px;
+            padding: 22px;
+            margin: 18px 0;
+            border: 3px dashed var(--gold);
+            position: relative;
+        }
+
+        .memory-card::before {
+            content: '🧠';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            font-size: 1.8em;
+        }
+
+        .memory-card h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: #92400E;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Quiz Section */
+        .quiz-box {
+            background: linear-gradient(135deg, var(--ocean-blue-light), #BFDBFE);
+            border-radius: 18px;
+            padding: 22px;
+            margin: 22px 0;
+        }
+
+        .quiz-box h4 {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 18px;
+            font-size: 1.2em;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 14px;
+            padding: 18px;
+            margin: 12px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .quiz-question p {
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: var(--dark);
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            padding: 14px 18px;
+            background: var(--light-gray);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--ocean-blue);
+            background: var(--ocean-blue-light);
+            transform: translateX(5px);
+        }
+
+        .quiz-option.correct {
+            background: var(--sage-light);
+            border-color: var(--sage);
+        }
+
+        .quiz-option.incorrect {
+            background: var(--kidney-red-light);
+            border-color: var(--kidney-red);
+        }
+
+        .quiz-feedback {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+        .quiz-feedback.correct {
+            background: var(--sage-light);
+            color: var(--sage);
+        }
+
+        .quiz-feedback.incorrect {
+            background: var(--kidney-red-light);
+            color: var(--kidney-red);
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Nephron Type Cards */
+        .nephron-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .nephron-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border-top: 5px solid;
+            transition: transform 0.3s ease;
+        }
+
+        .nephron-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nephron-card.cortical {
+            border-color: var(--sage);
+        }
+
+        .nephron-card.juxtamedullary {
+            border-color: var(--kidney-red);
+        }
+
+        .nephron-card .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .nephron-card h5 {
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .nephron-card.cortical h5 { color: var(--sage); }
+        .nephron-card.juxtamedullary h5 { color: var(--kidney-red); }
+
+        /* Glossary */
+        .glossary-item {
+            background: var(--light-gray);
+            border-radius: 14px;
+            padding: 16px;
+            margin: 12px 0;
+            transition: all 0.3s ease;
+        }
+
+        .glossary-item:hover {
+            background: var(--cream);
+            transform: translateX(5px);
+        }
+
+        .glossary-item dt {
+            font-weight: 700;
+            color: var(--ocean-blue);
+            margin-bottom: 6px;
+            font-size: 1.05em;
+        }
+
+        .glossary-item dd {
+            font-size: 0.95em;
+            color: var(--dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.9em;
+            }
+
+            .section-title {
+                font-size: 1.15em;
+            }
+
+            .nav-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .flip-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-pathway {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: slideIn 0.6s ease forwards;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--ocean-blue), var(--navy));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--navy);
+        }
+
+        /* Progress indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--kidney-red), var(--gold), var(--sage));
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Key Terms Search */
+        .search-box {
+            width: 100%;
+            padding: 16px 22px;
+            border: 3px solid var(--ocean-blue);
+            border-radius: 14px;
+            font-size: 1em;
+            font-family: 'Quicksand', sans-serif;
+            margin-bottom: 22px;
+            outline: none;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .search-box:focus {
+            box-shadow: 0 0 0 4px var(--ocean-blue-light);
+            border-color: var(--navy);
+        }
+
+        .term-hidden {
+            display: none !important;
+        }
+
+        /* Highlight badge */
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.high-yield {
+            background: var(--kidney-red);
+            color: white;
+        }
+
+        .badge.nclex {
+            background: var(--gold);
+            color: white;
+        }
+
+        .badge.test {
+            background: var(--lavender);
+            color: white;
+        }
+
+        /* Big Picture Cards */
+        .big-picture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .big-picture-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-bottom: 4px solid;
+        }
+
+        .big-picture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        .big-picture-card:nth-child(1) { border-color: var(--ocean-blue); }
+        .big-picture-card:nth-child(2) { border-color: var(--sage); }
+        .big-picture-card:nth-child(3) { border-color: var(--kidney-red); }
+        .big-picture-card:nth-child(4) { border-color: var(--gold); }
+        .big-picture-card:nth-child(5) { border-color: var(--lavender); }
+
+        .big-picture-card .bp-icon {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+        }
+
+        .big-picture-card p {
+            font-weight: 600;
+            font-size: 0.95em;
+            color: var(--dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="kidney-icon">🫘</div>
+            <h1>Renal & Urologic System</h1>
+            <p class="subtitle">Chapter 31: High-Yield Nursing + NCLEX Study Guide</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-grid">
+            <button class="nav-btn red" onclick="scrollToSection('bigpicture')"><span class="icon">🎯</span>Big Picture</button>
+            <button class="nav-btn blue" onclick="scrollToSection('structures')"><span class="icon">🏗️</span>Structures</button>
+            <button class="nav-btn sage" onclick="scrollToSection('nephron')"><span class="icon">🔬</span>Nephron</button>
+            <button class="nav-btn gold" onclick="scrollToSection('tubules')"><span class="icon">🧪</span>Tubules</button>
+            <button class="nav-btn coral" onclick="scrollToSection('bloodflow')"><span class="icon">🩸</span>Blood Flow</button>
+            <button class="nav-btn lavender" onclick="scrollToSection('hormones')"><span class="icon">💊</span>Hormones</button>
+            <button class="nav-btn mint" onclick="scrollToSection('bladder')"><span class="icon">🚽</span>Bladder</button>
+            <button class="nav-btn peach" onclick="scrollToSection('keyterms')"><span class="icon">📚</span>Key Terms</button>
+        </nav>
+
+        <!-- Section 1: Big Picture -->
+        <div class="section red open" id="bigpicture">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🎯</div>
+                <h2 class="section-title">Big Picture: Why the Kidneys Matter</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="big-picture-grid">
+                        <div class="big-picture-card">
+                            <div class="bp-icon">💧</div>
+                            <p>Maintains Fluid Volume</p>
+                        </div>
+                        <div class="big-picture-card">
+                            <div class="bp-icon">⚖️</div>
+                            <p>Regulates Electrolytes & Acid-Base</p>
+                        </div>
+                        <div class="big-picture-card">
+                            <div class="bp-icon">💓</div>
+                            <p>Controls Blood Pressure</p>
+                        </div>
+                        <div class="big-picture-card">
+                            <div class="bp-icon">🧬</div>
+                            <p>Produces Hormones (RBCs & Bone)</p>
+                        </div>
+                        <div class="big-picture-card">
+                            <div class="bp-icon">🗑️</div>
+                            <p>Removes Waste & Drugs</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box nclex">
+                        <div class="info-box-title">NCLEX Rule</div>
+                        <p style="font-size: 1.1em; margin-top: 10px;"><strong>Kidneys protect blood chemistry FIRST, urine is secondary!</strong></p>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 Memory Trick: "FEWER"</h4>
+                        <p>
+                            <strong>F</strong>luid balance<br>
+                            <strong>E</strong>lectrolytes & pH<br>
+                            <strong>W</strong>aste removal<br>
+                            <strong>E</strong>rythropoietin (RBCs)<br>
+                            <strong>R</strong>egulate BP
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Structures -->
+        <div class="section blue" id="structures">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🏗️</div>
+                <h2 class="section-title">Structures of the Renal System</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="subsection">
+                        <h4>📍 Kidney Location & Protection</h4>
+                        <ul class="styled-list">
+                            <li><strong>Retroperitoneal</strong> (behind peritoneum)</li>
+                            <li>Located at <strong>T12–L3</strong></li>
+                            <li><strong>Right kidney slightly lower</strong> (liver pushes it down)</li>
+                        </ul>
+
+                        <div class="info-box pearl">
+                            <div class="info-box-title">🛡️ Protected By:</div>
+                            <p><strong>Renal capsule</strong> → <strong>Perirenal fat</strong> → <strong>Renal fascia</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔬 Internal Kidney Anatomy <span class="badge high-yield">Test Favorite</span></h4>
+                        
+                        <div class="two-col">
+                            <div class="info-box formula">
+                                <div class="info-box-title">🟡 Cortex (Outer)</div>
+                                <ul style="margin-left: 15px; margin-top: 8px;">
+                                    <li>Glomeruli</li>
+                                    <li>Proximal tubules</li>
+                                    <li>Part of distal tubules</li>
+                                </ul>
+                            </div>
+                            <div class="info-box pathway">
+                                <div class="info-box-title">🔵 Medulla (Inner)</div>
+                                <ul style="margin-left: 15px; margin-top: 8px;">
+                                    <li>Renal pyramids</li>
+                                    <li>Loops of Henle</li>
+                                    <li>Collecting ducts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🚿 Urine Flow Pathway</h4>
+                        <div class="flow-pathway">
+                            <span class="flow-step">Collecting duct</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Papilla</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Minor calyx</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Major calyx</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Renal pelvis</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Ureter</span>
+                        </div>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 "C-M-M-P-U" = Collecting → Minor → Major → Pelvis → Ureter</h4>
+                        <p><em>"Can My Mom Please Understand?"</em></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Nephron -->
+        <div class="section sage" id="nephron">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🔬</div>
+                <h2 class="section-title">Nephron: The Functional Unit</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="info-box nclex">
+                        <div class="info-box-title">Key Numbers</div>
+                        <p style="font-size: 1.2em; margin-top: 8px;">~<strong>1.2 million nephrons</strong> per kidney<br>
+                        Each responsible for <strong>urine formation</strong></p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔄 Types of Nephrons</h4>
+                        <div class="nephron-cards">
+                            <div class="nephron-card cortical">
+                                <div class="card-icon">🟢</div>
+                                <h5>Cortical Nephrons</h5>
+                                <p>Located mainly in cortex<br>Short loops of Henle<br><strong>Primarily filtration</strong></p>
+                            </div>
+                            <div class="nephron-card juxtamedullary">
+                                <div class="card-icon">🔴</div>
+                                <h5>Juxtamedullary Nephrons</h5>
+                                <p>Long loops deep in medulla<br><strong>Essential for concentrated urine!</strong></p>
+                            </div>
+                        </div>
+
+                        <div class="info-box nclex">
+                            <div class="info-box-title">NCLEX Pearl</div>
+                            <p><strong>Juxtamedullary nephrons = concentrated urine</strong><br>
+                            (Their long loops create the medullary gradient!)</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🟠 Renal Corpuscle Components</h4>
+                        <ul class="styled-list">
+                            <li><strong>Glomerulus</strong> — Capillary tuft for filtration</li>
+                            <li><strong>Bowman capsule</strong> — Cup that catches filtrate</li>
+                            <li><strong>Bowman space</strong> — Where filtrate collects</li>
+                            <li><strong>Mesangial cells</strong> — Support, phagocytosis, regulate blood flow</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🧫 Glomerular Filtration Membrane <span class="badge test">Very Tested!</span></h4>
+                        
+                        <div class="info-box formula">
+                            <div class="info-box-title">3 Layers (Outside → In)</div>
+                            <ol style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>Fenestrated endothelium</strong> — Has holes (fenestrations)</li>
+                                <li><strong>Basement membrane</strong> — Main barrier</li>
+                                <li><strong>Podocytes with filtration slits</strong> — Final filter</li>
+                            </ol>
+                        </div>
+
+                        <div class="info-box clinical">
+                            <div class="info-box-title">⚠️ Why Proteins Are NOT Filtered:</div>
+                            <ul style="margin-left: 15px; margin-top: 8px;">
+                                <li><strong>Large molecular size</strong></li>
+                                <li><strong>Negative charge repulsion</strong> (membrane is also negative)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚡ Juxtaglomerular Apparatus (JGA)</h4>
+                        
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Component</th>
+                                <th>Function</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Juxtaglomerular cells</strong></td>
+                                <td>Release <strong>RENIN</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Macula densa</strong></td>
+                                <td>Senses <strong>NaCl concentration</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mesangial cells</strong></td>
+                                <td>Support & regulation</td>
+                            </tr>
+                        </table>
+
+                        <div class="info-box pearl">
+                            <div class="info-box-title">JGA Regulates:</div>
+                            <p>✓ Renal blood flow &nbsp;&nbsp; ✓ GFR &nbsp;&nbsp; ✓ Blood pressure &nbsp;&nbsp; ✓ RAAS activation</p>
+                        </div>
+                    </div>
+
+                    <div class="quiz-box">
+                        <h4>🧪 Quick Check!</h4>
+                        <div class="quiz-question">
+                            <p>Which cells release renin?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">Macula densa cells</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, true)">Juxtaglomerular cells</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">Podocytes</div>
+                            </div>
+                            <div class="quiz-feedback">Correct! JG cells release renin to activate RAAS.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Tubular Segments -->
+        <div class="section gold" id="tubules">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🧪</div>
+                <h2 class="section-title">Tubular Segments & Functions <span class="badge high-yield">High-Yield</span></h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="flip-cards-grid">
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front" style="background: linear-gradient(135deg, #F59E0B, #D97706);">
+                                    <h4>Proximal Tubule</h4>
+                                    <p>🧹</p>
+                                    <span class="tap-hint">Tap to reveal!</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p><strong>Brush border</strong><br>
+                                    Reabsorbs: <strong>60-70% Na⁺ & H₂O</strong>, glucose, amino acids, bicarbonate<br>
+                                    Secretes: H⁺, drugs<br>
+                                    <em>Isotonic</em></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front" style="background: linear-gradient(135deg, #10B981, #059669);">
+                                    <h4>Loop of Henle</h4>
+                                    <p>➰</p>
+                                    <span class="tap-hint">Tap to reveal!</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p><strong>Descending:</strong> Water OUT → Concentrates urine<br><br>
+                                    <strong>Ascending:</strong> NaCl OUT, water stays → Dilutes urine</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">
+                                    <h4>Distal Tubule</h4>
+                                    <p>⚖️</p>
+                                    <span class="tap-hint">Tap to reveal!</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Na⁺ reabsorption (<strong>aldosterone</strong>)<br>
+                                    K⁺ & H⁺ secretion<br>
+                                    <strong>Acid-base balance</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front" style="background: linear-gradient(135deg, #EC4899, #DB2777);">
+                                    <h4>Collecting Duct</h4>
+                                    <p>🎯</p>
+                                    <span class="tap-hint">Tap to reveal!</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p><strong>Final urine concentration</strong><br>
+                                    ADH dependent<br>
+                                    Urea recycling<br>
+                                    Acid excretion</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 Loop of Henle Mnemonic</h4>
+                        <p style="font-size: 1.1em;">
+                            <strong>D</strong>escending = <strong>D</strong>rips water out (concentrates) 💧⬇️<br>
+                            <strong>A</strong>scending = <strong>A</strong>ctively pumps salt out (dilutes) 🧂⬆️
+                        </p>
+                    </div>
+
+                    <table class="comparison-table">
+                        <tr>
+                            <th>Segment</th>
+                            <th>Main Function</th>
+                            <th>Hormone Control</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Proximal Tubule</strong></td>
+                            <td>Bulk reabsorption (60-70%)</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Descending Loop</strong></td>
+                            <td>Water reabsorption</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ascending Loop</strong></td>
+                            <td>NaCl reabsorption</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distal Tubule</strong></td>
+                            <td>Fine-tune electrolytes</td>
+                            <td>Aldosterone</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Collecting Duct</strong></td>
+                            <td>Final concentration</td>
+                            <td><strong>ADH</strong>, Aldosterone</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Blood Supply -->
+        <div class="section coral" id="bloodflow">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🩸</div>
+                <h2 class="section-title">Blood Supply & GFR <span class="badge nclex">NCLEX Favorite</span></h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="subsection">
+                        <h4>🩸 Blood Flow Order (Memorize This!)</h4>
+                        <div class="flow-pathway">
+                            <span class="flow-step">Renal artery</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Interlobar</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Arcuate</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Afferent arteriole</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" style="background: var(--kidney-red);">GLOMERULUS</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Efferent arteriole</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Peritubular / Vasa recta</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Renal vein</span>
+                        </div>
+
+                        <div class="info-box pearl">
+                            <div class="info-box-title">💎 Vasa Recta</div>
+                            <p>Preserves the <strong>medullary osmotic gradient</strong> — essential for urine concentration!</p>
+                        </div>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 "A before E"</h4>
+                        <p><strong>A</strong>fferent = <strong>A</strong>pproaches glomerulus (brings blood IN)<br>
+                        <strong>E</strong>fferent = <strong>E</strong>xits glomerulus (takes blood OUT)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 Key Numbers to Know</h4>
+                        <div class="two-col">
+                            <div class="info-box formula">
+                                <p><strong>Kidneys receive:</strong> 20-25% of cardiac output</p>
+                                <p><strong>RBF:</strong> ~1000-1200 mL/min</p>
+                                <p><strong>GFR:</strong> ~120 mL/min</p>
+                            </div>
+                            <div class="info-box nclex">
+                                <div class="info-box-title">⚠️ NCLEX Alert!</div>
+                                <p style="font-size: 1.2em;"><strong>Minimum urine output:</strong><br>30 mL/hr</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🎛️ Autoregulation of RBF</h4>
+                        <div class="info-box pathway">
+                            <div class="info-box-title">Purpose</div>
+                            <p>Maintain constant GFR between BP <strong>80-180 mmHg</strong></p>
+                        </div>
+
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Mechanism</th>
+                                <th>How It Works</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Myogenic response</strong></td>
+                                <td>Vessels constrict/dilate in response to pressure</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tubuloglomerular feedback</strong></td>
+                                <td>Macula densa senses NaCl → adjusts afferent arteriole</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔄 Tubuloglomerular Feedback</h4>
+                        <div class="two-col">
+                            <div class="info-box clinical">
+                                <p><strong>↑ NaCl at macula densa</strong><br>
+                                → Afferent <strong>constriction</strong><br>
+                                → ↓ GFR</p>
+                            </div>
+                            <div class="info-box pearl">
+                                <p><strong>↓ NaCl at macula densa</strong><br>
+                                → Afferent <strong>dilation</strong><br>
+                                → ↑ GFR</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-box">
+                        <h4>🧪 Quick Check!</h4>
+                        <div class="quiz-question">
+                            <p>What is the minimum acceptable urine output?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">20 mL/hr</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, true)">30 mL/hr</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">50 mL/hr</div>
+                            </div>
+                            <div class="quiz-feedback">Correct! Less than 30 mL/hr indicates inadequate renal perfusion.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Hormones -->
+        <div class="section lavender" id="hormones">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">💊</div>
+                <h2 class="section-title">Neural & Hormonal Control</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="subsection">
+                        <h4>🧠 Sympathetic Nervous System Effects</h4>
+                        <ul class="styled-list">
+                            <li>↓ RBF (renal blood flow)</li>
+                            <li>↓ GFR</li>
+                            <li>↑ Na⁺ & water retention</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔴 RAAS (Renin-Angiotensin-Aldosterone System)</h4>
+                        
+                        <div class="info-box pathway">
+                            <div class="info-box-title">⚡ RAAS Triggers</div>
+                            <p>↓ BP &nbsp;&nbsp;|&nbsp;&nbsp; ↓ NaCl &nbsp;&nbsp;|&nbsp;&nbsp; Sympathetic stimulation</p>
+                        </div>
+
+                        <div class="flow-pathway">
+                            <span class="flow-step">↓ BP/NaCl</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">JG cells release RENIN</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Angiotensinogen → Angiotensin I</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step" style="background: var(--kidney-red);">ACE → Angiotensin II</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Aldosterone release</span>
+                        </div>
+
+                        <div class="info-box clinical">
+                            <div class="info-box-title">RAAS Effects:</div>
+                            <p>✓ Vasoconstriction &nbsp;&nbsp; ✓ Na⁺ retention &nbsp;&nbsp; ✓ Water retention &nbsp;&nbsp; ✓ ↑ BP</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>💙 Natriuretic Peptides (ANP/BNP)</h4>
+                        <div class="info-box pearl">
+                            <p><strong>OPPOSE RAAS!</strong><br>
+                            → Promote Na⁺ & water excretion<br>
+                            → Lower blood pressure</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>💊 Hormones Affecting the Nephron</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Hormone</th>
+                                <th>Action</th>
+                                <th>Result</th>
+                            </tr>
+                            <tr>
+                                <td><strong>ADH</strong> (Antidiuretic Hormone)</td>
+                                <td>↑ water reabsorption in collecting duct</td>
+                                <td><strong>Concentrated urine</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Aldosterone</strong></td>
+                                <td>↑ Na⁺ reabsorption; ↑ K⁺ & H⁺ secretion</td>
+                                <td>↑ Blood volume & BP</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 ADH vs Aldosterone</h4>
+                        <p>
+                            <strong>ADH</strong> = "Anti-Diuretic" = <strong>Holds onto WATER</strong> 💧<br>
+                            <strong>Aldosterone</strong> = "Aldo-SALT-erone" = <strong>Holds onto SALT</strong> 🧂 (water follows)
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🫘 Renal Hormones (Kidney Produces These!)</h4>
+                        <div class="two-col">
+                            <div class="info-box formula">
+                                <div class="info-box-title">☀️ Vitamin D (Activated)</div>
+                                <p>↑ Ca²⁺ & phosphate absorption<br>
+                                <strong>Deficiency in CKD!</strong></p>
+                            </div>
+                            <div class="info-box clinical">
+                                <div class="info-box-title">🔴 Erythropoietin (EPO)</div>
+                                <p>↑ RBC production<br>
+                                <strong>Deficiency → Anemia of CKD!</strong></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-box">
+                        <h4>🧪 Quick Check!</h4>
+                        <div class="quiz-question">
+                            <p>Which hormone increases water reabsorption in the collecting duct?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">Aldosterone</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, true)">ADH</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">Renin</div>
+                            </div>
+                            <div class="quiz-feedback">Correct! ADH (antidiuretic hormone) makes collecting ducts permeable to water.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Bladder & Micturition -->
+        <div class="section mint" id="bladder">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🚽</div>
+                <h2 class="section-title">Ureters, Bladder, Urethra & Micturition</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="subsection">
+                        <h4>📏 Ureters</h4>
+                        <ul class="styled-list">
+                            <li>~30 cm long</li>
+                            <li><strong>Peristalsis</strong> moves urine</li>
+                            <li><strong>Pain referred to:</strong> Flank, umbilicus, genitals</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🫧 Bladder</h4>
+                        <ul class="styled-list">
+                            <li><strong>Detrusor muscle</strong> — Smooth muscle that contracts for urination</li>
+                            <li><strong>Transitional epithelium</strong> — Stretches!</li>
+                            <li><strong>Trigone</strong> — Smooth triangle between ureteral openings & urethra</li>
+                        </ul>
+
+                        <div class="info-box nclex">
+                            <div class="info-box-title">📊 Know This Number!</div>
+                            <p style="font-size: 1.15em;">Urge to void at <strong>250-300 mL</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🚪 Urethral Sphincters</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Sphincter</th>
+                                <th>Type</th>
+                                <th>Control</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Internal sphincter</strong></td>
+                                <td>Smooth muscle</td>
+                                <td><strong>INVOLUNTARY</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>External sphincter</strong></td>
+                                <td>Skeletal muscle</td>
+                                <td><strong>VOLUNTARY</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 Sphincter Memory Trick</h4>
+                        <p>
+                            <strong>I</strong>nternal = <strong>I</strong>nvoluntary (can't control it)<br>
+                            <strong>E</strong>xternal = <strong>E</strong>xercise control (you choose!)
+                        </p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔄 Micturition Reflex</h4>
+                        <div class="flow-pathway">
+                            <span class="flow-step">Stretch receptors sense fullness</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Signal to sacral spinal cord</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Parasympathetic response</span>
+                            <span class="flow-arrow">→</span>
+                            <span class="flow-step">Bladder contracts + Internal sphincter relaxes</span>
+                        </div>
+
+                        <div class="info-box pearl">
+                            <p><strong>Voluntary control</strong> via external sphincter allows you to "hold it"!</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🧫 Normal Urine Composition</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Normal Value</th>
+                            </tr>
+                            <tr>
+                                <td>Color</td>
+                                <td>Clear yellow</td>
+                            </tr>
+                            <tr>
+                                <td>pH</td>
+                                <td>4.6 – 8</td>
+                            </tr>
+                            <tr>
+                                <td>Specific gravity</td>
+                                <td>1.001 – 1.035</td>
+                            </tr>
+                            <tr>
+                                <td>Glucose</td>
+                                <td><strong>NONE</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Blood</td>
+                                <td><strong>NONE</strong></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Lifespan Considerations -->
+        <div class="section peach" id="lifespan">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">👶👴</div>
+                <h2 class="section-title">Pediatric & Older Adult Considerations</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="two-col">
+                        <div class="info-box formula">
+                            <div class="info-box-title">👶 Pediatric</div>
+                            <ul style="margin-left: 15px; margin-top: 10px;">
+                                <li>Fewer concentrating nephrons</li>
+                                <li><strong>Dilute urine</strong></li>
+                                <li>↑ Risk dehydration</li>
+                                <li>GFR matures by <strong>18-24 months</strong></li>
+                            </ul>
+                        </div>
+                        <div class="info-box clinical">
+                            <div class="info-box-title">👴 Older Adults</div>
+                            <ul style="margin-left: 15px; margin-top: 10px;">
+                                <li>↓ Renal mass</li>
+                                <li>↓ Concentrating ability</li>
+                                <li><strong>↑ Drug toxicity risk</strong></li>
+                                <li>↑ CKD risk</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="info-box nclex">
+                        <div class="info-box-title">⚠️ Clinical Alert</div>
+                        <p><strong>Older adults:</strong> Always assess renal function before giving nephrotoxic drugs!<br>
+                        <strong>Infants:</strong> Monitor closely for dehydration — they can't concentrate urine well!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Key Terms -->
+        <div class="section blue" id="keyterms">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">📚</div>
+                <h2 class="section-title">Key Terms — Definitions</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <input type="text" class="search-box" id="termSearch" placeholder="🔍 Search key terms..." onkeyup="filterTerms()">
+                    
+                    <div id="termsContainer">
+                        <dl class="glossary-item" data-term="afferent arteriole">
+                            <dt>Afferent arteriole</dt>
+                            <dd>Blood vessel that carries blood INTO the glomerulus for filtration</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="aldosterone">
+                            <dt>Aldosterone</dt>
+                            <dd>Hormone from the adrenal cortex that increases sodium and water reabsorption and increases potassium and hydrogen secretion</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="antidiuretic hormone adh vasopressin">
+                            <dt>Antidiuretic hormone (ADH)</dt>
+                            <dd>Hormone from posterior pituitary that increases water reabsorption in collecting ducts, concentrating urine</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="autoregulation">
+                            <dt>Autoregulation</dt>
+                            <dd>Intrinsic mechanism that maintains stable RBF and GFR despite changes in systemic blood pressure</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="bladder">
+                            <dt>Bladder</dt>
+                            <dd>Hollow muscular organ that stores urine and expels it during micturition</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="bowman space bowman capsule">
+                            <dt>Bowman space</dt>
+                            <dd>Space between the glomerulus and Bowman capsule where filtered fluid (primary urine) collects</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="collecting duct">
+                            <dt>Collecting duct</dt>
+                            <dd>Final tubular segment that determines final urine concentration under the influence of ADH and aldosterone</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="cortex">
+                            <dt>Cortex</dt>
+                            <dd>Outer region of the kidney containing glomeruli, proximal tubules, and parts of distal tubules</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="countercurrent exchange">
+                            <dt>Countercurrent exchange system</dt>
+                            <dd>Mechanism involving loops of Henle and vasa recta that creates and maintains the medullary osmotic gradient</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="creatinine">
+                            <dt>Creatinine</dt>
+                            <dd>Waste product of muscle metabolism that is freely filtered at the glomerulus; used to estimate GFR</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="detrusor muscle">
+                            <dt>Detrusor muscle</dt>
+                            <dd>Smooth muscle layer of the bladder wall responsible for bladder contraction during urination</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="distal convoluted tubule dct">
+                            <dt>Distal convoluted tubule (DCT)</dt>
+                            <dd>Tubular segment that fine-tunes electrolyte and acid-base balance; responds to aldosterone and ADH</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="efferent arteriole">
+                            <dt>Efferent arteriole</dt>
+                            <dd>Blood vessel that carries blood AWAY from the glomerulus to the peritubular capillaries or vasa recta</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="erythropoietin epo">
+                            <dt>Erythropoietin (EPO)</dt>
+                            <dd>Hormone produced by the kidney that stimulates red blood cell production in bone marrow</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="filtration slit podocyte">
+                            <dt>Filtration slit</dt>
+                            <dd>Narrow openings between podocyte foot processes that allow water and small solutes to pass while restricting proteins</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="glomerular filtration rate gfr">
+                            <dt>Glomerular filtration rate (GFR)</dt>
+                            <dd>Volume of plasma filtered by the kidneys per minute; indicator of kidney function (~120 mL/min normal)</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="glomerulus">
+                            <dt>Glomerulus</dt>
+                            <dd>Tuft of capillaries within the renal corpuscle where filtration occurs</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="hilum">
+                            <dt>Hilum</dt>
+                            <dd>Indented medial region of the kidney where vessels, nerves, lymphatics, and ureter enter and exit</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="juxtaglomerular apparatus jga">
+                            <dt>Juxtaglomerular apparatus (JGA)</dt>
+                            <dd>Structure composed of macula densa, juxtaglomerular cells, and mesangial cells that regulates GFR and renin release</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="juxtaglomerular cell">
+                            <dt>Juxtaglomerular cell</dt>
+                            <dd>Modified smooth muscle cell in the afferent arteriole that secretes renin</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="juxtamedullary nephron">
+                            <dt>Juxtamedullary nephron</dt>
+                            <dd>Nephron with long loops of Henle extending deep into the medulla; essential for concentrated urine formation</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="loop of henle">
+                            <dt>Loop of Henle</dt>
+                            <dd>Nephron segment that establishes the medullary osmotic gradient necessary for urine concentration</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="macula densa">
+                            <dt>Macula densa</dt>
+                            <dd>Specialized cells of the distal tubule that sense sodium chloride concentration and regulate GFR</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="medulla">
+                            <dt>Medulla</dt>
+                            <dd>Inner region of the kidney containing pyramids, loops of Henle, and collecting ducts</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="mesangial cell">
+                            <dt>Mesangial cell</dt>
+                            <dd>Support cell within the glomerulus that regulates blood flow, provides structural support, and performs phagocytosis</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="micturition urination">
+                            <dt>Micturition</dt>
+                            <dd>Process of bladder emptying (urination)</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="natriuretic peptide anp bnp">
+                            <dt>Natriuretic peptide</dt>
+                            <dd>Hormone released from the heart that promotes sodium and water excretion and lowers blood pressure</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="nephron">
+                            <dt>Nephron</dt>
+                            <dd>Functional unit of the kidney responsible for urine formation (~1.2 million per kidney)</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="peritubular capillary">
+                            <dt>Peritubular capillary</dt>
+                            <dd>Capillary network surrounding renal tubules that facilitates reabsorption and secretion</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="podocyte">
+                            <dt>Podocyte</dt>
+                            <dd>Specialized epithelial cell of the glomerulus with foot processes forming filtration slits</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="proximal tubule">
+                            <dt>Proximal tubule</dt>
+                            <dd>Nephron segment that reabsorbs the majority (60-70%) of filtered water, sodium, and nutrients</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="raas renin angiotensin aldosterone">
+                            <dt>Renin-angiotensin-aldosterone system (RAAS)</dt>
+                            <dd>Hormonal system that regulates blood pressure, sodium balance, and fluid volume</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="renal corpuscle">
+                            <dt>Renal corpuscle</dt>
+                            <dd>Structure composed of the glomerulus and Bowman capsule where filtration occurs</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="trigone">
+                            <dt>Trigone</dt>
+                            <dd>Smooth triangular region at the base of the bladder between ureteral openings and urethra</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="tubular reabsorption">
+                            <dt>Tubular reabsorption</dt>
+                            <dd>Movement of substances from tubular fluid back into the blood</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="tubular secretion">
+                            <dt>Tubular secretion</dt>
+                            <dd>Movement of substances from blood into the tubular fluid</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="tubuloglomerular feedback">
+                            <dt>Tubuloglomerular feedback</dt>
+                            <dd>Autoregulatory mechanism by which macula densa cells adjust GFR based on sodium delivery</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="ureter">
+                            <dt>Ureter</dt>
+                            <dd>Muscular tube (~30 cm) that transports urine from the kidney to the bladder via peristalsis</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="urethra">
+                            <dt>Urethra</dt>
+                            <dd>Tube that carries urine from the bladder to the exterior of the body</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="vasa recta">
+                            <dt>Vasa recta</dt>
+                            <dd>Capillary network that preserves the medullary osmotic gradient</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="vitamin d calcitriol">
+                            <dt>Vitamin D</dt>
+                            <dd>Hormone activated in the kidney that regulates calcium and phosphate balance</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 35px; color: white;">
+            <p style="font-size: 1.15em; font-weight: 700;">🎓 You're doing amazing! Keep studying! 💪</p>
+            <p style="opacity: 0.85; margin-top: 12px;">Chapter 31: Structure & Function of the Renal and Urologic Systems</p>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle sections
+        function toggleSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('open');
+        }
+
+        // Scroll to section
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Open the section
+            if (!section.classList.contains('open')) {
+                section.classList.add('open');
+            }
+        }
+
+        // Quiz functionality
+        function checkAnswer(option, isCorrect) {
+            const question = option.closest('.quiz-question');
+            const options = question.querySelectorAll('.quiz-option');
+            const feedback = question.querySelector('.quiz-feedback');
+            
+            // Disable all options
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            // Show correct answer if wrong
+            if (!isCorrect) {
+                options.forEach(opt => {
+                    if (opt.onclick.toString().includes('true')) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Show feedback
+            feedback.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+            feedback.textContent = isCorrect ? 
+                '🎉 ' + feedback.textContent : 
+                '❌ Not quite! The correct answer is highlighted.';
+        }
+
+        // Filter key terms
+        function filterTerms() {
+            const searchValue = document.getElementById('termSearch').value.toLowerCase();
+            const terms = document.querySelectorAll('.glossary-item');
+            
+            terms.forEach(term => {
+                const termText = term.getAttribute('data-term') + ' ' + term.textContent.toLowerCase();
+                if (termText.includes(searchValue)) {
+                    term.classList.remove('term-hidden');
+                } else {
+                    term.classList.add('term-hidden');
+                }
+            });
+        }
+
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>
