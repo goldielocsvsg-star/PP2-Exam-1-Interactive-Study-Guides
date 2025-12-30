@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 32: Renal & Urinary Tract Disorders Study Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FF6B9D;
+            --coral: #FF8A5B;
+            --teal: #00CEC9;
+            --purple: #A29BFE;
+            --mint: #55EFC4;
+            --yellow: #FFEAA7;
+            --blue: #74B9FF;
+            --lavender: #DDA0DD;
+            --peach: #FFDAB9;
+            --orange: #FF9F43;
+            --green: #26DE81;
+            --red: #FF6B6B;
+            --navy: #0984E3;
+            --dark: #2D3436;
+            --light: #FAFAFA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🫘';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: -10px;
+            right: 10px;
+        }
+
+        .header::after {
+            content: '💧';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            bottom: -10px;
+            left: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            background: linear-gradient(135deg, var(--navy), var(--purple), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Big Picture Box */
+        .big-picture {
+            background: linear-gradient(135deg, var(--navy), var(--purple));
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 15px 50px rgba(102,126,234,0.4);
+        }
+
+        .big-picture-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .big-picture-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+
+        .category-item {
+            background: rgba(255,255,255,0.15);
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Navigation Pills */
+        .nav-container {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .nav-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-pill {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .nav-pill.active {
+            transform: scale(1.05);
+        }
+
+        .pill-obstruction { background: linear-gradient(135deg, var(--coral), var(--orange)); color: white; }
+        .pill-stones { background: linear-gradient(135deg, var(--yellow), var(--peach)); color: var(--dark); }
+        .pill-bladder { background: linear-gradient(135deg, var(--teal), var(--mint)); color: white; }
+        .pill-infections { background: linear-gradient(135deg, var(--pink), var(--coral)); color: white; }
+        .pill-glom { background: linear-gradient(135deg, var(--purple), var(--lavender)); color: white; }
+        .pill-aki { background: linear-gradient(135deg, var(--red), var(--orange)); color: white; }
+        .pill-ckd { background: linear-gradient(135deg, var(--navy), var(--blue)); color: white; }
+        .pill-terms { background: linear-gradient(135deg, var(--dark), #636e72); color: white; }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        .toggle-icon {
+            margin-left: auto;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .card-content {
+            display: none;
+            padding-top: 15px;
+            border-top: 2px dashed #dfe6e9;
+        }
+
+        .card.expanded .card-content {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .info-box.pink { background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(255,138,91,0.1)); border-left: 5px solid var(--pink); }
+        .info-box.teal { background: linear-gradient(135deg, rgba(0,206,201,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--teal); }
+        .info-box.purple { background: linear-gradient(135deg, rgba(162,155,254,0.2), rgba(221,160,221,0.1)); border-left: 5px solid var(--purple); }
+        .info-box.yellow { background: linear-gradient(135deg, rgba(255,234,167,0.3), rgba(255,218,185,0.2)); border-left: 5px solid var(--coral); }
+        .info-box.blue { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(0,206,201,0.1)); border-left: 5px solid var(--blue); }
+        .info-box.green { background: linear-gradient(135deg, rgba(38,222,129,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--green); }
+        .info-box.orange { background: linear-gradient(135deg, rgba(255,159,67,0.2), rgba(255,234,167,0.1)); border-left: 5px solid var(--orange); }
+        .info-box.navy { background: linear-gradient(135deg, rgba(9,132,227,0.2), rgba(116,185,255,0.1)); border-left: 5px solid var(--navy); }
+
+        .info-box-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Lists */
+        .fancy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fancy-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .fancy-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 800;
+        }
+
+        .fancy-list.pink li::before { color: var(--pink); }
+        .fancy-list.purple li::before { color: var(--purple); }
+        .fancy-list.coral li::before { color: var(--coral); }
+        .fancy-list.blue li::before { color: var(--blue); }
+        .fancy-list.green li::before { color: var(--green); }
+        .fancy-list.navy li::before { color: var(--navy); }
+
+        /* Memory Tricks */
+        .memory-trick {
+            background: linear-gradient(135deg, var(--yellow), var(--peach));
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .memory-trick::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .memory-trick-title {
+            font-family: 'Fredoka One', cursive;
+            color: var(--dark);
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        /* Red Flag Box */
+        .red-flag {
+            background: linear-gradient(135deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .red-flag-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .compare-table th {
+            padding: 15px;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+        }
+
+        .compare-table th:first-child { background: var(--teal); }
+        .compare-table th:nth-child(2) { background: var(--pink); }
+        .compare-table th:nth-child(3) { background: var(--purple); }
+        .compare-table th:nth-child(4) { background: var(--blue); }
+
+        .compare-table td {
+            padding: 12px 15px;
+            background: white;
+            border-bottom: 1px solid #dfe6e9;
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Phase Steps */
+        .phase-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .phase-item {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .phase-1 { background: linear-gradient(135deg, var(--coral), var(--orange)); }
+        .phase-2 { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+        .phase-3 { background: linear-gradient(135deg, var(--purple), var(--pink)); }
+        .phase-4 { background: linear-gradient(135deg, var(--teal), var(--mint)); }
+
+        .phase-number {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            display: block;
+        }
+
+        /* Memory Grid */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .memory-card {
+            background: linear-gradient(135deg, var(--teal), var(--mint));
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,206,201,0.3);
+        }
+
+        .memory-card:nth-child(2) { background: linear-gradient(135deg, var(--pink), var(--coral)); box-shadow: 0 10px 30px rgba(255,107,157,0.3); }
+        .memory-card:nth-child(3) { background: linear-gradient(135deg, var(--purple), var(--lavender)); box-shadow: 0 10px 30px rgba(162,155,254,0.3); }
+        .memory-card:nth-child(4) { background: linear-gradient(135deg, var(--navy), var(--blue)); box-shadow: 0 10px 30px rgba(9,132,227,0.3); }
+        .memory-card:nth-child(5) { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark); box-shadow: 0 10px 30px rgba(255,159,67,0.3); }
+
+        .memory-hook {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .memory-explain {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Quiz Section */
+        .quiz-card {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .quiz-question {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.9);
+            color: var(--dark);
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: white;
+        }
+
+        .quiz-option.correct {
+            background: var(--mint);
+            color: white;
+            border-color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #ff7675;
+            color: white;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
+            display: none;
+        }
+
+        /* Flashcard */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            min-height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 200px;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--navy), var(--purple));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--teal), var(--mint));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .flashcard-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+        }
+
+        .flashcard-hint {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        /* Terms Grid */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .term-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .term-name {
+            font-family: 'Fredoka One', cursive;
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .term-def {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+            display: none;
+        }
+
+        .term-card.show .term-def {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .term-hint {
+            font-size: 0.8rem;
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        .term-card.show .term-hint {
+            display: none;
+        }
+
+        /* Search Box */
+        .search-box {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 3px solid var(--navy);
+            font-size: 1rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--teal);
+            box-shadow: 0 5px 20px rgba(0,206,201,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-pills {
+                flex-direction: column;
+            }
+            
+            .nav-pill {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .category-grid, .memory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phase-container {
+                flex-direction: column;
+            }
+        }
+
+        /* Icon backgrounds */
+        .icon-pink { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+        .icon-teal { background: linear-gradient(135deg, var(--teal), var(--mint)); }
+        .icon-purple { background: linear-gradient(135deg, var(--purple), var(--lavender)); }
+        .icon-yellow { background: linear-gradient(135deg, var(--yellow), var(--peach)); }
+        .icon-blue { background: linear-gradient(135deg, var(--blue), var(--teal)); }
+        .icon-green { background: linear-gradient(135deg, var(--green), var(--mint)); }
+        .icon-orange { background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+        .icon-red { background: linear-gradient(135deg, var(--red), var(--coral)); }
+        .icon-navy { background: linear-gradient(135deg, var(--navy), var(--blue)); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🫘 Renal & Urinary Tract Disorders</h1>
+            <p>Chapter 32 Interactive Study Guide</p>
+        </div>
+
+        <!-- Big Picture -->
+        <div class="big-picture">
+            <div class="big-picture-title">🔹 BIG PICTURE</div>
+            <div class="big-picture-text">
+                The <strong>kidney filters blood</strong> → Renal disorders affect <strong>EVERY organ system!</strong><br>
+                Injury may be <strong>acute or chronic</strong>, <strong>reversible or irreversible</strong>
+            </div>
+            <div class="category-grid">
+                <div class="category-item">🚧 Obstruction</div>
+                <div class="category-item">🪨 Kidney Stones</div>
+                <div class="category-item">🚽 Bladder Dysfunction</div>
+                <div class="category-item">🦠 UTIs & Pyelonephritis</div>
+                <div class="category-item">🧪 Glomerular Disorders</div>
+                <div class="category-item">⚡ AKI</div>
+                <div class="category-item">♻️ CKD</div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav-title">📚 Jump to a Section</div>
+            <div class="nav-pills">
+                <button class="nav-pill pill-obstruction active" onclick="showSection('obstruction')">🚧 Obstruction</button>
+                <button class="nav-pill pill-stones" onclick="showSection('stones')">🪨 Kidney Stones</button>
+                <button class="nav-pill pill-bladder" onclick="showSection('bladder')">🚽 Bladder</button>
+                <button class="nav-pill pill-infections" onclick="showSection('infections')">🦠 Infections</button>
+                <button class="nav-pill pill-glom" onclick="showSection('glom')">🧪 Glomerular</button>
+                <button class="nav-pill pill-aki" onclick="showSection('aki')">⚡ AKI</button>
+                <button class="nav-pill pill-ckd" onclick="showSection('ckd')">♻️ CKD</button>
+                <button class="nav-pill pill-terms" onclick="showSection('terms')">📖 Key Terms</button>
+            </div>
+        </div>
+
+        <!-- OBSTRUCTION SECTION -->
+        <div id="obstruction" class="section active">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">🚧</div>
+                    <div>
+                        <div class="card-title">Urinary Tract Obstruction</div>
+                        <div class="card-subtitle">Obstructive Uropathy - Blockage Anywhere!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box orange">
+                        <div class="info-box-title">📌 Definition</div>
+                        <strong>Structural or functional blockage</strong> of urine flow anywhere from kidney → urethra
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">📊 Severity Depends On (5 Factors)</div>
+                        <ul class="fancy-list">
+                            <li><strong>Location</strong> of obstruction</li>
+                            <li><strong>Unilateral vs Bilateral</strong></li>
+                            <li><strong>Partial vs Complete</strong></li>
+                            <li><strong>Duration</strong></li>
+                            <li><strong>Nature of lesion</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 Key Consequences</div>
+                        • ↑ Back pressure → ↓ GFR<br>
+                        • ↑ Infection risk<br>
+                        • <strong>PERMANENT DAMAGE</strong> if prolonged!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🔼</div>
+                    <div>
+                        <div class="card-title">Upper Urinary Tract Obstruction</div>
+                        <div class="card-subtitle">Kidney & Ureter Level</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">🎯 Causes</div>
+                        <ul class="fancy-list pink">
+                            <li>Stones</li>
+                            <li>Tumors</li>
+                            <li>Strictures</li>
+                            <li>Congenital compression</li>
+                            <li>Retroperitoneal fibrosis</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚙️ Pathophysiology Chain</div>
+                        Urine backs up → ↑ Bowman space pressure →<br>
+                        ↓ Glomerular filtration → Leads to:<br>
+                        <ul class="fancy-list purple">
+                            <li><strong>HYDROURETER</strong> (dilated ureter)</li>
+                            <li><strong>HYDRONEPHROSIS</strong> (dilated kidney)</li>
+                            <li><strong>Tubulointerstitial fibrosis</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Key Test Pearl!</div>
+                        <strong>UNILATERAL obstruction</strong> → Compensatory hypertrophy of OTHER kidney<br><br>
+                        <strong>BILATERAL obstruction</strong> → <span style="color: var(--red); font-weight: 800;">ANURIA!</span> (<50 mL/day)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">💧</div>
+                    <div>
+                        <div class="card-title">Postobstructive Diuresis</div>
+                        <div class="card-subtitle">Watch Out After Relief!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">📌 What Is It?</div>
+                        Sudden <strong>LARGE urine output</strong> after relief of obstruction
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Complications</div>
+                        • Dehydration<br>
+                        • Electrolyte imbalances<br><br>
+                        <strong>HIGH RISK in chronic bilateral obstruction!</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KIDNEY STONES SECTION -->
+        <div id="stones" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">🪨</div>
+                    <div>
+                        <div class="card-title">Kidney Stones (Nephrolithiasis)</div>
+                        <div class="card-subtitle">The Painful Crystals!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Stone Type</th>
+                            <th>Percentage</th>
+                            <th>pH Association</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Calcium oxalate/phosphate</strong></td>
+                            <td>70-80%</td>
+                            <td>Alkaline ↑ CaPO₄</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Struvite</strong></td>
+                            <td>5-10%</td>
+                            <td>Alkaline (urease bacteria)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Uric acid</strong></td>
+                            <td>5-10%</td>
+                            <td>Acidic</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cystine</strong></td>
+                            <td>Rare</td>
+                            <td>Acidic</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Most Common = CALCIUM! (70-80%)</div>
+                        Remember: <strong>C</strong>alcium is <strong>C</strong>ommon!
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Stone Formation Requires</div>
+                        <ol style="padding-left: 20px; font-weight: 600;">
+                            <li>Supersaturation</li>
+                            <li>Crystallization</li>
+                            <li>Aggregation</li>
+                            <li>↓ Inhibitors (e.g., uromodulin)</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">⚠️ Risk Factors</div>
+                        <ul class="fancy-list pink">
+                            <li><strong>Dehydration</strong> (most important!)</li>
+                            <li>UTIs</li>
+                            <li>Obesity, Diabetes</li>
+                            <li>High sodium diet</li>
+                            <li>Low fluid intake</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">😵</div>
+                    <div>
+                        <div class="card-title">Clinical Presentation</div>
+                        <div class="card-subtitle">RENAL COLIC - The Worst Pain!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Classic Symptoms</div>
+                        <ul class="fancy-list pink">
+                            <li><strong>RENAL COLIC</strong> - Severe flank → groin pain (colicky!)</li>
+                            <li>Hematuria</li>
+                            <li>Nausea/Vomiting</li>
+                            <li>Urinary urgency (if distal stone)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">📏 Size Matters!</div>
+                        <strong>&lt;5 mm</strong> → ~50% pass spontaneously<br>
+                        <strong>≥1 cm</strong> → Unlikely to pass - needs intervention!
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 UROLOGIC EMERGENCY!</div>
+                        <strong>Obstructing stone + UTI</strong> = EMERGENCY!<br><br>
+                        Requires:<br>
+                        • Immediate decompression<br>
+                        • Antibiotics<br>
+                        • Stone removal
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLADDER SECTION -->
+        <div id="bladder" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">🚽</div>
+                    <div>
+                        <div class="card-title">Lower Urinary Tract Obstruction</div>
+                        <div class="card-subtitle">Below the Kidneys</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">🎯 Causes</div>
+                        <ul class="fancy-list">
+                            <li>Urethral stricture</li>
+                            <li><strong>Prostate enlargement</strong> (very common!)</li>
+                            <li>Pelvic organ prolapse</li>
+                            <li>Tumors</li>
+                            <li>Neurogenic bladder</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚙️ Bladder Response to Chronic Obstruction</div>
+                        <ol style="padding-left: 20px; font-weight: 600;">
+                            <li>↑ Detrusor contraction (trying to push past obstruction)</li>
+                            <li>Collagen deposition → <strong>TRABECULATION</strong></li>
+                            <li>↓ Bladder compliance</li>
+                            <li><strong>Urine retention</strong></li>
+                            <li>Hydronephrosis → Renal damage!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🔁</div>
+                    <div>
+                        <div class="card-title">Overactive vs Underactive Bladder</div>
+                        <div class="card-subtitle">OAB vs UAB</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>OAB (Overactive)</th>
+                            <th>UAB (Underactive)</th>
+                        </tr>
+                        <tr>
+                            <td>Symptoms</td>
+                            <td>Urgency, Frequency, Nocturia</td>
+                            <td>Weak stream, Hesitancy</td>
+                        </tr>
+                        <tr>
+                            <td>Mechanism</td>
+                            <td>Detrusor OVERACTIVITY</td>
+                            <td>Incomplete emptying</td>
+                        </tr>
+                        <tr>
+                            <td>Cause</td>
+                            <td>Involuntary contractions</td>
+                            <td>Often NEUROLOGIC</td>
+                        </tr>
+                        <tr>
+                            <td>Treatment</td>
+                            <td>Antimuscarinics, β3-agonists, Botox</td>
+                            <td>Urodynamic testing needed</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-navy">🧠</div>
+                    <div>
+                        <div class="card-title">Neurogenic Bladder</div>
+                        <div class="card-subtitle">VERY TESTABLE - Know the Lesion Levels!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Lesion Location</th>
+                            <th>Result</th>
+                            <th>Think...</th>
+                        </tr>
+                        <tr>
+                            <td><strong>ABOVE pontine center</strong></td>
+                            <td>Detrusor hyperreflexia</td>
+                            <td>Stroke, Brain injury</td>
+                        </tr>
+                        <tr>
+                            <td><strong>C2 - S1</strong></td>
+                            <td>Detrusor-sphincter DYSSYNERGIA</td>
+                            <td>Spinal cord injury</td>
+                        </tr>
+                        <tr>
+                            <td><strong>BELOW S1</strong></td>
+                            <td>ATONIC bladder (retention + overflow)</td>
+                            <td>Cauda equina, Diabetes</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Memory Trick!</div>
+                        <strong>High lesion = Hyper</strong> (overactive)<br>
+                        <strong>Low lesion = Lazy</strong> (atonic/underactive)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-red">🎗️</div>
+                    <div>
+                        <div class="card-title">Renal & Bladder Tumors</div>
+                        <div class="card-subtitle">Know the Key Features!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Renal Cell Carcinoma</th>
+                            <th>Bladder Cancer</th>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>Most common RENAL cancer</td>
+                            <td>Transitional (urothelial)</td>
+                        </tr>
+                        <tr>
+                            <td>Key Symptom</td>
+                            <td>Classic triad (rare): Hematuria, Flank pain, Mass</td>
+                            <td><strong>GROSS PAINLESS HEMATURIA</strong></td>
+                        </tr>
+                        <tr>
+                            <td>#1 Risk Factor</td>
+                            <td>Smoking, Obesity, HTN</td>
+                            <td><strong>SMOKING</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Metastasis</td>
+                            <td>Lung, Bone, Brain</td>
+                            <td>High RECURRENCE rate</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Bladder Cancer Clue!</div>
+                        <strong>Painless hematuria</strong> in a smoker → Think BLADDER CANCER!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFECTIONS SECTION -->
+        <div id="infections" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🦠</div>
+                    <div>
+                        <div class="card-title">Urinary Tract Infections (UTIs)</div>
+                        <div class="card-subtitle">E. coli is the STAR!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">🦠 Most Common Pathogen</div>
+                        <strong style="font-size: 1.3rem;">E. COLI</strong> (from gut flora - ascending infection!)
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🛡️ Host Defenses</div>
+                        <ul class="fancy-list">
+                            <li>Urine FLOW (washout effect)</li>
+                            <li>Acidic pH</li>
+                            <li>Uromodulin</li>
+                            <li>Sphincters preventing reflux</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">🔵</div>
+                    <div>
+                        <div class="card-title">Cystitis vs Pyelonephritis</div>
+                        <div class="card-subtitle">Lower vs Upper UTI</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Cystitis (Bladder)</th>
+                            <th>Pyelonephritis (Kidney)</th>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td>LOWER (bladder)</td>
+                            <td>UPPER (kidney)</td>
+                        </tr>
+                        <tr>
+                            <td>Fever</td>
+                            <td>Often AFEBRILE</td>
+                            <td><strong>HIGH FEVER</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Pain</td>
+                            <td>Suprapubic</td>
+                            <td><strong>FLANK PAIN, CVA tenderness</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Symptoms</td>
+                            <td>Frequency, Urgency, Dysuria</td>
+                            <td>Systemic illness</td>
+                        </tr>
+                        <tr>
+                            <td>Urine Finding</td>
+                            <td>Bacteria, WBCs</td>
+                            <td><strong>WBC CASTS</strong> (classic!)</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">WBC Casts = PYELONEPHRITIS!</div>
+                        Casts form in the TUBULES → indicates KIDNEY involvement!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">💔</div>
+                    <div>
+                        <div class="card-title">Interstitial Cystitis (IC/BPS)</div>
+                        <div class="card-subtitle">Bladder Pain Syndrome - No Infection!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">📌 Key Features</div>
+                        <ul class="fancy-list purple">
+                            <li>Bladder pain <strong>>6 weeks</strong></li>
+                            <li><strong>NO infection!</strong> (negative cultures)</li>
+                            <li>Associated with autoimmune & chronic pain syndromes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GLOMERULAR SECTION -->
+        <div id="glom" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🧪</div>
+                    <div>
+                        <div class="card-title">Glomerular Disorders</div>
+                        <div class="card-subtitle">Immune-Mediated Injury!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚙️ Key Mechanism</div>
+                        <strong>IMMUNE-MEDIATED INJURY</strong><br>
+                        • Antigen-antibody complexes deposit<br>
+                        • Complement activation<br>
+                        • ↑ Membrane permeability
+                    </div>
+                </div>
+            </div>
+
+            <div class="card expanded">
+                <div class="card-header">
+                    <div class="card-icon icon-pink">⭐</div>
+                    <div>
+                        <div class="card-title">Nephritic vs Nephrotic - HIGH YIELD!</div>
+                        <div class="card-subtitle">MUST KNOW for exams!</div>
+                    </div>
+                </div>
+                <div class="card-content" style="display: block;">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>NEPHRITIC</th>
+                            <th>NEPHROTIC</th>
+                        </tr>
+                        <tr>
+                            <td>Hematuria</td>
+                            <td><strong>YES ✓</strong></td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>RBC Casts</td>
+                            <td><strong>YES ✓</strong></td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Proteinuria</td>
+                            <td>Mild</td>
+                            <td><strong>>3.5 g/day!</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Edema</td>
+                            <td>Yes</td>
+                            <td><strong>SEVERE</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Mechanism</td>
+                            <td><strong>INFLAMMATORY</strong></td>
+                            <td><strong>PERMEABILITY</strong></td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Memory Trick!</div>
+                        <strong>NephRITIC = "RITIS" = Inflammation</strong> → RBC casts, Hematuria<br><br>
+                        <strong>NephROTIC = "ROTIC" = Protein</strong> → >3.5g proteinuria, Severe edema
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AKI SECTION -->
+        <div id="aki" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-red">⚡</div>
+                    <div>
+                        <div class="card-title">Acute Kidney Injury (AKI)</div>
+                        <div class="card-subtitle">Sudden Decline in Function!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box orange">
+                        <div class="info-box-title">📋 Defined By</div>
+                        <ul class="fancy-list coral">
+                            <li><strong>↑ Creatinine</strong></li>
+                            <li><strong>↓ GFR</strong></li>
+                            <li><strong>↓ Urine output</strong></li>
+                        </ul>
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Location</th>
+                            <th>Cause</th>
+                        </tr>
+                        <tr>
+                            <td><strong>PRERENAL</strong></td>
+                            <td>Before kidney</td>
+                            <td>↓ Perfusion (hypovolemia, HF, shock)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>INTRARENAL</strong></td>
+                            <td>Within kidney</td>
+                            <td><strong>ATN most common!</strong> (ischemia, nephrotoxins)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>POSTRENAL</strong></td>
+                            <td>After kidney</td>
+                            <td>Obstruction</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">PRE / INTRA / POST</div>
+                        <strong>PRE</strong> = Problem BEFORE kidney (not enough blood IN)<br>
+                        <strong>INTRA</strong> = Problem IN the kidney (damage)<br>
+                        <strong>POST</strong> = Problem AFTER kidney (urine can't get OUT)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🔄</div>
+                    <div>
+                        <div class="card-title">ATN Phases</div>
+                        <div class="card-subtitle">Acute Tubular Necrosis - 4 Phases</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="phase-container">
+                        <div class="phase-item phase-1">
+                            <span class="phase-number">1</span>
+                            Initiation
+                        </div>
+                        <div class="phase-item phase-2">
+                            <span class="phase-number">2</span>
+                            Extension
+                        </div>
+                        <div class="phase-item phase-3">
+                            <span class="phase-number">3</span>
+                            Maintenance<br>(OLIGURIA)
+                        </div>
+                        <div class="phase-item phase-4">
+                            <span class="phase-number">4</span>
+                            Recovery<br>(POLYURIA)
+                        </div>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">📊 Urine Output Definitions</div>
+                        <strong>OLIGURIA:</strong> &lt;400 mL/day or &lt;20 mL/hr<br>
+                        <strong>ANURIA:</strong> &lt;50 mL/day (think bilateral obstruction!)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CKD SECTION -->
+        <div id="ckd" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-navy">♻️</div>
+                    <div>
+                        <div class="card-title">Chronic Kidney Disease (CKD)</div>
+                        <div class="card-subtitle">Irreversible Progressive Loss</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box navy">
+                        <div class="info-box-title">📋 Definition</div>
+                        GFR <strong>&lt;60 mL/min/1.73m²</strong> for <strong>≥3 MONTHS</strong>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🎯 Most Common Causes</div>
+                        <ol style="padding-left: 20px; font-weight: 700;">
+                            <li><strong style="color: var(--pink);">DIABETES</strong> (#1!)</li>
+                            <li>Hypertension (#2)</li>
+                            <li>Glomerulonephritis</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">📌 Hallmarks</div>
+                        <ul class="fancy-list purple">
+                            <li>Proteinuria</li>
+                            <li>RAAS activation</li>
+                            <li>Fibrosis</li>
+                            <li>Uremic syndrome</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">⭐</div>
+                    <div>
+                        <div class="card-title">Systemic Effects of CKD</div>
+                        <div class="card-subtitle">TEST FAVORITES - Know All of These!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="memory-grid">
+                        <div class="memory-card">
+                            <div class="memory-hook">🩸 Anemia</div>
+                            <div class="memory-explain">↓ EPO production by kidneys!</div>
+                        </div>
+                        <div class="memory-card">
+                            <div class="memory-hook">🦴 Bone Disease</div>
+                            <div class="memory-explain">↓ Vitamin D activation, ↑ Phosphate</div>
+                        </div>
+                        <div class="memory-card">
+                            <div class="memory-hook">⚡ Hyperkalemia</div>
+                            <div class="memory-explain">Can't excrete potassium!</div>
+                        </div>
+                        <div class="memory-card">
+                            <div class="memory-hook">🧪 Metabolic Acidosis</div>
+                            <div class="memory-explain">Can't excrete H+ or make HCO₃⁻</div>
+                        </div>
+                        <div class="memory-card">
+                            <div class="memory-hook">❤️ CV Disease</div>
+                            <div class="memory-explain">#1 cause of death in CKD!</div>
+                        </div>
+                    </div>
+
+                    <div class="info-box teal" style="margin-top: 15px;">
+                        <div class="info-box-title">🛡️ Also Affected</div>
+                        <ul class="fancy-list">
+                            <li>Immune dysfunction (↑ infection risk)</li>
+                            <li>Uremic syndrome (toxin accumulation)</li>
+                            <li>Fluid/electrolyte imbalances</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 End-Stage Kidney Disease (ESKD)</div>
+                        <strong>&lt;10-15% kidney function remaining</strong><br>
+                        Requires DIALYSIS or TRANSPLANT!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEY TERMS SECTION -->
+        <div id="terms" class="section">
+            <input type="text" class="search-box" placeholder="🔍 Search terms..." oninput="filterTerms(this.value)">
+            
+            <div class="terms-grid" id="termsGrid">
+                <!-- Terms will be dynamically populated -->
+            </div>
+        </div>
+
+        <!-- MEMORY HOOKS & QUIZ -->
+        <div style="margin-top: 30px;">
+            <h2 style="font-family: 'Fredoka One', cursive; color: white; text-align: center; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🧠 Exam Memory Hooks</h2>
+            
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="memory-hook">RBC Casts = Glomerular</div>
+                    <div class="memory-explain">Nephritic syndrome!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">WBC Casts = Pyelonephritis</div>
+                    <div class="memory-explain">Kidney infection!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Proteinuria >3.5g/day = Nephrotic</div>
+                    <div class="memory-explain">Massive protein loss!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Oliguria + Obstruction = Postrenal AKI</div>
+                    <div class="memory-explain">Blockage after kidney!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Diabetic Nephropathy = #1 CKD Cause</div>
+                    <div class="memory-explain">Always think diabetes first!</div>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="quiz-question">🎯 Quick Quiz: Which urine finding is CLASSIC for pyelonephritis?</div>
+                <div class="quiz-options" id="quiz1">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) RBC casts</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) WBC casts</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) Fatty casts</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) Hyaline casts</div>
+                </div>
+                <div class="quiz-feedback" id="quiz1-feedback"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <div class="flashcard-label">Question</div>
+                        <div class="flashcard-text">What is the #1 cause of CKD in the United States?</div>
+                        <div class="flashcard-hint">👆 Tap to reveal</div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-label">Answer</div>
+                        <div class="flashcard-text">DIABETES!</div>
+                        <div class="flashcard-hint">Diabetic nephropathy from chronic hyperglycemia</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="background: linear-gradient(135deg, var(--teal), var(--mint));">
+                <div class="quiz-question">🎯 A patient with bilateral ureteral obstruction would most likely present with:</div>
+                <div class="quiz-options" id="quiz2">
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">A) Polyuria</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, true)">B) Anuria</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">C) Normal urine output</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">D) Hematuria only</div>
+                </div>
+                <div class="quiz-feedback" id="quiz2-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Terms data
+        const terms = [
+            { name: "Acute Kidney Injury (AKI)", def: "Sudden decline in kidney function with decreased GFR, reduced urine output, and accumulation of nitrogenous waste products" },
+            { name: "Acute Tubular Necrosis (ATN)", def: "Form of intrinsic AKI caused by ischemia or nephrotoxins leading to tubular epithelial cell injury and necrosis" },
+            { name: "Anuria", def: "Urine output less than 50 mL/day, indicating severe kidney dysfunction or bilateral obstruction" },
+            { name: "Azotemia", def: "Elevation of BUN and creatinine due to decreased kidney function" },
+            { name: "Chronic Kidney Disease (CKD)", def: "Irreversible loss of kidney function lasting ≥3 months with GFR <60 mL/min/1.73 m²" },
+            { name: "Cystitis", def: "Inflammation of the bladder, most commonly due to bacterial infection" },
+            { name: "Detrusor Hyperreflexia", def: "Involuntary detrusor contractions causing urgency, frequency, and urge incontinence" },
+            { name: "Diabetic Nephropathy", def: "Progressive kidney damage caused by chronic hyperglycemia, characterized by proteinuria and declining GFR" },
+            { name: "ESKD", def: "End-Stage Kidney Disease - Advanced kidney failure with <10-15% function remaining, requiring dialysis or transplant" },
+            { name: "Hydronephrosis", def: "Dilation of the renal pelvis and calyces due to obstruction of urine flow" },
+            { name: "Hydroureter", def: "Dilation of the ureter caused by urine accumulation proximal to an obstruction" },
+            { name: "Interstitial Cystitis", def: "Chronic, noninfectious bladder inflammation causing pain and urinary symptoms lasting >6 weeks" },
+            { name: "Nephritic Syndrome", def: "Inflammatory glomerular disorder characterized by hematuria, RBC casts, hypertension, and reduced GFR" },
+            { name: "Nephrotic Syndrome", def: "Condition defined by ≥3.5 g/day proteinuria, hypoalbuminemia, edema, and hyperlipidemia" },
+            { name: "Neurogenic Bladder", def: "Bladder dysfunction caused by neurologic injury affecting bladder sensation or motor control" },
+            { name: "Oliguria", def: "Urine output less than 400 mL/day or <20 mL/hr" },
+            { name: "Postobstructive Diuresis", def: "Excessive urine output following relief of urinary tract obstruction" },
+            { name: "Pyelonephritis", def: "Infection of the renal pelvis and kidney interstitium, usually caused by ascending bacteria; WBC casts classic!" },
+            { name: "Renal Cell Carcinoma", def: "Most common malignant kidney tumor arising from renal tubular epithelial cells" },
+            { name: "Renal Colic", def: "Severe flank pain caused by ureteral spasm due to obstruction, commonly from kidney stones" },
+            { name: "Uremia", def: "Accumulation of urea and other nitrogenous waste products in blood due to kidney failure" }
+        ];
+
+        // Populate terms grid
+        function populateTerms() {
+            const grid = document.getElementById('termsGrid');
+            grid.innerHTML = terms.map(term => `
+                <div class="term-card" onclick="this.classList.toggle('show')">
+                    <div class="term-name">${term.name}</div>
+                    <div class="term-hint">Tap to reveal definition</div>
+                    <div class="term-def">${term.def}</div>
+                </div>
+            `).join('');
+        }
+
+        // Filter terms
+        function filterTerms(query) {
+            const cards = document.querySelectorAll('.term-card');
+            cards.forEach(card => {
+                const name = card.querySelector('.term-name').textContent.toLowerCase();
+                const def = card.querySelector('.term-def').textContent.toLowerCase();
+                if (name.includes(query.toLowerCase()) || def.includes(query.toLowerCase())) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Show section
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Toggle card
+        function toggleCard(header) {
+            header.parentElement.classList.toggle('expanded');
+        }
+
+        // Check quiz answer 1
+        function checkAnswer(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz1-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! WBC casts form in the tubules and indicate KIDNEY infection (pyelonephritis)!' :
+                '❌ Not quite! WBC casts are classic for pyelonephritis. RBC casts = glomerular disease!';
+        }
+
+        // Check quiz answer 2
+        function checkAnswer2(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz2-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! Bilateral obstruction = no urine can get through = ANURIA (<50 mL/day)!' :
+                '❌ Not quite! Bilateral obstruction blocks both ureters → ANURIA!';
+        }
+
+        // Initialize
+        populateTerms();
+    </script>
+</body>
+</html>
