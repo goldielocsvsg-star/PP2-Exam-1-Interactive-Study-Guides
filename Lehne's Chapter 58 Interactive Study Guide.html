@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 58: Drugs for Deficiency Anemias Study Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            color: white;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            color: white;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+        }
+        
+        .nav-tab {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .nav-tab:nth-child(1) { background: #e74c3c; }
+        .nav-tab:nth-child(2) { background: #3498db; }
+        .nav-tab:nth-child(3) { background: #9b59b6; }
+        .nav-tab:nth-child(4) { background: #1abc9c; }
+        .nav-tab:nth-child(5) { background: #f39c12; }
+        .nav-tab:nth-child(6) { background: #e91e63; }
+        .nav-tab:nth-child(7) { background: #00bcd4; }
+        
+        .nav-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .nav-tab.active {
+            transform: scale(1.1);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.4);
+        }
+        
+        /* Content Sections */
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid;
+        }
+        
+        .card.red .card-title { border-color: #e74c3c; color: #e74c3c; }
+        .card.blue .card-title { border-color: #3498db; color: #3498db; }
+        .card.purple .card-title { border-color: #9b59b6; color: #9b59b6; }
+        .card.teal .card-title { border-color: #1abc9c; color: #1abc9c; }
+        .card.orange .card-title { border-color: #f39c12; color: #f39c12; }
+        .card.pink .card-title { border-color: #e91e63; color: #e91e63; }
+        .card.cyan .card-title { border-color: #00bcd4; color: #00bcd4; }
+        .card.green .card-title { border-color: #27ae60; color: #27ae60; }
+        
+        /* Accordion */
+        .accordion {
+            margin-bottom: 15px;
+        }
+        
+        .accordion-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-header:hover {
+            transform: scale(1.02);
+        }
+        
+        .accordion-header.red-grad { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .accordion-header.blue-grad { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .accordion-header.purple-grad { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .accordion-header.teal-grad { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        .accordion-header.orange-grad { background: linear-gradient(135deg, #f39c12, #d68910); }
+        .accordion-header.pink-grad { background: linear-gradient(135deg, #e91e63, #c2185b); }
+        .accordion-header.green-grad { background: linear-gradient(135deg, #27ae60, #229954); }
+        
+        .accordion-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion-header.open .accordion-icon {
+            transform: rotate(45deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: #f8f9fa;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        .accordion-content.open {
+            max-height: 3000px;
+        }
+        
+        .accordion-inner {
+            padding: 20px;
+        }
+        
+        /* Info Boxes */
+        .info-box {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 10px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .info-box.tip {
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+            border-left: 5px solid #27ae60;
+        }
+        
+        .info-box.warning {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .info-box.key {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-left: 5px solid #9b59b6;
+        }
+        
+        .info-box.remember {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-left: 5px solid #2d3436;
+        }
+        
+        .info-box.danger {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+            color: white;
+            border-left: 5px solid #c0392b;
+        }
+        
+        .info-icon {
+            font-size: 1.5em;
+        }
+        
+        /* Tables */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 14px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .styled-table thead tr {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-align: left;
+        }
+        
+        .styled-table.red-header thead tr {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+        
+        .styled-table.blue-header thead tr {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+        
+        .styled-table.green-header thead tr {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+        
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+        
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+        
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        
+        .styled-table tbody tr:hover {
+            background-color: #e8f4f8;
+        }
+        
+        /* Flashcard */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+        
+        .flashcard {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+        
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .flashcard-front,
+        .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .flashcard-front {
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            color: white;
+        }
+        
+        .flashcard-back {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        
+        /* Drug Card */
+        .drug-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 15px 0;
+        }
+        
+        .drug-card-header {
+            padding: 15px 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .drug-card-body {
+            padding: 20px;
+        }
+        
+        .drug-card-body h4 {
+            color: #333;
+            margin: 15px 0 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px dashed #ddd;
+        }
+        
+        .drug-card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .drug-card-body li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .drug-card-body li::before {
+            content: "💊";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Quiz Section */
+        .quiz-question {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-question h4 {
+            color: #9b59b6;
+            margin-bottom: 15px;
+        }
+        
+        .quiz-options label {
+            display: block;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .quiz-options label:hover {
+            background: #e8f4f8;
+            border-color: #3498db;
+        }
+        
+        .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .check-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .check-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        .feedback {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            display: none;
+            font-weight: bold;
+        }
+        
+        .feedback.correct {
+            background: #d4fc79;
+            color: #27ae60;
+        }
+        
+        .feedback.incorrect {
+            background: #fcb69f;
+            color: #c0392b;
+        }
+        
+        /* Memory Tricks */
+        .mnemonic {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .mnemonic h4 {
+            color: #d68910;
+            margin-bottom: 10px;
+        }
+        
+        .mnemonic-letters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .mnemonic-letter {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .mnemonic-letter span:first-child {
+            color: #e74c3c;
+            font-size: 1.3em;
+        }
+        
+        /* Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-card-header {
+            padding: 15px;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .comparison-card-body {
+            padding: 20px;
+        }
+        
+        .comparison-card-body ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .comparison-card-body li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .comparison-card-body li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Color coded headers */
+        .header-red { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .header-blue { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .header-green { background: linear-gradient(135deg, #27ae60, #229954); }
+        .header-purple { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .header-orange { background: linear-gradient(135deg, #f39c12, #d68910); }
+        .header-pink { background: linear-gradient(135deg, #e91e63, #c2185b); }
+        .header-teal { background: linear-gradient(135deg, #1abc9c, #16a085); }
+        
+        /* Symptom Tags */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        
+        .tag {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        
+        .tag-red { background: #ffe3e3; color: #c0392b; }
+        .tag-blue { background: #e3f2fd; color: #2980b9; }
+        .tag-green { background: #e8f5e9; color: #27ae60; }
+        .tag-yellow { background: #fff8e1; color: #f39c12; }
+        .tag-purple { background: #f3e5f5; color: #8e44ad; }
+        .tag-pink { background: #fce4ec; color: #c2185b; }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8em; }
+            .nav-tab { padding: 10px 15px; font-size: 12px; }
+            .card { padding: 15px; }
+        }
+        
+        /* Print styles */
+        @media print {
+            body { background: white; }
+            .nav-tabs { display: none; }
+            .content-section { display: block !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>💊 Chapter 58: Drugs for Deficiency Anemias</h1>
+            <p>Pharmacology Study Guide | Iron • B12 • Folic Acid</p>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('basics')">🩸 RBC Basics</button>
+            <button class="nav-tab" onclick="showSection('iron')">🔴 Iron Therapy</button>
+            <button class="nav-tab" onclick="showSection('irontoxicity')">⚠️ Iron Toxicity</button>
+            <button class="nav-tab" onclick="showSection('b12')">💜 Vitamin B12</button>
+            <button class="nav-tab" onclick="showSection('folate')">💚 Folic Acid</button>
+            <button class="nav-tab" onclick="showSection('compare')">📊 Comparisons</button>
+            <button class="nav-tab" onclick="showSection('quiz')">📝 Quiz</button>
+        </div>
+        
+        <!-- RBC BASICS SECTION -->
+        <div id="basics" class="content-section active">
+            <div class="card red">
+                <div class="card-title">🩸 Stages of RBC Development</div>
+                <p style="margin-bottom: 15px;">Know these IN ORDER (bone marrow → blood):</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>1. Proerythroblast</h4>
+                            <p>📍 In bone marrow | ❌ NO hemoglobin yet</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2. Erythroblast</h4>
+                            <p>📍 In bone marrow | ✅ HAS hemoglobin</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>3. Reticulocyte</h4>
+                            <p>📍 In blood | 🔄 Immature RBC, still has some RNA</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>4. Erythrocyte</h4>
+                            <p>📍 In blood | ✨ Mature RBC, full hemoglobin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card blue">
+                <div class="card-title">🧬 What Do You Need to Make RBCs?</div>
+                <div class="info-box key">
+                    <span class="info-icon">💡</span>
+                    <div><strong>If ANY of these are missing → ANEMIA!</strong></div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-red">🦴 Healthy Bone Marrow</div>
+                        <div class="comparison-card-body">
+                            <p>The "factory" where RBCs are made</p>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-purple">⚡ Erythropoietin (EPO)</div>
+                        <div class="comparison-card-body">
+                            <p>Hormone that STIMULATES RBC production</p>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-orange">🔴 Iron</div>
+                        <div class="comparison-card-body">
+                            <p>Needed for HEMOGLOBIN synthesis</p>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-teal">🧬 Vitamin B12 & Folic Acid</div>
+                        <div class="comparison-card-body">
+                            <p>Needed for DNA SYNTHESIS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card green">
+                <div class="card-title">📊 Daily Iron Requirements (Know High-Risk Groups!)</div>
+                <table class="styled-table green-header">
+                    <thead>
+                        <tr>
+                            <th>Population</th>
+                            <th>Daily Need</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Adult Males</td>
+                            <td>8 mg/day</td>
+                            <td>Lowest requirement</td>
+                        </tr>
+                        <tr>
+                            <td>Adult Females (19-50)</td>
+                            <td>18 mg/day</td>
+                            <td>Higher due to menstruation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pregnancy</strong></td>
+                            <td><strong>27 mg/day</strong></td>
+                            <td>⚠️ Supplement usually needed!</td>
+                        </tr>
+                        <tr>
+                            <td>Kids & Teens</td>
+                            <td>Higher relative to size</td>
+                            <td>Due to rapid growth</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box tip">
+                    <span class="info-icon">📌</span>
+                    <div><strong>Remember:</strong> Only ~10% of dietary iron is absorbed, so RDAs are ~10× physiologic need!</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- IRON THERAPY SECTION -->
+        <div id="iron" class="content-section">
+            <div class="card red">
+                <div class="card-title">🔴 Iron: What Does It Do?</div>
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-red">Hemoglobin (70-80%)</div>
+                        <div class="comparison-card-body">
+                            <p>In RBCs - carries O₂ throughout body</p>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-pink">Myoglobin (10%)</div>
+                        <div class="comparison-card-body">
+                            <p>In muscles - stores O₂ for muscle use</p>
+                        </div>
+                    </div>
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-purple">Enzymes</div>
+                        <div class="comparison-card-body">
+                            <p>Various metabolic reactions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card orange">
+                <div class="card-title">🔄 Iron Movement in the Body</div>
+                
+                <div class="accordion">
+                    <div class="accordion-header orange-grad" onclick="toggleAccordion(this)">
+                        1️⃣ Absorption (Small Intestine)
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Absorbs <strong>5-20%</strong> of dietary iron</li>
+                                <li><strong>Fe²⁺ (ferrous)</strong> absorbed BETTER than Fe³⁺</li>
+                                <li>✅ <strong>Vitamin C ↑ absorption</strong></li>
+                                <li>❌ <strong>Food ↓ absorption</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header red-grad" onclick="toggleAccordion(this)">
+                        2️⃣ After Absorption - Two Options
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>📦 <strong>STORED</strong> in mucosal cells as <strong>FERRITIN</strong></li>
+                                <li>🚚 <strong>TRANSPORTED</strong> in blood bound to <strong>TRANSFERRIN</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header purple-grad" onclick="toggleAccordion(this)">
+                        3️⃣ Where Does Transferrin-Bound Iron Go?
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>🦴 <strong>Bone marrow</strong> → Hemoglobin production</li>
+                                <li>🫀 <strong>Liver & tissues</strong> → Ferritin (storage)</li>
+                                <li>💪 <strong>Muscle/other tissues</strong> → Myoglobin & enzymes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header teal-grad" onclick="toggleAccordion(this)">
+                        4️⃣ Recycling & Elimination
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p><strong>♻️ Recycling:</strong></p>
+                            <ul>
+                                <li>RBCs live ~<strong>120 days</strong>, then broken down</li>
+                                <li>Iron is <strong>REUSED</strong> and sent back on transferrin</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>🚮 Elimination (very little normally):</strong></p>
+                            <ul>
+                                <li>~<strong>1 mg/day</strong> lost via: sloughing GI mucosa, bile, urine, sweat</li>
+                                <li>⚠️ <strong>BLOOD LOSS = MAJOR way to lose iron!</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mnemonic">
+                    <h4>💡 Memory Trick for Iron Storage vs Transport</h4>
+                    <div class="mnemonic-letters">
+                        <div class="mnemonic-letter"><span>Ferri</span>tin = iron is "Sittin'" (storage)</div>
+                        <div class="mnemonic-letter"><span>Trans</span>ferrin = "Trans"port (moving iron)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card blue">
+                <div class="card-title">💊 Oral Iron Therapy</div>
+                
+                <div class="drug-card">
+                    <div class="drug-card-header header-red">⭐ FERROUS SULFATE = DRUG OF CHOICE</div>
+                    <div class="drug-card-body">
+                        <p><em>Other ferrous salts (gluconate, fumarate, aspartate) are equally effective - differ in % elemental iron</em></p>
+                        
+                        <h4>✅ Indications</h4>
+                        <ul>
+                            <li><strong>TREATMENT</strong> of iron deficiency anemia</li>
+                            <li><strong>PREVENTION</strong> in: pregnancy, chronic blood loss, high-risk groups</li>
+                        </ul>
+                        
+                        <h4>⚠️ Major Adverse Effects</h4>
+                        <ul>
+                            <li><strong>GI disturbances</strong> (dose-dependent): nausea, heartburn, bloating, constipation, diarrhea</li>
+                            <li><strong>BLACK/GREEN STOOLS</strong> - harmless, NOT GI bleed!</li>
+                            <li><strong>Teeth staining</strong> (liquid prep) - dilute, use straw, rinse mouth</li>
+                        </ul>
+                        
+                        <h4>💊 Dosing Principles</h4>
+                        <ul>
+                            <li>Typical: ~<strong>65 mg elemental iron TID</strong> (~200 mg/day total)</li>
+                            <li><strong>BETWEEN MEALS</strong> = best absorption (but ↑ GI upset)</li>
+                            <li>Space doses <strong>evenly throughout day</strong></li>
+                            <li>Duration: <strong>1-3 months</strong> to correct anemia + <strong>4-6 months</strong> to replenish stores</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-box warning">
+                    <span class="info-icon">⚠️</span>
+                    <div>
+                        <strong>Drug Interactions:</strong><br>
+                        • <strong>Antacids</strong> ↓ iron absorption<br>
+                        • <strong>Tetracyclines</strong> ↔ ↓ absorption of BOTH<br>
+                        • <strong>Vitamin C</strong> ↑ absorption BUT also ↑ GI side effects
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card purple">
+                <div class="card-title">📊 Elemental Iron Content (NCLEX Favorite!)</div>
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>Preparation</th>
+                            <th>% Elemental Iron</th>
+                            <th>Dose ≈ 100 mg Fe</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ferrous sulfate</td>
+                            <td>20%</td>
+                            <td>500 mg</td>
+                        </tr>
+                        <tr>
+                            <td>Ferrous fumarate</td>
+                            <td>33%</td>
+                            <td>300 mg</td>
+                        </tr>
+                        <tr>
+                            <td>Ferrous gluconate</td>
+                            <td>11.6%</td>
+                            <td>860 mg</td>
+                        </tr>
+                        <tr style="background: #e8f5e9;">
+                            <td><strong>Carbonyl iron</strong></td>
+                            <td><strong>100%</strong></td>
+                            <td><strong>100 mg</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="info-box key">
+                    <span class="info-icon">📝</span>
+                    <div><strong>NCLEX TIP:</strong> "Which provides MOST elemental iron per mg?" → <strong>CARBONYL IRON (100%)</strong></div>
+                </div>
+                
+                <div class="mnemonic">
+                    <h4>💡 Why is Carbonyl Iron Special?</h4>
+                    <p>✅ Pure elemental iron (microparticles)<br>
+                    ✅ Same efficacy as ferrous salts<br>
+                    ✅ <strong>Slower absorption → ↓ toxicity risk</strong><br>
+                    ✅ SAFER if accidentally ingested by children</p>
+                </div>
+            </div>
+            
+            <div class="card teal">
+                <div class="card-title">💉 Parenteral Iron (Iron Dextran)</div>
+                
+                <div class="info-box remember">
+                    <span class="info-icon">📌</span>
+                    <div><strong>Use ONLY when oral iron cannot work:</strong><br>
+                    • Cannot be absorbed (intestinal disease)<br>
+                    • Blood loss too great for oral to keep up (500-1000 mL/week)<br>
+                    • Oral intolerable or worsens GI disease</div>
+                </div>
+                
+                <div class="info-box danger">
+                    <span class="info-icon">🚨</span>
+                    <div>
+                        <strong>BIG SAFETY ALERT - RISK OF FATAL ANAPHYLAXIS!</strong><br>
+                        Must:<br>
+                        • Give a <strong>TEST DOSE</strong> before full dose<br>
+                        • Have <strong>EPINEPHRINE & resuscitation equipment</strong> ready<br>
+                        • Monitor after BOTH test dose and full dose
+                    </div>
+                </div>
+                
+                <h4 style="margin: 20px 0 10px; color: #1abc9c;">Other Parenteral Products (know they exist):</h4>
+                <div class="tag-container">
+                    <span class="tag tag-blue">Ferric carboxymaltose</span>
+                    <span class="tag tag-purple">Iron sucrose</span>
+                    <span class="tag tag-green">Sodium ferric gluconate</span>
+                    <span class="tag tag-pink">Ferumoxytol</span>
+                    <span class="tag tag-yellow">Ferric pyrophosphate citrate</span>
+                </div>
+                
+                <div class="info-box tip" style="margin-top: 15px;">
+                    <span class="info-icon">✨</span>
+                    <div><strong>Priority:</strong> ORAL iron > IV iron > IM iron (IV preferred over IM)</div>
+                </div>
+            </div>
+            
+            <div class="card green">
+                <div class="card-title">👩‍⚕️ Nursing Implications for Iron</div>
+                
+                <div class="accordion">
+                    <div class="accordion-header green-grad" onclick="toggleAccordion(this)">
+                        🔍 Assessment
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Fatigue, pallor, dyspnea, tachycardia, chest pain</li>
+                                <li>Menstrual history, GI bleed, diet, pregnancy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header blue-grad" onclick="toggleAccordion(this)">
+                        🔬 Labs to Monitor
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Hgb/Hct</li>
+                                <li>RBC indices (microcytic, hypochromic)</li>
+                                <li>Serum iron, ferritin, TIBC</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header purple-grad" onclick="toggleAccordion(this)">
+                        📚 Patient Teaching
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Take <strong>BETWEEN MEALS</strong> if possible</li>
+                                <li>Expect <strong>DARK STOOLS</strong> (normal!)</li>
+                                <li>Liquids: dilute, use straw, rinse mouth</li>
+                                <li>Avoid antacids and tetracyclines near dose</li>
+                                <li>Don't switch brands without checking dose</li>
+                                <li>⚠️ <strong>KEEP AWAY FROM CHILDREN!</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header orange-grad" onclick="toggleAccordion(this)">
+                        📈 Monitoring Response
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Reticulocytes ↑ in <strong>4-7 days</strong></li>
+                                <li>Hgb/Hct start ↑ in <strong>1 week</strong></li>
+                                <li>Hgb ↑ by <strong>≥2 g/dL in 1 month</strong> = good response!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- IRON TOXICITY SECTION -->
+        <div id="irontoxicity" class="content-section">
+            <div class="card red">
+                <div class="card-title">⚠️ Iron Toxicity (HIGH-YIELD PEDIATRICS!)</div>
+                
+                <div class="info-box danger">
+                    <span class="info-icon">☠️</span>
+                    <div>
+                        <strong>Leading cause of FATAL POISONING in children!</strong><br>
+                        Lethal dose in kids: <strong>2-10 g elemental iron</strong>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-orange">⏰ Early Signs/Symptoms</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>🤢 Nausea, vomiting</li>
+                                <li>💩 Diarrhea</li>
+                                <li>⚡ Shock</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-red">⏰ Later Signs/Symptoms</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>⚗️ Metabolic acidosis</li>
+                                <li>🫁 Gastric necrosis</li>
+                                <li>🫀 Hepatic failure</li>
+                                <li>💨 Pulmonary edema</li>
+                                <li>💔 Vasomotor collapse</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4 style="margin: 20px 0 10px; color: #e74c3c;">🏥 Treatment of Iron Toxicity:</h4>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>1. Check serum iron</h4>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>2. X-ray for tablets</h4>
+                            <p>Iron tablets are radiopaque</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>3. Whole-bowel irrigation</h4>
+                            <p>PEG solution to flush out tablets</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h4>4. If iron very high → DEFEROXAMINE IV</h4>
+                            <p>Iron CHELATOR (binds and removes iron)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-box key">
+                    <span class="info-icon">💊</span>
+                    <div>
+                        <strong>Iron Chelators to Know:</strong><br>
+                        • <strong>Deferoxamine</strong> - IV for acute toxicity<br>
+                        • <strong>Deferasirox, Deferiprone</strong> - for chronic iron overload
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flashcard -->
+            <div class="card orange">
+                <div class="card-title">🎴 Click to Flip - Test Yourself!</div>
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-front">
+                            <div>
+                                <p style="font-size: 0.9em; margin-bottom: 10px;">Question:</p>
+                                <p><strong>A 2-year-old ingested mom's iron supplements. What is the ANTIDOTE for iron toxicity?</strong></p>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div>
+                                <p style="font-size: 0.9em; margin-bottom: 10px;">Answer:</p>
+                                <p><strong>DEFEROXAMINE IV</strong></p>
+                                <p style="font-size: 0.9em; margin-top: 10px;">It's an iron chelator that binds iron for removal!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VITAMIN B12 SECTION -->
+        <div id="b12" class="content-section">
+            <div class="card purple">
+                <div class="card-title">💜 Vitamin B12 (Cyanocobalamin)</div>
+                
+                <div class="info-box key">
+                    <span class="info-icon">🔑</span>
+                    <div><strong>Main Function:</strong> Needed for <strong>DNA SYNTHESIS</strong> → affects ALL rapidly dividing cells!</div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header purple-grad" onclick="toggleAccordion(this)">
+                        🔬 How B12 Works & Moves
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Works by activating <strong>folic acid</strong> → active folate supports DNA synthesis</li>
+                                <li>Requires:
+                                    <ul style="margin-left: 20px; margin-top: 5px;">
+                                        <li><strong>Intrinsic factor</strong> (from parietal cells in stomach)</li>
+                                        <li><strong>Ileum</strong> for absorption</li>
+                                        <li><strong>Transcobalamin II</strong> for transport</li>
+                                    </ul>
+                                </li>
+                                <li>Stored mostly in <strong>LIVER</strong> (2-3 mg total)</li>
+                                <li>Very slow excretion → deficiency takes <strong>YEARS</strong> to appear</li>
+                                <li>Daily adult need: ~<strong>2.4 µg/day</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card pink">
+                <div class="card-title">🎯 Causes of B12 Deficiency</div>
+                
+                <div class="info-box remember">
+                    <span class="info-icon">⭐</span>
+                    <div>Most are from <strong>MALABSORPTION</strong>, NOT diet!</div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-pink">Lack of Intrinsic Factor → PERNICIOUS ANEMIA</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Atrophy of parietal cells</li>
+                                <li>Total gastrectomy</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-purple">Intestinal Disease</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Regional enteritis</li>
+                                <li>Celiac disease</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-blue">Other Causes</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>↓ stomach acid (age, PPIs)</li>
+                                <li>Antibodies vs IF-B12 complex</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card red">
+                <div class="card-title">⚠️ Consequences of B12 Deficiency (HIGH-YIELD!)</div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-red">1. Megaloblastic Anemia</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Big, immature RBCs (megaloblasts)</li>
+                                <li>Caused by impaired DNA synthesis</li>
+                                <li>Severe → hypoxia, HF, dysrhythmias</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-purple">2. NEUROLOGIC DAMAGE 🧠</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Demyelination of neurons</li>
+                                <li><strong>Early:</strong> paresthesias, ↓ reflexes</li>
+                                <li><strong>Late:</strong> memory loss, mood changes, psychosis</li>
+                                <li>⚠️ <strong>May be IRREVERSIBLE!</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-orange">3. Other Effects</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Leukopenia, thrombocytopenia</li>
+                                <li>GI disturbances, glossitis</li>
+                                <li>Mouth ulcers</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card blue">
+                <div class="card-title">💊 Treatment: Cyanocobalamin</div>
+                
+                <div class="drug-card">
+                    <div class="drug-card-header header-purple">⭐ DRUG OF CHOICE for ALL forms of B12 deficiency</div>
+                    <div class="drug-card-body">
+                        <h4>⚠️ Adverse Effects</h4>
+                        <ul>
+                            <li>Generally SAFE</li>
+                            <li>Watch for <strong>HYPOKALEMIA</strong> - new RBCs take up potassium!</li>
+                        </ul>
+                        
+                        <h4>💉 Routes of Administration</h4>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-green">1. ORAL</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Works for MOST patients</li>
+                                <li>Even with malabsorption if dose is HIGH</li>
+                                <li>Typical: 1000-10,000 µg/day</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-pink">2. PARENTERAL (IM or deep subQ)</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>❌ NOT IV!</li>
+                                <li>Use when: severe neuro involvement, can't rely on oral</li>
+                                <li><strong>100 µg monthly FOR LIFE</strong> if irreversible cause</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-blue">3. INTRANASAL (Nascobal)</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>500 µg in ONE nostril ONCE weekly</li>
+                                <li>❌ Not if nasal issues (URI, congestion)</li>
+                                <li>No hot foods/drinks 1 hr before/after</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card orange">
+                <div class="card-title">⚠️ CRITICAL WARNING: B12 + Folic Acid Interaction</div>
+                
+                <div class="info-box danger">
+                    <span class="info-icon">🚨</span>
+                    <div>
+                        <strong>VERY TESTABLE!</strong><br><br>
+                        Large doses of <strong>FOLIC ACID</strong> can:<br>
+                        ✅ CORRECT the anemia<br>
+                        ❌ NOT fix the neurologic damage<br><br>
+                        This <strong>MASKS B12 deficiency</strong> → neuro damage continues silently!
+                    </div>
+                </div>
+                
+                <div class="info-box remember" style="margin-top: 15px;">
+                    <span class="info-icon">⭐</span>
+                    <div>
+                        <strong>NEVER treat B12 deficiency with folic acid alone!</strong><br>
+                        If using both, ensure B12 dose is ADEQUATE first!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FOLIC ACID SECTION -->
+        <div id="folate" class="content-section">
+            <div class="card green">
+                <div class="card-title">💚 Folic Acid (Folate)</div>
+                
+                <div class="info-box key">
+                    <span class="info-icon">🔑</span>
+                    <div><strong>Main Function:</strong> Essential for <strong>DNA SYNTHESIS</strong> (like B12)</div>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-header green-grad" onclick="toggleAccordion(this)">
+                        🔬 How Folate Works
+                        <span class="accordion-icon">+</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li>Must be converted to <strong>ACTIVE form</strong></li>
+                                <li>Usually via <strong>B12-dependent pathway</strong></li>
+                                <li>At high doses, can use B12-independent pathway</li>
+                                <li>Absorbed in <strong>upper small intestine</strong></li>
+                                <li>Undergoes <strong>enterohepatic recirculation</strong></li>
+                                <li>NOT conserved as tightly as B12 → deficiency develops <strong>QUICKLY</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card teal">
+                <div class="card-title">📊 Daily Folate Requirements</div>
+                <table class="styled-table green-header">
+                    <thead>
+                        <tr>
+                            <th>Population</th>
+                            <th>Daily Need</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Adults (both sexes)</td>
+                            <td>400 µg/day</td>
+                            <td>Baseline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pregnancy</strong></td>
+                            <td><strong>600 µg/day</strong></td>
+                            <td>⚠️ Critical for fetal development!</td>
+                        </tr>
+                        <tr>
+                            <td>Lactation</td>
+                            <td>500 µg/day</td>
+                            <td>Passed in breast milk</td>
+                        </tr>
+                        <tr>
+                            <td>People who may become pregnant</td>
+                            <td>400-800 µg/day</td>
+                            <td>SUPPLEMENTAL (in addition to diet)</td>
+                        </tr>
+                        <tr>
+                            <td>Malabsorption (sprue)</td>
+                            <td>Up to 2000 µg/day</td>
+                            <td>Higher doses needed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card orange">
+                <div class="card-title">🎯 Causes of Folate Deficiency</div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-orange">1. Poor Diet (Most Common)</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Especially in <strong>ALCOHOL USE DISORDER</strong></li>
+                                <li>Alcohol ↓ intake AND messes up enterohepatic recirculation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-purple">2. Malabsorption</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Sprue</li>
+                                <li>Other intestinal diseases</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-blue">3. Some Drugs</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Methotrexate</li>
+                                <li>Phenytoin</li>
+                                <li>(Less common cause)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card pink">
+                <div class="card-title">⚠️ Consequences of Folate Deficiency</div>
+                
+                <div class="info-box remember">
+                    <span class="info-icon">⭐</span>
+                    <div>Similar to B12 deficiency BUT <strong>NO NEUROLOGIC INJURY</strong> in adults!</div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-red">In Adults</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li>Megaloblastic anemia</li>
+                                <li>Leukopenia, thrombocytopenia</li>
+                                <li>Glossitis, GI mucosal injury</li>
+                                <li>❌ NO neuro symptoms!</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <div class="comparison-card-header header-pink">In FETUS (Critical!)</div>
+                        <div class="comparison-card-body">
+                            <ul>
+                                <li><strong>NEURAL TUBE DEFECTS:</strong></li>
+                                <li>Spina bifida</li>
+                                <li>Anencephaly</li>
+                                <li>⚠️ Why pregnant women MUST supplement!</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card blue">
+                <div class="card-title">💊 Folic Acid Treatment</div>
+                
+                <div class="drug-card">
+                    <div class="drug-card-header header-green">Folic Acid Preparations</div>
+                    <div class="drug-card-body">
+                        <h4>📋 Forms Available</h4>
+                        <ul>
+                            <li><strong>Inactive form</strong> (most common): Folic acid, folacin, folate</li>
+                            <li><strong>Active form</strong>: Leucovorin calcium, folinic acid (mainly for chemo regimens)</li>
+                        </ul>
+                        
+                        <h4>✅ Indications</h4>
+                        <ul>
+                            <li>Treatment of megaloblastic anemia (folate deficiency)</li>
+                            <li><strong>PROPHYLAXIS in pregnancy & lactation</strong></li>
+                            <li>Initial treatment with B12 in severe megaloblastic anemia</li>
+                        </ul>
+                        
+                        <h4>⚠️ Adverse Effects</h4>
+                        <ul>
+                            <li>Oral folate is VERY SAFE</li>
+                            <li>Main concern: <strong>MASKING B12 deficiency!</strong></li>
+                        </ul>
+                        
+                        <h4>💊 Routes & Doses</h4>
+                        <ul>
+                            <li><strong>ORAL preferred</strong></li>
+                            <li>Available tablets: 0.4, 0.8, 1 mg</li>
+                            <li>Treatment: 1000-2000 µg/day × 1-2 weeks → then 400 µg/day maintenance</li>
+                            <li>Injection only if severe GI malabsorption</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="info-box tip">
+                    <span class="info-icon">📈</span>
+                    <div>
+                        <strong>Monitoring Response:</strong><br>
+                        • Megaloblasts disappear in ~<strong>48 hours</strong><br>
+                        • Reticulocyte count ↑ in <strong>2-3 days</strong><br>
+                        • Hct rises by <strong>week 2</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- COMPARISON SECTION -->
+        <div id="compare" class="content-section">
+            <div class="card purple">
+                <div class="card-title">📊 Iron vs B12 vs Folate Deficiency - MASTER COMPARISON</div>
+                
+                <div style="overflow-x: auto;">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>🔴 Iron Deficiency</th>
+                                <th>💜 B12 Deficiency</th>
+                                <th>💚 Folate Deficiency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>RBC Size/Color</strong></td>
+                                <td>Microcytic, Hypochromic</td>
+                                <td>Macrocytic, Megaloblastic</td>
+                                <td>Macrocytic, Megaloblastic</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Main Cause</strong></td>
+                                <td>↑ demand / blood loss</td>
+                                <td>Malabsorption, lack IF</td>
+                                <td>Poor diet, alcohol</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Neuro Symptoms</strong></td>
+                                <td>❌ No</td>
+                                <td>✅ <strong>YES (may be permanent!)</strong></td>
+                                <td>❌ No in adults</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tongue/GI Changes</strong></td>
+                                <td>Possible</td>
+                                <td>Yes</td>
+                                <td>Yes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Key Labs</strong></td>
+                                <td>↓ iron, ↑ TIBC</td>
+                                <td>↓ B12, abnormal Schilling</td>
+                                <td>↓ folate, normal B12</td>
+                            </tr>
+                            <tr>
+                                <td><strong>1st-Line Treatment</strong></td>
+                                <td><strong>Oral Ferrous Sulfate</strong></td>
+                                <td><strong>Cyanocobalamin</strong></td>
+                                <td><strong>Folic Acid</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Special Warnings</strong></td>
+                                <td>Anaphylaxis risk (IV dextran)</td>
+                                <td>Watch for hypokalemia</td>
+                                <td>Can MASK B12 deficiency!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card blue">
+                <div class="card-title">💜 vs 💚 B12 vs Folate (NCLEX LOVES THIS!)</div>
+                
+                <div style="overflow-x: auto;">
+                    <table class="styled-table blue-header">
+                        <thead>
+                            <tr>
+                                <th>Aspect</th>
+                                <th>💜 Vitamin B12 Deficiency</th>
+                                <th>💚 Folic Acid Deficiency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Usual Cause</strong></td>
+                                <td>Malabsorption (lack IF)</td>
+                                <td>Poor diet, alcohol</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Anemia Type</strong></td>
+                                <td>Megaloblastic</td>
+                                <td>Megaloblastic</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Neuro Effects</strong></td>
+                                <td>✅ <strong>YES</strong> (brain & spinal cord)</td>
+                                <td>❌ <strong>NONE in adults</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Diagnosis</strong></td>
+                                <td>↓ serum B12, abnormal Schilling</td>
+                                <td>↓ serum folate, normal B12</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Treatment</strong></td>
+                                <td>Cyanocobalamin (PO or IM)</td>
+                                <td>Folic acid (PO)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Duration</strong></td>
+                                <td>Usually <strong>LIFELONG</strong></td>
+                                <td>Usually <strong>SHORT-TERM</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pregnancy Risk</strong></td>
+                                <td>—</td>
+                                <td><strong>Neural tube defects!</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mnemonic" style="margin-top: 20px;">
+                    <h4>💡 Memory Trick: B12 vs Folate</h4>
+                    <p><strong>"B12 affects the Brain"</strong> - B12 = Brain damage (neuro symptoms)</p>
+                    <p><strong>"Folate affects the Fetus"</strong> - Folate deficiency = Neural tube defects</p>
+                </div>
+            </div>
+            
+            <!-- Flashcard -->
+            <div class="card orange">
+                <div class="card-title">🎴 Quick Review Flashcard</div>
+                <div class="flashcard-container">
+                    <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                        <div class="flashcard-front">
+                            <div>
+                                <p><strong>Patient has megaloblastic anemia but NO neuro symptoms. Which deficiency is more likely?</strong></p>
+                            </div>
+                        </div>
+                        <div class="flashcard-back">
+                            <div>
+                                <p><strong>FOLATE deficiency!</strong></p>
+                                <p style="font-size: 0.9em; margin-top: 10px;">Remember: B12 = Brain damage | Folate = NO neuro symptoms in adults</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- QUIZ SECTION -->
+        <div id="quiz" class="content-section">
+            <div class="card green">
+                <div class="card-title">📝 Test Your Knowledge!</div>
+                
+                <div class="quiz-question" id="q1">
+                    <h4>Question 1: What is the DRUG OF CHOICE for iron deficiency anemia?</h4>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q1" value="a"> Iron dextran IV</label>
+                        <label><input type="radio" name="q1" value="b"> Ferrous sulfate oral</label>
+                        <label><input type="radio" name="q1" value="c"> Carbonyl iron</label>
+                        <label><input type="radio" name="q1" value="d"> Ferric carboxymaltose</label>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer('q1', 'b', 'Correct! Oral FERROUS SULFATE is the drug of choice for iron deficiency anemia. Oral is always preferred over parenteral!', 'Not quite. Think: What is the FIRST-LINE oral iron preparation?')">Check Answer</button>
+                    <div class="feedback" id="feedback-q1"></div>
+                </div>
+                
+                <div class="quiz-question" id="q2">
+                    <h4>Question 2: A nurse is teaching a patient about oral iron supplements. Which statement by the patient indicates understanding?</h4>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q2" value="a"> "I should take this with milk to prevent stomach upset"</label>
+                        <label><input type="radio" name="q2" value="b"> "Red stools mean I should stop the medication"</label>
+                        <label><input type="radio" name="q2" value="c"> "I should expect my stools to be dark or black"</label>
+                        <label><input type="radio" name="q2" value="d"> "I can take this with my antacid"</label>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer('q2', 'c', 'Correct! Dark/black stools are NORMAL with iron supplements - NOT a sign of GI bleeding! Milk and antacids decrease absorption.', 'Remember: Dark stools = normal side effect. Milk/antacids = decreased absorption!')">Check Answer</button>
+                    <div class="feedback" id="feedback-q2"></div>
+                </div>
+                
+                <div class="quiz-question" id="q3">
+                    <h4>Question 3: Before giving iron dextran IV, the nurse should:</h4>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q3" value="a"> Give with food to prevent nausea</label>
+                        <label><input type="radio" name="q3" value="b"> Administer a test dose and have epinephrine available</label>
+                        <label><input type="radio" name="q3" value="c"> Check blood glucose levels</label>
+                        <label><input type="radio" name="q3" value="d"> Give prophylactic antihistamines</label>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer('q3', 'b', 'Correct! Iron dextran carries risk of FATAL ANAPHYLAXIS! Always give test dose first and have epinephrine + resuscitation equipment ready!', 'Think: What is the BIG safety concern with iron dextran? ANAPHYLAXIS!')">Check Answer</button>
+                    <div class="feedback" id="feedback-q3"></div>
+                </div>
+                
+                <div class="quiz-question" id="q4">
+                    <h4>Question 4: Which finding distinguishes B12 deficiency from folate deficiency?</h4>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q4" value="a"> Macrocytic anemia</label>
+                        <label><input type="radio" name="q4" value="b"> Glossitis</label>
+                        <label><input type="radio" name="q4" value="c"> Neurologic symptoms</label>
+                        <label><input type="radio" name="q4" value="d"> Fatigue</label>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer('q4', 'c', 'Correct! NEUROLOGIC SYMPTOMS (paresthesias, ataxia, memory loss) occur ONLY in B12 deficiency, NOT folate deficiency!', 'Remember: B12 = Brain effects! Both cause anemia, glossitis, and fatigue, but ONLY B12 affects the nervous system.')">Check Answer</button>
+                    <div class="feedback" id="feedback-q4"></div>
+                </div>
+                
+                <div class="quiz-question" id="q5">
+                    <h4>Question 5: Why is it dangerous to treat B12 deficiency with folic acid alone?</h4>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q5" value="a"> Folic acid is toxic in high doses</label>
+                        <label><input type="radio" name="q5" value="b"> Folic acid corrects anemia but NOT neurologic damage, masking B12 deficiency</label>
+                        <label><input type="radio" name="q5" value="c"> Folic acid depletes B12 stores</label>
+                        <label><input type="radio" name="q5" value="d"> Folic acid causes hypokalemia</label>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer('q5', 'b', 'Correct! Folic acid can FIX THE ANEMIA but NOT the NEURO DAMAGE of B12 deficiency. This MASKS the B12 deficiency while neurologic damage continues!', 'This is a critical concept! Folic acid masks B12 deficiency by fixing anemia, but the silent neuro damage continues!')">Check Answer</button>
+                    <div class="feedback" id="feedback-q5"></div>
+                </div>
+                
+                <div class="quiz-question" id="q6">
+                    <h4>Question 6: A 2-year-old ingested iron tablets. What is the antidote?</h4>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q6" value="a"> N-acetylcysteine</label>
+                        <label><input type="radio" name="q6" value="b"> Flumazenil</label>
+                        <label><input type="radio" name="q6" value="c"> Deferoxamine</label>
+                        <label><input type="radio" name="q6" value="d"> Naloxone</label>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer('q6', 'c', 'Correct! DEFEROXAMINE is the iron chelator used for iron toxicity. Iron poisoning is the leading cause of fatal poisoning in children!', 'Remember: Deferoxamine = iron chelator. N-acetylcysteine is for Tylenol, Flumazenil for benzos, Naloxone for opioids.')">Check Answer</button>
+                    <div class="feedback" id="feedback-q6"></div>
+                </div>
+                
+                <div class="quiz-question" id="q7">
+                    <h4>Question 7: Which preparation provides the MOST elemental iron per mg?</h4>
+                    <div class="quiz-options">
+                        <label><input type="radio" name="q7" value="a"> Ferrous sulfate (20%)</label>
+                        <label><input type="radio" name="q7" value="b"> Ferrous fumarate (33%)</label>
+                        <label><input type="radio" name="q7" value="c"> Ferrous gluconate (11.6%)</label>
+                        <label><input type="radio" name="q7" value="d"> Carbonyl iron (100%)</label>
+                    </div>
+                    <button class="check-btn" onclick="checkAnswer('q7', 'd', 'Correct! CARBONYL IRON is 100% elemental iron - the highest! It\\'s also safer because it absorbs more slowly.', 'Carbonyl iron = 100% elemental iron = most iron per mg AND safer due to slower absorption!')">Check Answer</button>
+                    <div class="feedback" id="feedback-q7"></div>
+                </div>
+            </div>
+            
+            <!-- Summary Card -->
+            <div class="card purple">
+                <div class="card-title">🎯 Key Points to Remember</div>
+                
+                <div class="info-box remember">
+                    <span class="info-icon">1️⃣</span>
+                    <div><strong>Iron:</strong> Ferrous sulfate = DOC | Take between meals | Dark stools = normal | Keep away from kids!</div>
+                </div>
+                
+                <div class="info-box remember">
+                    <span class="info-icon">2️⃣</span>
+                    <div><strong>B12:</strong> Causes NEURO symptoms | May need LIFELONG treatment | Watch for hypokalemia</div>
+                </div>
+                
+                <div class="info-box remember">
+                    <span class="info-icon">3️⃣</span>
+                    <div><strong>Folate:</strong> NO neuro symptoms in adults | Critical for pregnancy | Can MASK B12 deficiency!</div>
+                </div>
+                
+                <div class="info-box remember">
+                    <span class="info-icon">4️⃣</span>
+                    <div><strong>Iron Dextran:</strong> Risk of ANAPHYLAXIS | Test dose + Epinephrine ready | IV preferred over IM</div>
+                </div>
+                
+                <div class="info-box remember">
+                    <span class="info-icon">5️⃣</span>
+                    <div><strong>Iron Toxicity:</strong> #1 fatal poisoning in kids | Antidote = DEFEROXAMINE</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Find and activate the clicked tab
+            event.target.classList.add('active');
+        }
+        
+        // Accordion
+        function toggleAccordion(header) {
+            header.classList.toggle('open');
+            const content = header.nextElementSibling;
+            content.classList.toggle('open');
+        }
+        
+        // Quiz
+        function checkAnswer(questionId, correctAnswer, correctMsg, incorrectMsg) {
+            const selected = document.querySelector(`input[name="${questionId}"]:checked`);
+            const feedback = document.getElementById(`feedback-${questionId}`);
+            
+            if (!selected) {
+                alert('Please select an answer!');
+                return;
+            }
+            
+            feedback.style.display = 'block';
+            
+            if (selected.value === correctAnswer) {
+                feedback.className = 'feedback correct';
+                feedback.innerHTML = '✅ ' + correctMsg;
+            } else {
+                feedback.className = 'feedback incorrect';
+                feedback.innerHTML = '❌ ' + incorrectMsg;
+            }
+        }
+    </script>
+</body>
+</html>
