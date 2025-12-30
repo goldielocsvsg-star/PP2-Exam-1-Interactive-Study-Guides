@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 29: Pulmonary Disorders Study Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FF6B9D;
+            --coral: #FF8A5B;
+            --teal: #00CEC9;
+            --purple: #A29BFE;
+            --mint: #55EFC4;
+            --yellow: #FFEAA7;
+            --blue: #74B9FF;
+            --lavender: #DDA0DD;
+            --peach: #FFDAB9;
+            --dark: #2D3436;
+            --light: #FAFAFA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🫁';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.1;
+            top: -20px;
+            right: -20px;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, var(--pink), var(--purple), var(--teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Navigation Pills */
+        .nav-container {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .nav-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-pill {
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .nav-pill.active {
+            transform: scale(1.05);
+        }
+
+        .pill-symptoms { background: linear-gradient(135deg, var(--pink), var(--coral)); color: white; }
+        .pill-conditions { background: linear-gradient(135deg, var(--teal), var(--mint)); color: white; }
+        .pill-chest { background: linear-gradient(135deg, var(--purple), var(--lavender)); color: white; }
+        .pill-restrictive { background: linear-gradient(135deg, var(--coral), var(--yellow)); color: var(--dark); }
+        .pill-obstructive { background: linear-gradient(135deg, var(--blue), var(--teal)); color: white; }
+        .pill-infections { background: linear-gradient(135deg, var(--mint), var(--yellow)); color: var(--dark); }
+        .pill-vascular { background: linear-gradient(135deg, var(--pink), var(--purple)); color: white; }
+        .pill-cancer { background: linear-gradient(135deg, var(--lavender), var(--blue)); color: white; }
+        .pill-terms { background: linear-gradient(135deg, var(--dark), #636e72); color: white; }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        .toggle-icon {
+            margin-left: auto;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .card-content {
+            display: none;
+            padding-top: 15px;
+            border-top: 2px dashed #dfe6e9;
+        }
+
+        .card.expanded .card-content {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .info-box.pink { background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(255,138,91,0.1)); border-left: 5px solid var(--pink); }
+        .info-box.teal { background: linear-gradient(135deg, rgba(0,206,201,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--teal); }
+        .info-box.purple { background: linear-gradient(135deg, rgba(162,155,254,0.2), rgba(221,160,221,0.1)); border-left: 5px solid var(--purple); }
+        .info-box.yellow { background: linear-gradient(135deg, rgba(255,234,167,0.3), rgba(255,218,185,0.2)); border-left: 5px solid var(--coral); }
+        .info-box.blue { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(0,206,201,0.1)); border-left: 5px solid var(--blue); }
+
+        .info-box-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Lists */
+        .fancy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fancy-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .fancy-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 800;
+        }
+
+        .fancy-list.pink li::before { color: var(--pink); }
+        .fancy-list.purple li::before { color: var(--purple); }
+        .fancy-list.coral li::before { color: var(--coral); }
+        .fancy-list.blue li::before { color: var(--blue); }
+
+        /* Memory Tricks */
+        .memory-trick {
+            background: linear-gradient(135deg, var(--yellow), var(--peach));
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .memory-trick::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .memory-trick-title {
+            font-family: 'Fredoka One', cursive;
+            color: var(--dark);
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        /* Red Flag Box */
+        .red-flag {
+            background: linear-gradient(135deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .red-flag-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .compare-table th {
+            padding: 15px;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+        }
+
+        .compare-table th:first-child { background: var(--teal); }
+        .compare-table th:nth-child(2) { background: var(--pink); }
+        .compare-table th:nth-child(3) { background: var(--purple); }
+
+        .compare-table td {
+            padding: 12px 15px;
+            background: white;
+            border-bottom: 1px solid #dfe6e9;
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Quiz Section */
+        .quiz-card {
+            background: linear-gradient(135deg, var(--mint), var(--teal));
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .quiz-question {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.9);
+            color: var(--dark);
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: white;
+        }
+
+        .quiz-option.correct {
+            background: var(--mint);
+            color: white;
+            border-color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #ff7675;
+            color: white;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
+            display: none;
+        }
+
+        /* Flashcard */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            min-height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 200px;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--teal), var(--mint));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .flashcard-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+        }
+
+        .flashcard-hint {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        /* Terms Grid */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .term-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .term-name {
+            font-family: 'Fredoka One', cursive;
+            color: var(--purple);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .term-def {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+            display: none;
+        }
+
+        .term-card.show .term-def {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .term-hint {
+            font-size: 0.8rem;
+            color: var(--teal);
+            font-weight: 700;
+        }
+
+        .term-card.show .term-hint {
+            display: none;
+        }
+
+        /* Search Box */
+        .search-box {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 3px solid var(--purple);
+            font-size: 1rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--teal);
+            box-shadow: 0 5px 20px rgba(0,206,201,0.3);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(255,255,255,0.3);
+            border-radius: 50px;
+            padding: 5px;
+            margin: 20px 0;
+        }
+
+        .progress-bar {
+            height: 20px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--mint), var(--teal), var(--blue));
+            width: 0%;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-pills {
+                flex-direction: column;
+            }
+            
+            .nav-pill {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Icon backgrounds */
+        .icon-pink { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+        .icon-teal { background: linear-gradient(135deg, var(--teal), var(--mint)); }
+        .icon-purple { background: linear-gradient(135deg, var(--purple), var(--lavender)); }
+        .icon-yellow { background: linear-gradient(135deg, var(--yellow), var(--peach)); }
+        .icon-blue { background: linear-gradient(135deg, var(--blue), var(--teal)); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🫁 Pulmonary Disorders</h1>
+            <p>Chapter 29 Interactive Study Guide</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav-title">📚 Jump to a Section</div>
+            <div class="nav-pills">
+                <button class="nav-pill pill-symptoms active" onclick="showSection('symptoms')">😮‍💨 Symptoms & Signs</button>
+                <button class="nav-pill pill-conditions" onclick="showSection('conditions')">⚡ Conditions</button>
+                <button class="nav-pill pill-chest" onclick="showSection('chest')">🦴 Chest & Pleural</button>
+                <button class="nav-pill pill-restrictive" onclick="showSection('restrictive')">🔒 Restrictive</button>
+                <button class="nav-pill pill-obstructive" onclick="showSection('obstructive')">💨 Obstructive</button>
+                <button class="nav-pill pill-infections" onclick="showSection('infections')">🦠 Infections</button>
+                <button class="nav-pill pill-vascular" onclick="showSection('vascular')">🩸 Vascular</button>
+                <button class="nav-pill pill-cancer" onclick="showSection('cancer')">🎗️ Malignancies</button>
+                <button class="nav-pill pill-terms" onclick="showSection('terms')">📖 Key Terms</button>
+            </div>
+        </div>
+
+        <!-- SYMPTOMS SECTION -->
+        <div id="symptoms" class="section active">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">😮‍💨</div>
+                    <div>
+                        <div class="card-title">Dyspnea</div>
+                        <div class="card-subtitle">The #1 Most Common Symptom!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">📌 Definition</div>
+                        Subjective sensation of difficult or uncomfortable breathing - "air hunger"
+                    </div>
+                    
+                    <div class="info-box teal">
+                        <div class="info-box-title">🧠 Mechanisms</div>
+                        <ul class="fancy-list">
+                            <li>CNS respiratory centers</li>
+                            <li>Chemoreceptors (central & peripheral)</li>
+                            <li>Lung sensory receptors</li>
+                            <li>Chest wall mechanoreceptors</li>
+                            <li>Psychological influences</li>
+                        </ul>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Memory Trick: Types of Dyspnea</div>
+                        <strong>D.O.P.</strong> = <strong>D</strong>OE (exertion) → <strong>O</strong>rthopnea (lying flat) → <strong>P</strong>ND (nighttime)<br>
+                        They progress in severity! DOE is the EARLIEST sign!
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>When?</th>
+                            <th>Why?</th>
+                        </tr>
+                        <tr>
+                            <td>DOE</td>
+                            <td>With activity</td>
+                            <td>Earliest sign!</td>
+                        </tr>
+                        <tr>
+                            <td>Orthopnea</td>
+                            <td>Lying flat</td>
+                            <td>↑ pulmonary blood volume</td>
+                        </tr>
+                        <tr>
+                            <td>PND</td>
+                            <td>Sleep → wakes up</td>
+                            <td>Delayed orthopnea</td>
+                        </tr>
+                    </table>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 RED FLAGS - Severe Dyspnea</div>
+                        <ul class="fancy-list" style="color: white;">
+                            <li>Accessory muscle use</li>
+                            <li>Tripod positioning</li>
+                            <li>Nasal flaring</li>
+                            <li>Retractions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">😷</div>
+                    <div>
+                        <div class="card-title">Cough</div>
+                        <div class="card-subtitle">Protective Reflex Extraordinaire</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ The Cough Sequence</div>
+                        1️⃣ Inspiration → 2️⃣ Glottis closes → 3️⃣ Forceful muscle contraction → 4️⃣ Glottis opens → 💨 BOOM!
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Acute (&lt;3 weeks)</th>
+                            <th>Chronic (&gt;8 weeks)</th>
+                            <th>Treatments</th>
+                        </tr>
+                        <tr>
+                            <td>URIs, pneumonia</td>
+                            <td>Postnasal drip</td>
+                            <td>Central: Dextromethorphan</td>
+                        </tr>
+                        <tr>
+                            <td>CHF</td>
+                            <td>Asthma</td>
+                            <td>Peripheral: Benzonatate</td>
+                        </tr>
+                        <tr>
+                            <td>Aspiration</td>
+                            <td>GERD, ACE inhibitors</td>
+                            <td>Refractory: Opioids</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🩸</div>
+                    <div>
+                        <div class="card-title">Hemoptysis & Sputum</div>
+                        <div class="card-subtitle">What Your Lungs Are Telling You</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">🎨 Sputum Color Guide</div>
+                        <ul class="fancy-list purple">
+                            <li><strong>Clear/foamy</strong> → Pulmonary edema</li>
+                            <li><strong>Yellow/green (purulent)</strong> → Infection</li>
+                            <li><strong>Bloody</strong> → Hemoptysis</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩸 Hemoptysis = Coughing up BLOOD</div>
+                        <strong>Top Causes:</strong> Lung cancer, Bronchiectasis, PE, Pneumonia
+                        <br><br>
+                        <strong>Key:</strong> Differentiate from hematemesis (vomiting blood from GI!)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">💙</div>
+                    <div>
+                        <div class="card-title">Cyanosis & Clubbing</div>
+                        <div class="card-subtitle">Visual Signs of Hypoxemia</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Location</th>
+                            <th>Cause</th>
+                        </tr>
+                        <tr>
+                            <td>Peripheral Cyanosis</td>
+                            <td>Fingers, toes</td>
+                            <td>↓ circulation (cold, HF)</td>
+                        </tr>
+                        <tr>
+                            <td>Central Cyanosis</td>
+                            <td>Lips, tongue</td>
+                            <td>↑ deoxygenated Hgb (hypoxemia)</td>
+                        </tr>
+                    </table>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Important!</div>
+                        Cyanosis appears LATE - unreliable indicator!<br>
+                        Anemia & CO poisoning → hypoxia WITHOUT cyanosis!
+                    </div>
+
+                    <div class="info-box blue">
+                        <div class="info-box-title">🖐️ Clubbing</div>
+                        <strong>What:</strong> Bulbous enlargement of distal digits<br>
+                        <strong>Causes:</strong> Lung cancer (#1), Chronic hypoxemia, CF, CHD<br>
+                        <strong>Mechanism:</strong> PDGF & VEGF → connective tissue growth
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">🌊</div>
+                    <div>
+                        <div class="card-title">Breathing Patterns</div>
+                        <div class="card-subtitle">From Normal to Not-So-Normal</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">✅ Normal (Eupnea)</div>
+                        RR: 8-16/min | VT: 400-800 mL | Effortless & rhythmic
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Pattern</th>
+                            <th>Description</th>
+                            <th>Think...</th>
+                        </tr>
+                        <tr>
+                            <td>Kussmaul</td>
+                            <td>Deep, rapid</td>
+                            <td>Metabolic acidosis (DKA!)</td>
+                        </tr>
+                        <tr>
+                            <td>Cheyne-Stokes</td>
+                            <td>Cyclic apnea/hyperpnea</td>
+                            <td>↓ brainstem perfusion</td>
+                        </tr>
+                        <tr>
+                            <td>Gasping</td>
+                            <td>Irregular, desperate</td>
+                            <td>Shock, cerebral hypoxia</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Hypo vs Hyper - ventilation</div>
+                        <strong>HYPO</strong>ventilation = ↓ breathing = ↑ CO₂ = <span style="color: var(--coral);">Respiratory ACIDOSIS</span><br>
+                        <strong>HYPER</strong>ventilation = ↑ breathing = ↓ CO₂ = <span style="color: var(--teal);">Respiratory ALKALOSIS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONDITIONS SECTION -->
+        <div id="conditions" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">📈</div>
+                    <div>
+                        <div class="card-title">Hypercapnia</div>
+                        <div class="card-subtitle">Too Much CO₂!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">📊 Definition</div>
+                        PaCO₂ &gt;44 mm Hg → Respiratory ACIDOSIS
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🎯 Causes</div>
+                        <ul class="fancy-list purple">
+                            <li>↓ respiratory drive (drugs, CNS injury)</li>
+                            <li>Neuromuscular disease</li>
+                            <li>Chest wall abnormalities</li>
+                            <li>Airway obstruction (sleep apnea, tumors)</li>
+                            <li>↑ dead space (emphysema)</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚡ Effects</div>
+                        Cerebral vasodilation → Somnolence/Coma<br>
+                        Dysrhythmias<br>
+                        Secondary hypoxemia
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">📉</div>
+                    <div>
+                        <div class="card-title">Hypoxemia</div>
+                        <div class="card-subtitle">Not Enough O₂!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">📊 Definition</div>
+                        ↓ PaO₂ (arterial oxygen)
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">The 4 Mechanisms of Hypoxemia</div>
+                        1️⃣ ↓ Alveolar O₂ (↓ FiO₂, hypoventilation)<br>
+                        2️⃣ Diffusion impairment<br>
+                        3️⃣ <strong style="color: var(--pink);">V/Q MISMATCH - MOST COMMON! ⭐</strong><br>
+                        4️⃣ ↓ Pulmonary perfusion (shunts)
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Low V/Q</th>
+                            <th>High V/Q</th>
+                            <th>Compensation</th>
+                        </tr>
+                        <tr>
+                            <td>= Shunting</td>
+                            <td>= Dead space</td>
+                            <td>Hypoxic vasoconstriction</td>
+                        </tr>
+                        <tr>
+                            <td>Edema, Atelectasis</td>
+                            <td>PE, Emphysema</td>
+                            <td>Can → Pulmonary HTN!</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🚨</div>
+                    <div>
+                        <div class="card-title">Acute Respiratory Failure</div>
+                        <div class="card-subtitle">Emergency Time!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="red-flag">
+                        <div class="red-flag-title">📋 Diagnostic Criteria</div>
+                        • PaO₂ ≤60 mm Hg<br>
+                        • PaCO₂ ≥50 mm Hg with pH ≤7.25
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Problem</th>
+                            <th>Notes</th>
+                        </tr>
+                        <tr>
+                            <td>Hypoxemic</td>
+                            <td>↓ O₂</td>
+                            <td>Type I</td>
+                        </tr>
+                        <tr>
+                            <td>Hypercapnic</td>
+                            <td>↑ CO₂</td>
+                            <td>Type II</td>
+                        </tr>
+                        <tr>
+                            <td>Mixed</td>
+                            <td>Both!</td>
+                            <td>MOST COMMON ⭐</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box blue">
+                        <div class="info-box-title">🏥 Management</div>
+                        <ul class="fancy-list blue">
+                            <li>Oxygen therapy</li>
+                            <li>Ventilatory support</li>
+                            <li>Prevent complications (atelectasis, pneumonia)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHEST & PLEURAL SECTION -->
+        <div id="chest" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">💨</div>
+                    <div>
+                        <div class="card-title">Pneumothorax</div>
+                        <div class="card-subtitle">Air Where It Shouldn't Be!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">📌 Definition</div>
+                        Air in pleural space → Lung collapse!
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Cause</th>
+                            <th>Features</th>
+                        </tr>
+                        <tr>
+                            <td>Primary Spontaneous</td>
+                            <td>Blebs rupture</td>
+                            <td>Young, tall, thin males</td>
+                        </tr>
+                        <tr>
+                            <td>Secondary Spontaneous</td>
+                            <td>Lung disease</td>
+                            <td>COPD patients</td>
+                        </tr>
+                        <tr>
+                            <td>Traumatic/Iatrogenic</td>
+                            <td>Injury/procedures</td>
+                            <td>Post-line placement</td>
+                        </tr>
+                    </table>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🆘 TENSION PNEUMOTHORAX = EMERGENCY!</div>
+                        <strong>One-way valve:</strong> Air IN but can't get OUT<br>
+                        → Mediastinal shift<br>
+                        → Severe hypoxemia + HYPOTENSION<br>
+                        <br>
+                        <strong>Tx:</strong> Immediate needle decompression → Chest tube
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • Chest tube drainage<br>
+                        • Pleurodesis if recurrent
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">💧</div>
+                    <div>
+                        <div class="card-title">Pleural Effusion</div>
+                        <div class="card-subtitle">Fluid in the Pleural Space</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Cause</th>
+                            <th>Characteristics</th>
+                        </tr>
+                        <tr>
+                            <td>Transudative</td>
+                            <td>CHF, Cirrhosis</td>
+                            <td>Low protein, low cells</td>
+                        </tr>
+                        <tr>
+                            <td>Exudative</td>
+                            <td>Infection, Cancer</td>
+                            <td>High protein, high cells</td>
+                        </tr>
+                        <tr>
+                            <td>Empyema</td>
+                            <td>Infected effusion</td>
+                            <td>PUS in pleural space!</td>
+                        </tr>
+                        <tr>
+                            <td>Hemothorax</td>
+                            <td>Trauma, Surgery</td>
+                            <td>BLOOD in pleural space</td>
+                        </tr>
+                        <tr>
+                            <td>Chylothorax</td>
+                            <td>Thoracic duct injury</td>
+                            <td>Milky lymphatic fluid</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Signs & Symptoms</div>
+                        <ul class="fancy-list pink">
+                            <li>Dyspnea</li>
+                            <li>Dullness to percussion</li>
+                            <li>↓ breath sounds</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • Treat underlying cause<br>
+                        • Thoracentesis or chest tube if large
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">🦴</div>
+                    <div>
+                        <div class="card-title">Chest Wall Restriction</div>
+                        <div class="card-subtitle">When the Cage Can't Expand</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box yellow">
+                        <div class="info-box-title">⚙️ Effect</div>
+                        ↓ Tidal volume → Hypoventilation
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🎯 Causes</div>
+                        <ul class="fancy-list purple">
+                            <li>Kyphoscoliosis</li>
+                            <li>Ankylosing spondylitis</li>
+                            <li>Flail chest (paradoxical movement!)</li>
+                            <li>Neuromuscular disease</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">💊 Management</div>
+                        • ↓ FVC on PFTs<br>
+                        • Treat cause, pain control<br>
+                        • Incentive spirometry<br>
+                        • Ventilation if severe
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RESTRICTIVE SECTION -->
+        <div id="restrictive" class="section">
+            <div class="info-box yellow" style="margin-bottom: 20px;">
+                <div class="info-box-title">🔒 What is Restrictive Disease?</div>
+                <strong>STIFF LUNGS</strong> that can't expand properly!<br>
+                ↓ Lung compliance → ↓ Total lung capacity
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-coral">🍽️</div>
+                    <div>
+                        <div class="card-title">Aspiration</div>
+                        <div class="card-subtitle">Wrong Pipe!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">📌 Key Points</div>
+                        • Gastric or oral contents enter lungs<br>
+                        • → Pneumonitis or pneumonia<br>
+                        • <strong>Right lower lobe</strong> most affected (it's more vertical!)
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🛡️ Prevention</div>
+                        <ul class="fancy-list">
+                            <li>Semi-recumbent positioning</li>
+                            <li>Swallow evaluation</li>
+                            <li>Oral hygiene</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🎈</div>
+                    <div>
+                        <div class="card-title">Atelectasis</div>
+                        <div class="card-subtitle">Collapsed Alveoli</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">📌 Definition</div>
+                        Collapse of alveoli/lung tissue → V/Q mismatch → HYPOXEMIA
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Mechanism</th>
+                            <th>Example</th>
+                        </tr>
+                        <tr>
+                            <td>Obstructive</td>
+                            <td>Airway blocked</td>
+                            <td>Mucus plug, tumor</td>
+                        </tr>
+                        <tr>
+                            <td>Compression</td>
+                            <td>External pressure</td>
+                            <td>Effusion, tumor</td>
+                        </tr>
+                        <tr>
+                            <td>Surfactant impairment</td>
+                            <td>↓ surfactant</td>
+                            <td>ARDS, RDS</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🛡️ Prevention</div>
+                        <ul class="fancy-list">
+                            <li>Incentive spirometry</li>
+                            <li>Early ambulation</li>
+                            <li>Deep breathing exercises</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">🔗</div>
+                    <div>
+                        <div class="card-title">Pulmonary Fibrosis</div>
+                        <div class="card-subtitle">Scarred & Stiff</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box blue">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        <ul class="fancy-list blue">
+                            <li>↓ Diffusion</li>
+                            <li>↓ Compliance</li>
+                            <li>Progressive hypoxemia</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⭐ Idiopathic Pulmonary Fibrosis (IPF)</div>
+                        • "Honeycombing" on CT<br>
+                        • POOR prognosis<br>
+                        • Tx: Antifibrotics (nintedanib, pirfenidone), Transplant
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">💧</div>
+                    <div>
+                        <div class="card-title">Pulmonary Edema & ARDS</div>
+                        <div class="card-subtitle">Fluid Overload!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Cardiogenic</th>
+                            <th>Noncardiogenic (ARDS)</th>
+                        </tr>
+                        <tr>
+                            <td>Cause</td>
+                            <td>Heart failure</td>
+                            <td>Diffuse alveolar injury</td>
+                        </tr>
+                        <tr>
+                            <td>PCWP</td>
+                            <td>HIGH (&gt;18)</td>
+                            <td>Normal</td>
+                        </tr>
+                        <tr>
+                            <td>BNP</td>
+                            <td>Elevated</td>
+                            <td>Normal</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🌊 ARDS Phases</div>
+                        1️⃣ <strong>Exudative</strong> - Injury & inflammation<br>
+                        2️⃣ <strong>Proliferative</strong> - Repair begins<br>
+                        3️⃣ <strong>Fibrotic</strong> - Scarring
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🆘 ARDS Hallmarks</div>
+                        • REFRACTORY HYPOXEMIA (doesn't respond to O₂!)<br>
+                        • ↓ Compliance<br>
+                        • Bilateral infiltrates ("white out" on CXR)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OBSTRUCTIVE SECTION -->
+        <div id="obstructive" class="section">
+            <div class="info-box blue" style="margin-bottom: 20px;">
+                <div class="info-box-title">💨 What is Obstructive Disease?</div>
+                <strong>AIR TRAPPING</strong> - Air can get IN but can't get OUT!<br>
+                ↑ Residual volume → ↑ Total lung capacity
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">😤</div>
+                    <div>
+                        <div class="card-title">Asthma</div>
+                        <div class="card-subtitle">Reversible Obstruction</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box yellow">
+                        <div class="info-box-title">📌 Key Features</div>
+                        • <strong>REVERSIBLE</strong> airflow obstruction<br>
+                        • Type I hypersensitivity<br>
+                        • Bronchial hyperresponsiveness
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🎭 Two-Phase Response</div>
+                        <strong>Early Phase:</strong> Minutes - Bronchoconstriction, histamine release<br>
+                        <strong>Late Phase:</strong> Hours - Inflammation, eosinophils
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🩺 Clinical Features</div>
+                        <ul class="fancy-list">
+                            <li>Wheezing</li>
+                            <li>Dyspnea</li>
+                            <li>Chest tightness</li>
+                            <li>Cough (especially at night)</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🆘 Status Asthmaticus = EMERGENCY!</div>
+                        Severe asthma NOT responding to treatment<br>
+                        <strong>⚠️ SILENT CHEST = OMINOUS SIGN!</strong><br>
+                        (No air movement = imminent respiratory failure)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">🫁</div>
+                    <div>
+                        <div class="card-title">COPD</div>
+                        <div class="card-subtitle">Chronic Obstructive Pulmonary Disease</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">📌 Definition</div>
+                        Progressive, <strong>IRREVERSIBLE</strong> airflow limitation<br>
+                        (vs. Asthma which is reversible!)
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Phenotype</th>
+                            <th>Features</th>
+                            <th>Nickname</th>
+                        </tr>
+                        <tr>
+                            <td>Chronic Bronchitis</td>
+                            <td>Productive cough ≥3mo/yr x 2yrs</td>
+                            <td>"Blue Bloater"</td>
+                        </tr>
+                        <tr>
+                            <td>Emphysema</td>
+                            <td>Alveolar wall destruction, air trapping</td>
+                            <td>"Pink Puffer"</td>
+                        </tr>
+                        <tr>
+                            <td>α1-Antitrypsin Deficiency</td>
+                            <td>Young, lower lobe emphysema</td>
+                            <td>Genetic!</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">COPD Hallmarks</div>
+                        <strong>A.H.H.C.</strong><br>
+                        <strong>A</strong>ir trapping<br>
+                        <strong>H</strong>ypercapnia<br>
+                        <strong>H</strong>ypoxemia<br>
+                        <strong>C</strong>or pulmonale (right heart failure)
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🦠 Bronchiectasis</div>
+                        <strong>Permanent bronchial dilation</strong><br>
+                        • Chronic productive cough<br>
+                        • COPIOUS purulent sputum<br>
+                        • Hemoptysis, Clubbing<br>
+                        <strong>Tx:</strong> Antibiotics, Chest PT, Bronchodilators
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INFECTIONS SECTION -->
+        <div id="infections" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-mint">🦠</div>
+                    <div>
+                        <div class="card-title">Pneumonia</div>
+                        <div class="card-subtitle">Lung Infection Central</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Setting</th>
+                            <th>Common Causes</th>
+                        </tr>
+                        <tr>
+                            <td>CAP</td>
+                            <td>Community</td>
+                            <td>S. pneumoniae, Viruses</td>
+                        </tr>
+                        <tr>
+                            <td>HAP</td>
+                            <td>Hospital ≥48hrs</td>
+                            <td>Resistant organisms</td>
+                        </tr>
+                        <tr>
+                            <td>VAP</td>
+                            <td>Ventilator ≥48hrs</td>
+                            <td>Resistant organisms</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        Alveolar inflammation → Consolidation → V/Q mismatch → Hypoxemia
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>Outpatient CAP:</strong> Macrolides (azithromycin)<br>
+                        <strong>Severe/Hospital:</strong> Broad-spectrum combo
+                    </div>
+
+                    <div class="info-box yellow">
+                        <div class="info-box-title">🛡️ Prevention</div>
+                        <strong>CAP:</strong> Smoking cessation, Pneumococcal vaccine<br>
+                        <strong>HAP:</strong> Head-of-bed elevation, Hand hygiene<br>
+                        <strong>VAP:</strong> VAP bundles, Special ETT tubes
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🍄</div>
+                    <div>
+                        <div class="card-title">Fungal Pneumonia</div>
+                        <div class="card-subtitle">The Immunocompromised Threat</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Immunocompromised</th>
+                            <th>Immunocompetent</th>
+                            <th>Treatment</th>
+                        </tr>
+                        <tr>
+                            <td>Pneumocystis jirovecii</td>
+                            <td>Coccidioidomycosis</td>
+                            <td>Triazoles</td>
+                        </tr>
+                        <tr>
+                            <td>Aspergillus</td>
+                            <td>Blastomycosis</td>
+                            <td>Amphotericin B (severe)</td>
+                        </tr>
+                        <tr>
+                            <td>Candida, Cryptococcus</td>
+                            <td>Histoplasmosis</td>
+                            <td></td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Clinical Features</div>
+                        Fever, Cough, Dyspnea, Night sweats, Weight loss, Fatigue
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🦠</div>
+                    <div>
+                        <div class="card-title">Tuberculosis (TB)</div>
+                        <div class="card-subtitle">The Great Masquerader</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">📊 Stats</div>
+                        • #2 infectious killer worldwide<br>
+                        • 10.6 million cases/year<br>
+                        • ~13 million Americans with LATENT TB
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        Airborne transmission → Macrophages can't kill it →<br>
+                        <strong>GRANULOMA (tubercle) formation</strong> →<br>
+                        Caseation necrosis → LATENT TB →<br>
+                        Can reactivate with immunosuppression!
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Latent TB</th>
+                            <th>Active TB</th>
+                            <th>Testing</th>
+                        </tr>
+                        <tr>
+                            <td>Asymptomatic</td>
+                            <td>Night sweats</td>
+                            <td>PPD (TST)</td>
+                        </tr>
+                        <tr>
+                            <td>Not contagious</td>
+                            <td>Weight loss, Fever</td>
+                            <td>IGRA (preferred!)</td>
+                        </tr>
+                        <tr>
+                            <td>Contained in granulomas</td>
+                            <td>Hemoptysis, Cough</td>
+                            <td>CXR, Sputum culture</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>BCG vaccine:</strong> Only TB vaccine!<br>
+                        <strong>LTBI:</strong> Prophylactic therapy for high-risk<br>
+                        <strong>Active TB:</strong> Respiratory isolation + 4-month regimen
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">🫧</div>
+                    <div>
+                        <div class="card-title">Lung Abscess</div>
+                        <div class="card-subtitle">Pus Pocket in the Lung</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box yellow">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        Aspiration (alcohol, seizures, anesthesia) →<br>
+                        Liquefactive necrosis → Abscess fills with pus →<br>
+                        Drains into bronchus → <strong>CAVITATION</strong>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Classic Presentation</div>
+                        <strong>MALODOROUS SPUTUM!</strong> (Think: smells bad = anaerobes!)<br>
+                        + Fever, Chills, Cough, Pleuritic chest pain
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • Prolonged antibiotics<br>
+                        • Chest physiotherapy<br>
+                        • Bronchoscopy drainage if needed
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VASCULAR SECTION -->
+        <div id="vascular" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🩸</div>
+                    <div>
+                        <div class="card-title">Pulmonary Embolism (PE)</div>
+                        <div class="card-subtitle">Clot in the Lungs!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">📊 Stats</div>
+                        • 370,000 VTE cases/year in US<br>
+                        • High mortality - sudden death common!<br>
+                        • COVID-19 ↑ VTE risk significantly
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Virchow's Triad (Risk Factors)</div>
+                        <strong>S.E.H.</strong><br>
+                        <strong>S</strong>tasis (venous)<br>
+                        <strong>E</strong>ndothelial injury<br>
+                        <strong>H</strong>ypercoagulability
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        Thrombus (usually from DVT) → Lodges in pulmonary vessels →<br>
+                        Releases serotonin, histamine, endothelin →<br>
+                        <strong>Vasoconstriction + V/Q mismatch + Hypoxemia</strong><br>
+                        Massive PE → Shock, RV failure, DEATH
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🩺 Clinical Presentation</div>
+                        • SUDDEN dyspnea<br>
+                        • Pleuritic chest pain<br>
+                        • Tachypnea, Tachycardia<br>
+                        • Anxiety, Hemoptysis<br>
+                        • Syncope (large PE!)
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🔬 Workup</div>
+                        • D-dimer (rule out)<br>
+                        • <strong>CT pulmonary angiography</strong> (gold standard)<br>
+                        • ABGs: Hypoxemia + Respiratory ALKALOSIS<br>
+                        • BNP/Troponin for RV strain
+                    </div>
+
+                    <div class="info-box blue">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <strong>Primary:</strong> Anticoagulation (LMWH, DOACs)<br>
+                        <strong>Severe:</strong> Hospitalize + O₂<br>
+                        <strong>Unstable:</strong> Thrombolytics (tPA) or Thrombectomy<br>
+                        <strong>Contraindications:</strong> IVC filter
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">📈</div>
+                    <div>
+                        <div class="card-title">Pulmonary Hypertension</div>
+                        <div class="card-subtitle">High Pressure in the Lungs</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">📊 Definition</div>
+                        Mean pulmonary artery pressure <strong>&gt;20 mm Hg</strong>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🎯 Causes</div>
+                        <ul class="fancy-list">
+                            <li>PAH (idiopathic, heritable, drugs)</li>
+                            <li><strong>Left heart disease (MOST COMMON!)</strong></li>
+                            <li>Lung disease/hypoxia</li>
+                            <li>Chronic thromboembolic disease</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">⚙️ Pathophysiology</div>
+                        Endothelial dysfunction →<br>
+                        ↑ Vasoconstrictors (endothelin) + ↓ Vasodilators (NO, prostacyclin) →<br>
+                        Vascular remodeling → <strong>RV hypertrophy → RV FAILURE</strong>
+                    </div>
+
+                    <div class="info-box yellow">
+                        <div class="info-box-title">🩺 Clinical Features</div>
+                        Fatigue, DOE, Chest discomfort<br>
+                        Peripheral edema, JVD, <strong>Loud P2</strong>
+                    </div>
+
+                    <div class="info-box blue">
+                        <div class="info-box-title">💊 Treatment</div>
+                        O₂, Diuretics, Anticoagulation<br>
+                        <strong>Vasodilators:</strong> CCBs, Prostacyclins, PDE-5 inhibitors, Endothelin antagonists<br>
+                        <strong>Avoid:</strong> Pregnancy, tobacco, NSAIDs
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">❤️</div>
+                    <div>
+                        <div class="card-title">Cor Pulmonale</div>
+                        <div class="card-subtitle">Right Heart Failure from Lung Disease</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box blue">
+                        <div class="info-box-title">📌 Definition</div>
+                        RV enlargement/failure due to <strong>PULMONARY hypertension</strong><br>
+                        (From chronic lung disease, NOT left heart disease!)
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🩺 Clinical Features</div>
+                        <ul class="fancy-list pink">
+                            <li>Exercise intolerance</li>
+                            <li>JVD</li>
+                            <li>Hepatosplenomegaly</li>
+                            <li>Peripheral edema</li>
+                            <li>Tricuspid regurgitation murmur</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">💊 Treatment</div>
+                        • Reduce pulmonary pressures<br>
+                        • Treat underlying lung disease
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CANCER SECTION -->
+        <div id="cancer" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-lavender">🗣️</div>
+                    <div>
+                        <div class="card-title">Laryngeal Cancer</div>
+                        <div class="card-subtitle">Voice Box Malignancy</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">🎯 Risk Factors</div>
+                        <strong>Smoking + Alcohol</strong> (synergistic!)<br>
+                        HPV types 6 & 11
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⭐ Key Symptom</div>
+                        <strong>PROGRESSIVE HOARSENESS!</strong>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">💊 Treatment</div>
+                        Surgery, Radiation, Chemotherapy<br>
+                        Post-treatment: Speech & swallow therapy
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🫁</div>
+                    <div>
+                        <div class="card-title">Lung Cancer</div>
+                        <div class="card-subtitle">The Big One</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">🎯 Risk Factors</div>
+                        <strong>SMOKING = 80-90% of cases!</strong><br>
+                        Radon, Asbestos, Air pollution, Genetic mutations
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Location</th>
+                            <th>Key Points</th>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="background: var(--teal); color: white; font-weight: 800;">NON-SMALL CELL (80-85%)</td>
+                        </tr>
+                        <tr>
+                            <td>Squamous Cell</td>
+                            <td>Central/Hilar</td>
+                            <td>Strong smoking link, cavitates</td>
+                        </tr>
+                        <tr>
+                            <td>Adenocarcinoma</td>
+                            <td>Peripheral</td>
+                            <td>Most common type, glandular</td>
+                        </tr>
+                        <tr>
+                            <td>Large Cell</td>
+                            <td>Peripheral</td>
+                            <td>Poorly differentiated, aggressive</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="background: var(--purple); color: white; font-weight: 800;">NEUROENDOCRINE</td>
+                        </tr>
+                        <tr>
+                            <td>Small Cell (SCLC)</td>
+                            <td>Central</td>
+                            <td>AGGRESSIVE! Early metastasis, paraneoplastic</td>
+                        </tr>
+                        <tr>
+                            <td>Carcinoid</td>
+                            <td>Central</td>
+                            <td>Slow-growing, better prognosis</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box yellow">
+                        <div class="info-box-title">🩺 Clinical Features</div>
+                        New cough, Dyspnea, Hemoptysis<br>
+                        Weight loss, Bone pain<br>
+                        <strong>Paraneoplastic syndromes</strong> (especially SCLC!)
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🔬 Screening</div>
+                        <strong>LDCT</strong> for ages 50-80 with ≥20 pack-years<br>
+                        CT, PET, Bronchoscopy + biopsy for diagnosis
+                    </div>
+
+                    <div class="info-box blue">
+                        <div class="info-box-title">💊 Treatment</div>
+                        <ul class="fancy-list blue">
+                            <li>Surgery (early NSCLC)</li>
+                            <li>Chemotherapy</li>
+                            <li>Radiation</li>
+                            <li>Immunotherapy</li>
+                            <li>Targeted molecular therapy</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEY TERMS SECTION -->
+        <div id="terms" class="section">
+            <input type="text" class="search-box" placeholder="🔍 Search terms..." oninput="filterTerms(this.value)">
+            
+            <div class="terms-grid" id="termsGrid">
+                <!-- Terms will be dynamically populated -->
+            </div>
+        </div>
+
+        <!-- QUIZ SECTION -->
+        <div style="margin-top: 30px;">
+            <div class="quiz-card">
+                <div class="quiz-question">🎯 Quick Quiz: What is the MOST COMMON mechanism of hypoxemia?</div>
+                <div class="quiz-options" id="quiz1">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) Diffusion impairment</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) V/Q mismatch</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) Hypoventilation</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) Decreased FiO₂</div>
+                </div>
+                <div class="quiz-feedback" id="quiz1-feedback"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <div class="flashcard-label">Term</div>
+                        <div class="flashcard-text">What breathing pattern is seen in metabolic acidosis (like DKA)?</div>
+                        <div class="flashcard-hint">👆 Tap to reveal</div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-label">Answer</div>
+                        <div class="flashcard-text">Kussmaul Respirations!</div>
+                        <div class="flashcard-hint">Deep, rapid breathing to blow off CO₂</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Terms data
+        const terms = [
+            { name: "ARDS", def: "Severe diffuse inflammatory lung injury causing increased capillary permeability, noncardiogenic pulmonary edema, ↓ compliance, and REFRACTORY hypoxemia" },
+            { name: "Atelectasis", def: "Collapse of alveoli/lung tissue causing V/Q mismatch and hypoxemia" },
+            { name: "Asthma", def: "Chronic inflammatory airway disease with bronchial hyperresponsiveness and REVERSIBLE airflow obstruction" },
+            { name: "Bronchiectasis", def: "Permanent abnormal dilation of bronchi due to chronic infection/inflammation" },
+            { name: "COPD", def: "Progressive, largely IRREVERSIBLE airflow limitation from airway/alveolar damage" },
+            { name: "Cor Pulmonale", def: "Right ventricular hypertrophy/failure caused by pulmonary hypertension from chronic lung disease" },
+            { name: "Cyanosis", def: "Bluish discoloration from increased deoxygenated hemoglobin (central) or poor perfusion (peripheral)" },
+            { name: "Dyspnea", def: "Subjective sensation of difficult or uncomfortable breathing" },
+            { name: "Emphysema", def: "COPD phenotype with destruction of alveolar walls and loss of elastic recoil → air trapping" },
+            { name: "Empyema", def: "Infected pleural effusion (PUS in the pleural space)" },
+            { name: "Hemoptysis", def: "Coughing up blood from the respiratory tract" },
+            { name: "Hypercapnia", def: "Elevated PaCO₂ due to hypoventilation → respiratory acidosis" },
+            { name: "Hypoxemia", def: "Low arterial oxygenation (↓ PaO₂)" },
+            { name: "IPF", def: "Progressive fibrotic interstitial lung disease of unknown cause - 'honeycombing' pattern" },
+            { name: "Orthopnea", def: "Dyspnea when lying flat, relieved by sitting up" },
+            { name: "Pleural Effusion", def: "Abnormal accumulation of fluid in the pleural space" },
+            { name: "Pneumonia", def: "Infection of the lung parenchyma causing inflammation and alveolar consolidation" },
+            { name: "Pneumothorax", def: "Air in the pleural space causing lung collapse" },
+            { name: "Pulmonary Embolism", def: "Obstruction of pulmonary arteries by an embolus (usually from DVT)" },
+            { name: "Pulmonary Hypertension", def: "Mean pulmonary artery pressure >20 mm Hg at rest" },
+            { name: "Shunting", def: "Perfusion without ventilation (low V/Q) - blood passes without being oxygenated" },
+            { name: "Status Asthmaticus", def: "Severe, persistent asthma exacerbation not responding to usual therapy - EMERGENCY!" },
+            { name: "Tension Pneumothorax", def: "Life-threatening pneumothorax where air enters but CANNOT escape → mediastinal shift" },
+            { name: "Tuberculosis", def: "Airborne infection by M. tuberculosis; may be latent or active with chronic cough, weight loss, night sweats" },
+            { name: "V/Q Mismatch", def: "The MOST COMMON cause of hypoxemia - ventilation and perfusion not matched" }
+        ];
+
+        // Populate terms grid
+        function populateTerms() {
+            const grid = document.getElementById('termsGrid');
+            grid.innerHTML = terms.map(term => `
+                <div class="term-card" onclick="this.classList.toggle('show')">
+                    <div class="term-name">${term.name}</div>
+                    <div class="term-hint">Tap to reveal definition</div>
+                    <div class="term-def">${term.def}</div>
+                </div>
+            `).join('');
+        }
+
+        // Filter terms
+        function filterTerms(query) {
+            const cards = document.querySelectorAll('.term-card');
+            cards.forEach(card => {
+                const name = card.querySelector('.term-name').textContent.toLowerCase();
+                const def = card.querySelector('.term-def').textContent.toLowerCase();
+                if (name.includes(query.toLowerCase()) || def.includes(query.toLowerCase())) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Show section
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Toggle card
+        function toggleCard(header) {
+            header.parentElement.classList.toggle('expanded');
+        }
+
+        // Check quiz answer
+        function checkAnswer(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz1-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! V/Q mismatch is the most common cause of hypoxemia!' :
+                '❌ Not quite! The answer is V/Q mismatch - it\'s the most common mechanism!';
+        }
+
+        // Initialize
+        populateTerms();
+    </script>
+</body>
+</html>
