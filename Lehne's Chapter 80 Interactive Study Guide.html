@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 80: Drugs for Asthma & COPD Study Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FF6B9D;
+            --coral: #FF8A5B;
+            --teal: #00CEC9;
+            --purple: #A29BFE;
+            --mint: #55EFC4;
+            --yellow: #FFEAA7;
+            --blue: #74B9FF;
+            --lavender: #DDA0DD;
+            --peach: #FFDAB9;
+            --orange: #FF9F43;
+            --green: #26DE81;
+            --red: #FF6B6B;
+            --dark: #2D3436;
+            --light: #FAFAFA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #d299c2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '💊';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: -10px;
+            right: 10px;
+        }
+
+        .header::after {
+            content: '🫁';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            bottom: -10px;
+            left: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            background: linear-gradient(135deg, var(--teal), var(--blue), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            background: linear-gradient(135deg, var(--coral), var(--pink));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        /* Navigation Pills */
+        .nav-container {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .nav-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-pill {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .nav-pill.active {
+            transform: scale(1.05);
+        }
+
+        .pill-compare { background: linear-gradient(135deg, var(--teal), var(--mint)); color: white; }
+        .pill-patho { background: linear-gradient(135deg, var(--pink), var(--coral)); color: white; }
+        .pill-steroids { background: linear-gradient(135deg, var(--purple), var(--lavender)); color: white; }
+        .pill-broncho { background: linear-gradient(135deg, var(--blue), var(--teal)); color: white; }
+        .pill-other { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark); }
+        .pill-acute { background: linear-gradient(135deg, var(--red), var(--coral)); color: white; }
+        .pill-memory { background: linear-gradient(135deg, var(--green), var(--mint)); color: white; }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        .toggle-icon {
+            margin-left: auto;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .card-content {
+            display: none;
+            padding-top: 15px;
+            border-top: 2px dashed #dfe6e9;
+        }
+
+        .card.expanded .card-content {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .info-box.pink { background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(255,138,91,0.1)); border-left: 5px solid var(--pink); }
+        .info-box.teal { background: linear-gradient(135deg, rgba(0,206,201,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--teal); }
+        .info-box.purple { background: linear-gradient(135deg, rgba(162,155,254,0.2), rgba(221,160,221,0.1)); border-left: 5px solid var(--purple); }
+        .info-box.yellow { background: linear-gradient(135deg, rgba(255,234,167,0.3), rgba(255,218,185,0.2)); border-left: 5px solid var(--coral); }
+        .info-box.blue { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(0,206,201,0.1)); border-left: 5px solid var(--blue); }
+        .info-box.green { background: linear-gradient(135deg, rgba(38,222,129,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--green); }
+        .info-box.orange { background: linear-gradient(135deg, rgba(255,159,67,0.2), rgba(255,234,167,0.1)); border-left: 5px solid var(--orange); }
+
+        .info-box-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Lists */
+        .fancy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fancy-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .fancy-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 800;
+        }
+
+        .fancy-list.pink li::before { color: var(--pink); }
+        .fancy-list.purple li::before { color: var(--purple); }
+        .fancy-list.coral li::before { color: var(--coral); }
+        .fancy-list.blue li::before { color: var(--blue); }
+        .fancy-list.green li::before { color: var(--green); }
+
+        /* Memory Tricks */
+        .memory-trick {
+            background: linear-gradient(135deg, var(--yellow), var(--peach));
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .memory-trick::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .memory-trick-title {
+            font-family: 'Fredoka One', cursive;
+            color: var(--dark);
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        /* Red Flag Box */
+        .red-flag {
+            background: linear-gradient(135deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .red-flag-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* NCLEX Tip Box */
+        .nclex-tip {
+            background: linear-gradient(135deg, var(--blue), var(--purple));
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .nclex-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .compare-table th {
+            padding: 15px;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+        }
+
+        .compare-table th:first-child { background: var(--teal); }
+        .compare-table th:nth-child(2) { background: var(--pink); }
+        .compare-table th:nth-child(3) { background: var(--purple); }
+        .compare-table th:nth-child(4) { background: var(--blue); }
+
+        .compare-table td {
+            padding: 12px 15px;
+            background: white;
+            border-bottom: 1px solid #dfe6e9;
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Drug Cards Grid */
+        .drug-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .drug-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--teal);
+            transition: transform 0.3s ease;
+        }
+
+        .drug-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .drug-card:nth-child(2) { border-top-color: var(--pink); }
+        .drug-card:nth-child(3) { border-top-color: var(--purple); }
+        .drug-card:nth-child(4) { border-top-color: var(--orange); }
+        .drug-card:nth-child(5) { border-top-color: var(--blue); }
+        .drug-card:nth-child(6) { border-top-color: var(--green); }
+
+        .drug-name {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .drug-class {
+            background: var(--mint);
+            color: var(--dark);
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        .drug-key {
+            font-weight: 800;
+            color: var(--coral);
+        }
+
+        /* Step Therapy Visual */
+        .step-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .step-1 .step-number { background: var(--mint); }
+        .step-2 .step-number { background: var(--teal); }
+        .step-3 .step-number { background: var(--blue); }
+        .step-4 .step-number { background: var(--purple); }
+        .step-5 .step-number { background: var(--pink); }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-title {
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+
+        /* Memory Hooks Section */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .memory-card {
+            background: linear-gradient(135deg, var(--mint), var(--teal));
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,206,201,0.3);
+        }
+
+        .memory-card:nth-child(2) { background: linear-gradient(135deg, var(--pink), var(--coral)); box-shadow: 0 10px 30px rgba(255,107,157,0.3); }
+        .memory-card:nth-child(3) { background: linear-gradient(135deg, var(--purple), var(--lavender)); box-shadow: 0 10px 30px rgba(162,155,254,0.3); }
+        .memory-card:nth-child(4) { background: linear-gradient(135deg, var(--blue), var(--purple)); box-shadow: 0 10px 30px rgba(116,185,255,0.3); }
+        .memory-card:nth-child(5) { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark); box-shadow: 0 10px 30px rgba(255,159,67,0.3); }
+        .memory-card:nth-child(6) { background: linear-gradient(135deg, var(--green), var(--mint)); box-shadow: 0 10px 30px rgba(38,222,129,0.3); }
+
+        .memory-hook {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .memory-explain {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Quiz Section */
+        .quiz-card {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .quiz-question {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.9);
+            color: var(--dark);
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: white;
+        }
+
+        .quiz-option.correct {
+            background: var(--mint);
+            color: white;
+            border-color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #ff7675;
+            color: white;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
+            display: none;
+        }
+
+        /* Flashcard */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            min-height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 200px;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--teal), var(--blue));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--coral), var(--pink));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .flashcard-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+        }
+
+        .flashcard-hint {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-pills {
+                flex-direction: column;
+            }
+            
+            .nav-pill {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .drug-grid, .memory-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Icon backgrounds */
+        .icon-pink { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+        .icon-teal { background: linear-gradient(135deg, var(--teal), var(--mint)); }
+        .icon-purple { background: linear-gradient(135deg, var(--purple), var(--lavender)); }
+        .icon-yellow { background: linear-gradient(135deg, var(--yellow), var(--peach)); }
+        .icon-blue { background: linear-gradient(135deg, var(--blue), var(--teal)); }
+        .icon-green { background: linear-gradient(135deg, var(--green), var(--mint)); }
+        .icon-orange { background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+        .icon-red { background: linear-gradient(135deg, var(--red), var(--coral)); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>💊 Drugs for Asthma & COPD</h1>
+            <p>Chapter 80 Interactive Study Guide</p>
+            <span class="subtitle">📝 NCLEX & Exam Focused!</span>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav-title">📚 Jump to a Section</div>
+            <div class="nav-pills">
+                <button class="nav-pill pill-compare active" onclick="showSection('compare')">⚖️ Asthma vs COPD</button>
+                <button class="nav-pill pill-patho" onclick="showSection('patho')">🔬 Pathophysiology</button>
+                <button class="nav-pill pill-steroids" onclick="showSection('steroids')">💉 Glucocorticoids</button>
+                <button class="nav-pill pill-broncho" onclick="showSection('broncho')">💨 Bronchodilators</button>
+                <button class="nav-pill pill-other" onclick="showSection('other')">💊 Other Drugs</button>
+                <button class="nav-pill pill-acute" onclick="showSection('acute')">🚨 Acute Management</button>
+                <button class="nav-pill pill-memory" onclick="showSection('memory')">🧠 Memory Hooks</button>
+            </div>
+        </div>
+
+        <!-- ASTHMA VS COPD SECTION -->
+        <div id="compare" class="section active">
+            <div class="card expanded">
+                <div class="card-header">
+                    <div class="card-icon icon-teal">⚖️</div>
+                    <div>
+                        <div class="card-title">Asthma vs COPD - The Big Comparison</div>
+                        <div class="card-subtitle">Know the differences - HIGH YIELD!</div>
+                    </div>
+                </div>
+                <div class="card-content" style="display: block;">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Asthma</th>
+                            <th>COPD</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Reversibility</strong></td>
+                            <td>✅ REVERSIBLE</td>
+                            <td>❌ IRREVERSIBLE</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Inflammation Type</strong></td>
+                            <td>Eosinophilic, IgE-mediated</td>
+                            <td>Neutrophilic, Macrophage-driven</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Structural Change</strong></td>
+                            <td>Minimal early</td>
+                            <td>Permanent alveolar destruction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hyperreactivity</strong></td>
+                            <td><strong>MARKED</strong></td>
+                            <td>Minimal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Steroid Response</strong></td>
+                            <td>✅ EXCELLENT</td>
+                            <td>⚠️ Limited</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Smoking</strong></td>
+                            <td>Trigger, not cause</td>
+                            <td><strong>PRIMARY CAUSE</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Primary Goal</strong></td>
+                            <td>Prevent inflammation & attacks</td>
+                            <td>Reduce symptoms & exacerbations</td>
+                        </tr>
+                    </table>
+
+                    <div class="nclex-tip">
+                        <div class="nclex-title">📋 NCLEX Exam Tip!</div>
+                        <strong>If the stem mentions:</strong><br>
+                        "Child," "Allergy," "Reversible," "Nighttime symptoms" → <strong>ASTHMA</strong><br><br>
+                        "Smoker," "Productive cough," "Air trapping," "Poor exercise tolerance" → <strong>COPD</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">💨</div>
+                    <div>
+                        <div class="card-title">Inhalation Delivery Devices</div>
+                        <div class="card-subtitle">How the drugs get there matters!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Device</th>
+                            <th>Lung Delivery</th>
+                            <th>Key Teaching</th>
+                        </tr>
+                        <tr>
+                            <td><strong>MDI</strong></td>
+                            <td>~10%</td>
+                            <td>SPACER improves delivery!</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DPI</strong></td>
+                            <td>~20%</td>
+                            <td>Requires STRONG inhalation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Respimat</strong></td>
+                            <td>High</td>
+                            <td>Fine mist, no propellant</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nebulizer</strong></td>
+                            <td>HIGHEST</td>
+                            <td>Best for severe attacks</td>
+                        </tr>
+                    </table>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 NCLEX Favorite!</div>
+                        Patient with <strong>arthritis, tremor, or poor coordination</strong> →<br>
+                        <strong>AVOID MDI alone!</strong> Use spacer or nebulizer.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PATHOPHYSIOLOGY SECTION -->
+        <div id="patho" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🔬</div>
+                    <div>
+                        <div class="card-title">Asthma Inflammatory Cascade</div>
+                        <div class="card-subtitle">Step-by-Step - Why the drugs work!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="step-container">
+                        <div class="step-item step-1">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Allergen binds IgE on mast cells</div>
+                                <div class="step-desc">Triggers the whole cascade</div>
+                            </div>
+                        </div>
+                        <div class="step-item step-2">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Mast Cell Degranulation</div>
+                                <div class="step-desc">Releases: Histamine → Bronchoconstriction | Leukotrienes → Edema, Mucus | Prostaglandins → Inflammation</div>
+                            </div>
+                        </div>
+                        <div class="step-item step-3">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Eosinophil Recruitment</div>
+                                <div class="step-desc">More inflammation cells arrive</div>
+                            </div>
+                        </div>
+                        <div class="step-item step-4">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Chronic Inflammation</div>
+                                <div class="step-desc">Mucus plugging → Smooth muscle hypertrophy → Bronchial hyperreactivity</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Drug Tie-In - Where They Work!</div>
+                        <strong>STEROIDS</strong> → Stop steps 3-4 (inflammation & remodeling)<br>
+                        <strong>Leukotriene Modifiers</strong> → Block step 2 (leukotrienes)<br>
+                        <strong>β₂ Agonists</strong> → Reverse bronchospasm only (step 2 effect)<br><br>
+                        <em>This explains why SABAs alone eventually FAIL!</em>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🫁</div>
+                    <div>
+                        <div class="card-title">COPD Pathophysiology</div>
+                        <div class="card-subtitle">Why bronchodilators can't fix it all</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚙️ The Destructive Process</div>
+                        <ul class="fancy-list purple">
+                            <li>Chronic exposure → <strong>Protease > Antiprotease</strong></li>
+                            <li>Loss of elastin → <strong>AIR TRAPPING</strong></li>
+                            <li>↓ Alveolar surface area → <strong>HYPOXEMIA</strong></li>
+                            <li>Hypercapnia develops later</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">📌 Key Concept</div>
+                        Bronchodilators help airflow, BUT...<br>
+                        <strong>Alveoli are DESTROYED → No full reversal possible!</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GLUCOCORTICOIDS SECTION -->
+        <div id="steroids" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">💉</div>
+                    <div>
+                        <div class="card-title">Glucocorticoids - Foundation of Asthma!</div>
+                        <div class="card-subtitle">The MOST important drug class</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Mechanism (How They Work)</div>
+                        <ul class="fancy-list">
+                            <li>↓ Cytokine gene transcription</li>
+                            <li>↓ Eosinophil survival</li>
+                            <li>↓ Vascular permeability</li>
+                            <li><strong>↑ β₂ receptor expression → SABAs work BETTER!</strong></li>
+                        </ul>
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>Inhaled (ICS)</th>
+                            <th>Oral</th>
+                        </tr>
+                        <tr>
+                            <td>Role</td>
+                            <td><strong>FIRST-LINE</strong></td>
+                            <td>Reserved for severe</td>
+                        </tr>
+                        <tr>
+                            <td>Effects</td>
+                            <td>Local</td>
+                            <td>Systemic</td>
+                        </tr>
+                        <tr>
+                            <td>Adrenal Suppression</td>
+                            <td>Low</td>
+                            <td>HIGH</td>
+                        </tr>
+                        <tr>
+                            <td>Usage</td>
+                            <td>Daily control</td>
+                            <td>Short bursts preferred</td>
+                        </tr>
+                    </table>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 Exam Safety Alert!</div>
+                        <strong>Oral steroids = STRESS-DOSE needed during illness/surgery!</strong><br>
+                        Adrenal suppression can cause crisis if stopped abruptly.
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🦷 ICS Side Effects - Teach Patients!</div>
+                        <ul class="fancy-list pink">
+                            <li><strong>Oral candidiasis (thrush)</strong> - RINSE MOUTH after use!</li>
+                            <li>Hoarseness/dysphonia</li>
+                            <li>Use spacer with MDI to reduce oropharyngeal deposition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BRONCHODILATORS SECTION -->
+        <div id="broncho" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">⚡</div>
+                    <div>
+                        <div class="card-title">SABAs (Short-Acting β₂ Agonists)</div>
+                        <div class="card-subtitle">The RESCUE Inhaler - Albuterol!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box blue">
+                        <div class="info-box-title">⚡ Quick Facts</div>
+                        <strong>Onset:</strong> MINUTES!<br>
+                        <strong>Duration:</strong> 3-5 hours<br>
+                        <strong>Use:</strong> PRN (as needed) only
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Mechanism</div>
+                        β₂ stimulation → Bronchial smooth muscle RELAXATION →<br>
+                        <strong>BRONCHODILATION</strong> (opens airways fast!)
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 RED FLAG!</div>
+                        Using SABA <strong>>2 days/week</strong> = <strong>STEP THERAPY UP!</strong><br><br>
+                        This means asthma is NOT controlled!
+                    </div>
+
+                    <div class="info-box orange">
+                        <div class="info-box-title">⚠️ Side Effects</div>
+                        <ul class="fancy-list coral">
+                            <li>Tachycardia</li>
+                            <li>Tremor</li>
+                            <li>Hypokalemia (at high doses)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">🕐</div>
+                    <div>
+                        <div class="card-title">LABAs (Long-Acting β₂ Agonists)</div>
+                        <div class="card-subtitle">Salmeterol, Formoterol - NEVER Alone in Asthma!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚡ Quick Facts</div>
+                        <strong>Duration:</strong> 12-24 hours<br>
+                        <strong>Use:</strong> PREVENTION only - scheduled dosing
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">☠️ BLACK BOX WARNING!</div>
+                        <strong>LABA MONOTHERAPY IN ASTHMA = INCREASED DEATH RISK!</strong><br><br>
+                        NEVER use LABA alone in asthma!<br>
+                        Always combine with ICS (e.g., Advair, Symbicort)
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">✅ COPD Exception</div>
+                        LABA alone IS allowed in COPD!<br>
+                        (Different pathophysiology - not IgE-mediated)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🚫</div>
+                    <div>
+                        <div class="card-title">Anticholinergics (Muscarinic Antagonists)</div>
+                        <div class="card-subtitle">Ipratropium, Tiotropium - Better in COPD!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚙️ Mechanism</div>
+                        Block <strong>PARASYMPATHETIC tone</strong> →<br>
+                        ↓ Bronchoconstriction, ↓ Mucus secretion
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Drug</th>
+                            <th>Type</th>
+                            <th>Key Use</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Ipratropium</strong></td>
+                            <td>SAMA (short-acting)</td>
+                            <td>Acute exacerbations + SABA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tiotropium</strong></td>
+                            <td>LAMA (long-acting)</td>
+                            <td>COPD maintenance</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">📌 Key Points</div>
+                        <ul class="fancy-list">
+                            <li>More effective in <strong>COPD than asthma</strong></li>
+                            <li><strong>ADDITIVE</strong> with β₂ agonists</li>
+                            <li>Side effects: Dry mouth, urinary retention</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">⚠️</div>
+                    <div>
+                        <div class="card-title">Theophylline - Know WHY It's Dangerous!</div>
+                        <div class="card-subtitle">Narrow therapeutic index - Rarely first-line!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box orange">
+                        <div class="info-box-title">⚙️ Mechanism</div>
+                        Phosphodiesterase inhibitor → ↑ cAMP → Bronchodilation
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 NARROW THERAPEUTIC INDEX!</div>
+                        Affected by MANY factors:<br>
+                        <ul class="fancy-list" style="color: white;">
+                            <li>Smoking (↑ metabolism)</li>
+                            <li>Fever</li>
+                            <li>Liver disease</li>
+                            <li>MANY drug interactions!</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">☠️ Toxicity Signs</div>
+                        <strong>SEIZURES + DYSRHYTHMIAS</strong><br>
+                        Also: N/V, insomnia, restlessness<br><br>
+                        <strong>Monitor serum levels!</strong> (5-15 mcg/mL therapeutic)
+                    </div>
+
+                    <div class="nclex-tip">
+                        <div class="nclex-title">📋 NCLEX Pearl</div>
+                        Rarely first-line today due to toxicity risk!<br>
+                        If patient on theophylline has N/V → CHECK LEVEL!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTHER DRUGS SECTION -->
+        <div id="other" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-green">🧬</div>
+                    <div>
+                        <div class="card-title">Leukotriene Modifiers</div>
+                        <div class="card-subtitle">Montelukast (Singulair) - Add-on Therapy</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box green">
+                        <div class="info-box-title">✅ When They're Used</div>
+                        <ul class="fancy-list green">
+                            <li>Cannot tolerate inhaled steroids</li>
+                            <li>Add-on therapy</li>
+                            <li>Asthma + Allergic rhinitis (two birds, one stone!)</li>
+                            <li>Exercise-induced bronchospasm</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">❌ Why They're INFERIOR to ICS</div>
+                        <strong>Target ONE pathway only</strong> (leukotrienes)<br>
+                        vs.<br>
+                        <strong>Steroids target MULTIPLE inflammatory pathways!</strong>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Black Box Concept</div>
+                        <strong>Neuropsychiatric effects:</strong><br>
+                        Mood changes, Agitation, Depression, Suicidal thoughts<br><br>
+                        <strong>→ STOP drug if severe!</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">🛡️</div>
+                    <div>
+                        <div class="card-title">Cromolyn - The "Safest" Drug</div>
+                        <div class="card-subtitle">Mast Cell Stabilizer - Fallen Out of Favor</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box yellow">
+                        <div class="info-box-title">⚙️ Mechanism</div>
+                        Stabilizes mast cells → Prevents degranulation →<br>
+                        ↓ Histamine & leukotriene release
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">❌ Why It's Fallen Out of Favor</div>
+                        <ul class="fancy-list">
+                            <li>Must be taken <strong>BEFORE exposure</strong></li>
+                            <li>Takes <strong>WEEKS</strong> for full effect</li>
+                            <li>No bronchodilation</li>
+                            <li>No rescue ability</li>
+                        </ul>
+                    </div>
+
+                    <div class="nclex-tip">
+                        <div class="nclex-title">📋 Exam Clue!</div>
+                        "Safest asthma drug" or "prophylactic only" → <strong>CROMOLYN</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🧪</div>
+                    <div>
+                        <div class="card-title">Monoclonal Antibodies - Severe Asthma Only!</div>
+                        <div class="card-subtitle">Omalizumab, Dupilumab, etc.</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Phenotype</th>
+                            <th>Drug Class</th>
+                            <th>Target</th>
+                        </tr>
+                        <tr>
+                            <td>Allergic asthma</td>
+                            <td><strong>Omalizumab</strong></td>
+                            <td>Anti-IgE</td>
+                        </tr>
+                        <tr>
+                            <td>Eosinophilic asthma</td>
+                            <td>Mepolizumab, etc.</td>
+                            <td>Anti-IL-5</td>
+                        </tr>
+                        <tr>
+                            <td>Steroid-dependent</td>
+                            <td><strong>Dupilumab</strong></td>
+                            <td>Anti-IL-4/13</td>
+                        </tr>
+                        <tr>
+                            <td>Refractory severe</td>
+                            <td>Tezepelumab</td>
+                            <td>Anti-TSLP</td>
+                        </tr>
+                    </table>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 Always Remember!</div>
+                        <ul class="fancy-list" style="color: white;">
+                            <li>Given <strong>SubQ or IV</strong></li>
+                            <li><strong>NOT rescue</strong> medications!</li>
+                            <li><strong>EXPENSIVE</strong></li>
+                            <li><strong>Observe for ANAPHYLAXIS</strong> after injection!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">🫁</div>
+                    <div>
+                        <div class="card-title">Roflumilast (PDE-4 Inhibitor)</div>
+                        <div class="card-subtitle">COPD Only - NOT for Asthma!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box blue">
+                        <div class="info-box-title">⚙️ Why NOT Asthma?</div>
+                        Targets <strong>NEUTROPHIL inflammation</strong><br>
+                        Asthma is <strong>EOSINOPHILIC</strong><br>
+                        Therefore → <strong>INEFFECTIVE in asthma!</strong>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Avoid In:</div>
+                        <ul class="fancy-list" style="color: white;">
+                            <li><strong>Depression</strong></li>
+                            <li><strong>Weight loss</strong> (causes more weight loss)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACUTE MANAGEMENT SECTION -->
+        <div id="acute" class="section">
+            <div class="card expanded">
+                <div class="card-header">
+                    <div class="card-icon icon-red">🚨</div>
+                    <div>
+                        <div class="card-title">Acute Asthma Exacerbation - Treatment Order!</div>
+                        <div class="card-subtitle">Know WHY this order matters</div>
+                    </div>
+                </div>
+                <div class="card-content" style="display: block;">
+                    <div class="step-container">
+                        <div class="step-item step-1">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">🫁 OXYGEN</div>
+                                <div class="step-desc">Correct hypoxemia FIRST - patient is dying!</div>
+                            </div>
+                        </div>
+                        <div class="step-item step-2">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">⚡ SABA (Albuterol)</div>
+                                <div class="step-desc">Rapid bronchodilation - open the airways!</div>
+                            </div>
+                        </div>
+                        <div class="step-item step-3">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">🚫 IPRATROPIUM</div>
+                                <div class="step-desc">Additive bronchodilation effect with SABA</div>
+                            </div>
+                        </div>
+                        <div class="step-item step-4">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title">💉 SYSTEMIC STEROIDS</div>
+                                <div class="step-desc">Prevent rebound inflammation - takes hours to work!</div>
+                            </div>
+                        </div>
+                        <div class="step-item step-5">
+                            <div class="step-number">5</div>
+                            <div class="step-content">
+                                <div class="step-title">✨ MAGNESIUM SULFATE</div>
+                                <div class="step-desc">Smooth muscle relaxation - for severe/refractory cases</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">🫁</div>
+                    <div>
+                        <div class="card-title">COPD Management - Clinical Logic</div>
+                        <div class="card-subtitle">Different approach than asthma!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">📋 COPD Treatment Order</div>
+                        <ul class="fancy-list">
+                            <li><strong>LABA + LAMA FIRST</strong> (bronchodilators = mainstay!)</li>
+                            <li>Add ICS ONLY if frequent exacerbations</li>
+                            <li>Avoid unnecessary steroids</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 O₂ in COPD - CAREFUL!</div>
+                        Target SpO₂: <strong>88-92%</strong><br><br>
+                        Too much O₂ can suppress hypoxic drive →<br>
+                        <strong>CO₂ retention → Respiratory failure!</strong>
+                    </div>
+
+                    <div class="nclex-tip">
+                        <div class="nclex-title">📋 COPD vs Asthma - Key Difference</div>
+                        <strong>Asthma:</strong> ICS is FOUNDATION<br>
+                        <strong>COPD:</strong> Bronchodilators are FOUNDATION<br><br>
+                        (Steroids have limited use in COPD - mostly for exacerbations)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">📊</div>
+                    <div>
+                        <div class="card-title">Asthma Step Therapy - The Logic</div>
+                        <div class="card-subtitle">Step based on severity, adjust based on control</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">📋 Two Assessment Domains</div>
+                        <strong>1. IMPAIRMENT</strong> = Symptoms NOW (frequency, nighttime, activity limitation)<br>
+                        <strong>2. RISK</strong> = Future exacerbations (history, lung function)
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Exam Pearl!</div>
+                        Patient may have <strong>LOW symptoms but HIGH risk!</strong><br><br>
+                        Example: Well-controlled on meds but history of ICU admission →<br>
+                        Still needs aggressive therapy!
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">📈 Step Up / Step Down Rules</div>
+                        <strong>Step UP if:</strong> Not controlled, using SABA >2 days/week<br>
+                        <strong>Step DOWN if:</strong> Well-controlled for ≥3 months
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEMORY HOOKS SECTION -->
+        <div id="memory" class="section">
+            <h2 style="font-family: 'Fredoka One', cursive; color: var(--dark); text-align: center; margin-bottom: 20px;">🧠 High-Yield Memory Hooks</h2>
+            
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="memory-hook">Asthma = Inflammation</div>
+                    <div class="memory-explain">→ STEROIDS are foundation!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">COPD = Obstruction</div>
+                    <div class="memory-explain">→ BRONCHODILATORS are foundation!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">LABA Alone KILLS Asthmatics</div>
+                    <div class="memory-explain">Black Box Warning! Always combine with ICS</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">SABA Overuse = Failure of Control</div>
+                    <div class="memory-explain">>2 days/week → Step therapy UP!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">ICS ≠ Rescue</div>
+                    <div class="memory-explain">Maintenance only! SABA = rescue</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Systemic Steroids = TAPER</div>
+                    <div class="memory-explain">Never stop abruptly! Adrenal suppression risk</div>
+                </div>
+            </div>
+
+            <!-- Quiz Section -->
+            <div class="quiz-card">
+                <div class="quiz-question">🎯 Quick Quiz: A patient uses their albuterol inhaler 4 days per week. What should the nurse recommend?</div>
+                <div class="quiz-options" id="quiz1">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) Continue current regimen - this is normal</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) Notify provider - may need step-up therapy</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) Switch to LABA monotherapy</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) Discontinue albuterol</div>
+                </div>
+                <div class="quiz-feedback" id="quiz1-feedback"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <div class="flashcard-label">Question</div>
+                        <div class="flashcard-text">Why can LABA never be used alone in asthma?</div>
+                        <div class="flashcard-hint">👆 Tap to reveal</div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-label">Answer</div>
+                        <div class="flashcard-text">BLACK BOX WARNING!</div>
+                        <div class="flashcard-hint">↑ Risk of asthma-related death without ICS. Always combine!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="background: linear-gradient(135deg, var(--teal), var(--mint));">
+                <div class="quiz-question">🎯 Which is the drug of choice for COPD maintenance?</div>
+                <div class="quiz-options" id="quiz2">
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">A) Inhaled corticosteroids</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, true)">B) LABA + LAMA combination</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">C) Montelukast</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">D) Theophylline</div>
+                </div>
+                <div class="quiz-feedback" id="quiz2-feedback"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <div class="flashcard-label">Question</div>
+                        <div class="flashcard-text">Patient on ICS complains of white patches in mouth. What happened?</div>
+                        <div class="flashcard-hint">👆 Tap to reveal</div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-label">Answer</div>
+                        <div class="flashcard-text">Oral Candidiasis (Thrush)!</div>
+                        <div class="flashcard-hint">Teaching: RINSE MOUTH after each ICS use! Use spacer!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combination Therapy Box -->
+            <div class="card" style="margin-top: 20px;">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-green">💊</div>
+                    <div>
+                        <div class="card-title">Common Combination Products</div>
+                        <div class="card-subtitle">Know what's in them!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Brand Name</th>
+                            <th>Components</th>
+                            <th>Use</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Advair</strong></td>
+                            <td>Fluticasone + Salmeterol (ICS + LABA)</td>
+                            <td>Asthma/COPD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Symbicort</strong></td>
+                            <td>Budesonide + Formoterol (ICS + LABA)</td>
+                            <td>Asthma/COPD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Combivent</strong></td>
+                            <td>Albuterol + Ipratropium (SABA + SAMA)</td>
+                            <td>COPD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Anoro</strong></td>
+                            <td>Vilanterol + Umeclidinium (LABA + LAMA)</td>
+                            <td>COPD</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">✅ Why Combinations Work</div>
+                        <strong>ICS + LABA:</strong> Inflammation + Bronchospasm → Better adherence, ↓ exacerbations<br>
+                        <strong>LABA + LAMA:</strong> Different pathways → Bronchi + Bronchioles dilation → Improved airflow
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show section
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Toggle card
+        function toggleCard(header) {
+            header.parentElement.classList.toggle('expanded');
+        }
+
+        // Check quiz answer 1
+        function checkAnswer(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz1-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! Using SABA >2 days/week indicates poor control - need to step up therapy!' :
+                '❌ Not quite! SABA use >2 days/week = poor asthma control → Step up therapy!';
+        }
+
+        // Check quiz answer 2
+        function checkAnswer2(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz2-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! LABA + LAMA is first-line for COPD maintenance. Bronchodilators are the foundation!' :
+                '❌ Not quite! COPD = Obstruction → Bronchodilators (LABA + LAMA) are the foundation!';
+        }
+    </script>
+</body>
+</html>
