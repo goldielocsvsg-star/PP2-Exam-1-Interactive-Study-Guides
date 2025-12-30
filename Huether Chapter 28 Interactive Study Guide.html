@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🫁 Pulmonary System Study Guide - Chapter 28</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --coral: #FF6B6B;
+            --coral-light: #FFE5E5;
+            --teal: #4ECDC4;
+            --teal-light: #E0F7F5;
+            --purple: #A78BFA;
+            --purple-light: #EDE9FE;
+            --yellow: #FBBF24;
+            --yellow-light: #FEF3C7;
+            --blue: #60A5FA;
+            --blue-light: #DBEAFE;
+            --green: #34D399;
+            --green-light: #D1FAE5;
+            --pink: #F472B6;
+            --pink-light: #FCE7F3;
+            --orange: #FB923C;
+            --orange-light: #FFEDD5;
+            --dark: #1F2937;
+            --gray: #6B7280;
+            --light-gray: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, var(--coral), var(--orange), var(--yellow), var(--green), var(--teal), var(--blue), var(--purple), var(--pink));
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.8em;
+            background: linear-gradient(135deg, var(--coral), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: var(--gray);
+            font-weight: 600;
+        }
+
+        .lung-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Navigation */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .nav-btn {
+            background: white;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 8px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .nav-btn.coral { border-left: 4px solid var(--coral); color: var(--coral); }
+        .nav-btn.teal { border-left: 4px solid var(--teal); color: var(--teal); }
+        .nav-btn.purple { border-left: 4px solid var(--purple); color: var(--purple); }
+        .nav-btn.yellow { border-left: 4px solid var(--yellow); color: #B45309; }
+        .nav-btn.blue { border-left: 4px solid var(--blue); color: var(--blue); }
+        .nav-btn.green { border-left: 4px solid var(--green); color: #059669; }
+        .nav-btn.pink { border-left: 4px solid var(--pink); color: var(--pink); }
+        .nav-btn.orange { border-left: 4px solid var(--orange); color: #C2410C; }
+
+        /* Section Cards */
+        .section {
+            background: white;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .section-header {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.3s ease;
+        }
+
+        .section-header:hover {
+            background: var(--light-gray);
+        }
+
+        .section-icon {
+            font-size: 2em;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4em;
+            flex-grow: 1;
+        }
+
+        .section-toggle {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .section.open .section-toggle {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .section.open .section-content {
+            max-height: 10000px;
+        }
+
+        .content-inner {
+            padding: 0 25px 25px;
+        }
+
+        /* Color themes for sections */
+        .section.coral .section-header { border-left: 6px solid var(--coral); }
+        .section.coral .section-icon { background: var(--coral-light); }
+        .section.coral .section-title { color: var(--coral); }
+
+        .section.teal .section-header { border-left: 6px solid var(--teal); }
+        .section.teal .section-icon { background: var(--teal-light); }
+        .section.teal .section-title { color: #0D9488; }
+
+        .section.purple .section-header { border-left: 6px solid var(--purple); }
+        .section.purple .section-icon { background: var(--purple-light); }
+        .section.purple .section-title { color: #7C3AED; }
+
+        .section.yellow .section-header { border-left: 6px solid var(--yellow); }
+        .section.yellow .section-icon { background: var(--yellow-light); }
+        .section.yellow .section-title { color: #B45309; }
+
+        .section.blue .section-header { border-left: 6px solid var(--blue); }
+        .section.blue .section-icon { background: var(--blue-light); }
+        .section.blue .section-title { color: #2563EB; }
+
+        .section.green .section-header { border-left: 6px solid var(--green); }
+        .section.green .section-icon { background: var(--green-light); }
+        .section.green .section-title { color: #059669; }
+
+        .section.pink .section-header { border-left: 6px solid var(--pink); }
+        .section.pink .section-icon { background: var(--pink-light); }
+        .section.pink .section-title { color: #DB2777; }
+
+        .section.orange .section-header { border-left: 6px solid var(--orange); }
+        .section.orange .section-icon { background: var(--orange-light); }
+        .section.orange .section-title { color: #C2410C; }
+
+        /* Info boxes */
+        .info-box {
+            border-radius: 16px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .info-box.highlight {
+            background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+            border-left: 5px solid var(--yellow);
+        }
+
+        .info-box.clinical {
+            background: linear-gradient(135deg, #FFE5E5, #FECACA);
+            border-left: 5px solid var(--coral);
+        }
+
+        .info-box.pearl {
+            background: linear-gradient(135deg, #E0F7F5, #A7F3D0);
+            border-left: 5px solid var(--teal);
+        }
+
+        .info-box.formula {
+            background: linear-gradient(135deg, #EDE9FE, #DDD6FE);
+            border-left: 5px solid var(--purple);
+        }
+
+        .info-box-title {
+            font-weight: 800;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .styled-list li {
+            padding: 10px 15px;
+            margin: 8px 0;
+            background: var(--light-gray);
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .styled-list li::before {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--teal);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.8em;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .numbered-list {
+            counter-reset: item;
+        }
+
+        .numbered-list li::before {
+            content: counter(item);
+            counter-increment: item;
+            background: var(--purple);
+        }
+
+        /* Subsections */
+        .subsection {
+            margin: 20px 0;
+        }
+
+        .subsection h4 {
+            color: var(--dark);
+            font-size: 1.1em;
+            font-weight: 800;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Comparison Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--purple), #8B5CF6);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--light-gray);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Flip Cards */
+        .flip-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .flip-card {
+            height: 200px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .flip-card-front {
+            background: linear-gradient(135deg, var(--blue), #3B82F6);
+            color: white;
+        }
+
+        .flip-card-front h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .flip-card-front .tap-hint {
+            font-size: 0.85em;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        .flip-card-back {
+            background: white;
+            transform: rotateY(180deg);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Memory Aid Cards */
+        .memory-card {
+            background: linear-gradient(135deg, #FEF3C7, #FDE68A);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 3px dashed var(--yellow);
+        }
+
+        .memory-card h4 {
+            font-family: 'Fredoka One', cursive;
+            color: #B45309;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Quiz Section */
+        .quiz-box {
+            background: linear-gradient(135deg, #DBEAFE, #BFDBFE);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .quiz-box h4 {
+            font-family: 'Fredoka One', cursive;
+            color: #1D4ED8;
+            margin-bottom: 15px;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .quiz-question p {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 8px;
+        }
+
+        .quiz-option {
+            padding: 12px 15px;
+            background: var(--light-gray);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--blue);
+            background: var(--blue-light);
+        }
+
+        .quiz-option.correct {
+            background: var(--green-light);
+            border-color: var(--green);
+        }
+
+        .quiz-option.incorrect {
+            background: var(--coral-light);
+            border-color: var(--coral);
+        }
+
+        .quiz-feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+        .quiz-feedback.correct {
+            background: var(--green-light);
+            color: #059669;
+        }
+
+        .quiz-feedback.incorrect {
+            background: var(--coral-light);
+            color: var(--coral);
+        }
+
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Glossary */
+        .glossary-item {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .glossary-item dt {
+            font-weight: 800;
+            color: var(--purple);
+            margin-bottom: 5px;
+        }
+
+        .glossary-item dd {
+            font-size: 0.95em;
+            color: var(--dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section-title {
+                font-size: 1.2em;
+            }
+
+            .nav-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .flip-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--purple);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7C3AED;
+        }
+
+        /* Progress indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--coral), var(--purple));
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Three essential steps */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 5px solid;
+        }
+
+        .step-card.step-1 { border-color: var(--coral); }
+        .step-card.step-2 { border-color: var(--teal); }
+        .step-card.step-3 { border-color: var(--purple); }
+
+        .step-card .step-icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .step-card h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        .step-card.step-1 h4 { color: var(--coral); }
+        .step-card.step-2 h4 { color: var(--teal); }
+        .step-card.step-3 h4 { color: var(--purple); }
+
+        /* Key Terms Search */
+        .search-box {
+            width: 100%;
+            padding: 15px 20px;
+            border: 3px solid var(--purple);
+            border-radius: 12px;
+            font-size: 1em;
+            font-family: 'Nunito', sans-serif;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            box-shadow: 0 0 0 4px var(--purple-light);
+        }
+
+        .term-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="lung-icon">🫁</div>
+            <h1>Pulmonary System Study Guide</h1>
+            <p class="subtitle">Chapter 28: Structure & Function — High-Yield Master Outline</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-grid">
+            <button class="nav-btn coral" onclick="scrollToSection('bigpicture')">🎯 Big Picture</button>
+            <button class="nav-btn teal" onclick="scrollToSection('structures')">🏗️ Structures</button>
+            <button class="nav-btn purple" onclick="scrollToSection('defenses')">🛡️ Defenses</button>
+            <button class="nav-btn yellow" onclick="scrollToSection('airways')">🌬️ Airways</button>
+            <button class="nav-btn blue" onclick="scrollToSection('gasexchange')">💨 Gas Exchange</button>
+            <button class="nav-btn green" onclick="scrollToSection('circulation')">🩸 Circulation</button>
+            <button class="nav-btn pink" onclick="scrollToSection('ventilation')">📊 Ventilation</button>
+            <button class="nav-btn orange" onclick="scrollToSection('keyterms')">📚 Key Terms</button>
+        </nav>
+
+        <!-- Section 1: Big Picture -->
+        <div class="section coral open" id="bigpicture">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🎯</div>
+                <h2 class="section-title">1. Big Picture: What the Pulmonary System Does</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="info-box highlight">
+                        <div class="info-box-title">🌟 Primary Mission</div>
+                        <strong>Exchange gases between environmental air and blood with minimal energy!</strong>
+                    </div>
+
+                    <h3 style="font-family: 'Fredoka One', cursive; color: var(--coral); margin: 20px 0 15px;">The 3 Essential Steps of Gas Exchange</h3>
+                    
+                    <div class="steps-grid">
+                        <div class="step-card step-1">
+                            <div class="step-icon">🌬️</div>
+                            <h4>Ventilation</h4>
+                            <p>Moving air <strong>IN and OUT</strong> of lungs</p>
+                        </div>
+                        <div class="step-card step-2">
+                            <div class="step-icon">↔️</div>
+                            <h4>Diffusion</h4>
+                            <p>Moving gases <strong>between alveoli and blood</strong></p>
+                        </div>
+                        <div class="step-card step-3">
+                            <div class="step-icon">🩸</div>
+                            <h4>Perfusion</h4>
+                            <p>Moving blood through <strong>pulmonary capillaries</strong> to tissues</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box clinical">
+                        <div class="info-box-title">🏥 Clinical Anchor</div>
+                        Problems with ANY step → <strong>impaired oxygenation/CO₂ removal</strong> (hypoxemia and/or hypercapnia)
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 Memory Tip: "VDP"</h4>
+                        <p><strong>V</strong>entilate → <strong>D</strong>iffuse → <strong>P</strong>erfuse<br>
+                        Think: "Very Deep Perfusion" - air goes Very Deep, then blood Perfuses!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2: Structures -->
+        <div class="section teal" id="structures">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🏗️</div>
+                <h2 class="section-title">2. Structures of the Pulmonary System</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="memory-card">
+                        <h4>🧠 Remember: Know the Map!</h4>
+                        <p>Understanding structure = understanding function!</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🫁 Major Components</h4>
+                        <ul class="styled-list">
+                            <li><strong>Lungs</strong> — Right: 3 lobes | Left: 2 lobes (heart takes space!)</li>
+                            <li><strong>Upper airway</strong> — Nasopharynx, oropharynx, related structures</li>
+                            <li><strong>Lower airway</strong> — Larynx → Trachea → Bronchi → Bronchioles</li>
+                            <li><strong>Gas-exchange units</strong> — Respiratory bronchioles → Alveolar ducts → Alveoli</li>
+                            <li><strong>Pulmonary blood vessels</strong> + lymphatics</li>
+                            <li><strong>Diaphragm</strong> + chest wall (thoracic cage)</li>
+                            <li><strong>Pleura & pleural space</strong></li>
+                            <li><strong>Mediastinum</strong> — Space between lungs: heart, great vessels, esophagus</li>
+                        </ul>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>🎯 Quick Trick: "3-2 Rule"</h4>
+                        <p>Right lung = <strong>3</strong> lobes | Left lung = <strong>2</strong> lobes<br>
+                        <em>Left has Less because the heart Lives there!</em></p>
+                    </div>
+
+                    <div class="quiz-box">
+                        <h4>🧪 Quick Check!</h4>
+                        <div class="quiz-question">
+                            <p>How many lobes does the right lung have?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">2 lobes</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, true)">3 lobes</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">4 lobes</div>
+                            </div>
+                            <div class="quiz-feedback">Great job! Right = 3, Left = 2</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 3: Defenses -->
+        <div class="section purple" id="defenses">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🛡️</div>
+                <h2 class="section-title">3. Pulmonary Defenses (Why Lungs Stay "Clean")</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="info-box highlight">
+                        <div class="info-box-title">🎯 Goal</div>
+                        <strong>Warm, humidify, trap, neutralize, and remove invaders</strong> before they reach alveoli!
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔑 Key Defense Mechanisms (HIGH YIELD!)</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Defense</th>
+                                <th>Function</th>
+                            </tr>
+                            <tr>
+                                <td>🔸 Upper respiratory mucosa / nasal hairs / turbinates</td>
+                                <td>Trap particles + humidify/heat air</td>
+                            </tr>
+                            <tr>
+                                <td>🔸 Mucous blanket</td>
+                                <td>Protective gel that traps pathogens/irritants</td>
+                            </tr>
+                            <tr>
+                                <td>🔸 Cilia</td>
+                                <td>Move mucus upward toward pharynx <strong>("Mucociliary Escalator")</strong></td>
+                            </tr>
+                            <tr>
+                                <td>🔸 Cough & sneeze reflexes</td>
+                                <td>Triggered by irritant receptors</td>
+                            </tr>
+                            <tr>
+                                <td>🔸 Surfactant</td>
+                                <td>Helps immune defense in alveoli + dampens inflammation</td>
+                            </tr>
+                            <tr>
+                                <td>🔸 Macrophages (alveolar + interstitial)</td>
+                                <td>Phagocytosis + cytokines + antigen presentation</td>
+                            </tr>
+                            <tr>
+                                <td>🔸 Innate immune proteins</td>
+                                <td>Lysozyme, lactoferrin, defensins, SP-A/D, IgA</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>🎢 The Mucociliary Escalator</h4>
+                        <p>Think of it like an <strong>escalator at the mall</strong> — cilia are the moving steps constantly pushing mucus (with trapped junk) UP and OUT! 🛗</p>
+                    </div>
+
+                    <div class="info-box clinical">
+                        <div class="info-box-title">🏥 Clinical Anchor</div>
+                        Impaired cilia/mucus clearance → infections, chronic bronchitis, CF, etc.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Conducting Airways -->
+        <div class="section yellow" id="airways">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🌬️</div>
+                <h2 class="section-title">4. Conducting Airways (Air Moves, No Gas Exchange)</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="two-col">
+                        <div class="subsection">
+                            <h4>👃 Upper Airway</h4>
+                            <ul class="styled-list">
+                                <li><strong>Nasopharynx & oropharynx:</strong> Lined with ciliated mucosa → warms/humidifies/filters air</li>
+                                <li><strong>Mouth breathing:</strong> Used if nose obstructed or high demand (exercise) but LESS filtering/humidifying</li>
+                            </ul>
+                        </div>
+
+                        <div class="subsection">
+                            <h4>🎤 Larynx (Gateway + Aspiration Prevention)</h4>
+                            <ul class="styled-list">
+                                <li>False vocal cords (supraglottis)</li>
+                                <li>True vocal cords with glottis between</li>
+                                <li>Vestibule above false cords</li>
+                                <li>Cartilage support prevents collapse</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="info-box pearl">
+                        <div class="info-box-title">💎 Swallow Protection</div>
+                        Coordinated closure of cords + vestibule + epiglottis prevents aspiration!
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔧 Laryngeal Muscles</h4>
+                        <div class="two-col">
+                            <div class="info-box formula">
+                                <strong>Internal laryngeal muscles:</strong><br>
+                                Tension/length of cords; close during swallowing
+                            </div>
+                            <div class="info-box formula">
+                                <strong>External muscles:</strong><br>
+                                Move larynx overall
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🌳 Trachea → Bronchi</h4>
+                        <ul class="styled-list">
+                            <li><strong>Trachea:</strong> C-shaped cartilage rings keep airway open</li>
+                            <li>Splits at <strong>carina</strong> → right & left main bronchi</li>
+                            <li>Bronchi enter lungs at <strong>hila</strong> with blood & lymph vessels</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🧱 Bronchial Wall — 3 Layers</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Layer</th>
+                                <th>Key Components</th>
+                            </tr>
+                            <tr>
+                                <td>1️⃣ Epithelial (mucosal) lining</td>
+                                <td>Goblet cells, ciliated columnar cells, club cells, basal cells, neuroendocrine cells</td>
+                            </tr>
+                            <tr>
+                                <td>2️⃣ Submucosal layer (lamina propria)</td>
+                                <td>Smooth muscle, submucosal glands, autonomic innervation</td>
+                            </tr>
+                            <tr>
+                                <td>3️⃣ Outer cartilaginous layer</td>
+                                <td>Structural support</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="flip-cards-grid">
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Goblet Cells</h4>
+                                    <p>🍷</p>
+                                    <span class="tap-hint">Tap to flip!</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Secrete <strong>mucins</strong> (MUC5B, MUC5AC) → form mucus gel barrier that traps pathogens!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Ciliated Columnar Cells</h4>
+                                    <p>🌊</p>
+                                    <span class="tap-hint">Tap to flip!</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Beat mucus <strong>upward</strong> toward pharynx — the "mucociliary escalator" for clearance!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Club Cells</h4>
+                                    <p>⭐</p>
+                                    <span class="tap-hint">Tap to flip!</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p>Secrete <strong>immune molecules</strong> + protective surfactant-type proteins!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <h4>Basal Cells</h4>
+                                    <p>🔄</p>
+                                    <span class="tap-hint">Tap to flip!</span>
+                                </div>
+                                <div class="flip-card-back">
+                                    <p><strong>Regenerate</strong> new ciliated cells — the stem cells of the airway!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box highlight">
+                        <div class="info-box-title">⚡ Lamina Propria - HIGH YIELD</div>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li><strong>Smooth muscle:</strong> Increases as airways get smaller; GREATEST at terminal bronchiole</li>
+                            <li><strong>Submucosal glands:</strong> Secrete mucins (MUC5B) — important in CF pathology</li>
+                            <li><strong>Parasympathetic (vagus):</strong> Bronchoconstriction + ↑ secretions</li>
+                            <li><strong>Sympathetic:</strong> Bronchodilation</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box clinical">
+                        <div class="info-box-title">🏥 Clinical Anchor</div>
+                        Asthma meds often <strong>block parasympathetic</strong> and/or <strong>stimulate sympathetic (β-agonists)</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 5: Gas Exchange Airways -->
+        <div class="section blue" id="gasexchange">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">💨</div>
+                <h2 class="section-title">5-6. Gas-Exchange Airways (Where O₂/CO₂ Actually Swap)</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="subsection">
+                        <h4>🫧 The Acinus (Gas Exchange Region)</h4>
+                        <div class="info-box formula">
+                            <div class="info-box-title">📐 Conducting Airways End Here →</div>
+                            <p style="font-size: 1.1em; margin-top: 10px;">
+                                <strong>Respiratory Bronchioles</strong> → <strong>Alveolar Ducts</strong> → <strong>Alveoli</strong><br>
+                                <em>= The ACINUS (collectively)</em>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔴 Alveoli Essentials</h4>
+                        <div class="info-box highlight">
+                            <div class="info-box-title">📊 Numbers to Know</div>
+                            ~25 million at birth → <strong>~300 million in adulthood</strong>
+                        </div>
+
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Cell Type</th>
+                                <th>Function</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Type I Alveolar Cells</strong></td>
+                                <td>Thin structure, prevent fluid leakage into alveoli</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Type II Alveolar Cells</strong></td>
+                                <td>Make surfactant + repair epithelium + help fluid/ion transport</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Alveolar Macrophages</strong></td>
+                                <td>First-line defense in alveolar space</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Interstitial Macrophages</strong></td>
+                                <td>Prevent spread into interstitium/capillaries</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 Type I vs Type II</h4>
+                        <p><strong>Type 1</strong> = <strong>1</strong> thin layer (gas exchange)<br>
+                        <strong>Type 2</strong> = <strong>2</strong> jobs (surfactant + repair)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🧴 Surfactant Proteins</h4>
+                        <div class="two-col">
+                            <div class="info-box formula">
+                                <strong>SP-B & SP-C:</strong><br>
+                                Lower surface tension (keep alveoli open!)
+                            </div>
+                            <div class="info-box pearl">
+                                <strong>SP-A & SP-D:</strong><br>
+                                Collectins → innate immune defense
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box pearl">
+                        <div class="info-box-title">💎 Pores of Kohn</div>
+                        Collateral ventilation between alveoli — helps even air distribution!
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔬 Alveolar-Capillary Membrane</h4>
+                        <ul class="styled-list">
+                            <li><strong>Ultra-thin interface</strong> where diffusion occurs</li>
+                            <li>Thickening or fluid in interstitium → <strong>impaired diffusion → hypoxemia</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="quiz-box">
+                        <h4>🧪 Quick Check!</h4>
+                        <div class="quiz-question">
+                            <p>Which cell type produces surfactant?</p>
+                            <div class="quiz-options">
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">Type I Alveolar Cells</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, true)">Type II Alveolar Cells</div>
+                                <div class="quiz-option" onclick="checkAnswer(this, false)">Goblet Cells</div>
+                            </div>
+                            <div class="quiz-feedback">Correct! Type II cells make surfactant AND repair the epithelium.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Circulation -->
+        <div class="section green" id="circulation">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🩸</div>
+                <h2 class="section-title">7-8. Pulmonary vs Bronchial Circulation</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="info-box highlight">
+                        <div class="info-box-title">⚠️ Don't Mix These Up!</div>
+                        Two different circulation systems with different purposes!
+                    </div>
+
+                    <table class="comparison-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>🔵 Pulmonary Circulation</th>
+                            <th>🔴 Bronchial Circulation</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Purpose</strong></td>
+                            <td>GAS EXCHANGE</td>
+                            <td>Support/nutrients (NO gas exchange)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Path</strong></td>
+                            <td>Right heart → pulmonary artery → lungs → pulmonary veins → left heart</td>
+                            <td>Supplies conducting airways, large vessels, lymph nodes, pleura</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pressure</strong></td>
+                            <td>LOW pressure/LOW resistance</td>
+                            <td>Systemic pressure</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Functions</strong></td>
+                            <td>Gas exchange, nutrient delivery, reservoir for LV, filter (clots/air/debris)</td>
+                            <td>Nutritional support only</td>
+                        </tr>
+                    </table>
+
+                    <div class="subsection">
+                        <h4>🧅 Lymphatics</h4>
+                        <ul class="styled-list">
+                            <li>Deep & superficial lymphatics remove fluid + macrophages</li>
+                            <li>Drain through mediastinal nodes</li>
+                            <li><strong>Key role:</strong> Prevent pulmonary edema + support immunity</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚡ Control of Pulmonary Blood Flow</h4>
+                        <div class="info-box clinical">
+                            <div class="info-box-title">🚨 HUGE TEST POINT: Hypoxic Pulmonary Vasoconstriction</div>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Low PAO₂ → pulmonary arteriolar <strong>CONSTRICTION</strong></li>
+                                <li><strong>Purpose:</strong> Shunt blood AWAY from poorly ventilated areas → improve V/Q matching</li>
+                                <li>If widespread hypoxia → global constriction → <strong>pulmonary hypertension</strong></li>
+                                <li>Chronic hypoxia → structural remodeling → permanent pulmonary HTN → <strong>cor pulmonale (right HF)</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>🧠 Remember: "Hypoxia = Constriction in Lungs"</h4>
+                        <p>This is the OPPOSITE of systemic circulation!<br>
+                        <strong>Lungs:</strong> Low O₂ = vasoconstrict (redirect blood)<br>
+                        <strong>Systemic:</strong> Low O₂ = vasodilate (bring more blood)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>💊 Other Vasoconstrictors/Modulators</h4>
+                        <ul class="styled-list">
+                            <li><strong>Acidemia</strong> also constricts pulmonary arteries</li>
+                            <li>Histamine, prostaglandins, serotonin, nitric oxide, bradykinin influence tone</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Chest Wall & Pleura -->
+        <div class="section coral" id="chestwall">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🦴</div>
+                <h2 class="section-title">9. Chest Wall + Pleura (Why Lungs Stay Expanded)</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="two-col">
+                        <div class="subsection">
+                            <h4>🦴 Chest Wall</h4>
+                            <ul class="styled-list">
+                                <li>Protection</li>
+                                <li>Provides muscles for ventilation (intercostals, accessory, abdominal)</li>
+                            </ul>
+                        </div>
+
+                        <div class="subsection">
+                            <h4>📜 Pleura Basics</h4>
+                            <ul class="styled-list">
+                                <li><strong>Visceral pleura:</strong> Covers lungs</li>
+                                <li><strong>Parietal pleura:</strong> Lines thoracic cavity</li>
+                                <li><strong>Pleural space:</strong> Thin fluid layer for lubrication</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="info-box highlight">
+                        <div class="info-box-title">🔑 Key Concept</div>
+                        Normally <strong>NEGATIVE pressure</strong> (subatmospheric) helps keep lungs inflated!
+                    </div>
+
+                    <div class="info-box clinical">
+                        <div class="info-box-title">🏥 Clinical Anchor</div>
+                        Air/fluid entry → loss of negative pressure → <strong>partial collapse</strong><br>
+                        (Think: pneumothorax/effusion)
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💡 Pleura Memory Trick</h4>
+                        <p><strong>V</strong>isceral = <strong>V</strong>elcro on the lung<br>
+                        <strong>P</strong>arietal = <strong>P</strong>laster on the wall</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 8: Ventilation -->
+        <div class="section pink" id="ventilation">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">📊</div>
+                <h2 class="section-title">10. Ventilation (Mechanics + Key Numbers)</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="info-box clinical">
+                        <div class="info-box-title">⚠️ Common Trap!</div>
+                        <strong>Ventilation</strong> = Air movement<br>
+                        <strong>Respiration</strong> = Cellular O₂/CO₂ exchange during metabolism<br>
+                        <em>They're NOT the same!</em>
+                    </div>
+
+                    <div class="info-box formula">
+                        <div class="info-box-title">📐 Minute Ventilation Formula</div>
+                        <p style="font-size: 1.3em; text-align: center; margin: 15px 0;">
+                            <strong>V̇ = RR × V<sub>T</sub></strong>
+                        </p>
+                        <p><strong>Tidal Volume (V<sub>T</sub>):</strong> Air per breath (~500 mL in quiet breathing)</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🚫 Dead Space Ventilation (V<sub>D</sub>)</h4>
+                        <p>Air that <strong>doesn't participate</strong> in gas exchange:</p>
+                        <div class="two-col">
+                            <div class="info-box pearl">
+                                <strong>Anatomic dead space:</strong><br>
+                                Conducting airways
+                            </div>
+                            <div class="info-box pearl">
+                                <strong>Alveolar dead space:</strong><br>
+                                Alveoli not perfused (ventilation without perfusion)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box highlight">
+                        <div class="info-box-title">🩺 CO₂ Removal + Acid-Base</div>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>Lungs remove CO₂ (carbonic acid equivalent) to maintain PaCO₂ ~ <strong>40 mm Hg</strong></li>
+                            <li>Hypoventilation → CO₂ retention → ↑ PaCO₂ (respiratory acidosis)</li>
+                            <li><strong>You can't judge ventilation adequacy by looking → need ABG or capnography!</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Neural Control -->
+        <div class="section purple" id="neuralcontrol">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🧠</div>
+                <h2 class="section-title">11-13. Neurochemical Control of Breathing</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="subsection">
+                        <h4>🧠 Respiratory Center (Medulla + Pons)</h4>
+                        <p>Adjusts RR + V<sub>T</sub> based on chemoreceptors and lung receptor feedback.</p>
+                        
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Component</th>
+                                <th>Function</th>
+                            </tr>
+                            <tr>
+                                <td><strong>DRG</strong> (Dorsal Respiratory Group)</td>
+                                <td>Initiates inspiration; rhythm maintenance; responds to peripheral chemo + lung inputs</td>
+                            </tr>
+                            <tr>
+                                <td><strong>VRG</strong> (Ventral Respiratory Group)</td>
+                                <td>Modulates inspiration & expiration; contains pre-Bötzinger complex (rhythm generator)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pneumotaxic center</strong></td>
+                                <td>Regulates inspiratory volume + switches inspiration → expiration</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Apneustic center</strong></td>
+                                <td>Moderates/inhibits inspiration intensity</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="info-box clinical">
+                        <div class="info-box-title">💊 Clinical Pearl</div>
+                        <strong>Opioids suppress VRG activity → ↓ RR</strong> (classic opioid respiratory depression)
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📡 Lung Receptors (3 Types = TEST GOLD!)</h4>
+                        
+                        <div class="flip-cards-grid">
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front" style="background: linear-gradient(135deg, var(--coral), #EF4444);">
+                                        <h4>Irritant Receptors (C-fibers)</h4>
+                                        <p>😤</p>
+                                        <span class="tap-hint">Tap for details!</span>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p><strong>Location:</strong> Conducting airway epithelium<br>
+                                        <strong>Trigger:</strong> Dust, fumes, gases, particulates<br>
+                                        <strong>Effects:</strong> Cough, bronchoconstriction, ↑ ventilatory rate</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front" style="background: linear-gradient(135deg, var(--green), #10B981);">
+                                        <h4>Stretch Receptors</h4>
+                                        <p>🎈</p>
+                                        <span class="tap-hint">Tap for details!</span>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p><strong>Location:</strong> Airway smooth muscle + chest wall<br>
+                                        <strong>Sense:</strong> Lung inflation<br>
+                                        <strong>Effect:</strong> ↓ rate/volume when stimulated (<strong>Hering-Breuer reflex</strong>)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front" style="background: linear-gradient(135deg, var(--purple), #8B5CF6);">
+                                        <h4>J-Receptors</h4>
+                                        <p>💗</p>
+                                        <span class="tap-hint">Tap for details!</span>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p><strong>Location:</strong> Near alveolar capillaries/septa<br>
+                                        <strong>Trigger:</strong> ↑ pulmonary capillary pressure<br>
+                                        <strong>Effects:</strong> Rapid shallow breathing, hypotension, bradycardia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔬 Chemoreceptors</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Type</th>
+                                <th>Central</th>
+                                <th>Peripheral</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Location</strong></td>
+                                <td>Near respiratory center; sense CSF pH</td>
+                                <td>Carotid bodies & aortic bodies</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Primary Sensitivity</strong></td>
+                                <td>CO₂ (indirectly via H⁺ in CSF)</td>
+                                <td><strong>LOW PaO₂</strong></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Key Point</strong></td>
+                                <td>↑ CO₂ → crosses BBB → forms H⁺ → ↓ pH → ↑ ventilation</td>
+                                <td>Significant stimulation when PaO₂ ~ <strong>60 mm Hg or lower</strong></td>
+                            </tr>
+                        </table>
+
+                        <div class="info-box clinical">
+                            <div class="info-box-title">🏥 COPD Alert</div>
+                            In chronic hypercapnia (e.g., COPD): central receptors can <strong>reset</strong> and become less responsive; kidneys retain HCO₃⁻ which buffers CSF → <strong>peripheral chemoreceptors become dominant ventilatory drive!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Mechanics of Breathing -->
+        <div class="section orange" id="mechanics">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">⚙️</div>
+                <h2 class="section-title">14. Mechanics of Breathing (3 Things Determine Work)</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="subsection">
+                        <h4>💪 A. Muscles</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Phase</th>
+                                <th>Primary Muscles</th>
+                                <th>Accessory Muscles</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Inspiration</strong></td>
+                                <td>Diaphragm + external intercostals</td>
+                                <td>Sternocleidomastoid + scalenes (high demand/disease)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Expiration</strong></td>
+                                <td colspan="2"><strong>Normally PASSIVE!</strong> Accessory: Abdominal + internal intercostals (coughing, obstruction, high V̇)</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🫧 B. Alveolar Surface Tension + Surfactant</h4>
+                        <ul class="styled-list">
+                            <li>Surface tension tends to <strong>collapse alveoli</strong></li>
+                            <li><strong>Law of Laplace:</strong> Smaller radius (end-expiration) needs MORE pressure to inflate → collapse risk</li>
+                            <li><strong>Surfactant</strong> (Type II cells) reduces surface tension → prevents collapse, decreases work of breathing</li>
+                        </ul>
+
+                        <div class="info-box clinical">
+                            <div class="info-box-title">👶 Clinical Application</div>
+                            Lack of surfactant → collapse + severe gas exchange issues<br>
+                            <strong>Classic in preterm infants!</strong>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔄 C. Elastic Recoil + Compliance</h4>
+                        <div class="info-box formula">
+                            <strong>Elastic recoil:</strong> Lung returns to resting state → allows passive expiration<br><br>
+                            <strong>Compliance:</strong> "Stretchiness" (volume change per pressure change)
+                        </div>
+
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Compliance Level</th>
+                                <th>What It Means</th>
+                                <th>Examples</th>
+                            </tr>
+                            <tr>
+                                <td>⬆️ HIGH compliance</td>
+                                <td>Easy to inflate, poor recoil</td>
+                                <td>Emphysema</td>
+                            </tr>
+                            <tr>
+                                <td>⬇️ LOW compliance</td>
+                                <td>Stiff lungs</td>
+                                <td>ARDS, pneumonia, pulmonary edema, fibrosis</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🚧 D. Airway Resistance</h4>
+                        <ul class="styled-list">
+                            <li>Depends on airway radius/length, gas properties</li>
+                            <li><strong>Biggest resistance normally:</strong> Nose (then oropharynx/larynx)</li>
+                            <li>Resistance increases with: mucosal edema, mucus plugging, tumors, foreign bodies</li>
+                            <li>Diffuse ↑ resistance → ↑ work → hypercapnia risk</li>
+                        </ul>
+
+                        <div class="two-col">
+                            <div class="info-box pearl">
+                                <strong>Parasympathetic:</strong><br>
+                                → Bronchoconstriction 🔒
+                            </div>
+                            <div class="info-box pearl">
+                                <strong>Sympathetic:</strong><br>
+                                → Bronchodilation 🔓
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box highlight">
+                        <div class="info-box-title">📈 E. Work of Breathing RISES When:</div>
+                        <ul style="margin-left: 20px; margin-top: 10px;">
+                            <li>↓ lung compliance (pulmonary edema)</li>
+                            <li>↓ chest wall compliance (obesity, spinal deformity)</li>
+                            <li>Airway obstruction (asthma/COPD)</li>
+                        </ul>
+                        <p style="margin-top: 10px;">→ Can cause ↑ O₂ demand + fatigue → hypoventilation → hypercapnia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 11: Gas Transport -->
+        <div class="section teal" id="gastransport">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">🚚</div>
+                <h2 class="section-title">15-20. Gas Transport & The O₂-Hemoglobin Curve</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="subsection">
+                        <h4>🔵 Oxygen Transport (4 Steps)</h4>
+                        <div class="steps-grid">
+                            <div class="step-card step-1">
+                                <div class="step-icon">1️⃣</div>
+                                <h4>Ventilation</h4>
+                            </div>
+                            <div class="step-card step-2">
+                                <div class="step-icon">2️⃣</div>
+                                <h4>O₂ Diffusion</h4>
+                                <p>Alveoli → pulmonary capillary blood</p>
+                            </div>
+                            <div class="step-card step-3">
+                                <div class="step-icon">3️⃣</div>
+                                <h4>Perfusion</h4>
+                                <p>Systemic capillaries</p>
+                            </div>
+                            <div class="step-card step-1">
+                                <div class="step-icon">4️⃣</div>
+                                <h4>O₂ Diffusion</h4>
+                                <p>Capillary → cells</p>
+                            </div>
+                        </div>
+                        <div class="info-box clinical">
+                            <strong>Key concept:</strong> Any failure in steps → cellular hypoxia!
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔴 CO₂ Transport (Reverse!)</h4>
+                        <p>Cells → systemic blood → pulmonary blood → alveoli → exhaled</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📊 PaO₂ vs SaO₂ (DON'T CONFUSE!)</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Measurement</th>
+                                <th>What It Is</th>
+                                <th>How Measured</th>
+                            </tr>
+                            <tr>
+                                <td><strong>PaO₂</strong></td>
+                                <td>Dissolved O₂ pressure in plasma</td>
+                                <td>ABG</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SaO₂</strong></td>
+                                <td>% hemoglobin saturated</td>
+                                <td>Pulse ox</td>
+                            </tr>
+                        </table>
+                        <div class="info-box highlight">
+                            ~97% O₂ binds hemoglobin, ~3% dissolved in plasma<br>
+                            <strong>Low Hgb → low O₂ content even if PaO₂ looks okay!</strong>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>📈 Oxyhemoglobin Dissociation Curve</h4>
+                        <p>The curve shows relation between PaO₂ and SaO₂</p>
+                        
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Shift Direction</th>
+                                <th>➡️ RIGHT SHIFT</th>
+                                <th>⬅️ LEFT SHIFT</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Effect</strong></td>
+                                <td>Easier O₂ release (↓ affinity)</td>
+                                <td>Tighter binding (↑ affinity)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Causes</strong></td>
+                                <td>
+                                    • Acidosis (↓ pH)<br>
+                                    • Hypercapnia (↑ PaCO₂)<br>
+                                    • ↑ Temperature<br>
+                                    • ↑ 2,3-DPG
+                                </td>
+                                <td>
+                                    • Alkalosis<br>
+                                    • Hypocapnia<br>
+                                    • ↓ Temperature<br>
+                                    • ↓ 2,3-DPG
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Clinical</strong></td>
+                                <td>Good for tissues!</td>
+                                <td>Holds O₂ too tightly (less delivered)</td>
+                            </tr>
+                        </table>
+
+                        <div class="memory-card">
+                            <h4>💡 Bohr Effect</h4>
+                            <p>CO₂/H⁺ cause <strong>RIGHT shift</strong> = enhances tissue unloading!<br>
+                            <em>"Working tissues are acidic and warm — they need that O₂!"</em></p>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>🔴 CO₂ Transport (3 Forms) + Haldane Effect</h4>
+                        <div class="info-box formula">
+                            <p><strong>CO₂ is ~20× more soluble than O₂</strong> → diffuses easily!</p>
+                        </div>
+
+                        <table class="comparison-table">
+                            <tr>
+                                <th colspan="2">CO₂ Carried As:</th>
+                            </tr>
+                            <tr>
+                                <td>1️⃣</td>
+                                <td>Dissolved in plasma</td>
+                            </tr>
+                            <tr>
+                                <td>2️⃣</td>
+                                <td><strong>Bicarbonate (HCO₃⁻)</strong> — MAJOR form!</td>
+                            </tr>
+                            <tr>
+                                <td>3️⃣</td>
+                                <td>Carbamino compounds (bound to proteins/hemoglobin)</td>
+                            </tr>
+                        </table>
+
+                        <div class="memory-card">
+                            <h4>💡 Haldane Effect</h4>
+                            <p><strong>Deoxygenated hemoglobin carries MORE CO₂</strong> (tissues load CO₂ better)<br>
+                            Oxygenation in lungs promotes CO₂ unloading!</p>
+                        </div>
+
+                        <div class="info-box pearl">
+                            <div class="info-box-title">💎 Pearl</div>
+                            Diffusion defects often cause hypoxemia BEFORE hypercapnia because CO₂ diffuses so well!
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h4>⚖️ V̇/Q̇ Matching (Major Cause of Hypoxemia!)</h4>
+                        <table class="comparison-table">
+                            <tr>
+                                <th>Location</th>
+                                <th>Ventilation</th>
+                                <th>Perfusion</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Bases</strong></td>
+                                <td>More (more compliant)</td>
+                                <td>Even MORE (gravity)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Apices</strong></td>
+                                <td>More than perfusion</td>
+                                <td>Less (against gravity)</td>
+                            </tr>
+                        </table>
+                        <div class="info-box highlight">
+                            Normal V̇/Q̇ ≈ <strong>0.8</strong><br>
+                            <strong>V/Q mismatch = #1 cause of hypoxemia in many lung diseases!</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 12: Aging -->
+        <div class="section yellow" id="aging">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">👴</div>
+                <h2 class="section-title">21. Aging & Pulmonary System</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <div class="info-box highlight">
+                        <div class="info-box-title">🎯 Older Adult Must-Know!</div>
+                    </div>
+
+                    <ul class="styled-list numbered-list">
+                        <li>Chest wall compliance ↓ (stiffer ribs/joints) → ↑ work of breathing</li>
+                        <li>Elastic recoil ↓ → lung compliance ↑, VC ↓, RV ↑, TLC ~ unchanged</li>
+                        <li>Peripheral airway support ↓ + epithelial regeneration ↓ + distal airway fibrosis ↑</li>
+                        <li>Gas exchange surface/perfusion ↓ (capillary network diminishes), alveoli dilate/fibrose</li>
+                        <li>PaO₂ declines with age; ventilatory response to hypoxia/hypercapnia ↓</li>
+                        <li>Lung immunity declines → ↑ infection risk</li>
+                    </ul>
+
+                    <div class="info-box formula">
+                        <div class="info-box-title">📐 Estimation Tip</div>
+                        <p style="font-size: 1.2em; text-align: center;">
+                            Max PaO₂ ≈ <strong>100 − (age × 0.3)</strong> at sea level
+                        </p>
+                    </div>
+
+                    <div class="memory-card">
+                        <h4>💪 Good News!</h4>
+                        <p><strong>Fitness protects function!</strong><br>
+                        Sedentary lifestyle → more decline. Stay active!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 13: Key Terms -->
+        <div class="section orange" id="keyterms">
+            <div class="section-header" onclick="toggleSection(this)">
+                <div class="section-icon">📚</div>
+                <h2 class="section-title">Key Terms (High-Yield Definitions)</h2>
+                <span class="section-toggle">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="content-inner">
+                    <input type="text" class="search-box" id="termSearch" placeholder="🔍 Search key terms..." onkeyup="filterTerms()">
+                    
+                    <div id="termsContainer">
+                        <dl class="glossary-item" data-term="acinus">
+                            <dt>Acinus</dt>
+                            <dd>Functional gas-exchange unit (respiratory bronchioles + alveolar ducts + alveoli)</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="alveolar duct">
+                            <dt>Alveolar duct</dt>
+                            <dd>Passageway leading from respiratory bronchioles to alveolar sacs</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="alveolar ventilation">
+                            <dt>Alveolar ventilation (VA)</dt>
+                            <dd>Fresh air reaching alveoli that participates in gas exchange</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="alveolar-capillary membrane alveolocapillary membrane">
+                            <dt>Alveolar-capillary membrane</dt>
+                            <dd>Thin diffusion barrier between alveoli and capillary blood</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="alveolus alveoli">
+                            <dt>Alveolus (alveoli)</dt>
+                            <dd>Tiny air sac where gas exchange occurs</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="bohr effect">
+                            <dt>Bohr effect</dt>
+                            <dd>CO₂/H⁺ shifts O₂ dissociation curve (usually right) to enhance tissue unloading</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="bronchus bronchi">
+                            <dt>Bronchus (bronchi)</dt>
+                            <dd>Large conducting airway branching from trachea into lungs</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="carina">
+                            <dt>Carina</dt>
+                            <dd>Tracheal bifurcation point into main bronchi; sensitive → cough reflex</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="central chemoreceptor">
+                            <dt>Central chemoreceptor</dt>
+                            <dd>Brainstem receptor sensing CSF pH changes driven by CO₂</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="collectins">
+                            <dt>Collectins</dt>
+                            <dd>Surfactant proteins (SP-A, SP-D) that bind pathogens and support innate immunity</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="compliance">
+                            <dt>Compliance</dt>
+                            <dd>Ease of lung/chest wall expansion (ΔV/ΔP); inverse of stiffness</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="dead-space ventilation">
+                            <dt>Dead-space ventilation (VD)</dt>
+                            <dd>Ventilated air not participating in gas exchange (anatomic + alveolar)</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="elastic recoil">
+                            <dt>Elastic recoil</dt>
+                            <dd>Tendency of lungs/chest wall to return to resting volume after inspiration</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="fio2 fraction inspired oxygen">
+                            <dt>Fraction of inspired oxygen (FiO₂)</dt>
+                            <dd>% O₂ in inhaled air (room air ≈ 0.21)</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="glottis">
+                            <dt>Glottis</dt>
+                            <dd>Opening between true vocal cords</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="goblet cell">
+                            <dt>Goblet cell</dt>
+                            <dd>Airway epithelial cell that secretes mucins to form mucus</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="haldane effect">
+                            <dt>Haldane effect</dt>
+                            <dd>Oxygenation of blood in lungs promotes CO₂ release; deoxygenation in tissues promotes CO₂ uptake</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="hilum hila">
+                            <dt>Hilum (hila)</dt>
+                            <dd>"Root" of lung where bronchi, vessels, lymphatics enter/exit</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="hypoxic pulmonary vasoconstriction">
+                            <dt>Hypoxic pulmonary vasoconstriction</dt>
+                            <dd>Low PAO₂ triggers pulmonary arteriolar constriction to redirect blood</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="irritant receptor">
+                            <dt>Irritant receptor</dt>
+                            <dd>Airway receptor sensing noxious particles/gases → cough, bronchoconstriction</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="j-receptor juxtapulmonary">
+                            <dt>J-receptor</dt>
+                            <dd>Receptor near pulmonary capillaries responding to ↑ capillary pressure → rapid shallow breathing</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="lamina propria">
+                            <dt>Lamina propria</dt>
+                            <dd>Submucosal bronchial layer containing smooth muscle, glands, ANS fibers</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="larynx">
+                            <dt>Larynx</dt>
+                            <dd>Airway structure between pharynx and trachea; protects airway, enables vocalization</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="mediastinum">
+                            <dt>Mediastinum</dt>
+                            <dd>Thoracic space between lungs containing heart/great vessels/esophagus</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="minute volume minute ventilation">
+                            <dt>Minute volume (V̇)</dt>
+                            <dd>RR × VT (L/min)</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="oxygen saturation sao2">
+                            <dt>Oxygen saturation (SaO₂)</dt>
+                            <dd>% hemoglobin binding sites occupied by O₂</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="oxyhemoglobin dissociation curve">
+                            <dt>Oxyhemoglobin dissociation curve</dt>
+                            <dd>S-shaped relation between PaO₂ and SaO₂; shifts with pH/CO₂/temp/2,3-DPG</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="partial pressure">
+                            <dt>Partial pressure (P)</dt>
+                            <dd>Pressure exerted by an individual gas in a mixture</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="peripheral chemoreceptor">
+                            <dt>Peripheral chemoreceptor</dt>
+                            <dd>Carotid/aortic body receptors mainly sensing low PaO₂</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="pleura pleurae">
+                            <dt>Pleura (pleurae)</dt>
+                            <dd>Serous membranes (visceral + parietal) around lungs/thorax</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="pleural space pleural cavity">
+                            <dt>Pleural space</dt>
+                            <dd>Thin fluid-filled space between pleurae; normally negative pressure</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="respiratory bronchiole">
+                            <dt>Respiratory bronchiole</dt>
+                            <dd>First airway segment participating in gas exchange</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="respiratory center">
+                            <dt>Respiratory center</dt>
+                            <dd>Medulla/pons network controlling RR and VT</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="stretch receptor">
+                            <dt>Stretch receptor</dt>
+                            <dd>Airway/chest wall receptors sensing lung inflation and ventilatory mechanics</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="surface tension">
+                            <dt>Surface tension</dt>
+                            <dd>Force at air-liquid interface tending to collapse alveoli</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="surfactant">
+                            <dt>Surfactant</dt>
+                            <dd>Lipoprotein from Type II cells lowering alveolar surface tension; prevents collapse; supports immunity</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="tidal volume">
+                            <dt>Tidal volume (VT)</dt>
+                            <dd>Volume inhaled/exhaled per normal breath</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="trachea">
+                            <dt>Trachea</dt>
+                            <dd>Cartilage-supported airway from larynx to bronchi</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="ventilation">
+                            <dt>Ventilation</dt>
+                            <dd>Movement of air into/out of lungs</dd>
+                        </dl>
+
+                        <dl class="glossary-item" data-term="ventilation-perfusion ratio vq">
+                            <dt>Ventilation-perfusion ratio (V̇/Q̇)</dt>
+                            <dd>Relationship of airflow to blood flow; mismatch → hypoxemia</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer style="text-align: center; padding: 30px; color: white;">
+            <p style="font-size: 1.1em; font-weight: 600;">🎓 Good luck studying! You've got this! 💪</p>
+            <p style="opacity: 0.8; margin-top: 10px;">Chapter 28: Structure & Function of the Pulmonary System</p>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle sections
+        function toggleSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('open');
+        }
+
+        // Scroll to section
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Open the section
+            if (!section.classList.contains('open')) {
+                section.classList.add('open');
+            }
+        }
+
+        // Quiz functionality
+        function checkAnswer(option, isCorrect) {
+            const question = option.closest('.quiz-question');
+            const options = question.querySelectorAll('.quiz-option');
+            const feedback = question.querySelector('.quiz-feedback');
+            
+            // Disable all options
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            // Show correct answer if wrong
+            if (!isCorrect) {
+                options.forEach(opt => {
+                    if (opt.onclick.toString().includes('true')) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Show feedback
+            feedback.classList.add('show', isCorrect ? 'correct' : 'incorrect');
+            feedback.textContent = isCorrect ? 
+                '🎉 ' + feedback.textContent : 
+                '❌ Not quite! The correct answer is highlighted.';
+        }
+
+        // Filter key terms
+        function filterTerms() {
+            const searchValue = document.getElementById('termSearch').value.toLowerCase();
+            const terms = document.querySelectorAll('.glossary-item');
+            
+            terms.forEach(term => {
+                const termText = term.getAttribute('data-term') + ' ' + term.textContent.toLowerCase();
+                if (termText.includes(searchValue)) {
+                    term.classList.remove('term-hidden');
+                } else {
+                    term.classList.add('term-hidden');
+                }
+            });
+        }
+
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Open first section by default
+        document.addEventListener('DOMContentLoaded', () => {
+            // First section is already open via class
+        });
+    </script>
+</body>
+</html>
