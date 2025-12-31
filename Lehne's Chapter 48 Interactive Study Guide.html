@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcium Channel Blockers Study Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ccb-pink: #EC407A;
+            --ccb-deep-pink: #C2185B;
+            --dhp-teal: #00ACC1;
+            --non-dhp-purple: #7E57C2;
+            --warning-amber: #FFB300;
+            --danger-red: #E53935;
+            --success-green: #43A047;
+            --info-blue: #1E88E5;
+            --dark-slate: #37474F;
+            --bg-blush: #FFF8F9;
+            --card-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, var(--bg-blush) 0%, #F3E5F5 100%);
+            color: var(--dark-slate);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, var(--ccb-pink), var(--non-dhp-purple));
+            border-radius: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "💊";
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.15;
+            top: -20px;
+            right: 30px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: "❤️";
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.15;
+            bottom: -10px;
+            left: 40px;
+            animation: heartbeat 1.5s ease-in-out infinite 0.75s;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.6rem;
+            color: white;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Section Cards */
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            border-left: 6px solid var(--ccb-pink);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section.teal { border-left-color: var(--dhp-teal); }
+        .section.purple { border-left-color: var(--non-dhp-purple); }
+        .section.amber { border-left-color: var(--warning-amber); }
+        .section.red { border-left-color: var(--danger-red); }
+        .section.green { border-left-color: var(--success-green); }
+        .section.blue { border-left-color: var(--info-blue); }
+
+        .section-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.6rem;
+            color: var(--ccb-pink);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section.teal .section-title { color: var(--dhp-teal); }
+        .section.purple .section-title { color: var(--non-dhp-purple); }
+        .section.amber .section-title { color: var(--warning-amber); }
+        .section.red .section-title { color: var(--danger-red); }
+        .section.green .section-title { color: var(--success-green); }
+        .section.blue .section-title { color: var(--info-blue); }
+
+        .section-title .emoji {
+            font-size: 1.8rem;
+        }
+
+        /* Big Concept Box */
+        .concept-box {
+            background: linear-gradient(135deg, #FCE4EC, #F3E5F5);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .concept-box h3 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--ccb-deep-pink);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .concept-box p {
+            font-size: 1.1rem;
+            color: var(--dark-slate);
+        }
+
+        /* Two Column Comparison */
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .drug-class-card {
+            border-radius: 25px;
+            padding: 30px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .drug-class-card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .drug-class-card.dhp {
+            background: linear-gradient(135deg, var(--dhp-teal), #00838F);
+        }
+
+        .drug-class-card.non-dhp {
+            background: linear-gradient(135deg, var(--non-dhp-purple), #5E35B1);
+        }
+
+        .drug-class-card h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drug-class-card .subtitle {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .drug-class-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .drug-class-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .drug-class-card li:last-child {
+            border-bottom: none;
+        }
+
+        .drug-class-card li::before {
+            content: "→";
+            font-weight: bold;
+        }
+
+        .drug-class-card .highlight-box {
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 15px;
+            font-weight: 700;
+        }
+
+        /* Drug Pills */
+        .drug-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .drug-pill {
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .drug-pill.dhp {
+            background: linear-gradient(135deg, #E0F7FA, #B2EBF2);
+            color: #006064;
+        }
+
+        .drug-pill.non-dhp {
+            background: linear-gradient(135deg, #EDE7F6, #D1C4E9);
+            color: #4527A0;
+        }
+
+        /* Alert Boxes */
+        .alert-box {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, #FFEBEE, #FFCDD2);
+            border-left: 5px solid var(--danger-red);
+            color: #B71C1C;
+        }
+
+        .alert-warning {
+            background: linear-gradient(135deg, #FFF8E1, #FFECB3);
+            border-left: 5px solid var(--warning-amber);
+            color: #FF6F00;
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-left: 5px solid var(--info-blue);
+            color: #0D47A1;
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-left: 5px solid var(--success-green);
+            color: #1B5E20;
+        }
+
+        /* Adverse Effects Grid */
+        .effects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .effect-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 3px solid #FCE4EC;
+            transition: all 0.3s ease;
+        }
+
+        .effect-card:hover {
+            border-color: var(--ccb-pink);
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+        }
+
+        .effect-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .effect-card h4 {
+            font-weight: 800;
+            color: var(--ccb-deep-pink);
+            margin-bottom: 5px;
+        }
+
+        .effect-card p {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* Interaction Table */
+        .interaction-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .interaction-table th {
+            background: var(--dark-slate);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .interaction-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        .interaction-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .interaction-table tr:hover td {
+            background: #FFF8F9;
+        }
+
+        .interaction-table .drug-name {
+            font-weight: 800;
+            color: var(--non-dhp-purple);
+        }
+
+        .interaction-table .result {
+            color: var(--danger-red);
+            font-weight: 600;
+        }
+
+        /* Contraindications List */
+        .contra-list {
+            background: linear-gradient(135deg, #FFEBEE, #FCE4EC);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .contra-list h4 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--danger-red);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contra-list ul {
+            list-style: none;
+        }
+
+        .contra-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px dashed #FFCDD2;
+        }
+
+        .contra-list li:last-child {
+            border-bottom: none;
+        }
+
+        .contra-list li::before {
+            content: "🚫";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Preferred List */
+        .preferred-list {
+            background: linear-gradient(135deg, #E0F7FA, #B2EBF2);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .preferred-list h4 {
+            font-family: 'Fredoka One', cursive;
+            color: #006064;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .preferred-list ul {
+            list-style: none;
+        }
+
+        .preferred-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            border-bottom: 1px dashed #80DEEA;
+        }
+
+        .preferred-list li:last-child {
+            border-bottom: none;
+        }
+
+        .preferred-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Toxicity Management */
+        .toxicity-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tox-step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            border-left: 4px solid var(--danger-red);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .tox-step .step-num {
+            background: var(--danger-red);
+            color: white;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tox-step .step-content {
+            flex: 1;
+        }
+
+        .tox-step .step-content strong {
+            color: var(--danger-red);
+        }
+
+        /* Special Populations */
+        .population-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .pop-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            border: 3px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .pop-card:hover {
+            border-color: var(--ccb-pink);
+            box-shadow: var(--card-shadow);
+        }
+
+        .pop-card h4 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--non-dhp-purple);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pop-card ul {
+            list-style: none;
+        }
+
+        .pop-card li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 0.95rem;
+        }
+
+        .pop-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Nursing Checklist */
+        .nursing-box {
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 25px;
+            padding: 30px;
+            margin: 25px 0;
+        }
+
+        .nursing-box h3 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--success-green);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nursing-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .nursing-column h4 {
+            color: #1B5E20;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #A5D6A7;
+        }
+
+        .nursing-column ul {
+            list-style: none;
+        }
+
+        .nursing-column li {
+            padding: 10px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .nursing-column li::before {
+            content: "☐";
+            font-size: 1.2rem;
+            color: var(--success-green);
+        }
+
+        /* Comparison Quick Cards */
+        .quick-compare {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .qc-card {
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .qc-card.dhp-bg { background: linear-gradient(135deg, var(--dhp-teal), #00838F); }
+        .qc-card.non-dhp-bg { background: linear-gradient(135deg, var(--non-dhp-purple), #5E35B1); }
+
+        .qc-card h5 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .qc-card p {
+            font-size: 0.9rem;
+            opacity: 0.95;
+        }
+
+        /* Memory Tip Box */
+        .memory-tip {
+            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 3px dashed var(--warning-amber);
+        }
+
+        .memory-tip h4 {
+            font-family: 'Fredoka One', cursive;
+            color: #E65100;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .memory-tip p {
+            font-size: 1.05rem;
+        }
+
+        /* Flip Cards */
+        .flip-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .flip-card {
+            height: 160px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .flip-card-front {
+            background: linear-gradient(135deg, var(--ccb-pink), var(--ccb-deep-pink));
+            color: white;
+        }
+
+        .flip-card-front .emoji {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .flip-card-front h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1rem;
+        }
+
+        .flip-card-back {
+            background: white;
+            border: 3px solid var(--ccb-pink);
+            color: var(--dark-slate);
+            transform: rotateY(180deg);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .flip-card {
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>💊 Calcium Channel Blockers</h1>
+            <p>Your Complete CCB Study Guide</p>
+        </div>
+
+        <!-- Big Picture -->
+        <div class="section">
+            <h2 class="section-title"><span class="emoji">🎯</span> The Big Picture</h2>
+            
+            <div class="concept-box">
+                <h3>What Do CCBs Do?</h3>
+                <p>Calcium Channel Blockers prevent calcium from entering cells of the <strong>heart</strong> and <strong>blood vessels</strong>, leading to <strong>vasodilation</strong> and effects on cardiac conduction.</p>
+            </div>
+
+            <p style="margin: 20px 0; font-size: 1.1rem;">There are <strong>two main types</strong> of CCBs with very different clinical effects:</p>
+
+            <div class="drug-pills">
+                <span class="drug-pill dhp">🔵 Dihydropyridines (DHPs)</span>
+                <span class="drug-pill non-dhp">🟣 Non-Dihydropyridines</span>
+            </div>
+
+            <div class="memory-tip">
+                <h4>💡 Memory Trick!</h4>
+                <p><strong>DHP drugs end in "-dipine"</strong> (Nifedipine, Amlodipine, Felodipine)<br>
+                <strong>Non-DHPs:</strong> Verapamil & Diltiazem (the "odd ones out" that affect the heart more!)</p>
+            </div>
+        </div>
+
+        <!-- Two Drug Classes -->
+        <div class="section teal">
+            <h2 class="section-title"><span class="emoji">⚖️</span> DHP vs Non-DHP: Know the Difference!</h2>
+            
+            <div class="two-columns">
+                <div class="drug-class-card dhp">
+                    <h3>🔵 Dihydropyridines</h3>
+                    <p class="subtitle">Nifedipine, Amlodipine, Felodipine</p>
+                    <ul>
+                        <li>Act primarily on <strong>peripheral arterioles</strong></li>
+                        <li>Cause <strong>vasodilation</strong> → ↓ SVR → ↓ BP</li>
+                        <li><strong>Minimal</strong> direct cardiac suppression</li>
+                        <li>More likely to cause <strong>reflex tachycardia</strong></li>
+                        <li>Does NOT slow heart rate</li>
+                    </ul>
+                    <div class="highlight-box">
+                        📍 Primary Target: BLOOD VESSELS
+                    </div>
+                </div>
+
+                <div class="drug-class-card non-dhp">
+                    <h3>🟣 Non-Dihydropyridines</h3>
+                    <p class="subtitle">Verapamil, Diltiazem</p>
+                    <ul>
+                        <li>Act on <strong>both</strong> arterioles AND heart</li>
+                        <li><strong>↓ Heart rate</strong></li>
+                        <li><strong>↓ AV conduction</strong></li>
+                        <li><strong>↓ Myocardial contractility</strong></li>
+                        <li>Useful for <strong>dysrhythmias</strong> (AV nodal suppression)</li>
+                    </ul>
+                    <div class="highlight-box">
+                        📍 Targets: BLOOD VESSELS + HEART
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-compare">
+                <div class="qc-card dhp-bg">
+                    <h5>Heart Rate</h5>
+                    <p>↑ or unchanged (reflex tachycardia)</p>
+                </div>
+                <div class="qc-card non-dhp-bg">
+                    <h5>Heart Rate</h5>
+                    <p>↓ Slowed (bradycardia risk)</p>
+                </div>
+                <div class="qc-card dhp-bg">
+                    <h5>AV Conduction</h5>
+                    <p>No significant effect</p>
+                </div>
+                <div class="qc-card non-dhp-bg">
+                    <h5>AV Conduction</h5>
+                    <p>↓ Slowed (AV block risk)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reflex Responses -->
+        <div class="section amber">
+            <h2 class="section-title"><span class="emoji">⚡</span> Reflex Tachycardia (Important!)</h2>
+            
+            <div class="alert-warning">
+                <strong>⚠️ What Happens:</strong> Rapid vasodilation (especially with IR nifedipine) activates the baroreceptor reflex → increased sympathetic activity → ↑ Heart rate + ↑ Contractility
+            </div>
+
+            <p style="margin: 20px 0; font-weight: 600;">How to minimize reflex effects:</p>
+
+            <div class="flip-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="emoji">💊</span>
+                            <h4>Extended-Release</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Use ER formulations instead of immediate-release to prevent rapid BP drops</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="emoji">🤝</span>
+                            <h4>Add Beta-Blocker</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>Concurrent beta-blocker therapy with DHPs blocks reflex tachycardia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <span class="emoji">🚫</span>
+                            <h4>Avoid IR Nifedipine</h4>
+                        </div>
+                        <div class="flip-card-back">
+                            <p>IR nifedipine causes most reflex tachycardia - use sustained-release instead</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- IR Nifedipine Safety Alert -->
+        <div class="section red">
+            <h2 class="section-title"><span class="emoji">🚨</span> SAFETY ALERT: Immediate-Release Nifedipine</h2>
+            
+            <div class="alert-danger">
+                <strong>⛔ BLACK BOX WARNING TERRITORY!</strong><br><br>
+                Immediate-release nifedipine has been associated with:
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li><strong>Increased mortality</strong> in MI and unstable angina</li>
+                    <li><strong>Increased risk of myocardial infarction</strong> in hypertension</li>
+                </ul>
+            </div>
+
+            <div class="alert-success" style="margin-top: 15px;">
+                <strong>✅ Safe alternatives:</strong> Sustained-release nifedipine and other long-acting CCBs do NOT share this risk!
+            </div>
+
+            <div class="memory-tip">
+                <h4>📌 Bottom Line</h4>
+                <p><strong>IR nifedipine should be avoided or used with extreme caution.</strong> Always prefer extended-release formulations!</p>
+            </div>
+        </div>
+
+        <!-- Cardiac Safety -->
+        <div class="section purple">
+            <h2 class="section-title"><span class="emoji">❤️</span> Cardiac Safety Considerations</h2>
+            
+            <div class="two-columns">
+                <div class="contra-list">
+                    <h4>🚫 Verapamil & Diltiazem Contraindications</h4>
+                    <ul>
+                        <li>Sick sinus syndrome (without pacemaker)</li>
+                        <li>Second-degree AV block</li>
+                        <li>Third-degree AV block</li>
+                        <li>Severe bradycardia</li>
+                        <li>Decompensated heart failure</li>
+                    </ul>
+                </div>
+
+                <div class="preferred-list">
+                    <h4>✅ Dihydropyridines Preferred When</h4>
+                    <ul>
+                        <li>Patient has AV block</li>
+                        <li>Patient has bradycardia</li>
+                        <li>Patient has heart failure</li>
+                        <li>Patient needs BP control without cardiac suppression</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="alert-info">
+                <strong>💡 Why DHPs are safer for cardiac patients:</strong> They lack significant cardiac suppression - they work primarily on blood vessels!
+            </div>
+        </div>
+
+        <!-- Adverse Effects -->
+        <div class="section">
+            <h2 class="section-title"><span class="emoji">⚠️</span> Common Adverse Effects (Class-Wide)</h2>
+            <p style="margin-bottom: 20px;">Most adverse effects are related to <strong>vasodilation</strong>:</p>
+
+            <div class="effects-grid">
+                <div class="effect-card">
+                    <div class="icon">🤕</div>
+                    <h4>Headache</h4>
+                    <p>From vasodilation of cerebral vessels</p>
+                </div>
+                <div class="effect-card">
+                    <div class="icon">😵</div>
+                    <h4>Dizziness</h4>
+                    <p>Due to BP reduction</p>
+                </div>
+                <div class="effect-card">
+                    <div class="icon">😊</div>
+                    <h4>Facial Flushing</h4>
+                    <p>Vasodilation of facial vessels</p>
+                </div>
+                <div class="effect-card">
+                    <div class="icon">🦶</div>
+                    <h4>Peripheral Edema</h4>
+                    <p>Ankles & feet swelling</p>
+                </div>
+                <div class="effect-card">
+                    <div class="icon">🦷</div>
+                    <h4>Gingival Hyperplasia</h4>
+                    <p>Gum overgrowth with long-term use</p>
+                </div>
+                <div class="effect-card">
+                    <div class="icon">👴</div>
+                    <h4>Skin Eruptions</h4>
+                    <p>Eczematous rash in older adults</p>
+                </div>
+            </div>
+
+            <div class="memory-tip">
+                <h4>💡 Remember "HEDFE" for Vasodilation Effects</h4>
+                <p><strong>H</strong>eadache, <strong>E</strong>dema, <strong>D</strong>izziness, <strong>F</strong>lushing, <strong>E</strong>czema (in elderly)</p>
+            </div>
+        </div>
+
+        <!-- Drug Interactions -->
+        <div class="section blue">
+            <h2 class="section-title"><span class="emoji">💊</span> Drug & Food Interactions</h2>
+            
+            <table class="interaction-table">
+                <thead>
+                    <tr>
+                        <th>Interacting Agent</th>
+                        <th>Effect</th>
+                        <th>Clinical Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="drug-name">Beta Blockers + Verapamil/Diltiazem</td>
+                        <td class="result">⚠️ Severe bradycardia, AV block, HF</td>
+                        <td>DANGEROUS combination!</td>
+                    </tr>
+                    <tr>
+                        <td class="drug-name">Beta Blockers + DHPs</td>
+                        <td style="color: var(--success-green); font-weight: 600;">✅ Beneficial - reduces reflex tachycardia</td>
+                        <td>Often used together intentionally</td>
+                    </tr>
+                    <tr>
+                        <td class="drug-name">Digoxin + Verapamil</td>
+                        <td class="result">↑ Digoxin levels ~60%</td>
+                        <td>Combined AV suppression → heart block risk</td>
+                    </tr>
+                    <tr>
+                        <td class="drug-name">🍊 Grapefruit Juice</td>
+                        <td class="result">↑ CCB serum levels</td>
+                        <td>Especially nifedipine & felodipine</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="alert-warning" style="margin-top: 20px;">
+                <strong>🍊 Grapefruit Juice Note:</strong> Risk is highest with nifedipine & felodipine, but still possible with verapamil, diltiazem, and amlodipine. Advise patients accordingly!
+            </div>
+        </div>
+
+        <!-- Toxicity -->
+        <div class="section red">
+            <h2 class="section-title"><span class="emoji">☠️</span> Toxicity & Overdose Management</h2>
+            
+            <div class="alert-danger" style="margin-bottom: 20px;">
+                <strong>⚠️ At toxic doses:</strong> Loss of vascular selectivity → cardiac suppression even with DHPs!<br><br>
+                <strong>Manifestations:</strong> Severe hypotension, bradycardia, AV block
+            </div>
+
+            <h4 style="margin-bottom: 15px; color: var(--danger-red); font-family: 'Fredoka One', cursive;">Treatment Steps:</h4>
+
+            <div class="toxicity-steps">
+                <div class="tox-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <strong>Activated Charcoal</strong> - Decontamination if recent ingestion
+                    </div>
+                </div>
+                <div class="tox-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <strong>IV Calcium Gluconate</strong> - Improves contractility and vasodilation (ANTIDOTE!)
+                    </div>
+                </div>
+                <div class="tox-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <strong>Atropine</strong> - For bradycardia
+                    </div>
+                </div>
+                <div class="tox-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <strong>Vasopressors</strong> - (e.g., norepinephrine) for hypotension
+                    </div>
+                </div>
+                <div class="tox-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <strong>Temporary Pacing</strong> - If needed for severe bradycardia/block
+                    </div>
+                </div>
+            </div>
+
+            <div class="memory-tip">
+                <h4>🧠 Toxicity Antidote Memory Tip</h4>
+                <p><strong>"Calcium blocks Calcium blockers!"</strong> - IV Calcium Gluconate is the key antidote!</p>
+            </div>
+        </div>
+
+        <!-- Special Populations -->
+        <div class="section green">
+            <h2 class="section-title"><span class="emoji">👥</span> Special Populations</h2>
+            
+            <div class="population-cards">
+                <div class="pop-card">
+                    <h4>🤰 Pregnancy & Lactation</h4>
+                    <ul>
+                        <li>CCBs cross the placenta</li>
+                        <li>Animal studies suggest potential fetal harm</li>
+                        <li>Use only if benefits outweigh risks</li>
+                        <li>Verapamil may be excreted in breast milk</li>
+                        <li>Nifedipine: insufficient breastfeeding data - use caution</li>
+                    </ul>
+                </div>
+                <div class="pop-card">
+                    <h4>👶 Infants & Children</h4>
+                    <ul>
+                        <li>Verapamil used for selected dysrhythmias</li>
+                        <li>CCBs used for pediatric HTN</li>
+                        <li>CCBs used for cardiomyopathy</li>
+                    </ul>
+                </div>
+                <div class="pop-card">
+                    <h4>👴 Older Adults</h4>
+                    <ul>
+                        <li>Higher risk for constipation (verapamil)</li>
+                        <li>Increased susceptibility to edema</li>
+                        <li>More prone to skin reactions</li>
+                        <li>Start low, go slow!</li>
+                    </ul>
+                </div>
+                <div class="pop-card">
+                    <h4>🫀 Hepatic Impairment</h4>
+                    <ul>
+                        <li>Verapamil requires dose reduction</li>
+                        <li>Diltiazem requires dose reduction</li>
+                        <li>Both metabolized hepatically</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nursing Monitoring -->
+        <div class="section">
+            <div class="nursing-box">
+                <h3>👩‍⚕️ Key Nursing Monitoring Points</h3>
+                
+                <div class="nursing-columns">
+                    <div class="nursing-column">
+                        <h4>📊 Monitor</h4>
+                        <ul>
+                            <li>Blood pressure</li>
+                            <li>Heart rate</li>
+                            <li>ECG (for non-DHPs)</li>
+                            <li>Signs of edema</li>
+                            <li>Signs of heart failure</li>
+                            <li>Bowel function (verapamil → constipation)</li>
+                        </ul>
+                    </div>
+                    <div class="nursing-column">
+                        <h4>📚 Patient Teaching</h4>
+                        <ul>
+                            <li>Do NOT crush ER formulations!</li>
+                            <li>Report dizziness immediately</li>
+                            <li>Report swelling (ankles/feet)</li>
+                            <li>Report slow pulse</li>
+                            <li>Avoid grapefruit juice if advised</li>
+                            <li>Rise slowly (orthostatic hypotension)</li>
+                        </ul>
+                    </div>
+                    <div class="nursing-column">
+                        <h4>✅ Evaluate Response</h4>
+                        <ul>
+                            <li>Reduced blood pressure</li>
+                            <li>Decreased angina frequency</li>
+                            <li>Controlled ventricular rate (dysrhythmias)</li>
+                            <li>No adverse effects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Reference Table -->
+        <div class="section blue">
+            <h2 class="section-title"><span class="emoji">📋</span> Quick Reference Comparison</h2>
+            
+            <table class="interaction-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th style="background: var(--dhp-teal);">🔵 DHPs (Nifedipine, Amlodipine)</th>
+                        <th style="background: var(--non-dhp-purple);">🟣 Non-DHPs (Verapamil, Diltiazem)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Primary Site</strong></td>
+                        <td>Blood vessels only</td>
+                        <td>Blood vessels + Heart</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Heart Rate</strong></td>
+                        <td>↑ or no change (reflex tachycardia)</td>
+                        <td>↓ Decreased</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AV Conduction</strong></td>
+                        <td>No effect</td>
+                        <td>↓ Slowed</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contractility</strong></td>
+                        <td>Minimal effect</td>
+                        <td>↓ Decreased</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use in HF</strong></td>
+                        <td style="color: var(--success-green); font-weight: 700;">✅ Can use</td>
+                        <td style="color: var(--danger-red); font-weight: 700;">❌ Avoid</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use in Bradycardia</strong></td>
+                        <td style="color: var(--success-green); font-weight: 700;">✅ Preferred</td>
+                        <td style="color: var(--danger-red); font-weight: 700;">❌ Contraindicated</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Use for Dysrhythmias</strong></td>
+                        <td>Not effective</td>
+                        <td style="color: var(--success-green); font-weight: 700;">✅ Useful</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BB Combo</strong></td>
+                        <td style="color: var(--success-green); font-weight: 700;">✅ Beneficial</td>
+                        <td style="color: var(--danger-red); font-weight: 700;">⚠️ Dangerous</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Final Exam Pearls -->
+        <div class="section" style="background: linear-gradient(135deg, var(--ccb-pink), var(--non-dhp-purple)); color: white; border-left: none;">
+            <h2 class="section-title" style="color: white;"><span class="emoji">🎯</span> EXAM PEARLS</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px;">
+                    <p>💊 <strong>"-dipine"</strong> = Dihydropyridine = VESSELS</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px;">
+                    <p>💜 <strong>Verapamil & Diltiazem</strong> = HEART + VESSELS</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px;">
+                    <p>🚫 <strong>IR Nifedipine</strong> = DANGER (↑ mortality)</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px;">
+                    <p>⚠️ <strong>BB + Verapamil/Diltiazem</strong> = BAD combo</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px;">
+                    <p>✅ <strong>BB + DHPs</strong> = GOOD combo</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px;">
+                    <p>💉 <strong>CCB Overdose</strong> = IV Calcium Gluconate!</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px;">
+                    <p>🍊 <strong>Grapefruit juice</strong> = ↑ CCB levels</p>
+                </div>
+                <div style="background: rgba(255,255,255,0.15); border-radius: 15px; padding: 20px;">
+                    <p>❤️ <strong>HF/Bradycardia?</strong> = Use DHPs, not non-DHPs</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📚 Study Guide based on Lehne's Chapter 48: Calcium Channel Blockers<br>
+            Created with 💗 for nursing students</p>
+        </div>
+    </div>
+
+    <script>
+        // Add hover effects to effect cards
+        document.querySelectorAll('.effect-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px)';
+                }, 200);
+            });
+        });
+
+        // Add click animation to drug class cards
+        document.querySelectorAll('.drug-class-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
