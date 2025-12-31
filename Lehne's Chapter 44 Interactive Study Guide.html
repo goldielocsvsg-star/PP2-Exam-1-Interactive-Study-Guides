@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diuretics & Kidney A&P Study Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --kidney-coral: #FF6B6B;
+            --loop-blue: #4ECDC4;
+            --thiazide-purple: #9B59B6;
+            --k-sparing-green: #2ECC71;
+            --osmotic-orange: #F39C12;
+            --bg-cream: #FFF9F0;
+            --text-dark: #2C3E50;
+            --card-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--kidney-coral), #FF8E8E);
+            border-radius: 30px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: "💧";
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.15;
+            top: -20px;
+            right: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .header::after {
+            content: "🫘";
+            position: absolute;
+            font-size: 80px;
+            opacity: 0.15;
+            bottom: -10px;
+            left: 30px;
+            animation: float 3s ease-in-out infinite 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.8rem;
+            color: white;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Section Cards */
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            border-left: 6px solid var(--kidney-coral);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.6rem;
+            color: var(--kidney-coral);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title .emoji {
+            font-size: 1.8rem;
+        }
+
+        /* Key Point Boxes */
+        .key-point {
+            background: linear-gradient(135deg, #E8F8F5, #D5F5E3);
+            border-left: 4px solid var(--k-sparing-green);
+            padding: 15px 20px;
+            border-radius: 0 15px 15px 0;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .key-point::before {
+            content: "✅ KEY: ";
+            color: var(--k-sparing-green);
+            font-weight: 800;
+        }
+
+        /* Nephron Diagram Area */
+        .nephron-visual {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .nephron-part {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nephron-part:hover {
+            transform: scale(1.05);
+        }
+
+        .nephron-part.glomerulus { border-color: #E74C3C; background: linear-gradient(135deg, #FADBD8, #fff); }
+        .nephron-part.pct { border-color: #F39C12; background: linear-gradient(135deg, #FCF3CF, #fff); }
+        .nephron-part.loop { border-color: var(--loop-blue); background: linear-gradient(135deg, #D1F2EB, #fff); }
+        .nephron-part.dct { border-color: var(--thiazide-purple); background: linear-gradient(135deg, #E8DAEF, #fff); }
+        .nephron-part.collecting { border-color: var(--k-sparing-green); background: linear-gradient(135deg, #D5F5E3, #fff); }
+
+        .nephron-part .number {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .nephron-part h4 {
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .nephron-part p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Renal Processes */
+        .process-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .process-card {
+            border-radius: 20px;
+            padding: 25px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-card::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .process-card.filtration { background: linear-gradient(135deg, #E74C3C, #C0392B); }
+        .process-card.reabsorption { background: linear-gradient(135deg, var(--loop-blue), #1ABC9C); }
+        .process-card.secretion { background: linear-gradient(135deg, var(--thiazide-purple), #8E44AD); }
+
+        .process-card h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .process-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .process-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .process-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* Drug Class Accordions */
+        .drug-accordion {
+            margin: 20px 0;
+        }
+
+        .drug-header {
+            padding: 20px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+            margin-bottom: 5px;
+        }
+
+        .drug-header:hover {
+            transform: scale(1.02);
+        }
+
+        .drug-header.loop { background: linear-gradient(135deg, var(--loop-blue), #1ABC9C); }
+        .drug-header.thiazide { background: linear-gradient(135deg, var(--thiazide-purple), #8E44AD); }
+        .drug-header.k-sparing { background: linear-gradient(135deg, var(--k-sparing-green), #27AE60); }
+        .drug-header.osmotic { background: linear-gradient(135deg, var(--osmotic-orange), #E67E22); }
+
+        .drug-header .arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .drug-header.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .drug-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            background: white;
+            border-radius: 0 0 20px 20px;
+            margin-top: -10px;
+            padding-top: 10px;
+        }
+
+        .drug-content.active {
+            max-height: 2000px;
+            padding: 25px;
+            border: 2px solid #eee;
+            border-top: none;
+        }
+
+        .drug-content h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin: 15px 0 10px 0;
+            padding-bottom: 5px;
+            border-bottom: 2px dashed #ddd;
+        }
+
+        .drug-content h4:first-child {
+            margin-top: 0;
+        }
+
+        /* Info Badges */
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin: 3px;
+        }
+
+        .badge-site { background: #E8F8F5; color: #1ABC9C; }
+        .badge-moa { background: #E8DAEF; color: #9B59B6; }
+        .badge-warning { background: #FADBD8; color: #E74C3C; }
+        .badge-use { background: #FCF3CF; color: #F39C12; }
+
+        /* Adverse Effects List */
+        .adverse-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .adverse-item {
+            background: #FEF5F5;
+            border-radius: 15px;
+            padding: 15px;
+            border-left: 4px solid var(--kidney-coral);
+        }
+
+        .adverse-item h5 {
+            color: var(--kidney-coral);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .adverse-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        .compare-table th {
+            background: var(--text-dark);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 700;
+        }
+
+        .compare-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table tr:nth-child(even) td {
+            background: #F8F9FA;
+        }
+
+        .compare-table .drug-name {
+            font-weight: 800;
+        }
+
+        .compare-table .loop-row .drug-name { color: var(--loop-blue); }
+        .compare-table .thiazide-row .drug-name { color: var(--thiazide-purple); }
+        .compare-table .k-sparing-row .drug-name { color: var(--k-sparing-green); }
+        .compare-table .osmotic-row .drug-name { color: var(--osmotic-orange); }
+
+        /* Nursing Checklist */
+        .nursing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .nursing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            border: 3px solid #eee;
+            transition: all 0.3s ease;
+        }
+
+        .nursing-card:hover {
+            border-color: var(--loop-blue);
+            box-shadow: var(--card-shadow);
+        }
+
+        .nursing-card h4 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--loop-blue);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .checklist {
+            list-style: none;
+        }
+
+        .checklist li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .checklist li::before {
+            content: "☐";
+            font-size: 1.2rem;
+            color: var(--loop-blue);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        /* Flip Cards for Quick Facts */
+        .flip-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .flip-card {
+            height: 180px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .flip-card-front {
+            background: linear-gradient(135deg, var(--kidney-coral), #FF8E8E);
+            color: white;
+        }
+
+        .flip-card-front .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .flip-card-front h4 {
+            font-family: 'Fredoka One', cursive;
+        }
+
+        .flip-card-back {
+            background: white;
+            border: 3px solid var(--kidney-coral);
+            color: var(--text-dark);
+            transform: rotateY(180deg);
+            font-weight: 600;
+        }
+
+        /* Memory Tips */
+        .memory-tip {
+            background: linear-gradient(135deg, #FDF2E9, #FCF3CF);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 3px dashed var(--osmotic-orange);
+        }
+
+        .memory-tip h4 {
+            font-family: 'Fredoka One', cursive;
+            color: var(--osmotic-orange);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .memory-tip p {
+            font-size: 1.1rem;
+        }
+
+        /* Quant Fact Box */
+        .quant-box {
+            background: linear-gradient(135deg, #EBF5FB, #D4E6F1);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            border: 3px solid #3498DB;
+        }
+
+        .quant-box .big-number {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            color: #3498DB;
+        }
+
+        .quant-box p {
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
+
+            .compare-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .flip-card {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>💧 Diuretics & Kidney A&P</h1>
+            <p>Your Fun, Interactive Study Guide!</p>
+        </div>
+
+        <!-- Big Picture Section -->
+        <div class="section">
+            <h2 class="section-title"><span class="emoji">🎯</span> The Big Picture</h2>
+            <p>Why do kidneys matter for diuretics? The kidneys maintain fluid + electrolyte balance by:</p>
+            <div class="process-cards" style="margin-top: 20px;">
+                <div style="background: linear-gradient(135deg, #3498DB, #2980B9); border-radius: 15px; padding: 20px; color: white;">
+                    <h4 style="margin: 0 0 10px 0;">1️⃣ Cleansing ECF</h4>
+                    <p style="margin: 0; opacity: 0.9;">Volume + composition control</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #E74C3C, #C0392B); border-radius: 15px; padding: 20px; color: white;">
+                    <h4 style="margin: 0 0 10px 0;">2️⃣ Acid-Base Balance</h4>
+                    <p style="margin: 0; opacity: 0.9;">Maintaining pH homeostasis</p>
+                </div>
+                <div style="background: linear-gradient(135deg, #9B59B6, #8E44AD); border-radius: 15px; padding: 20px; color: white;">
+                    <h4 style="margin: 0 0 10px 0;">3️⃣ Waste Excretion</h4>
+                    <p style="margin: 0; opacity: 0.9;">Drugs, toxins, metabolic waste</p>
+                </div>
+            </div>
+            <div class="key-point" style="margin-top: 20px;">
+                Diuretics mainly affect #1 (ECF volume/composition).
+            </div>
+        </div>
+
+        <!-- Nephron Anatomy -->
+        <div class="section" style="border-left-color: var(--loop-blue);">
+            <h2 class="section-title"><span class="emoji">🔬</span> Nephron Anatomy (Know the Map!)</h2>
+            <p style="margin-bottom: 20px;">The nephron is the functional unit of the kidney. Click each part to learn more!</p>
+            
+            <div class="nephron-visual">
+                <div class="nephron-part glomerulus">
+                    <div class="number" style="color: #E74C3C;">1</div>
+                    <h4>Glomerulus</h4>
+                    <p>The "filter" - where filtration begins</p>
+                </div>
+                <div class="nephron-part pct">
+                    <div class="number" style="color: #F39C12;">2</div>
+                    <h4>PCT</h4>
+                    <p>Proximal Convoluted Tubule - Major reabsorption site</p>
+                </div>
+                <div class="nephron-part loop">
+                    <div class="number" style="color: var(--loop-blue);">3</div>
+                    <h4>Loop of Henle</h4>
+                    <p>Descending & Ascending limbs - Concentration gradient</p>
+                </div>
+                <div class="nephron-part dct">
+                    <div class="number" style="color: var(--thiazide-purple);">4</div>
+                    <h4>DCT</h4>
+                    <p>Distal Convoluted Tubule - Fine-tuning</p>
+                </div>
+                <div class="nephron-part collecting">
+                    <div class="number" style="color: var(--k-sparing-green);">5</div>
+                    <h4>Collecting Duct</h4>
+                    <p>Final concentration - ADH & Aldosterone act here</p>
+                </div>
+            </div>
+
+            <div class="memory-tip">
+                <h4>💡 Remember!</h4>
+                <p><strong>Distal Nephron</strong> = Late DCT + Collecting Duct → Where aldosterone (Na⁺/K⁺ exchange) and ADH (final urine concentration) act!</p>
+            </div>
+        </div>
+
+        <!-- 3 Renal Processes -->
+        <div class="section" style="border-left-color: var(--thiazide-purple);">
+            <h2 class="section-title"><span class="emoji">⚙️</span> The 3 Renal Processes</h2>
+            
+            <div class="process-cards">
+                <div class="process-card filtration">
+                    <h3>🔴 A. Filtration</h3>
+                    <ul>
+                        <li>Nonselective "sieve" at glomerulus</li>
+                        <li><strong>Filters:</strong> electrolytes, glucose, amino acids, drugs</li>
+                        <li><strong>Does NOT filter:</strong> cells, proteins, lipids</li>
+                        <li>Rate: 125 mL/min ≈ 180 L/day</li>
+                    </ul>
+                </div>
+                <div class="process-card reabsorption">
+                    <h3>🟢 B. Reabsorption</h3>
+                    <ul>
+                        <li>>99% of filtered water/solutes reabsorbed</li>
+                        <li>Solutes: active transport</li>
+                        <li>Water: follows passively by osmosis</li>
+                        <li><strong>Most diuretics work here!</strong></li>
+                    </ul>
+                </div>
+                <div class="process-card secretion">
+                    <h3>🟣 C. Secretion</h3>
+                    <ul>
+                        <li>Pumps move compounds plasma → lumen</li>
+                        <li>Two pumps: organic acids + organic bases</li>
+                        <li>Helps excrete wastes, drugs, toxins</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quant-box">
+                <div class="big-number">180 L/day</div>
+                <p>Entire ECF (~12.5 L) is processed about <strong>14 times per day</strong> (~every 100 min)!</p>
+            </div>
+
+            <div class="key-point">
+                Filtration can't control what stays in urine → Reabsorption + secretion decide final urine contents.
+            </div>
+        </div>
+
+        <!-- Where NaCl is Reabsorbed -->
+        <div class="section" style="border-left-color: var(--k-sparing-green);">
+            <h2 class="section-title"><span class="emoji">🧂</span> Where NaCl is Reabsorbed</h2>
+            <p style="margin-bottom: 15px; font-weight: 600; color: var(--kidney-coral);">💡 The earlier the site, the stronger the diuresis (more NaCl still available to block)!</p>
+
+            <div class="flip-cards">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front" style="background: linear-gradient(135deg, #F39C12, #E67E22);">
+                            <span class="emoji">📍</span>
+                            <h4>PCT</h4>
+                            <p>~65% NaCl</p>
+                        </div>
+                        <div class="flip-card-back" style="border-color: #F39C12;">
+                            <p>Reabsorbs all HCO₃⁻ + K⁺. Water follows → filtrate stays isotonic ~300 mOsm/L. <strong>Mannitol</strong> works here!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front" style="background: linear-gradient(135deg, var(--loop-blue), #1ABC9C);">
+                            <span class="emoji">➰</span>
+                            <h4>Loop of Henle</h4>
+                            <p>~20% NaCl</p>
+                        </div>
+                        <div class="flip-card-back" style="border-color: var(--loop-blue);">
+                            <p>Thick ascending limb. Not permeable to water → fluid becomes dilute. <strong>Furosemide</strong> works here!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front" style="background: linear-gradient(135deg, var(--thiazide-purple), #8E44AD);">
+                            <span class="emoji">🌀</span>
+                            <h4>Early DCT</h4>
+                            <p>~10% NaCl</p>
+                        </div>
+                        <div class="flip-card-back" style="border-color: var(--thiazide-purple);">
+                            <p>Reabsorbs ~10% NaCl. Water follows. <strong>Thiazides (HCTZ)</strong> work here!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front" style="background: linear-gradient(135deg, var(--k-sparing-green), #27AE60);">
+                            <span class="emoji">🎯</span>
+                            <h4>Distal Nephron</h4>
+                            <p>~1-5% Na⁺</p>
+                        </div>
+                        <div class="flip-card-back" style="border-color: var(--k-sparing-green);">
+                            <p>Aldosterone ↑Na⁺ reabsorption + ↑K⁺ secretion. <strong>K⁺-sparing diuretics</strong> work here!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="memory-tip">
+                <h4>🧮 Quantitative Fact!</h4>
+                <p>If kidneys filter ~180 L/day, then each <strong>1% blockade</strong> of solute reabsorption → ~<strong>1.8 L/day</strong> extra urine! Small block = big fluid loss!</p>
+            </div>
+        </div>
+
+        <!-- Drug Classes -->
+        <div class="section" style="border-left-color: var(--osmotic-orange);">
+            <h2 class="section-title"><span class="emoji">💊</span> Diuretic Drug Classes</h2>
+            <p style="margin-bottom: 20px;">Click each drug class to expand and learn more!</p>
+
+            <!-- Loop Diuretics -->
+            <div class="drug-accordion">
+                <div class="drug-header loop" onclick="toggleAccordion(this)">
+                    <span>🔵 Loop Diuretics — Furosemide (Lasix)</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="drug-content">
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px;">
+                        <span class="badge badge-site">📍 Site: Thick Ascending Limb</span>
+                        <span class="badge badge-moa">⚙️ MOA: Blocks NaCl reabsorption</span>
+                        <span class="badge badge-warning">⚡ STRONGEST DIURETIC</span>
+                    </div>
+
+                    <h4>💉 Pharmacokinetics</h4>
+                    <ul>
+                        <li><strong>PO:</strong> Onset ~60 min, lasts 6-8 h (non-emergent)</li>
+                        <li><strong>IV:</strong> Onset ~5 min, lasts ~2 h (emergent - pulmonary edema!)</li>
+                        <li>Metabolized in liver, excreted by kidneys</li>
+                    </ul>
+
+                    <h4>✅ Clinical Uses</h4>
+                    <ul>
+                        <li>Pulmonary edema from CHF (rapid fluid mobilization)</li>
+                        <li>Edema unresponsive to less potent agents</li>
+                        <li>HTN resistant to other diuretics</li>
+                        <li><strong>Works even when GFR/renal blood flow is low!</strong></li>
+                    </ul>
+
+                    <h4>⚠️ Major Adverse Effects</h4>
+                    <div class="adverse-list">
+                        <div class="adverse-item">
+                            <h5>💧 Hyponatremia/Dehydration</h5>
+                            <p>Watch for: dry mouth, thirst, oliguria, rapid weight loss</p>
+                        </div>
+                        <div class="adverse-item">
+                            <h5>📉 Hypotension</h5>
+                            <p>Symptoms: dizziness, light-headedness, fainting</p>
+                        </div>
+                        <div class="adverse-item">
+                            <h5>⚡ Hypokalemia</h5>
+                            <p>DANGER: Fatal dysrhythmias if K⁺ < 3.5 mEq/L</p>
+                        </div>
+                        <div class="adverse-item">
+                            <h5>👂 Ototoxicity</h5>
+                            <p>Rare, usually reversible with furosemide</p>
+                        </div>
+                    </div>
+
+                    <h4>⚡ Key Interactions</h4>
+                    <ul>
+                        <li><strong>Digoxin:</strong> Hypokalemia ↑ risk of digoxin toxicity → ventricular dysrhythmias</li>
+                        <li><strong>Aminoglycosides:</strong> ↑ hearing risk</li>
+                        <li><strong>NSAIDs:</strong> Can blunt diuresis</li>
+                        <li><strong>Lithium:</strong> Toxicity risk</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Thiazides -->
+            <div class="drug-accordion">
+                <div class="drug-header thiazide" onclick="toggleAccordion(this)">
+                    <span>🟣 Thiazides — Hydrochlorothiazide (HCTZ)</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="drug-content">
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px;">
+                        <span class="badge badge-site">📍 Site: Early DCT</span>
+                        <span class="badge badge-moa">⚙️ MOA: Blocks NaCl reabsorption (~10%)</span>
+                        <span class="badge badge-use">💊 Often first-choice for HTN</span>
+                    </div>
+
+                    <h4>💉 Pharmacokinetics</h4>
+                    <ul>
+                        <li>PO onset ~2 h, peak 4-6 h, lasts up to 12 h</li>
+                        <li>Excreted largely unchanged in urine</li>
+                        <li><strong>Requires adequate kidney function!</strong></li>
+                        <li>⚠️ Ineffective when GFR < 15-20 mL/min</li>
+                    </ul>
+
+                    <h4>✅ Clinical Uses</h4>
+                    <ul>
+                        <li>Essential hypertension (often first-choice!)</li>
+                        <li>Edema in mild-moderate HF</li>
+                        <li>Hepatic/renal edema</li>
+                    </ul>
+
+                    <h4>⚠️ Adverse Effects</h4>
+                    <p>Similar to loops EXCEPT: <strong>NO ototoxicity!</strong></p>
+                    <ul>
+                        <li>Dehydration, hypotension, hypokalemia</li>
+                        <li>Hyperglycemia, hyperuricemia</li>
+                        <li>Lipid changes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- K+ Sparing -->
+            <div class="drug-accordion">
+                <div class="drug-header k-sparing" onclick="toggleAccordion(this)">
+                    <span>🟢 Potassium-Sparing Diuretics</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="drug-content">
+                    <h4>1️⃣ Aldosterone Antagonist — Spironolactone (Aldactone)</h4>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0;">
+                        <span class="badge badge-site">📍 Site: Distal Nephron</span>
+                        <span class="badge badge-moa">⚙️ Blocks aldosterone → ↓Na⁺ reabsorption, ↓K⁺ secretion</span>
+                    </div>
+                    <ul>
+                        <li><strong>Diuresis:</strong> Mild (little Na⁺ left by distal nephron)</li>
+                        <li><strong>Onset:</strong> Delayed 24-48 h (must wait for existing transport proteins to turn over)</li>
+                        <li><strong>Uses:</strong> HTN + edema, often combined with loop/thiazide; severe HF (↓ mortality!)</li>
+                    </ul>
+
+                    <div class="adverse-list" style="margin-top: 15px;">
+                        <div class="adverse-item" style="border-left-color: var(--k-sparing-green);">
+                            <h5>⚡ HYPERKALEMIA (Big one!)</h5>
+                            <p>Stop if K⁺ > 5 mEq/L or dysrhythmia signs</p>
+                        </div>
+                        <div class="adverse-item" style="border-left-color: var(--thiazide-purple);">
+                            <h5>🧬 Endocrine Effects</h5>
+                            <p>Gynecomastia, menstrual irregularities, impotence, hirsutism</p>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 25px;">2️⃣ Non-Aldosterone Antagonists — Triamterene / Amiloride</h4>
+                    <ul>
+                        <li><strong>MOA:</strong> Directly inhibits Na⁺ entry/Na⁺-K⁺ exchange</li>
+                        <li><strong>Onset:</strong> Hours (faster than spironolactone)</li>
+                        <li><strong>Use:</strong> Mainly to prevent hypokalemia with loop/thiazide</li>
+                        <li><strong>Adverse:</strong> Hyperkalemia, GI upset, cramps, dizziness</li>
+                    </ul>
+
+                    <div class="key-point" style="margin-top: 15px;">
+                        ⚠️ Watch for interactions with anything that raises K⁺: K⁺ supplements, salt substitutes, ACE inhibitors, ARBs!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Osmotic -->
+            <div class="drug-accordion">
+                <div class="drug-header osmotic" onclick="toggleAccordion(this)">
+                    <span>🟠 Osmotic Diuretic — Mannitol (Osmitrol)</span>
+                    <span class="arrow">▼</span>
+                </div>
+                <div class="drug-content">
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px;">
+                        <span class="badge badge-moa">⚙️ Filtered but NOT reabsorbed</span>
+                        <span class="badge badge-site">📍 Holds water in tubule via osmosis</span>
+                        <span class="badge badge-use">💉 IV ONLY</span>
+                    </div>
+
+                    <h4>💉 Pharmacokinetics</h4>
+                    <ul>
+                        <li>Given IV only (not absorbed orally)</li>
+                        <li>Onset: 30-60 min, lasts 6-8 h</li>
+                        <li>Distributes to ECF, excreted intact</li>
+                        <li>Minimal effect on K⁺ and other electrolytes</li>
+                    </ul>
+
+                    <h4>✅ Unique Uses</h4>
+                    <ul>
+                        <li>Prevent renal failure in low-flow states (keeps urine flowing)</li>
+                        <li><strong>Lower ICP</strong> (draws water out of brain - doesn't cross BBB)</li>
+                        <li><strong>Lower IOP</strong> (draws ocular fluid into blood)</li>
+                    </ul>
+
+                    <h4>⚠️ Major Dangers</h4>
+                    <div class="adverse-list">
+                        <div class="adverse-item">
+                            <h5>💧 Worsened Edema</h5>
+                            <p>Leaves capillaries elsewhere and drags water with it</p>
+                        </div>
+                        <div class="adverse-item">
+                            <h5>❤️ CHF / Pulmonary Edema</h5>
+                            <p>STOP immediately if pulmonary congestion/CHF signs appear!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nursing Implications -->
+        <div class="section" style="border-left-color: #3498DB;">
+            <h2 class="section-title"><span class="emoji">👩‍⚕️</span> Nursing Implications</h2>
+            
+            <div class="nursing-grid">
+                <div class="nursing-card">
+                    <h4>📊 Universal Monitoring</h4>
+                    <ul class="checklist">
+                        <li>Weight daily (same scale, AM before eating)</li>
+                        <li>BP (sitting + supine), pulse, respirations</li>
+                        <li>Electrolytes: Na⁺, K⁺, Cl⁻</li>
+                        <li>I&O, assess edema sites</li>
+                        <li>Ascites: abdominal girth</li>
+                        <li>Acute CHF: lung sounds</li>
+                    </ul>
+                </div>
+
+                <div class="nursing-card">
+                    <h4>💊 Loop + Thiazide Priorities</h4>
+                    <ul class="checklist">
+                        <li>Watch for dehydration signs</li>
+                        <li>Monitor for hypotension (teach slow position changes)</li>
+                        <li>Keep K⁺ ≥ 3.5 mEq/L (especially if on digoxin!)</li>
+                        <li>Loop only: hearing changes</li>
+                    </ul>
+                </div>
+
+                <div class="nursing-card">
+                    <h4>⏰ Administration Timing</h4>
+                    <ul class="checklist">
+                        <li>Once daily: MORNING</li>
+                        <li>Twice daily: 8am + 2pm (avoid nocturia)</li>
+                        <li>IV furosemide: give slowly 1-2 min</li>
+                    </ul>
+                </div>
+
+                <div class="nursing-card">
+                    <h4>🟢 K⁺-Sparing Priorities</h4>
+                    <ul class="checklist">
+                        <li>Main risk: HYPERKALEMIA</li>
+                        <li>Avoid K⁺ supplements, salt substitutes</li>
+                        <li>Monitor ACEI/ARB/renin inhibitor use</li>
+                        <li>Maintain K⁺ 3.5-5 mEq/L</li>
+                        <li>Teach: restrict K⁺-rich foods if trending high</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Compare Table -->
+        <div class="section" style="border-left-color: #E74C3C;">
+            <h2 class="section-title"><span class="emoji">📋</span> Quick Compare Table</h2>
+            
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Drug Class</th>
+                        <th>Site</th>
+                        <th>Strength</th>
+                        <th>Works in Low GFR?</th>
+                        <th>Big Risks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="loop-row">
+                        <td class="drug-name">🔵 Loop (Furosemide)</td>
+                        <td>Thick ascending limb</td>
+                        <td><strong>STRONGEST</strong></td>
+                        <td>✅ YES</td>
+                        <td>Dehydration, hypotension, hypokalemia, ototoxicity, digoxin interaction</td>
+                    </tr>
+                    <tr class="thiazide-row">
+                        <td class="drug-name">🟣 Thiazide (HCTZ)</td>
+                        <td>Early DCT</td>
+                        <td>Moderate</td>
+                        <td>❌ NO (<15-20 mL/min)</td>
+                        <td>Dehydration, hypotension, hypokalemia (no ototoxicity)</td>
+                    </tr>
+                    <tr class="k-sparing-row">
+                        <td class="drug-name">🟢 K⁺-Sparing</td>
+                        <td>Distal nephron</td>
+                        <td>Mild</td>
+                        <td>—</td>
+                        <td>HYPERKALEMIA (watch ACEI/ARB/K⁺ supplements)</td>
+                    </tr>
+                    <tr class="osmotic-row">
+                        <td class="drug-name">🟠 Mannitol</td>
+                        <td>Filtered (osmotic)</td>
+                        <td>Special use</td>
+                        <td>—</td>
+                        <td>Pulmonary edema/CHF</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Final Memory Tips -->
+        <div class="section" style="border-left-color: var(--osmotic-orange);">
+            <h2 class="section-title"><span class="emoji">🧠</span> Final Memory Tips</h2>
+            
+            <div class="memory-tip">
+                <h4>🔑 Strength Rule</h4>
+                <p>Early nephron drugs = <strong>stronger</strong> diuresis (more NaCl to block)<br>
+                Distal nephron drugs = <strong>mild</strong> diuresis (little Na⁺ remains)</p>
+            </div>
+
+            <div class="memory-tip" style="background: linear-gradient(135deg, #EBF5FB, #D4E6F1); border-color: #3498DB;">
+                <h4>⚡ The Digoxin + Diuretic Danger</h4>
+                <p>Loop/Thiazide → <strong>Hypokalemia</strong> → ↑ Digoxin toxicity → <strong>Ventricular dysrhythmias!</strong><br>
+                Always keep K⁺ ≥ 3.5 mEq/L in patients on digoxin!</p>
+            </div>
+
+            <div class="memory-tip" style="background: linear-gradient(135deg, #D5F5E3, #ABEBC6); border-color: var(--k-sparing-green);">
+                <h4>🟢 K⁺-Sparing = K⁺ DANGER</h4>
+                <p>Avoid: K⁺ supplements + salt substitutes + ACE inhibitors + ARBs + renin inhibitors<br>
+                All of these ↑ K⁺ → Fatal hyperkalemia risk!</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>📚 Study Guide based on Lehne's Chapter 44: Diuretics<br>
+            Created with 💙 for nursing students</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            // Close all accordions
+            document.querySelectorAll('.drug-header').forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.classList.remove('active');
+            });
+            
+            // Open clicked one if it wasn't already open
+            if (!isActive) {
+                header.classList.add('active');
+                content.classList.add('active');
+            }
+        }
+
+        // Add click animation to nephron parts
+        document.querySelectorAll('.nephron-part').forEach(part => {
+            part.addEventListener('click', function() {
+                this.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1.05)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>

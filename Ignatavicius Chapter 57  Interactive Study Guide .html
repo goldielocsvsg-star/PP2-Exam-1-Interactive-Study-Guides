@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 57: Assessment of the Renal/Urinary System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FF6B9D;
+            --coral: #FF8A5B;
+            --teal: #00CEC9;
+            --purple: #A29BFE;
+            --mint: #55EFC4;
+            --yellow: #FFEAA7;
+            --blue: #74B9FF;
+            --lavender: #DDA0DD;
+            --peach: #FFDAB9;
+            --orange: #FF9F43;
+            --green: #26DE81;
+            --red: #FF6B6B;
+            --navy: #0984E3;
+            --indigo: #6C5CE7;
+            --dark: #2D3436;
+            --light: #FAFAFA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #00b09b 0%, #96c93d 50%, #00CEC9 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🔬';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: -10px;
+            right: 10px;
+        }
+
+        .header::after {
+            content: '🫘';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            bottom: -10px;
+            left: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            background: linear-gradient(135deg, var(--teal), var(--green), var(--mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            background: linear-gradient(135deg, var(--teal), var(--mint));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        /* Big Picture Box */
+        .big-picture {
+            background: linear-gradient(135deg, var(--teal), var(--green));
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 15px 50px rgba(0,206,201,0.4);
+        }
+
+        .big-picture-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .concept-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .concept-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+        }
+
+        /* Navigation Pills */
+        .nav-container {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .nav-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-pill {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .nav-pill.active {
+            transform: scale(1.05);
+        }
+
+        .pill-functions { background: linear-gradient(135deg, var(--teal), var(--mint)); color: white; }
+        .pill-anatomy { background: linear-gradient(135deg, var(--pink), var(--coral)); color: white; }
+        .pill-nephron { background: linear-gradient(135deg, var(--purple), var(--indigo)); color: white; }
+        .pill-processes { background: linear-gradient(135deg, var(--blue), var(--teal)); color: white; }
+        .pill-hormones { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark); }
+        .pill-lower { background: linear-gradient(135deg, var(--green), var(--mint)); color: white; }
+        .pill-aging { background: linear-gradient(135deg, var(--lavender), var(--pink)); color: white; }
+        .pill-labs { background: linear-gradient(135deg, var(--red), var(--coral)); color: white; }
+        .pill-terms { background: linear-gradient(135deg, var(--dark), #636e72); color: white; }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        .toggle-icon {
+            margin-left: auto;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .card-content {
+            display: none;
+            padding-top: 15px;
+            border-top: 2px dashed #dfe6e9;
+        }
+
+        .card.expanded .card-content {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .info-box.pink { background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(255,138,91,0.1)); border-left: 5px solid var(--pink); }
+        .info-box.teal { background: linear-gradient(135deg, rgba(0,206,201,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--teal); }
+        .info-box.purple { background: linear-gradient(135deg, rgba(162,155,254,0.2), rgba(221,160,221,0.1)); border-left: 5px solid var(--purple); }
+        .info-box.yellow { background: linear-gradient(135deg, rgba(255,234,167,0.3), rgba(255,218,185,0.2)); border-left: 5px solid var(--coral); }
+        .info-box.blue { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(0,206,201,0.1)); border-left: 5px solid var(--blue); }
+        .info-box.green { background: linear-gradient(135deg, rgba(38,222,129,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--green); }
+        .info-box.orange { background: linear-gradient(135deg, rgba(255,159,67,0.2), rgba(255,234,167,0.1)); border-left: 5px solid var(--orange); }
+        .info-box.navy { background: linear-gradient(135deg, rgba(9,132,227,0.2), rgba(116,185,255,0.1)); border-left: 5px solid var(--navy); }
+
+        .info-box-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Lists */
+        .fancy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fancy-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .fancy-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 800;
+        }
+
+        .fancy-list.pink li::before { color: var(--pink); }
+        .fancy-list.purple li::before { color: var(--purple); }
+        .fancy-list.coral li::before { color: var(--coral); }
+        .fancy-list.blue li::before { color: var(--blue); }
+        .fancy-list.green li::before { color: var(--green); }
+
+        /* Memory Tricks */
+        .memory-trick {
+            background: linear-gradient(135deg, var(--yellow), var(--peach));
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .memory-trick::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .memory-trick-title {
+            font-family: 'Fredoka One', cursive;
+            color: var(--dark);
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        /* Red Flag Box */
+        .red-flag {
+            background: linear-gradient(135deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .red-flag-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Nursing Alert */
+        .nursing-alert {
+            background: linear-gradient(135deg, var(--blue), var(--navy));
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .nursing-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Flow Chart */
+        .flow-chart {
+            background: linear-gradient(135deg, var(--purple), var(--indigo));
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .flow-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .flow-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .flow-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .flow-arrow {
+            font-size: 1.5rem;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .compare-table th {
+            padding: 15px;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+        }
+
+        .compare-table th:first-child { background: var(--teal); }
+        .compare-table th:nth-child(2) { background: var(--pink); }
+        .compare-table th:nth-child(3) { background: var(--purple); }
+        .compare-table th:nth-child(4) { background: var(--blue); }
+
+        .compare-table td {
+            padding: 12px 15px;
+            background: white;
+            border-bottom: 1px solid #dfe6e9;
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Key Number Box */
+        .key-number {
+            background: linear-gradient(135deg, var(--mint), var(--teal));
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .number-big {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+        }
+
+        .number-text {
+            font-weight: 700;
+        }
+
+        /* Memory Grid */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .memory-card {
+            background: linear-gradient(135deg, var(--teal), var(--mint));
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,206,201,0.3);
+        }
+
+        .memory-card:nth-child(2) { background: linear-gradient(135deg, var(--pink), var(--coral)); box-shadow: 0 10px 30px rgba(255,107,157,0.3); }
+        .memory-card:nth-child(3) { background: linear-gradient(135deg, var(--purple), var(--lavender)); box-shadow: 0 10px 30px rgba(162,155,254,0.3); }
+        .memory-card:nth-child(4) { background: linear-gradient(135deg, var(--blue), var(--navy)); box-shadow: 0 10px 30px rgba(116,185,255,0.3); }
+        .memory-card:nth-child(5) { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark); box-shadow: 0 10px 30px rgba(255,159,67,0.3); }
+        .memory-card:nth-child(6) { background: linear-gradient(135deg, var(--green), var(--mint)); box-shadow: 0 10px 30px rgba(38,222,129,0.3); }
+
+        .memory-hook {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .memory-explain {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Quiz Section */
+        .quiz-card {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .quiz-question {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.9);
+            color: var(--dark);
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: white;
+        }
+
+        .quiz-option.correct {
+            background: var(--mint);
+            color: white;
+            border-color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #ff7675;
+            color: white;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
+            display: none;
+        }
+
+        /* Flashcard */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            min-height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 200px;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--teal), var(--green));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .flashcard-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+        }
+
+        .flashcard-hint {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        /* Terms Grid */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .term-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .term-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .term-name {
+            font-family: 'Fredoka One', cursive;
+            color: var(--teal);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .term-def {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+            display: none;
+        }
+
+        .term-card.show .term-def {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .term-hint {
+            font-size: 0.8rem;
+            color: var(--purple);
+            font-weight: 700;
+        }
+
+        .term-card.show .term-hint {
+            display: none;
+        }
+
+        /* Search Box */
+        .search-box {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 3px solid var(--teal);
+            font-size: 1rem;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            margin-bottom: 20px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--purple);
+            box-shadow: 0 5px 20px rgba(162,155,254,0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-pills {
+                flex-direction: column;
+            }
+            
+            .nav-pill {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .memory-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-items {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Icon backgrounds */
+        .icon-pink { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+        .icon-teal { background: linear-gradient(135deg, var(--teal), var(--mint)); }
+        .icon-purple { background: linear-gradient(135deg, var(--purple), var(--lavender)); }
+        .icon-yellow { background: linear-gradient(135deg, var(--yellow), var(--peach)); }
+        .icon-blue { background: linear-gradient(135deg, var(--blue), var(--teal)); }
+        .icon-green { background: linear-gradient(135deg, var(--green), var(--mint)); }
+        .icon-orange { background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+        .icon-red { background: linear-gradient(135deg, var(--red), var(--coral)); }
+        .icon-navy { background: linear-gradient(135deg, var(--navy), var(--blue)); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🔬 Assessment of the Renal/Urinary System</h1>
+            <p>Chapter 57 Interactive Study Guide</p>
+            <span class="subtitle">Priority Concept: ELIMINATION</span>
+        </div>
+
+        <!-- Big Picture -->
+        <div class="big-picture">
+            <div class="big-picture-title">🔹 BIG PICTURE: Elimination & Renal Function</div>
+            <p style="font-weight: 600; margin-bottom: 10px;">
+                <strong>Elimination</strong> removes metabolic waste via:<br>
+                • GI tract → Feces<br>
+                • Kidneys → Urine
+            </p>
+            <p style="font-weight: 700;">
+                Renal dysfunction → <strong>Fluid overload, Electrolyte imbalance, Acidosis, HTN, Anemia, Bone disease!</strong>
+            </p>
+            <div class="concept-badges">
+                <div class="concept-badge">💧 Fluid Balance</div>
+                <div class="concept-badge">⚡ Electrolyte Balance</div>
+                <div class="concept-badge">🧪 Acid-Base Balance</div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav-title">📚 Jump to a Section</div>
+            <div class="nav-pills">
+                <button class="nav-pill pill-functions active" onclick="showSection('functions')">🎯 Kidney Functions</button>
+                <button class="nav-pill pill-anatomy" onclick="showSection('anatomy')">🫘 Anatomy</button>
+                <button class="nav-pill pill-nephron" onclick="showSection('nephron')">🔬 Nephron</button>
+                <button class="nav-pill pill-processes" onclick="showSection('processes')">⚙️ Renal Processes</button>
+                <button class="nav-pill pill-hormones" onclick="showSection('hormones')">🧬 Hormones</button>
+                <button class="nav-pill pill-lower" onclick="showSection('lower')">🚽 Lower Tract</button>
+                <button class="nav-pill pill-aging" onclick="showSection('aging')">👵 Aging</button>
+                <button class="nav-pill pill-labs" onclick="showSection('labs')">🧪 Labs</button>
+                <button class="nav-pill pill-terms" onclick="showSection('terms')">📖 Key Terms</button>
+            </div>
+        </div>
+
+        <!-- KIDNEY FUNCTIONS SECTION -->
+        <div id="functions" class="section active">
+            <div class="card expanded">
+                <div class="card-header">
+                    <div class="card-icon icon-teal">🎯</div>
+                    <div>
+                        <div class="card-title">Kidney Functions - TEST FAVORITE!</div>
+                        <div class="card-subtitle">What do the kidneys actually DO?</div>
+                    </div>
+                </div>
+                <div class="card-content" style="display: block;">
+                    <div class="info-box teal">
+                        <div class="info-box-title">🔄 Regulatory Functions</div>
+                        <ul class="fancy-list">
+                            <li><strong>Fluid balance</strong></li>
+                            <li><strong>Electrolyte balance</strong></li>
+                            <li><strong>Acid-base balance</strong></li>
+                            <li><strong>Blood pressure regulation</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🧬 Hormonal Functions</div>
+                        <ul class="fancy-list pink">
+                            <li><strong>Erythropoietin (EPO)</strong> → RBC production</li>
+                            <li><strong>Renin</strong> → RAAS → BP control</li>
+                            <li><strong>Activated Vitamin D</strong> → Calcium absorption</li>
+                        </ul>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Remember: Kidneys = REGULATE + HORMONE!</div>
+                        Without kidneys working properly:<br>
+                        ↓ EPO = Anemia<br>
+                        ↓ Vitamin D = Bone disease<br>
+                        ↑ Renin = Hypertension
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANATOMY SECTION -->
+        <div id="anatomy" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🫘</div>
+                    <div>
+                        <div class="card-title">Kidney Location & Size</div>
+                        <div class="card-subtitle">Structure → Function Connection!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">📍 Location</div>
+                        <strong>RETROPERITONEAL</strong> (behind the peritoneum)
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">📏 Normal Adult Kidney Size</div>
+                        <ul class="fancy-list">
+                            <li>4-5 inches LONG</li>
+                            <li>2-3 inches WIDE</li>
+                        </ul>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Size Tells You Something!</div>
+                        <strong>LARGE kidneys</strong> → Think Obstruction or Polycystic disease<br><br>
+                        <strong>SMALL kidneys</strong> → Think Chronic Kidney Disease (CKD)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🧅</div>
+                    <div>
+                        <div class="card-title">Kidney Layers (Outside → Inside)</div>
+                        <div class="card-subtitle">Know the structure!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="flow-chart">
+                        <div class="flow-title">Kidney Layers: OUT → IN</div>
+                        <div class="flow-items">
+                            <div class="flow-item">1️⃣ Renal Capsule<br>(Fibrous protection)</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">2️⃣ Cortex<br>(Contains nephrons)</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">3️⃣ Medulla<br>(Pyramids - concentrate urine)</div>
+                        </div>
+                    </div>
+
+                    <div class="flow-chart" style="background: linear-gradient(135deg, var(--teal), var(--mint)); margin-top: 15px;">
+                        <div class="flow-title">Urine Flow Path</div>
+                        <div class="flow-items">
+                            <div class="flow-item">Papillae</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">Calyces</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">Renal Pelvis</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">Ureter</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-red">🩸</div>
+                    <div>
+                        <div class="card-title">Blood Supply - VERY HIGH YIELD!</div>
+                        <div class="card-subtitle">Know the arteriole sequence!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="flow-chart" style="background: linear-gradient(135deg, var(--red), var(--coral));">
+                        <div class="flow-title">Blood Flow Through Kidney</div>
+                        <div class="flow-items">
+                            <div class="flow-item">Renal Artery</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">Afferent Arteriole</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">GLOMERULUS</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">Efferent Arteriole</div>
+                        </div>
+                    </div>
+
+                    <div class="key-number">
+                        <div class="number-big">600-1300</div>
+                        <div class="number-text">mL/min blood flow to kidneys!<br>HIGH flow = Effective filtration</div>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">A before E!</div>
+                        <strong>A</strong>fferent = <strong>A</strong>rriving (blood coming IN)<br>
+                        <strong>E</strong>fferent = <strong>E</strong>xiting (blood going OUT)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEPHRON SECTION -->
+        <div id="nephron" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">🔬</div>
+                    <div>
+                        <div class="card-title">The Nephron - EXTREMELY TESTABLE!</div>
+                        <div class="card-subtitle">Functional unit of the kidney</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Type</th>
+                            <th>Percentage</th>
+                            <th>Location</th>
+                            <th>Function</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Cortical</strong></td>
+                            <td>80%</td>
+                            <td>Short loops</td>
+                            <td>Filtration</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Juxtamedullary</strong></td>
+                            <td>20%</td>
+                            <td>Long loops into medulla</td>
+                            <td><strong>URINE CONCENTRATION!</strong></td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Juxtamedullary = CONCENTRATE!</div>
+                        The 20% with LONG loops are essential for making concentrated urine!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">🔄</div>
+                    <div>
+                        <div class="card-title">Nephron Flow - MEMORIZE THIS!</div>
+                        <div class="card-subtitle">The path urine takes</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="flow-chart" style="background: linear-gradient(135deg, var(--blue), var(--purple));">
+                        <div class="flow-title">Nephron Flow Path</div>
+                        <div class="flow-items" style="flex-direction: column; gap: 5px;">
+                            <div class="flow-item" style="width: 100%;">1️⃣ Bowman Capsule (filtration starts)</div>
+                            <span class="flow-arrow" style="transform: rotate(90deg);">→</span>
+                            <div class="flow-item" style="width: 100%;">2️⃣ Proximal Convoluted Tubule (PCT) - MOST reabsorption!</div>
+                            <span class="flow-arrow" style="transform: rotate(90deg);">→</span>
+                            <div class="flow-item" style="width: 100%;">3️⃣ Loop of Henle (Descending → Ascending)</div>
+                            <span class="flow-arrow" style="transform: rotate(90deg);">→</span>
+                            <div class="flow-item" style="width: 100%;">4️⃣ Distal Convoluted Tubule (DCT)</div>
+                            <span class="flow-arrow" style="transform: rotate(90deg);">→</span>
+                            <div class="flow-item" style="width: 100%;">5️⃣ Collecting Duct → Renal Pelvis → Ureter</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RENAL PROCESSES SECTION -->
+        <div id="processes" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">1️⃣</div>
+                    <div>
+                        <div class="card-title">Glomerular Filtration</div>
+                        <div class="card-subtitle">What gets filtered (and what DOESN'T!)</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">✅ FILTERED (Small molecules)</div>
+                        <ul class="fancy-list">
+                            <li>Water</li>
+                            <li>Electrolytes</li>
+                            <li>Glucose</li>
+                            <li>Urea</li>
+                            <li>Creatinine</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">❌ NOT FILTERED (Too big!)</div>
+                        <ul class="fancy-list pink">
+                            <li><strong>RBCs</strong></li>
+                            <li><strong>Albumin</strong></li>
+                            <li><strong>Proteins</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="key-number">
+                        <div class="number-big">125</div>
+                        <div class="number-text">mL/min = Normal GFR<br>(That's ~180 L/day filtered!)</div>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">But Only 1-3 L Excreted!</div>
+                        180 L filtered → Only 1-3 L comes out as urine<br>
+                        <strong>99% is REABSORBED!</strong>
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚙️ GFR Regulation (Autoregulation)</div>
+                        <strong>↓ GFR:</strong> Afferent constriction OR Efferent dilation<br>
+                        <strong>↑ GFR:</strong> Afferent dilation OR Efferent constriction<br><br>
+                        <strong>Autoregulation FAILS when SBP &lt;65-70 mm Hg!</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-green">2️⃣</div>
+                    <div>
+                        <div class="card-title">Tubular Reabsorption - 99% Returned!</div>
+                        <div class="card-subtitle">Where most of the action happens</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box green">
+                        <div class="info-box-title">📍 PCT = MOST Reabsorption!</div>
+                        Reabsorbed in PCT:<br>
+                        Water, Sodium, Chloride, Glucose, Amino acids, Bicarbonate
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Location</th>
+                            <th>What Happens</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Loop - Descending</strong></td>
+                            <td>WATER reabsorption (permeable to water)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Loop - Ascending</strong></td>
+                            <td>SODIUM reabsorption (NO water! Impermeable)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DCT & Collecting Duct</strong></td>
+                            <td>ADH & Aldosterone work here!</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box blue">
+                        <div class="info-box-title">🧬 Hormone Effects</div>
+                        <strong>ADH</strong> → ↑ Water permeability (reabsorb MORE water)<br>
+                        <strong>Aldosterone</strong> → Sodium IN, Potassium OUT
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Golden Rule!</div>
+                        <strong>"Where SODIUM goes, WATER follows!"</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">⭐</div>
+                    <div>
+                        <div class="card-title">Renal Threshold - TEST FAVORITE!</div>
+                        <div class="card-subtitle">When does glucose spill into urine?</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="key-number" style="background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark);">
+                        <div class="number-big">~180</div>
+                        <div class="number-text">mg/dL = Renal threshold for glucose<br>Above this → GLUCOSURIA!</div>
+                    </div>
+
+                    <div class="info-box orange">
+                        <div class="info-box-title">⚠️ Causes of Glucosuria</div>
+                        <ul class="fancy-list coral">
+                            <li>Diabetes (most common!)</li>
+                            <li>Stress</li>
+                            <li>Infection</li>
+                        </ul>
+                    </div>
+
+                    <div class="nursing-alert">
+                        <div class="nursing-title">🚨 Nursing Alert!</div>
+                        <strong>Report glucose OR protein in urine</strong> - These are ABNORMAL findings!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">3️⃣</div>
+                    <div>
+                        <div class="card-title">Tubular Secretion</div>
+                        <div class="card-subtitle">Blood → Urine (Getting rid of stuff!)</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">📤 What Gets SECRETED (Blood → Urine)</div>
+                        <ul class="fancy-list purple">
+                            <li>Potassium</li>
+                            <li>Hydrogen ions (H⁺)</li>
+                            <li>Drugs</li>
+                        </ul>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Secretion = Maintains Acid-Base Balance!</div>
+                        By secreting H⁺ ions, kidneys help control blood pH
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HORMONES SECTION -->
+        <div id="hormones" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">🧬</div>
+                    <div>
+                        <div class="card-title">RAAS - VERY TESTABLE!</div>
+                        <div class="card-subtitle">Renin-Angiotensin-Aldosterone System</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box orange">
+                        <div class="info-box-title">🔔 RAAS Triggers</div>
+                        <ul class="fancy-list coral">
+                            <li>↓ Blood pressure</li>
+                            <li>↓ Blood volume</li>
+                            <li>↓ Sodium</li>
+                        </ul>
+                    </div>
+
+                    <div class="flow-chart" style="background: linear-gradient(135deg, var(--orange), var(--coral));">
+                        <div class="flow-title">RAAS Effects</div>
+                        <div class="flow-items">
+                            <div class="flow-item">Vasoconstriction</div>
+                            <div class="flow-item">Aldosterone Release</div>
+                            <div class="flow-item">Na⁺ + H₂O Retention</div>
+                            <div class="flow-item">BP ↑</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🧬</div>
+                    <div>
+                        <div class="card-title">Other Kidney Hormones</div>
+                        <div class="card-subtitle">What happens when they're low?</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Hormone</th>
+                            <th>Function</th>
+                            <th>↓ in CKD →</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Prostaglandins</strong></td>
+                            <td>Regulate renal blood flow</td>
+                            <td>↓ Kidney perfusion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Erythropoietin</strong></td>
+                            <td>Stimulate RBC production</td>
+                            <td><strong>ANEMIA!</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vitamin D (active)</strong></td>
+                            <td>Calcium absorption</td>
+                            <td><strong>BONE DISEASE!</strong></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOWER TRACT SECTION -->
+        <div id="lower" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-green">🚿</div>
+                    <div>
+                        <div class="card-title">Ureters - STONE TRAPS!</div>
+                        <div class="card-subtitle">Three narrowing points</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box green">
+                        <div class="info-box-title">⚙️ Function</div>
+                        <strong>Peristalsis</strong> moves urine from kidney to bladder
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🪨 Three Stone Trap Points!</div>
+                        1️⃣ <strong>UPJ</strong> - Ureteropelvic junction<br>
+                        2️⃣ <strong>Aortoiliac bend</strong> - Where ureter crosses iliac vessels<br>
+                        3️⃣ <strong>UVJ</strong> - Ureterovesical junction (<strong>MOST COMMON!</strong>)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">🫧</div>
+                    <div>
+                        <div class="card-title">Urinary Bladder</div>
+                        <div class="card-subtitle">Storage & Voiding</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">🏗️ Key Structures</div>
+                        <ul class="fancy-list">
+                            <li><strong>Detrusor muscle</strong> = Contraction for voiding</li>
+                            <li><strong>Trigone</strong> = Infection-prone area!</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">✅ Continence Requires</div>
+                        <ul class="fancy-list purple">
+                            <li>RELAXED detrusor</li>
+                            <li>CLOSED internal & external sphincters</li>
+                            <li>INTACT nervous system</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🚽 Micturition (Voiding)</div>
+                        <ul class="fancy-list pink">
+                            <li>Detrusor CONTRACTS</li>
+                            <li>External sphincter RELAXES</li>
+                            <li>Controlled by: Cortex, Brainstem, Sacral spinal cord</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AGING SECTION -->
+        <div id="aging" class="section">
+            <div class="card expanded">
+                <div class="card-header">
+                    <div class="card-icon icon-purple">👵</div>
+                    <div>
+                        <div class="card-title">Aging & the Renal System - NCLEX FAVORITE!</div>
+                        <div class="card-subtitle">What changes with age?</div>
+                    </div>
+                </div>
+                <div class="card-content" style="display: block;">
+                    <div class="info-box purple">
+                        <div class="info-box-title">🫘 Kidney Changes with Age</div>
+                        <ul class="fancy-list purple">
+                            <li>↓ Nephrons</li>
+                            <li>↓ Cortical tissue</li>
+                            <li>↓ GFR</li>
+                            <li>↓ Urine concentrating ability</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Clinical Effects in Older Adults</div>
+                        • <strong>Nocturia</strong> (getting up at night to pee)<br>
+                        • <strong>Urgency</strong><br>
+                        • <strong>DEHYDRATION risk</strong> (can't concentrate urine as well)<br>
+                        • <strong>DRUG TOXICITY risk</strong> (decreased clearance!)<br>
+                        • ↑ UTI risk
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Older Adults = Watch for Drug Toxicity!</div>
+                        ↓ GFR = Drugs cleared SLOWER = Toxicity risk!<br>
+                        Always consider renal function when dosing meds in elderly!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LABS SECTION -->
+        <div id="labs" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-red">🩸</div>
+                    <div>
+                        <div class="card-title">Blood Tests - MUST KNOW!</div>
+                        <div class="card-subtitle">What the numbers mean</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Test</th>
+                            <th>What It Tells You</th>
+                            <th>Key Point</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Creatinine</strong></td>
+                            <td>Kidney function</td>
+                            <td>↑ Creatinine = Kidney impairment!</td>
+                        </tr>
+                        <tr>
+                            <td><strong>BUN</strong></td>
+                            <td>Kidney function + hydration</td>
+                            <td>Affected by hydration, diet, stress</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cystatin-C</strong></td>
+                            <td>GFR (sensitive marker)</td>
+                            <td>More accurate than creatinine alone</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Doubling Rule!</div>
+                        <strong>Doubling creatinine = 50% ↓ GFR!</strong><br>
+                        This is a BIG deal!
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 Contrast Safety</div>
+                        <strong>Creatinine ≥1.5 mg/dL = AKI risk with contrast!</strong><br><br>
+                        <strong>METFORMIN RULE:</strong><br>
+                        Hold 24 hr BEFORE and 48 hr AFTER IV contrast!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">🧪</div>
+                    <div>
+                        <div class="card-title">Urinalysis - KEY CLUES!</div>
+                        <div class="card-subtitle">What each finding means</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Finding</th>
+                            <th>Think...</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Protein</strong></td>
+                            <td>Glomerular damage!</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Microalbuminuria</strong></td>
+                            <td>EARLY kidney disease (diabetic!)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>RBCs</strong></td>
+                            <td>Stones, Tumors, Glomerulonephritis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WBCs + Leukocyte esterase + Nitrites</strong></td>
+                            <td><strong>UTI!</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>High Specific Gravity</strong></td>
+                            <td>Dehydration (concentrated urine)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Low Specific Gravity</strong></td>
+                            <td>CKD or Overhydration (dilute urine)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">👩‍⚕️</div>
+                    <div>
+                        <div class="card-title">Nursing Safety Priorities</div>
+                        <div class="card-subtitle">What to monitor & do</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="nursing-alert">
+                        <div class="nursing-title">🚨 Key Nursing Actions</div>
+                        <ul class="fancy-list" style="color: white;">
+                            <li>Monitor urine output (<strong>&lt;0.5 mL/kg/hr = CONCERN!</strong>)</li>
+                            <li>Assess kidney function BEFORE contrast</li>
+                            <li>Monitor for BLEEDING after kidney biopsy</li>
+                            <li>Encourage hydration (unless restricted)</li>
+                            <li>Use bladder scanner for suspected retention</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KEY TERMS SECTION -->
+        <div id="terms" class="section">
+            <input type="text" class="search-box" placeholder="🔍 Search terms..." oninput="filterTerms(this.value)">
+            
+            <div class="terms-grid" id="termsGrid">
+                <!-- Terms will be dynamically populated -->
+            </div>
+        </div>
+
+        <!-- MEMORY HOOKS & QUIZ -->
+        <div style="margin-top: 30px;">
+            <h2 style="font-family: 'Fredoka One', cursive; color: white; text-align: center; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">🧠 Exam Memory Hooks</h2>
+            
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="memory-hook">Proteinuria = Glomerular Damage</div>
+                    <div class="memory-explain">Protein shouldn't be filtered!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Creatinine ↑ = Kidney Impairment</div>
+                    <div class="memory-explain">Doubling = 50% ↓ GFR!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">ADH = Water</div>
+                    <div class="memory-explain">Anti-Diuretic = Keeps water IN</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Aldosterone = Na⁺ in, K⁺ out</div>
+                    <div class="memory-explain">Remember: "ALD-O-sterone"</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Juxtamedullary = Concentrate</div>
+                    <div class="memory-explain">20% with long loops = concentrated urine!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Older Adults = Drug Toxicity Risk</div>
+                    <div class="memory-explain">↓ GFR = Slower drug clearance!</div>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="quiz-question">🎯 Quick Quiz: What is the renal threshold for glucose?</div>
+                <div class="quiz-options" id="quiz1">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) 100 mg/dL</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) ~180 mg/dL</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) 250 mg/dL</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) 300 mg/dL</div>
+                </div>
+                <div class="quiz-feedback" id="quiz1-feedback"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <div class="flashcard-label">Question</div>
+                        <div class="flashcard-text">A patient's creatinine doubles. What happened to their GFR?</div>
+                        <div class="flashcard-hint">👆 Tap to reveal</div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-label">Answer</div>
+                        <div class="flashcard-text">GFR decreased by 50%!</div>
+                        <div class="flashcard-hint">Doubling creatinine = Half the kidney function</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="background: linear-gradient(135deg, var(--teal), var(--green));">
+                <div class="quiz-question">🎯 Which nephron type is responsible for concentrating urine?</div>
+                <div class="quiz-options" id="quiz2">
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">A) Cortical nephrons (80%)</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, true)">B) Juxtamedullary nephrons (20%)</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">C) Both equally</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">D) Neither - collecting duct only</div>
+                </div>
+                <div class="quiz-feedback" id="quiz2-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Terms data
+        const terms = [
+            { name: "Bruit", def: "Audible swishing sound from turbulent blood flow (can indicate renal artery stenosis)" },
+            { name: "Calculi", def: "Stones (kidney stones = renal calculi)" },
+            { name: "Continence", def: "Voluntary control of bladder or bowel emptying" },
+            { name: "Cystitis", def: "Bladder inflammation, usually from infection" },
+            { name: "Elimination", def: "Excretion of waste via GI tract (feces) and kidneys (urine)" },
+            { name: "External Urethral Sphincter", def: "Skeletal muscle controlling urine flow (voluntary control!)" },
+            { name: "GFR", def: "Glomerular Filtration Rate - Normal ~125 mL/min; best indicator of kidney function" },
+            { name: "Incontinence", def: "Involuntary loss of urine or stool" },
+            { name: "Internal Urethral Sphincter", def: "Smooth muscle at bladder neck (involuntary control)" },
+            { name: "Microalbuminuria", def: "Small amounts of albumin in urine - indicates EARLY kidney disease" },
+            { name: "Nephron", def: "Functional unit of kidney; cortical (80%) and juxtamedullary (20%)" },
+            { name: "Nocturnal Polyuria", def: "Increased urination at night - common in older adults" },
+            { name: "Proteinuria", def: "Protein in urine - ABNORMAL! Indicates glomerular damage" },
+            { name: "Renal Threshold", def: "Point where kidneys cannot reabsorb glucose (~180 mg/dL)" },
+            { name: "Uremia", def: "Accumulation of nitrogenous wastes in blood due to kidney failure" },
+            { name: "Urgency", def: "Sudden, strong need to urinate" }
+        ];
+
+        // Populate terms grid
+        function populateTerms() {
+            const grid = document.getElementById('termsGrid');
+            grid.innerHTML = terms.map(term => `
+                <div class="term-card" onclick="this.classList.toggle('show')">
+                    <div class="term-name">${term.name}</div>
+                    <div class="term-hint">Tap to reveal definition</div>
+                    <div class="term-def">${term.def}</div>
+                </div>
+            `).join('');
+        }
+
+        // Filter terms
+        function filterTerms(query) {
+            const cards = document.querySelectorAll('.term-card');
+            cards.forEach(card => {
+                const name = card.querySelector('.term-name').textContent.toLowerCase();
+                const def = card.querySelector('.term-def').textContent.toLowerCase();
+                if (name.includes(query.toLowerCase()) || def.includes(query.toLowerCase())) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Show section
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Toggle card
+        function toggleCard(header) {
+            header.parentElement.classList.toggle('expanded');
+        }
+
+        // Check quiz answer 1
+        function checkAnswer(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz1-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! ~180 mg/dL is the renal threshold. Above this = GLUCOSURIA!' :
+                '❌ Not quite! The renal threshold for glucose is ~180 mg/dL.';
+        }
+
+        // Check quiz answer 2
+        function checkAnswer2(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz2-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! Juxtamedullary nephrons (20%) have LONG loops essential for concentrating urine!' :
+                '❌ Not quite! Juxtamedullary nephrons with their long loops are essential for urine concentration!';
+        }
+
+        // Initialize
+        populateTerms();
+    </script>
+</body>
+</html>
