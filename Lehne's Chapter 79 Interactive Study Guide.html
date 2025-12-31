@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 79: Calcium & Bone Drugs Study Guide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #FF6B9D;
+            --coral: #FF8A5B;
+            --teal: #00CEC9;
+            --purple: #A29BFE;
+            --mint: #55EFC4;
+            --yellow: #FFEAA7;
+            --blue: #74B9FF;
+            --lavender: #DDA0DD;
+            --peach: #FFDAB9;
+            --orange: #FF9F43;
+            --green: #26DE81;
+            --red: #FF6B6B;
+            --navy: #0984E3;
+            --indigo: #6C5CE7;
+            --bone: #F5E6D3;
+            --cream: #FFF8E7;
+            --dark: #2D3436;
+            --light: #FAFAFA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #F5E6D3 0%, #FFE4C9 50%, #FFDAB9 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '🦴';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: -10px;
+            right: 10px;
+        }
+
+        .header::after {
+            content: '💊';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            bottom: -10px;
+            left: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            background: linear-gradient(135deg, var(--coral), var(--orange), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .header .subtitle {
+            background: linear-gradient(135deg, var(--coral), var(--orange));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 700;
+        }
+
+        /* Big Picture Box */
+        .big-picture {
+            background: linear-gradient(135deg, var(--coral), var(--orange));
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            color: white;
+            box-shadow: 0 15px 50px rgba(255,138,91,0.4);
+        }
+
+        .big-picture-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .priority-rule {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            font-weight: 700;
+        }
+
+        .function-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .function-item {
+            background: rgba(255,255,255,0.15);
+            padding: 12px 15px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Navigation Pills */
+        .nav-container {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .nav-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .nav-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-pill {
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .nav-pill.active {
+            transform: scale(1.05);
+        }
+
+        .pill-physio { background: linear-gradient(135deg, var(--teal), var(--mint)); color: white; }
+        .pill-hormones { background: linear-gradient(135deg, var(--purple), var(--indigo)); color: white; }
+        .pill-disorders { background: linear-gradient(135deg, var(--pink), var(--coral)); color: white; }
+        .pill-calcium { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark); }
+        .pill-vitd { background: linear-gradient(135deg, var(--yellow), var(--peach)); color: var(--dark); }
+        .pill-bisphos { background: linear-gradient(135deg, var(--blue), var(--navy)); color: white; }
+        .pill-other { background: linear-gradient(135deg, var(--green), var(--mint)); color: white; }
+        .pill-osteo { background: linear-gradient(135deg, var(--lavender), var(--pink)); color: white; }
+        .pill-memory { background: linear-gradient(135deg, var(--coral), var(--orange)); color: white; }
+
+        /* Section Styles */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Card Styles */
+        .card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            color: var(--dark);
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #636e72;
+            font-weight: 600;
+        }
+
+        .toggle-icon {
+            margin-left: auto;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .card-content {
+            display: none;
+            padding-top: 15px;
+            border-top: 2px dashed #dfe6e9;
+        }
+
+        .card.expanded .card-content {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 2000px; }
+        }
+
+        /* Info Boxes */
+        .info-box {
+            padding: 15px 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .info-box.pink { background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(255,138,91,0.1)); border-left: 5px solid var(--pink); }
+        .info-box.teal { background: linear-gradient(135deg, rgba(0,206,201,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--teal); }
+        .info-box.purple { background: linear-gradient(135deg, rgba(162,155,254,0.2), rgba(221,160,221,0.1)); border-left: 5px solid var(--purple); }
+        .info-box.yellow { background: linear-gradient(135deg, rgba(255,234,167,0.3), rgba(255,218,185,0.2)); border-left: 5px solid var(--coral); }
+        .info-box.blue { background: linear-gradient(135deg, rgba(116,185,255,0.2), rgba(0,206,201,0.1)); border-left: 5px solid var(--blue); }
+        .info-box.green { background: linear-gradient(135deg, rgba(38,222,129,0.2), rgba(85,239,196,0.1)); border-left: 5px solid var(--green); }
+        .info-box.orange { background: linear-gradient(135deg, rgba(255,159,67,0.2), rgba(255,234,167,0.1)); border-left: 5px solid var(--orange); }
+
+        .info-box-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Lists */
+        .fancy-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fancy-list li {
+            padding: 8px 0 8px 30px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .fancy-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 800;
+        }
+
+        .fancy-list.pink li::before { color: var(--pink); }
+        .fancy-list.purple li::before { color: var(--purple); }
+        .fancy-list.coral li::before { color: var(--coral); }
+        .fancy-list.blue li::before { color: var(--blue); }
+        .fancy-list.green li::before { color: var(--green); }
+        .fancy-list.orange li::before { color: var(--orange); }
+
+        /* Memory Tricks */
+        .memory-trick {
+            background: linear-gradient(135deg, var(--yellow), var(--peach));
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .memory-trick::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .memory-trick-title {
+            font-family: 'Fredoka One', cursive;
+            color: var(--dark);
+            margin-bottom: 10px;
+            padding-top: 10px;
+        }
+
+        /* Red Flag Box */
+        .red-flag {
+            background: linear-gradient(135deg, #ff7675, #fd79a8);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+        }
+
+        .red-flag-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* NCLEX Gold Box */
+        .nclex-gold {
+            background: linear-gradient(135deg, var(--yellow), var(--orange));
+            color: var(--dark);
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            border: 3px solid var(--orange);
+        }
+
+        .nclex-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .compare-table th {
+            padding: 15px;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+        }
+
+        .compare-table th:first-child { background: var(--teal); }
+        .compare-table th:nth-child(2) { background: var(--pink); }
+        .compare-table th:nth-child(3) { background: var(--purple); }
+        .compare-table th:nth-child(4) { background: var(--blue); }
+
+        .compare-table td {
+            padding: 12px 15px;
+            background: white;
+            border-bottom: 1px solid #dfe6e9;
+            font-weight: 600;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Key Number Box */
+        .key-number {
+            background: linear-gradient(135deg, var(--coral), var(--orange));
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .number-big {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+        }
+
+        .number-text {
+            font-weight: 700;
+        }
+
+        /* Flow Chart */
+        .flow-chart {
+            background: linear-gradient(135deg, var(--purple), var(--indigo));
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .flow-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .flow-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .flow-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+        }
+
+        .flow-arrow {
+            font-size: 1.5rem;
+        }
+
+        /* Drug Card Grid */
+        .drug-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .drug-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--teal);
+            transition: transform 0.3s ease;
+        }
+
+        .drug-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .drug-card:nth-child(2) { border-top-color: var(--pink); }
+        .drug-card:nth-child(3) { border-top-color: var(--purple); }
+        .drug-card:nth-child(4) { border-top-color: var(--orange); }
+
+        .drug-name {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .drug-class {
+            background: var(--mint);
+            color: var(--dark);
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Memory Grid */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .memory-card {
+            background: linear-gradient(135deg, var(--teal), var(--mint));
+            border-radius: 20px;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,206,201,0.3);
+        }
+
+        .memory-card:nth-child(2) { background: linear-gradient(135deg, var(--pink), var(--coral)); box-shadow: 0 10px 30px rgba(255,107,157,0.3); }
+        .memory-card:nth-child(3) { background: linear-gradient(135deg, var(--purple), var(--lavender)); box-shadow: 0 10px 30px rgba(162,155,254,0.3); }
+        .memory-card:nth-child(4) { background: linear-gradient(135deg, var(--blue), var(--navy)); box-shadow: 0 10px 30px rgba(116,185,255,0.3); }
+        .memory-card:nth-child(5) { background: linear-gradient(135deg, var(--orange), var(--yellow)); color: var(--dark); box-shadow: 0 10px 30px rgba(255,159,67,0.3); }
+        .memory-card:nth-child(6) { background: linear-gradient(135deg, var(--green), var(--mint)); box-shadow: 0 10px 30px rgba(38,222,129,0.3); }
+
+        .memory-hook {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .memory-explain {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Quiz Section */
+        .quiz-card {
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .quiz-question {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.9);
+            color: var(--dark);
+            padding: 15px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: white;
+        }
+
+        .quiz-option.correct {
+            background: var(--mint);
+            color: white;
+            border-color: white;
+        }
+
+        .quiz-option.incorrect {
+            background: #ff7675;
+            color: white;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.2);
+            display: none;
+        }
+
+        /* Flashcard */
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 20px 0;
+        }
+
+        .flashcard {
+            width: 100%;
+            min-height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            min-height: 200px;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, var(--coral), var(--orange));
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--teal), var(--mint));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .flashcard-text {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+        }
+
+        .flashcard-hint {
+            font-size: 0.9rem;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        /* RDA Table */
+        .rda-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .rda-table th {
+            padding: 15px;
+            font-family: 'Fredoka One', cursive;
+            color: white;
+            background: var(--coral);
+        }
+
+        .rda-table td {
+            padding: 12px 15px;
+            background: white;
+            border-bottom: 1px solid #dfe6e9;
+            font-weight: 600;
+        }
+
+        .rda-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rda-table .highlight {
+            background: var(--yellow);
+            font-weight: 800;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-pills {
+                flex-direction: column;
+            }
+            
+            .nav-pill {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 2rem;
+            }
+            
+            .card-title {
+                font-size: 1.1rem;
+            }
+
+            .memory-grid, .drug-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-items {
+                flex-direction: column;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+        }
+
+        /* Icon backgrounds */
+        .icon-pink { background: linear-gradient(135deg, var(--pink), var(--coral)); }
+        .icon-teal { background: linear-gradient(135deg, var(--teal), var(--mint)); }
+        .icon-purple { background: linear-gradient(135deg, var(--purple), var(--lavender)); }
+        .icon-yellow { background: linear-gradient(135deg, var(--yellow), var(--peach)); }
+        .icon-blue { background: linear-gradient(135deg, var(--blue), var(--teal)); }
+        .icon-green { background: linear-gradient(135deg, var(--green), var(--mint)); }
+        .icon-orange { background: linear-gradient(135deg, var(--orange), var(--yellow)); }
+        .icon-red { background: linear-gradient(135deg, var(--red), var(--coral)); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🦴 Calcium & Bone Drugs</h1>
+            <p>Chapter 79 Interactive Study Guide</p>
+            <span class="subtitle">💊 High-Yield NCLEX Review!</span>
+        </div>
+
+        <!-- Big Picture -->
+        <div class="big-picture">
+            <div class="big-picture-title">🔹 BIG PICTURE: Why Calcium Matters</div>
+            <p style="font-weight: 600; margin-bottom: 10px;">
+                Calcium is <strong>TIGHTLY REGULATED</strong> because it's essential for life-sustaining functions!
+            </p>
+            <div class="function-grid">
+                <div class="function-item">🦴 Bone Strength</div>
+                <div class="function-item">🧠 Nerve Function</div>
+                <div class="function-item">💪 Muscle Contraction</div>
+                <div class="function-item">❤️ Heart & Vessels</div>
+            </div>
+            <div class="priority-rule">
+                👉 <strong>PRIORITY RULE:</strong> Blood calcium is protected AT THE EXPENSE OF BONE!<br>
+                If serum calcium drops → Bone will be resorbed, EVEN IF bones weaken.
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-container">
+            <div class="nav-title">📚 Jump to a Section</div>
+            <div class="nav-pills">
+                <button class="nav-pill pill-physio active" onclick="showSection('physio')">🧪 Physiology</button>
+                <button class="nav-pill pill-hormones" onclick="showSection('hormones')">🧬 Hormones</button>
+                <button class="nav-pill pill-disorders" onclick="showSection('disorders')">⚠️ Disorders</button>
+                <button class="nav-pill pill-calcium" onclick="showSection('calcium')">💊 Calcium Drugs</button>
+                <button class="nav-pill pill-vitd" onclick="showSection('vitd')">☀️ Vitamin D</button>
+                <button class="nav-pill pill-bisphos" onclick="showSection('bisphos')">💎 Bisphosphonates</button>
+                <button class="nav-pill pill-other" onclick="showSection('other')">💉 Other Drugs</button>
+                <button class="nav-pill pill-osteo" onclick="showSection('osteo')">🦴 Osteoporosis</button>
+                <button class="nav-pill pill-memory" onclick="showSection('memory')">🧠 Memory Hooks</button>
+            </div>
+        </div>
+
+        <!-- PHYSIOLOGY SECTION -->
+        <div id="physio" class="section active">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-teal">🧪</div>
+                    <div>
+                        <div class="card-title">Normal Values - TEST FAVORITES!</div>
+                        <div class="card-subtitle">Know these numbers!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="key-number">
+                        <div class="number-big">~10</div>
+                        <div class="number-text">mg/dL = Total serum calcium</div>
+                    </div>
+
+                    <div class="key-number" style="background: linear-gradient(135deg, var(--teal), var(--mint));">
+                        <div class="number-big">~50%</div>
+                        <div class="number-text">Ionized (active) calcium<br>This is what affects muscles, nerves, heart!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">🥛</div>
+                    <div>
+                        <div class="card-title">Dietary Sources & RDA</div>
+                        <div class="card-subtitle">VERY TESTABLE!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box orange">
+                        <div class="info-box-title">🍽️ Common Calcium Sources</div>
+                        🥛 Milk (1 cup): ~300 mg<br>
+                        🧀 Cheese (1.5 oz): ~300 mg<br>
+                        🐟 Sardines w/ bones: ~324 mg<br>
+                        🥦 Broccoli (1 cup): ~180 mg<br>
+                        🥤 Fortified OJ: ~300 mg
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Absorption Inhibitors!</div>
+                        • Oxalates (spinach, rhubarb)<br>
+                        • Phytic acid (bran, whole grains)<br>
+                        • Insoluble fiber<br><br>
+                        <em>Spinach has calcium but poor absorption due to oxalates!</em>
+                    </div>
+
+                    <table class="rda-table">
+                        <tr>
+                            <th>Age Group</th>
+                            <th>Calcium Needed</th>
+                        </tr>
+                        <tr>
+                            <td>0-6 months</td>
+                            <td>200 mg</td>
+                        </tr>
+                        <tr>
+                            <td>1-3 years</td>
+                            <td>700 mg</td>
+                        </tr>
+                        <tr>
+                            <td>4-8 years</td>
+                            <td>1000 mg</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>9-18 years 🔥</strong></td>
+                            <td><strong>1300 mg</strong></td>
+                        </tr>
+                        <tr>
+                            <td>19-50 years</td>
+                            <td>1000 mg</td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>Women 51-70</strong></td>
+                            <td><strong>1200 mg</strong></td>
+                        </tr>
+                        <tr class="highlight">
+                            <td><strong>≥71 years</strong></td>
+                            <td><strong>1200 mg</strong></td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Teens Need Most Calcium!</div>
+                        9-18 years = 1300 mg (building bones!)<br>
+                        Older adults & postmenopausal women = 1200 mg (preventing loss!)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🦴</div>
+                    <div>
+                        <div class="card-title">Bone Cells & Remodeling</div>
+                        <div class="card-subtitle">Who builds, who breaks?</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box teal">
+                        <div class="info-box-title">📊 Where Calcium Lives</div>
+                        <strong>>98% in BONE!</strong><br>
+                        Bone is DYNAMIC, not static - constantly remodeling
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Cell Type</th>
+                            <th>Function</th>
+                            <th>Memory Trick</th>
+                        </tr>
+                        <tr>
+                            <td><strong>OsteoCLASTS</strong></td>
+                            <td>BREAK DOWN bone</td>
+                            <td>"CLAST = CRASH"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OsteoBLASTS</strong></td>
+                            <td>BUILD new bone</td>
+                            <td>"BLAST = BUILD"</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🔄 Bone Turnover</div>
+                        Trabecular bone: ~25% replaced yearly (fast!)<br>
+                        Cortical bone: ~3% replaced yearly (slow)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">⬆️⬇️</div>
+                    <div>
+                        <div class="card-title">Absorption & Excretion</div>
+                        <div class="card-subtitle">What increases/decreases calcium?</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box green">
+                        <div class="info-box-title">📍 Absorption (Small Intestine)</div>
+                        Only ~1/3 of dietary calcium absorbed normally!<br><br>
+                        <strong>↑ Increased by:</strong> Vitamin D, PTH<br>
+                        <strong>↓ Decreased by:</strong> Glucocorticoids, Fiber, Oxalates, Phytic acid
+                    </div>
+
+                    <table class="compare-table">
+                        <tr>
+                            <th>Factor</th>
+                            <th>Effect on Calcium</th>
+                        </tr>
+                        <tr>
+                            <td><strong>THIAZIDE diuretics</strong></td>
+                            <td>↑ INCREASE calcium (retain it)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>LOOP diuretics (Furosemide)</strong></td>
+                            <td>↓ DECREASE calcium (waste it)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Calcitonin</strong></td>
+                            <td>↓ DECREASE calcium</td>
+                        </tr>
+                        <tr>
+                            <td><strong>High sodium intake</strong></td>
+                            <td>↓ DECREASE calcium</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Diuretic Calcium Rule!</div>
+                        <strong>Thiazides = Think "T" = TRAP calcium (keep it)</strong><br>
+                        <strong>Loops = LOSE calcium</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- HORMONES SECTION -->
+        <div id="hormones" class="section">
+            <div class="card expanded">
+                <div class="card-header">
+                    <div class="card-icon icon-purple">🧬</div>
+                    <div>
+                        <div class="card-title">Hormonal Regulation - MEMORIZE THIS!</div>
+                        <div class="card-subtitle">PTH, Vitamin D, Calcitonin</div>
+                    </div>
+                </div>
+                <div class="card-content" style="display: block;">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Hormone</th>
+                            <th>Triggered By</th>
+                            <th>Effect on Ca²⁺</th>
+                            <th>How?</th>
+                        </tr>
+                        <tr>
+                            <td><strong>PTH</strong></td>
+                            <td>LOW calcium</td>
+                            <td><strong>↑ RAISES Ca²⁺</strong></td>
+                            <td>↑ Bone resorption, ↑ Renal reabsorption, ↑ Vit D activation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Vitamin D</strong></td>
+                            <td>PTH activation</td>
+                            <td><strong>↑ RAISES Ca²⁺</strong></td>
+                            <td>↑ Gut absorption, ↑ Bone resorption</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Calcitonin</strong></td>
+                            <td>HIGH calcium</td>
+                            <td><strong>↓ LOWERS Ca²⁺</strong></td>
+                            <td>↓ Bone resorption, ↑ Renal excretion</td>
+                        </tr>
+                    </table>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">The Golden Mnemonic!</div>
+                        <strong>"PTH Pulls calcium UP"</strong> ⬆️<br>
+                        <strong>"CalciTONin TONES it DOWN"</strong> ⬇️
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">📌 PTH Also...</div>
+                        ↓ DECREASES phosphate levels!<br>
+                        (Vitamin D increases BOTH calcium AND phosphate)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DISORDERS SECTION -->
+        <div id="disorders" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-red">⬆️</div>
+                    <div>
+                        <div class="card-title">Hypercalcemia</div>
+                        <div class="card-subtitle">"Bones, Stones, Groans, Psychiatric Overtones"</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Classic Mnemonic!</div>
+                        <strong>"Bones, Stones, Groans, Psychiatric Overtones"</strong><br><br>
+                        🦴 <strong>Bones</strong> - Bone pain<br>
+                        🪨 <strong>Stones</strong> - Kidney stones, polyuria, polydipsia<br>
+                        🤢 <strong>Groans</strong> - Constipation, nausea<br>
+                        🧠 <strong>Psychiatric Overtones</strong> - Lethargy, depression<br>
+                        ❤️ Plus: Dysrhythmias!
+                    </div>
+
+                    <div class="info-box pink">
+                        <div class="info-box-title">🎯 Causes</div>
+                        <ul class="fancy-list pink">
+                            <li><strong>CANCER</strong> (most severe cause!)</li>
+                            <li>Hyperparathyroidism</li>
+                            <li>Vitamin D toxicity</li>
+                            <li>Thiazide diuretics</li>
+                            <li>Sarcoidosis</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">🚨 Treatment of SEVERE Hypercalcemia</div>
+                        <ol style="font-weight: 700;">
+                            <li><strong>IV NORMAL SALINE</strong> (first! dilute & flush)</li>
+                            <li><strong>BISPHOSPHONATES</strong></li>
+                            <li><strong>CALCITONIN</strong></li>
+                            <li><strong>LOOP diuretics</strong> (only AFTER rehydration!)</li>
+                            <li><strong>Cinacalcet</strong> (for hyperparathyroidism)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">⬇️</div>
+                    <div>
+                        <div class="card-title">Hypocalcemia</div>
+                        <div class="card-subtitle">Neuromuscular Symptoms!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box blue">
+                        <div class="info-box-title">🚨 Symptoms (NEUROMUSCULAR!)</div>
+                        <ul class="fancy-list blue">
+                            <li><strong>TETANY</strong></li>
+                            <li>Muscle spasms</li>
+                            <li><strong>LARYNGOSPASM</strong> (emergency!)</li>
+                            <li>Seizures</li>
+                            <li>Paresthesias (numbness/tingling)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box purple">
+                        <div class="info-box-title">🎯 Causes</div>
+                        <ul class="fancy-list purple">
+                            <li>PTH deficiency (often post-thyroid surgery!)</li>
+                            <li>Vitamin D deficiency</li>
+                            <li>CKD</li>
+                            <li>Bisphosphonates</li>
+                            <li>Magnesium laxatives</li>
+                        </ul>
+                    </div>
+
+                    <div class="nclex-gold">
+                        <div class="nclex-title">💉 Treatment</div>
+                        <strong>SEVERE:</strong> IV CALCIUM GLUCONATE<br>
+                        <strong>MAINTENANCE:</strong> Oral calcium + Vitamin D
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">🦴</div>
+                    <div>
+                        <div class="card-title">Key Disease States</div>
+                        <div class="card-subtitle">Paget, Hypo/Hyperparathyroidism</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <table class="compare-table">
+                        <tr>
+                            <th>Disease</th>
+                            <th>What Happens</th>
+                            <th>Treatment</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Paget Disease</strong></td>
+                            <td>Excessive bone resorption → abnormal bone, ↑ Alk Phos, bone pain</td>
+                            <td>Bisphosphonates</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hypoparathyroidism</strong></td>
+                            <td>↓ PTH (often post-thyroid surgery) → HYPOCALCEMIA</td>
+                            <td>Calcium + Vitamin D</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Primary Hyperparathyroidism</strong></td>
+                            <td>Adenoma → ↑ PTH → HYPERCALCEMIA</td>
+                            <td>Surgery (definitive) or Cinacalcet</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Secondary Hyperparathyroidism</strong></td>
+                            <td>CKD → phosphate retention → ↑ PTH</td>
+                            <td>Treat CKD, phosphate binders</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- CALCIUM DRUGS SECTION -->
+        <div id="calcium" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-orange">💊</div>
+                    <div>
+                        <div class="card-title">Calcium Salts</div>
+                        <div class="card-subtitle">Oral & IV Calcium</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box orange">
+                        <div class="info-box-title">💊 Oral Calcium</div>
+                        Used for: Mild hypocalcemia & supplementation<br><br>
+                        <strong>⚠️ Do NOT exceed 600 mg per dose!</strong><br>
+                        (Absorption limit - taking more is wasted)
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Drug Interactions!</div>
+                        Calcium ↓ DECREASES absorption of:<br>
+                        • Tetracyclines<br>
+                        • Fluoroquinolones<br>
+                        • Levothyroxine<br><br>
+                        <strong>Separate by 2-4 hours!</strong>
+                    </div>
+
+                    <div class="nclex-gold">
+                        <div class="nclex-title">💉 IV Calcium - HIGH YIELD!</div>
+                        <strong>CALCIUM GLUCONATE = PREFERRED!</strong><br><br>
+                        • Give SLOW IV (0.5-2 mL/min)<br>
+                        • Monitor for infiltration (tissue necrosis!)<br><br>
+                        <strong>⚠️ DIGOXIN + CALCIUM = BRADYCARDIA!</strong><br>
+                        (Calcium potentiates digoxin toxicity)
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-purple">💎</div>
+                    <div>
+                        <div class="card-title">Cinacalcet (Sensipar)</div>
+                        <div class="card-subtitle">Calcimimetic - Lowers PTH!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box purple">
+                        <div class="info-box-title">⚙️ Mechanism</div>
+                        <strong>Calcimimetic</strong> = Mimics calcium at parathyroid gland →<br>
+                        ↓ PTH secretion
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">✅ Uses</div>
+                        <ul class="fancy-list">
+                            <li>Primary hyperparathyroidism</li>
+                            <li>Secondary hyperparathyroidism (CKD)</li>
+                        </ul>
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Can Cause HYPOCALCEMIA!</div>
+                        Monitor calcium closely when using cinacalcet!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VITAMIN D SECTION -->
+        <div id="vitd" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-yellow">☀️</div>
+                    <div>
+                        <div class="card-title">Vitamin D</div>
+                        <div class="card-subtitle">The Sunshine Vitamin!</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box yellow">
+                        <div class="info-box-title">📋 Forms</div>
+                        <strong>D3 (Cholecalciferol)</strong> → PREFERRED!<br>
+                        <strong>D2 (Ergocalciferol)</strong> → Plant-based
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">⚙️ Functions</div>
+                        <ul class="fancy-list">
+                            <li>↑ Calcium & phosphate absorption</li>
+                            <li>Supports bone mineralization</li>
+                        </ul>
+                    </div>
+
+                    <div class="flow-chart" style="background: linear-gradient(135deg, var(--yellow), var(--orange));">
+                        <div class="flow-title">Vitamin D Activation Pathway - VERY TESTED!</div>
+                        <div class="flow-items">
+                            <div class="flow-item">☀️ SKIN<br>(or diet)</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">🫁 LIVER<br>(25-OH)</div>
+                            <span class="flow-arrow">→</span>
+                            <div class="flow-item">🫘 KIDNEY<br>(1,25-OH = CALCITRIOL)</div>
+                        </div>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Activation Path!</div>
+                        <strong>Skin → Liver → Kidney = ACTIVE!</strong><br>
+                        Calcitriol (1,25-OH) is the ACTIVE form!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-blue">📊</div>
+                    <div>
+                        <div class="card-title">Vitamin D Levels</div>
+                        <div class="card-subtitle">Deficiency & Toxicity</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box blue">
+                        <div class="info-box-title">🧪 Testing</div>
+                        Measured by: <strong>25-OH Vitamin D</strong><br><br>
+                        <strong>Deficient:</strong> &lt;20 ng/mL<br>
+                        <strong>Goal:</strong> 30-60 ng/mL
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">☠️ Vitamin D TOXICITY</div>
+                        Causes <strong>HYPERCALCEMIA!</strong><br><br>
+                        Treatment:<br>
+                        • STOP vitamin D<br>
+                        • IV fluids<br>
+                        • Loop diuretic
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BISPHOSPHONATES SECTION -->
+        <div id="bisphos" class="section">
+            <div class="card expanded">
+                <div class="card-header">
+                    <div class="card-icon icon-blue">💎</div>
+                    <div>
+                        <div class="card-title">Bisphosphonates - HIGH YIELD!</div>
+                        <div class="card-subtitle">Alendronate (Fosamax) = Prototype</div>
+                    </div>
+                </div>
+                <div class="card-content" style="display: block;">
+                    <div class="info-box blue">
+                        <div class="info-box-title">⚙️ Mechanism</div>
+                        <strong>Inhibits OSTEOCLASTS</strong> → ↓ Bone resorption<br>
+                        (Remember: OsteoCLAST = CRASH bone)
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">✅ Indications</div>
+                        <ul class="fancy-list">
+                            <li>Osteoporosis (treatment & prevention)</li>
+                            <li>Paget disease</li>
+                            <li>GIOP (Glucocorticoid-induced osteoporosis)</li>
+                        </ul>
+                    </div>
+
+                    <div class="nclex-gold">
+                        <div class="nclex-title">🏆 NCLEX GOLD - Administration Rules!</div>
+                        <ol style="font-weight: 700;">
+                            <li>Take in the <strong>MORNING</strong></li>
+                            <li>Take on <strong>EMPTY STOMACH</strong></li>
+                            <li>Take with <strong>WATER ONLY</strong> (full glass!)</li>
+                            <li>Stay <strong>UPRIGHT ≥30 MINUTES</strong></li>
+                            <li>No food, calcium, or iron for 30-60 min</li>
+                        </ol>
+                    </div>
+
+                    <div class="memory-trick">
+                        <div class="memory-trick-title">Why Upright 30 Minutes?</div>
+                        Prevents <strong>ESOPHAGITIS</strong> - the drug is caustic!<br>
+                        Lying down = pill sits in esophagus = BURNS!
+                    </div>
+
+                    <div class="red-flag">
+                        <div class="red-flag-title">⚠️ Adverse Effects</div>
+                        • <strong>ESOPHAGITIS</strong> (most common!)<br>
+                        • <strong>OSTEONECROSIS OF JAW (ONJ)</strong><br>
+                        • Atypical femur fractures<br>
+                        • Ocular inflammation
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OTHER DRUGS SECTION -->
+        <div id="other" class="section">
+            <div class="card">
+                <div class="card-header" onclick="toggleCard(this)">
+                    <div class="card-icon icon-pink">🐟</div>
+                    <div>
+                        <div class="card-title">Calcitonin (Salmon)</div>
+                        <div class="card-subtitle">Lowers Calcium - "Tones it Down"</div>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="card-content">
+                    <div class="info-box pink">
+                        <div class="info-box-title">⚙️ Mechanism</div>
+                        ↓ Bone resorption<br>
+                        ↑ Calcium excretion
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">✅ Uses</div>
+                        <ul class="fancy-list">
+                            <li>Osteoporosis</li>
+                            <li>Paget disease</li>
+                            <li>Hypercalcemia (not first-line)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box orange">
+                        <div class="info-box-title">⚠️ Side Effects</div>
+                        <strong>Nasal irritation common</strong> (nasal spray form)<br>
+                        Cancer risk debated
+                    </div>
+                </div>
+            </div>
+
+            <div class="drug-grid">
+                <div class="drug-card">
+                    <div class="drug-name">Raloxifene (Evista)</div>
+                    <div class="drug-class">SERM</div>
+                    <p><strong>MOA:</strong> Estrogen-like on BONE, Anti-estrogen on breast/uterus</p>
+                    <p><strong>Bonus:</strong> Prevents breast cancer!</p>
+                    <p style="color: var(--red);"><strong>⚠️ DVT/PE risk!</strong></p>
+                </div>
+
+                <div class="drug-card">
+                    <div class="drug-name">Teriparatide (Forteo)</div>
+                    <div class="drug-class">PTH Analog</div>
+                    <p><strong>ONLY bone-BUILDING drug!</strong></p>
+                    <p>Daily SubQ injection</p>
+                    <p style="color: var(--red);"><strong>⚠️ Osteosarcoma risk (animal studies)</strong></p>
+                </div>
+
+                <div class="drug-card">
+                    <div class="drug-name">Denosumab (Prolia)</div>
+                    <div class="drug-class">RANKL Inhibitor</div>
+                    <p><strong>MOA:</strong> ↓ Osteoclast formation</p>
+                    <p><strong>Must give:</strong> Calcium + Vitamin D</p>
+                    <p style="color: var(--red);"><strong>⚠️ Hypocalcemia, ONJ, Infections</strong></p>
+                </div>
+            </div>
+
+            <div class="memory-trick">
+                <div class="memory-trick-title">Teriparatide is SPECIAL!</div>
+                It's the <strong>ONLY drug that BUILDS bone!</strong><br>
+                All others just SLOW bone loss.
+            </div>
+        </div>
+
+        <!-- OSTEOPOROSIS SECTION -->
+        <div id="osteo" class="section">
+            <div class="card expanded">
+                <div class="card-header">
+                    <div class="card-icon icon-purple">🦴</div>
+                    <div>
+                        <div class="card-title">Osteoporosis Essentials</div>
+                        <div class="card-subtitle">Diagnosis & Prevention</div>
+                    </div>
+                </div>
+                <div class="card-content" style="display: block;">
+                    <div class="key-number" style="background: linear-gradient(135deg, var(--purple), var(--pink));">
+                        <div class="number-big">T ≤ -2.5</div>
+                        <div class="number-text">T-score on DEXA scan = OSTEOPOROSIS<br>-1 to -2.5 = Osteopenia</div>
+                    </div>
+
+                    <div class="info-box teal">
+                        <div class="info-box-title">🩺 Diagnosis</div>
+                        <strong>DEXA scan</strong> (Dual-energy X-ray Absorptiometry)<br>
+                        Measures bone mineral density at hip & spine
+                    </div>
+
+                    <div class="info-box green">
+                        <div class="info-box-title">🛡️ Prevention</div>
+                        <ul class="fancy-list green">
+                            <li><strong>Calcium + Vitamin D</strong></li>
+                            <li><strong>Weight-bearing exercise</strong></li>
+                            <li>No smoking</li>
+                            <li>Limit alcohol</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEMORY HOOKS SECTION -->
+        <div id="memory" class="section">
+            <h2 style="font-family: 'Fredoka One', cursive; color: var(--dark); text-align: center; margin-bottom: 20px;">🧠 Exam Pearls - Rapid Review!</h2>
+            
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="memory-hook">Thiazides ↑ Ca²⁺</div>
+                    <div class="memory-explain">Think "T" = TRAP calcium!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Loops ↓ Ca²⁺</div>
+                    <div class="memory-explain">Loops = LOSE calcium!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">PTH ↑ Ca²⁺ ↓ PO₄</div>
+                    <div class="memory-explain">PTH Pulls calcium UP!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Calcitonin ↓ Ca²⁺</div>
+                    <div class="memory-explain">CalciTONin TONES it DOWN!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Alendronate = Upright 30 min</div>
+                    <div class="memory-explain">Prevents esophagitis!</div>
+                </div>
+                <div class="memory-card">
+                    <div class="memory-hook">Teriparatide = Bone Builder</div>
+                    <div class="memory-explain">ONLY drug that builds bone!</div>
+                </div>
+            </div>
+
+            <div class="quiz-card">
+                <div class="quiz-question">🎯 Quick Quiz: How long must a patient stay upright after taking alendronate?</div>
+                <div class="quiz-options" id="quiz1">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">A) 10 minutes</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">B) 30 minutes</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">C) 1 hour</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">D) 2 hours</div>
+                </div>
+                <div class="quiz-feedback" id="quiz1-feedback"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <div class="flashcard-label">Question</div>
+                        <div class="flashcard-text">Which diuretic INCREASES calcium levels?</div>
+                        <div class="flashcard-hint">👆 Tap to reveal</div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-label">Answer</div>
+                        <div class="flashcard-text">THIAZIDES!</div>
+                        <div class="flashcard-hint">"T" = TRAP calcium | Loops = LOSE calcium</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-card" style="background: linear-gradient(135deg, var(--teal), var(--mint));">
+                <div class="quiz-question">🎯 A patient with severe hypocalcemia needs IV calcium. Which is preferred?</div>
+                <div class="quiz-options" id="quiz2">
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">A) Calcium chloride</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, true)">B) Calcium gluconate</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">C) Calcium carbonate</div>
+                    <div class="quiz-option" onclick="checkAnswer2(this, false)">D) Calcium citrate</div>
+                </div>
+                <div class="quiz-feedback" id="quiz2-feedback"></div>
+            </div>
+
+            <div class="flashcard-container">
+                <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                    <div class="flashcard-front">
+                        <div class="flashcard-label">Question</div>
+                        <div class="flashcard-text">What is the mnemonic for hypercalcemia symptoms?</div>
+                        <div class="flashcard-hint">👆 Tap to reveal</div>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-label">Answer</div>
+                        <div class="flashcard-text">"Bones, Stones, Groans, Psychiatric Overtones"</div>
+                        <div class="flashcard-hint">Bone pain, Kidney stones, GI (constipation), Neuro (lethargy)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Show section
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Toggle card
+        function toggleCard(header) {
+            header.parentElement.classList.toggle('expanded');
+        }
+
+        // Check quiz answer 1
+        function checkAnswer(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz1-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! 30 minutes upright prevents esophagitis - the drug is caustic!' :
+                '❌ Not quite! Must stay upright at least 30 minutes to prevent esophagitis!';
+        }
+
+        // Check quiz answer 2
+        function checkAnswer2(option, isCorrect) {
+            const options = option.parentElement.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+                if (opt === option) {
+                    opt.classList.add(isCorrect ? 'correct' : 'incorrect');
+                }
+            });
+            
+            const feedback = document.getElementById('quiz2-feedback');
+            feedback.style.display = 'block';
+            feedback.innerHTML = isCorrect ? 
+                '🎉 Correct! Calcium GLUCONATE is preferred for IV administration - less irritating!' :
+                '❌ Not quite! Calcium GLUCONATE is preferred for IV - it\'s less caustic to veins!';
+        }
+    </script>
+</body>
+</html>
