@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🫁 Gas Exchange Escape Room Challenge 🫁</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Quicksand:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #ef4444 50%, #dc2626 75%, #991b1b 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            color: #2d3436;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
+            backdrop-filter: blur(10px);
+            border: 3px solid #3b82f6;
+        }
+        
+        .header h1 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2.5em;
+            background: linear-gradient(45deg, #3b82f6, #2563eb, #ef4444);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(59, 130, 246, 0.3);
+        }
+        
+        .lung-icon {
+            font-size: 3em;
+            animation: breathe 3s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .level-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .level-btn {
+            padding: 20px;
+            border: none;
+            border-radius: 20px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .level-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .level-btn:hover::before {
+            left: 100%;
+        }
+        
+        .level-btn.locked {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+            color: #ecf0f1;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .level-btn.unlocked {
+            background: linear-gradient(135deg, #3b82f6, #ef4444);
+            color: white;
+        }
+        
+        .level-btn.completed {
+            background: linear-gradient(135deg, #1e40af, #dc2626);
+            color: white;
+        }
+        
+        .level-btn:hover:not(.locked) {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.4);
+        }
+        
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(10px);
+            border: 3px solid #3b82f6;
+            display: none;
+        }
+        
+        .quiz-container.active {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .level-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(239, 68, 68, 0.2));
+            border-radius: 20px;
+            border: 2px solid #3b82f6;
+        }
+        
+        .level-header h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2em;
+            color: #3b82f6;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #2563eb, #ef4444);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.9em;
+        }
+        
+        .question-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            border: 2px solid #3b82f6;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        }
+        
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .question-number {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 1.3em;
+            color: #ef4444;
+        }
+        
+        .question-type {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .question-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #2d3436;
+        }
+        
+        .clinical-data {
+            background: linear-gradient(135deg, #dbeafe, #fee2e2);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .clinical-data strong {
+            color: #1e40af;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .option:hover {
+            border-color: #3b82f6;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(239, 68, 68, 0.1));
+            transform: translateX(5px);
+        }
+        
+        .option input[type="checkbox"],
+        .option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #3b82f6;
+        }
+        
+        .option.selected {
+            border-color: #ef4444;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(239, 68, 68, 0.2));
+        }
+        
+        .option.correct {
+            border-color: #10b981;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(52, 211, 153, 0.2));
+        }
+        
+        .option.incorrect {
+            border-color: #ff6b6b;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(238, 82, 83, 0.2));
+        }
+        
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .feedback.show {
+            display: block;
+        }
+        
+        .feedback.correct {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            border: 2px solid #10b981;
+        }
+        
+        .feedback.incorrect {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            border: 2px solid #ef4444;
+        }
+        
+        .feedback-title {
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feedback-text {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .why-wrong {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #ef4444);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #2563eb, #dc2626);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        
+        .level-complete {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            display: none;
+        }
+        
+        .level-complete.show {
+            display: block;
+            animation: zoomIn 0.5s ease;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .level-complete h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2.5em;
+            color: #3b82f6;
+            margin-bottom: 20px;
+        }
+        
+        .celebration {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: bounce 1s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #3b82f6, #ef4444);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            font-family: 'Bubblegum Sans', cursive;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .final-completion {
+            text-align: center;
+            padding: 50px;
+            display: none;
+        }
+        
+        .final-completion.show {
+            display: block;
+            animation: zoomIn 0.5s ease;
+        }
+        
+        .trophy {
+            font-size: 6em;
+            animation: rotate 2s ease-in-out infinite;
+        }
+        
+        @keyframes rotate {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .level-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .button-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="lung-icon">🫁</div>
+            <h1>Gas Exchange Escape Room Challenge</h1>
+            <p style="font-size: 1.1em; color: #1e40af; margin-top: 10px;">
+                Master every question in each level to unlock the next!
+            </p>
+            <p style="font-size: 0.9em; color: #95a5a6; margin-top: 5px;">
+                Evidence-Based NCLEX-Style Practice • 50 Questions Total
+            </p>
+        </div>
+
+        <div class="level-selector" id="levelSelector">
+            <button class="level-btn unlocked" onclick="startLevel(1)" id="level1Btn">
+                <div>🫁 Level 1</div>
+                <div style="font-size: 0.8em; margin-top: 5px;">Gas Exchange Basics</div>
+            </button>
+            <button class="level-btn locked" id="level2Btn">
+                <div>🔬 Level 2</div>
+                <div style="font-size: 0.8em; margin-top: 5px;">Anemia Assessment</div>
+            </button>
+            <button class="level-btn locked" id="level3Btn">
+                <div>💊 Level 3</div>
+                <div style="font-size: 0.8em; margin-top: 5px;">Pharmacology</div>
+            </button>
+            <button class="level-btn locked" id="level4Btn">
+                <div>🎯 Level 4</div>
+                <div style="font-size: 0.8em; margin-top: 5px;">Priority Setting</div>
+            </button>
+            <button class="level-btn locked" id="level5Btn">
+                <div>👑 Level 5</div>
+                <div style="font-size: 0.8em; margin-top: 5px;">Final Challenge</div>
+            </button>
+        </div>
+
+        <div class="quiz-container" id="quizContainer">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar">0%</div>
+            </div>
+            
+            <div id="questionContainer"></div>
+            
+            <div class="button-group">
+                <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn">⬅️ Previous</button>
+                <button class="btn btn-primary" onclick="checkAnswer()" id="checkBtn">Check Answer ✓</button>
+                <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn" style="display: none;">Next Question ➡️</button>
+            </div>
+            
+            <div class="button-group" style="margin-top: 10px;">
+                <button class="btn btn-secondary" onclick="returnToMenu()">🏠 Return to Menu</button>
+            </div>
+        </div>
+
+        <div class="level-complete" id="levelComplete">
+            <div class="celebration">🎉</div>
+            <h2>Level Complete!</h2>
+            <p style="font-size: 1.2em; margin: 20px 0;">Outstanding work! You've mastered this level.</p>
+            <div class="stats" id="levelStats"></div>
+            <button class="btn btn-primary" onclick="continueToNext()" id="continueBtn" style="margin-top: 20px;">Continue to Next Level 🚀</button>
+            <button class="btn btn-secondary" onclick="returnToMenu()" style="margin-top: 10px;">Return to Menu 🏠</button>
+        </div>
+
+        <div class="final-completion" id="finalCompletion">
+            <div class="trophy">🏆</div>
+            <h1 style="font-family: 'Bubblegum Sans', cursive; font-size: 3em; color: #3b82f6; margin: 20px 0;">
+                CONGRATULATIONS!
+            </h1>
+            <p style="font-size: 1.3em; margin: 20px 0;">
+                You've conquered all 50 questions and completed the Gas Exchange Escape Room!
+            </p>
+            <div class="celebration" style="font-size: 3em;">🫁 💪 🎊 ✨ 🌟</div>
+            <p style="font-size: 1.1em; color: #1e40af; margin: 30px 0;">
+                You're ready to ace those NCLEX questions!
+            </p>
+            <button class="btn btn-primary" onclick="location.reload()" style="margin-top: 30px;">
+                Start Over 🔄
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const questions = {
+            level1: [
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is assessing a client with suspected impaired gas exchange. Which assessment finding would indicate adequate gas exchange?",
+                    clinicalData: "Vital Signs: HR 76 bpm, RR 16 breaths/min, BP 118/72 mmHg, SpO₂ 97% on room air",
+                    options: [
+                        "Symmetric chest expansion with clear bilateral breath sounds",
+                        "Use of accessory muscles during respiration",
+                        "Pursed-lip breathing with prolonged expiratory phase",
+                        "Nasal flaring with intercostal retractions"
+                    ],
+                    correct: [0],
+                    rationale: "Adequate gas exchange is characterized by symmetric chest expansion, clear breath sounds, normal respiratory rate (12-20), effortless breathing, and SpO₂ 95-100%. The client's vitals show normal parameters indicating effective ventilation and oxygenation.",
+                    whyWrong: "Options B, C, and D all indicate respiratory distress or compensatory mechanisms for impaired gas exchange. Accessory muscle use, pursed-lip breathing, and nasal flaring/retractions are signs the body is working harder to achieve adequate oxygenation."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is teaching a group of nursing students about the three components required for adequate gas exchange. Which statements by the students indicate understanding? (Select all that apply)",
+                    options: [
+                        "Ventilation involves air movement in and out of the alveoli",
+                        "Perfusion refers to blood flow through the pulmonary capillaries",
+                        "Diffusion is the exchange of gases at the tissue level only",
+                        "Oxygen crosses the alveolar-capillary membrane during diffusion",
+                        "Carbon dioxide and oxygen swap places during gas exchange"
+                    ],
+                    correct: [0, 1, 3],
+                    rationale: "Adequate gas exchange requires three components: (1) Ventilation - air movement in/out of alveoli; (2) Perfusion - blood flow through pulmonary capillaries; (3) Diffusion - O₂ crossing the alveolar-capillary membrane into blood and CO₂ crossing out. These are evidence-based physiological requirements for oxygenation.",
+                    whyWrong: "Option C is incorrect because diffusion occurs at the alveolar-capillary membrane (pulmonary level), not just at tissues. Option E is wrong per Dalton's Law - O₂ and CO₂ diffuse independently based on their own partial pressures; they don't swap places."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A 68-year-old client with COPD presents with dyspnea and a barrel chest. The nurse understands this represents which type of gas exchange impairment?",
+                    clinicalData: "ABG: pH 7.34, PaCO₂ 58 mmHg, PaO₂ 62 mmHg, HCO₃ 30 mEq/L, SpO₂ 88%",
+                    options: [
+                        "Transport impairment related to decreased hemoglobin",
+                        "Ventilation impairment related to air trapping and alveolar damage",
+                        "Perfusion impairment related to decreased cardiac output",
+                        "Primary metabolic disorder with adequate gas exchange"
+                    ],
+                    correct: [1],
+                    rationale: "COPD causes ventilation impairment through two mechanisms: air trapping (difficulty exhaling) and alveolar damage (decreased diffusion surface area). The barrel chest (1:1 AP ratio) indicates chronic air trapping. ABG shows respiratory acidosis (elevated PaCO₂, decreased pH) confirming ventilation failure.",
+                    whyWrong: "Option A is incorrect - there's no indication of anemia. Option C is wrong - the primary problem is in the lungs, not cardiac output. Option D is incorrect - the ABG clearly shows respiratory acidosis (PaCO₂ 58, pH 7.34) indicating impaired gas exchange."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is caring for a client experiencing acute shortness of breath. Which position should the nurse place the client in to optimize gas exchange?",
+                    options: [
+                        "Supine with legs elevated 30 degrees",
+                        "High Fowler's position (90-degree angle)",
+                        "Trendelenburg position (head down)",
+                        "Prone position with head turned to side"
+                    ],
+                    correct: [1],
+                    rationale: "High Fowler's position (sitting upright at 90 degrees) is the optimal position for maximizing gas exchange. This position allows full diaphragmatic excursion, reduces pressure on the diaphragm from abdominal organs, and promotes optimal lung expansion. Evidence supports this as the best position for dyspnea.",
+                    whyWrong: "Supine and Trendelenburg positions compress the diaphragm and reduce lung expansion. Prone positioning is used in ARDS for refractory hypoxemia but is not appropriate for general dyspnea management and requires specialized monitoring."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A client's arterial blood gas results show: pH 7.48, PaCO₂ 30 mmHg, PaO₂ 95 mmHg, HCO₃ 23 mEq/L. The nurse interprets this as:",
+                    options: [
+                        "Respiratory acidosis with normal oxygenation",
+                        "Metabolic alkalosis with adequate oxygenation",
+                        "Respiratory alkalosis with adequate oxygenation",
+                        "Compensated metabolic acidosis"
+                    ],
+                    correct: [2],
+                    rationale: "This ABG shows respiratory alkalosis: pH >7.45 (alkalotic), PaCO₂ <35 (decreased - respiratory cause), HCO₃ normal (22-26). The client is hyperventilating, blowing off too much CO₂. PaO₂ 95 mmHg is normal (80-100). Common causes include anxiety, pain, or fever.",
+                    whyWrong: "Option A is wrong because pH is high (alkalotic) not low (acidotic), and PaCO₂ is decreased not increased. Option B is incorrect because this is a respiratory, not metabolic, problem. Option D is wrong - there's no compensation and the primary disorder is alkalosis, not acidosis."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse assesses a client with suspected hypoxemia. Which clinical manifestations would support this diagnosis? (Select all that apply)",
+                    clinicalData: "SpO₂ 86% on room air, client appears anxious",
+                    options: [
+                        "Tachycardia and increased respiratory rate",
+                        "Cyanosis of the lips and nail beds",
+                        "Confusion or restlessness",
+                        "Warm, flushed skin",
+                        "Bradycardia and decreased respiratory rate"
+                    ],
+                    correct: [0, 1, 2],
+                    rationale: "Hypoxemia (low blood oxygen) triggers compensatory responses: tachycardia and tachypnea (increase O₂ delivery), cyanosis (late sign of severe hypoxemia), and neurologic changes (confusion, restlessness, anxiety) from decreased brain oxygenation. These are evidence-based early warning signs requiring immediate intervention.",
+                    whyWrong: "Warm, flushed skin is not associated with hypoxemia; skin is typically cool/clammy from vasoconstriction. Bradycardia and decreased RR are late signs of impending respiratory failure/arrest - the body compensates with increased HR and RR initially."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A pediatric nurse is caring for a 2-month-old infant with respiratory distress. Which assessment finding is MOST concerning and requires immediate intervention?",
+                    clinicalData: "RR 70/min, grunting, nasal flaring, subcostal retractions, SpO₂ 88%",
+                    options: [
+                        "Respiratory rate of 40 breaths per minute",
+                        "Periodic breathing with brief pauses",
+                        "Grunting with subcostal retractions",
+                        "Pink mucous membranes and nail beds"
+                    ],
+                    correct: [2],
+                    rationale: "Grunting (forced exhalation against partially closed glottis) combined with retractions indicates severe respiratory distress in infants. These are signs of increased work of breathing and potential respiratory failure. Infants have smaller airways that obstruct easily, limited respiratory reserves, and can decompensate rapidly - requiring immediate intervention (O₂, positioning, potential respiratory support).",
+                    whyWrong: "Option A - normal infant RR is 30-60/min, so 40 is normal. Option B - periodic breathing with brief pauses (<15 seconds) is normal in infants. Option D - pink color indicates adequate oxygenation, which is reassuring, not concerning."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is reviewing pulmonary function test results. Which finding indicates an obstructive lung disease pattern?",
+                    options: [
+                        "Decreased total lung capacity with normal FEV₁",
+                        "Increased FEV₁ with normal tidal volume",
+                        "Decreased FEV₁ with increased residual volume",
+                        "Normal FEV₁ with decreased functional residual capacity"
+                    ],
+                    correct: [2],
+                    rationale: "Obstructive diseases (COPD, asthma) trap air in lungs, causing: decreased FEV₁ (forced expiratory volume in 1 second - difficulty exhaling), increased residual volume (air trapping), and increased total lung capacity. The hallmark is difficulty getting air OUT of the lungs.",
+                    whyWrong: "Options A and D describe restrictive patterns (decreased lung volumes). Option B is incorrect because FEV₁ is decreased, not increased, in obstructive disease. Obstructive = air trapping; Restrictive = reduced expansion."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is teaching a client about risk factors for impaired gas exchange. Which factors should be included in the teaching? (Select all that apply)",
+                    options: [
+                        "Cigarette smoking",
+                        "Chronic bedrest or immobility",
+                        "Regular aerobic exercise",
+                        "Advanced age (>65 years)",
+                        "Adequate hydration and nutrition"
+                    ],
+                    correct: [0, 1, 3],
+                    rationale: "Risk factors for impaired gas exchange include: smoking (#1 preventable cause - damages cilia, increases mucus, causes chronic inflammation), immobility (leads to atelectasis, decreased lung expansion, increased pneumonia risk), and advanced age (decreased lung elasticity, weaker respiratory muscles, decreased immune function, reduced alveolar surface area).",
+                    whyWrong: "Regular aerobic exercise IMPROVES gas exchange by strengthening respiratory muscles and increasing lung capacity. Adequate hydration and nutrition SUPPORT respiratory health by maintaining healthy mucous membranes and optimal body function - these are protective factors, not risk factors."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A client with suspected pulmonary embolism has a ventilation-perfusion (V/Q) scan ordered. The nurse explains that this test will:",
+                    options: [
+                        "Measure the oxygen-carrying capacity of hemoglobin",
+                        "Assess if air and blood are meeting appropriately in the lungs",
+                        "Determine the amount of surfactant in the alveoli",
+                        "Calculate the total lung capacity and vital capacity"
+                    ],
+                    correct: [1],
+                    rationale: "A V/Q scan evaluates the relationship between ventilation (V - air in alveoli) and perfusion (Q - blood flow through pulmonary capillaries). In PE, a clot blocks blood flow (perfusion) to ventilated alveoli, creating a V/Q mismatch. Good air, no blood = high V/Q ratio, indicating PE.",
+                    whyWrong: "Option A is measured by ABG/pulse oximetry. Option C cannot be measured non-invasively in adults. Option D is measured by pulmonary function tests (PFTs), not V/Q scan. V/Q scans specifically assess if ventilated areas are also perfused."
+                }
+            ],
+            level2: [
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse reviews laboratory results for a client with suspected anemia. Which set of lab values indicates iron deficiency anemia?",
+                    clinicalData: "Client reports fatigue, dyspnea on exertion, and pallor",
+                    options: [
+                        "Hgb 10 g/dL, MCV 105 fL, MCHC 34%, Ferritin 180 ng/mL",
+                        "Hgb 9 g/dL, MCV 72 fL, MCHC 28%, Ferritin 8 ng/mL",
+                        "Hgb 11 g/dL, MCV 88 fL, MCHC 33%, Ferritin 150 ng/mL",
+                        "Hgb 8 g/dL, MCV 102 fL, MCHC 32%, Ferritin 200 ng/mL"
+                    ],
+                    correct: [1],
+                    rationale: "Iron deficiency anemia is microcytic (MCV <80 fL - small cells) and hypochromic (MCHC <32% - pale cells due to decreased hemoglobin). Low ferritin (<15 ng/mL) confirms depleted iron stores. This pattern results from inadequate iron for hemoglobin synthesis, producing small, pale RBCs.",
+                    whyWrong: "Option A shows macrocytic anemia (MCV >100) with normal ferritin - suggests B12/folate deficiency. Option C shows normocytic anemia - suggests acute blood loss, hemolysis, or chronic disease. Option D shows macrocytic anemia with high ferritin - not iron deficiency."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is assessing a client with pernicious anemia (vitamin B12 deficiency). Which clinical manifestations would the nurse expect to find? (Select all that apply)",
+                    options: [
+                        "Smooth, beefy-red tongue (glossitis)",
+                        "Paresthesias and ataxia",
+                        "Koilonychia (spoon-shaped nails)",
+                        "Jaundice with 'lemon-yellow' skin",
+                        "Cognitive changes and memory loss"
+                    ],
+                    correct: [0, 1, 3, 4],
+                    rationale: "Pernicious anemia (B12 deficiency) causes: (1) Glossitis - smooth, painful, beefy-red tongue from impaired epithelial cell division; (2) Neurologic damage - demyelination causing paresthesias, ataxia, loss of vibration sense, potentially irreversible; (3) Jaundice - from hemolysis of defective RBCs; (4) Neuro changes - memory loss, depression, psychosis from CNS demyelination.",
+                    whyWrong: "Koilonychia (spoon nails) is specific to iron deficiency anemia, not B12 deficiency. This occurs because iron is essential for nail matrix cells. B12 deficiency is unique in causing neurologic symptoms - the key differentiator from folate deficiency."
+                },
+                {
+                    type: "Priority",
+                    question: "A nurse is caring for four clients with different types of anemia. Which client should the nurse assess FIRST?",
+                    options: [
+                        "A client with iron deficiency anemia reporting fatigue and requesting a nap",
+                        "A client with sickle cell anemia reporting 8/10 chest pain and dyspnea",
+                        "A client with folate deficiency anemia with a smooth tongue and requesting a meal",
+                        "A client with anemia of chronic disease reporting generalized weakness"
+                    ],
+                    correct: [1],
+                    rationale: "Using the ABCs (Airway, Breathing, Circulation) and URGENT vs NONURGENT framework: the sickle cell client with chest pain and dyspnea is experiencing acute chest syndrome - a life-threatening complication. Sickled cells block pulmonary vessels → V/Q mismatch → severe hypoxemia → potential respiratory failure. This requires immediate assessment and intervention (O₂, IV fluids, pain management, possible transfusion).",
+                    whyWrong: "Options A, C, and D represent expected findings in chronic anemia - uncomfortable but not life-threatening. Fatigue, weakness, and glossitis are common manifestations that can be addressed after stabilizing the acutely ill client. Safety priority = respiratory compromise first."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A client with suspected aplastic anemia undergoes bone marrow biopsy. Which laboratory results would the nurse expect?",
+                    clinicalData: "Client reports fatigue, frequent infections, easy bruising",
+                    options: [
+                        "Increased RBCs, normal WBCs, decreased platelets",
+                        "Decreased RBCs, increased WBCs, normal platelets",
+                        "Decreased RBCs, decreased WBCs, decreased platelets (pancytopenia)",
+                        "Normal RBCs, normal WBCs, increased platelets"
+                    ],
+                    correct: [2],
+                    rationale: "Aplastic anemia is bone marrow failure causing pancytopenia (decreased RBCs, WBCs, and platelets). Mechanisms: autoimmune destruction of stem cells, toxin/medication effects, or radiation. Clinical triad: anemia symptoms (fatigue from low RBCs), infections (from low WBCs), and bleeding/bruising (from low platelets). Bone marrow biopsy shows hypocellularity.",
+                    whyWrong: "Options A, B, and D show normal or increased counts in some cell lines, which doesn't fit aplastic anemia. The hallmark is PANcytopenia - all three cell lines are decreased. Any option without all three cell lines decreased is incorrect."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is teaching a client about megaloblastic anemia. Which statement by the client indicates understanding of the pathophysiology?",
+                    options: [
+                        "My red blood cells are smaller than normal because I don't have enough iron",
+                        "My red blood cells are large and immature because of problems with DNA synthesis",
+                        "My red blood cells are normal size but I don't have enough of them",
+                        "My red blood cells are being destroyed faster than they can be replaced"
+                    ],
+                    correct: [1],
+                    rationale: "Megaloblastic anemia (B12 or folate deficiency) results from impaired DNA synthesis during RBC development. Without adequate B12/folate, DNA replication is disrupted → RBC precursors undergo fewer divisions but continue cytoplasm synthesis → large, immature cells (megaloblasts/macrocytes). Cells die prematurely in bone marrow. MCV >100 fL confirms macrocytic pattern.",
+                    whyWrong: "Option A describes microcytic anemia (iron deficiency). Option C describes normocytic anemia (acute blood loss, chronic disease). Option D describes hemolytic anemia. The key to megaloblastic anemia is LARGE cells from DNA synthesis problems."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is assessing a client with anemia. Which cardiovascular compensatory mechanisms would indicate the body is attempting to maintain adequate tissue oxygenation? (Select all that apply)",
+                    clinicalData: "Hgb 7.2 g/dL, Hct 22%, client reports palpitations",
+                    options: [
+                        "Increased heart rate (tachycardia)",
+                        "Increased stroke volume",
+                        "Bradycardia with decreased cardiac output",
+                        "Hyperdynamic circulation with possible murmurs",
+                        "Peripheral vasoconstriction"
+                    ],
+                    correct: [0, 1, 3],
+                    rationale: "In anemia, reduced oxygen-carrying capacity triggers cardiovascular compensation: (1) Increased HR - delivers blood more frequently; (2) Increased stroke volume - pumps more blood per beat; (3) Hyperdynamic circulation - increased blood flow velocity can cause flow murmurs. These mechanisms attempt to maintain tissue O₂ delivery despite reduced hemoglobin.",
+                    whyWrong: "Bradycardia would worsen tissue hypoxia by decreasing oxygen delivery - the body compensates with TACHYcardia. Peripheral vasoconstriction would increase afterload and decrease tissue perfusion; the body actually vasodilates to improve blood flow to tissues."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A client presents with the following labs: serum iron 45 mcg/dL (low), TIBC 450 mcg/dL (high), ferritin 6 ng/mL (low). The nurse understands these results indicate:",
+                    options: [
+                        "Anemia of chronic inflammation",
+                        "Iron deficiency anemia",
+                        "Hemolytic anemia",
+                        "Pernicious anemia"
+                    ],
+                    correct: [1],
+                    rationale: "Classic iron deficiency pattern: Low serum iron (stores depleted), High TIBC (body producing more transferrin trying to find/transport iron), Low ferritin (storage protein, best indicator of iron stores). This pattern indicates true iron deficiency. Common causes: chronic blood loss, poor intake, malabsorption, increased demand (pregnancy).",
+                    whyWrong: "Anemia of chronic inflammation shows: low iron, low TIBC, HIGH ferritin (iron trapped by hepcidin). Hemolytic anemia shows increased indirect bilirubin, decreased haptoglobin. Pernicious anemia shows low B12, elevated MMA/homocysteine. The HIGH TIBC and LOW ferritin are specific to iron deficiency."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is teaching a client about folate deficiency anemia. Which statements should be included in the teaching? (Select all that apply)",
+                    options: [
+                        "Folate deficiency causes large, immature red blood cells",
+                        "Unlike B12 deficiency, folate deficiency does not cause neurologic symptoms in adults",
+                        "Pregnant women need increased folate to prevent neural tube defects",
+                        "Alcohol use disorder is a common cause of folate deficiency",
+                        "Folate deficiency requires lifelong monthly injections"
+                    ],
+                    correct: [0, 1, 2, 3],
+                    rationale: "Evidence-based folate deficiency teaching: (1) Causes megaloblastic anemia (macrocytic) like B12; (2) No adult neuro symptoms (key difference from B12); (3) Pregnancy requires 600 mcg/day, deficiency causes neural tube defects (spina bifida, anencephaly); (4) Alcohol disrupts folate absorption and enterohepatic circulation.",
+                    whyWrong: "Option E is incorrect - folate deficiency is treated with oral supplementation (1000-2000 mcg daily initially, then 400 mcg maintenance). Treatment duration is typically short-term unless malabsorption persists. Lifelong injections are needed for B12 deficiency with malabsorption, not folate."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is caring for a client with sickle cell anemia experiencing a vaso-occlusive crisis. Which assessment finding requires immediate intervention?",
+                    clinicalData: "Client reports severe pain in chest and extremities, VS: T 100.8°F, HR 112, RR 28, SpO₂ 89% on RA",
+                    options: [
+                        "Reports 9/10 pain in joints and back",
+                        "Temperature of 100.8°F",
+                        "Respiratory rate of 28 with SpO₂ 89%",
+                        "Heart rate of 112 bpm"
+                    ],
+                    correct: [2],
+                    rationale: "Using ABCs, respiratory compromise (tachypnea + hypoxemia) is the priority. In sickle cell crisis, chest pain + dyspnea + hypoxemia = acute chest syndrome - life-threatening complication. Sickled cells block pulmonary vessels → pneumonia-like syndrome → respiratory failure if untreated. Immediate interventions: O₂, IV hydration, pain control, antibiotics, possible exchange transfusion.",
+                    whyWrong: "While severe pain (A), low-grade fever (B), and tachycardia (D) need addressing, they don't pose immediate life threat like respiratory compromise. Pain is expected in crisis; fever may indicate infection; tachycardia is compensatory. Address airway/breathing problems FIRST, then pain/fever."
+                },
+                {
+                    type: "Delegation",
+                    question: "A nurse is caring for four clients with anemia on a medical unit. Which task can be safely delegated to unlicensed assistive personnel (UAP)?",
+                    options: [
+                        "Assessing a client's response to iron supplementation",
+                        "Teaching a client about dietary sources of vitamin B12",
+                        "Obtaining vital signs on a stable client with chronic anemia",
+                        "Evaluating laboratory results for a client with aplastic anemia"
+                    ],
+                    correct: [2],
+                    rationale: "Per delegation principles: UAP can perform standard, routine tasks on stable clients including vital sign measurement. UAP scope: activities of daily living, basic hygiene, vital signs, intake/output. UAP cannot assess, teach, or evaluate - these require nursing judgment and are within RN scope only.",
+                    whyWrong: "Options A, B, and D require critical thinking, assessment, teaching, or evaluation - all within RN scope per Nurse Practice Act. Assessment (A) requires interpreting response/effectiveness. Teaching (B) requires knowledge and evaluation of learning. Lab interpretation (D) requires clinical judgment about abnormal values and implications."
+                }
+            ],
+            level3: [
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is preparing to administer oral ferrous sulfate to a client with iron deficiency anemia. Which instruction is MOST important for the nurse to include?",
+                    options: [
+                        "Take the medication with milk to enhance absorption",
+                        "Expect dark green or black stools as a normal side effect",
+                        "Crush the tablet if difficulty swallowing occurs",
+                        "Take the medication with antacids if nausea develops"
+                    ],
+                    correct: [1],
+                    rationale: "Dark/black stools are an expected, harmless side effect of oral iron therapy (from unabsorbed iron). This is critical teaching to prevent client from mistaking it for GI bleeding. Iron supplementation commonly causes GI side effects (constipation, nausea, dark stools) that often improve with continued use. Clients need education to prevent unnecessary alarm and promote adherence.",
+                    whyWrong: "Milk decreases iron absorption (should take with orange juice/vitamin C or between meals). Sustained-release forms should NOT be crushed. Antacids decrease iron absorption significantly. These actions would reduce therapeutic effectiveness."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is teaching a client prescribed iron dextran IV for severe iron deficiency anemia. Which statements should be included in the teaching? (Select all that apply)",
+                    options: [
+                        "A test dose will be administered first to check for allergic reactions",
+                        "Epinephrine and resuscitation equipment will be available during administration",
+                        "This medication is the preferred first-line treatment for iron deficiency",
+                        "Pain at the injection site is expected with intramuscular administration",
+                        "Report symptoms of hypotension, difficulty breathing, or rash immediately"
+                    ],
+                    correct: [0, 1, 3, 4],
+                    rationale: "Iron dextran carries risk of FATAL ANAPHYLAXIS (to dextran component). Evidence-based safety measures: (1) Test dose required; (2) Emergency equipment at bedside; (3) IM causes pain, skin discoloration, possible tumors at injection site - Z-track technique required, IV preferred; (4) Monitor for anaphylaxis symptoms. Only used when oral iron contraindicated/ineffective or blood loss exceeds oral replacement capacity.",
+                    whyWrong: "Option C is incorrect - oral iron (ferrous sulfate) is first-line. Parenteral iron is reserved for: malabsorption, oral intolerance, blood loss >500-1000 mL/week, or when rapid repletion needed. The anaphylaxis risk makes it a last resort, not preferred."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A client with pernicious anemia is prescribed cyanocobalamin (vitamin B12) injections. The nurse monitors for which adverse effect?",
+                    clinicalData: "Client is starting treatment with 1000 mcg IM daily × 1 week",
+                    options: [
+                        "Hyperkalemia",
+                        "Hypokalemia",
+                        "Hypernatremia",
+                        "Hypocalcemia"
+                    ],
+                    correct: [1],
+                    rationale: "HYPOkalemia is a known adverse effect of B12 therapy. Mechanism: as new RBCs are rapidly produced (reticulocytosis), they take up potassium from serum → decreased serum K⁺. This occurs most commonly during initial treatment when cell production increases dramatically. Monitor serum K⁺ and teach signs of hypokalemia: muscle weakness, irregular heartbeat, constipation, fatigue.",
+                    whyWrong: "B12 supplementation does not cause hyperkalemia, hypernatremia, or hypocalcemia. The specific concern is hypokalemia from RBC uptake during the initial treatment phase when bone marrow responds with increased erythropoiesis. This is a high-yield, evidence-based adverse effect."
+                },
+                {
+                    type: "Priority",
+                    question: "A nurse discovers a 3-year-old child has ingested an unknown amount of ferrous sulfate tablets (65 mg elemental iron each) approximately 30 minutes ago. Which action should the nurse take FIRST?",
+                    options: [
+                        "Induce vomiting with ipecac syrup",
+                        "Check serum iron level and obtain abdominal X-ray",
+                        "Administer activated charcoal orally",
+                        "Monitor for signs of gastric necrosis"
+                    ],
+                    correct: [1],
+                    rationale: "Iron poisoning is the leading cause of fatal pediatric poisoning. Lethal dose: 2-10 g elemental iron in children. IMMEDIATE actions: (1) Check serum iron level to determine severity; (2) Abdominal X-ray (iron tablets are radiopaque) to visualize tablets and guide treatment; (3) If severe: whole-bowel irrigation with PEG solution; (4) If serum iron very high: deferoxamine IV (chelator). Time is critical - hepatic failure, acidosis, and shock can develop rapidly.",
+                    whyWrong: "Ipecac is contraindicated (outdated, can cause aspiration). Activated charcoal doesn't bind iron. While monitoring is important, diagnostic tests must be done first to determine severity and guide treatment urgency. Early signs: nausea, vomiting, diarrhea, shock."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is teaching a client about proper administration of oral iron supplements. Which instructions should be included? (Select all that apply)",
+                    options: [
+                        "Take iron 1-2 hours before meals for optimal absorption",
+                        "Take iron with orange juice to enhance absorption",
+                        "Take iron with tetracycline antibiotics for better effectiveness",
+                        "Store iron supplements in a childproof container away from children",
+                        "Take iron with food if severe gastrointestinal upset occurs"
+                    ],
+                    correct: [0, 1, 3, 4],
+                    rationale: "Evidence-based iron administration: (1) Between meals = best absorption (1-2 hours before food); (2) Vitamin C enhances absorption (orange juice increases bioavailability); (3) Child safety critical - iron is leading cause of fatal pediatric poisoning; (4) If GI upset severe, can take with food though absorption decreases slightly - adherence more important than optimal absorption if GI effects prevent taking medication.",
+                    whyWrong: "Iron and tetracyclines should NOT be taken together - they chelate each other, decreasing absorption of BOTH medications. Space doses at least 2 hours apart. This is a significant drug interaction that reduces therapeutic effectiveness of both drugs."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is caring for a client receiving cyanocobalamin for pernicious anemia. Which assessment finding indicates the medication is therapeutic?",
+                    clinicalData: "Baseline labs: Hgb 7.8 g/dL, MCV 108 fL, Reticulocyte count 0.5%",
+                    options: [
+                        "Hemoglobin increases to 8.0 g/dL after 2 days",
+                        "Reticulocyte count increases to 4% after 5 days",
+                        "MCV decreases to 82 fL after 3 days",
+                        "Client reports resolution of paresthesias after 1 day"
+                    ],
+                    correct: [1],
+                    rationale: "Reticulocyte count (immature RBCs) is the EARLIEST indicator of therapeutic response to B12. Expected response: reticulocytes increase in 4-7 days, peak around day 7. This indicates bone marrow is responding and producing new RBCs. Hemoglobin increases more slowly (≥2 g/dL in 1 month). MCV normalizes over weeks as new normocytic cells replace old macrocytic cells.",
+                    whyWrong: "Hgb increases too slowly for 2 days to be significant. MCV decreases gradually, not within 3 days. Neurologic symptoms (paresthesias) may take months to improve and can be irreversible if deficiency was prolonged. Reticulocyte count is the first marker to change."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A pregnant client asks why she needs to take folic acid supplements. Which response by the nurse is MOST accurate?",
+                    options: [
+                        "Folic acid prevents anemia by increasing iron absorption during pregnancy",
+                        "Folic acid is essential for preventing neural tube defects in your developing baby",
+                        "Folic acid treats morning sickness and improves your energy levels",
+                        "Folic acid increases your calcium levels for strong bones"
+                    ],
+                    correct: [1],
+                    rationale: "Folic acid (400-800 mcg daily for women of childbearing age; 600 mcg during pregnancy) prevents neural tube defects (spina bifida, anencephaly) that occur in the first 28 days of pregnancy. Neural tube closure requires adequate folate for DNA synthesis during rapid cell division. This is an evidence-based, FDA-recommended intervention that has significantly reduced NTD incidence since fortification began.",
+                    whyWrong: "Folate doesn't increase iron absorption (vitamin C does). Folate doesn't treat morning sickness or directly improve energy (though treating folate-deficiency anemia improves fatigue). Folate doesn't affect calcium metabolism. The primary purpose is NTD prevention through support of DNA synthesis during embryonic development."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is teaching a client about the difference between vitamin B12 deficiency and folate deficiency. Which statements are accurate? (Select all that apply)",
+                    options: [
+                        "Both B12 and folate deficiency cause megaloblastic anemia",
+                        "B12 deficiency causes neurologic damage, but folate deficiency does not in adults",
+                        "Large doses of folate can mask the signs of B12 deficiency",
+                        "Both deficiencies require lifelong intramuscular injections",
+                        "B12 deficiency commonly results from malabsorption, while folate deficiency often results from poor diet"
+                    ],
+                    correct: [0, 1, 2, 4],
+                    rationale: "High-yield comparisons: (1) Both cause megaloblastic/macrocytic anemia (impaired DNA synthesis); (2) B12 causes neuro damage (demyelination), folate doesn't in adults (but causes fetal neural tube defects); (3) CRITICAL: high-dose folate corrects anemia but NOT neuro damage in B12 deficiency → masks deficiency, allowing irreversible neuro injury; (4) B12 deficiency usually from lack of intrinsic factor; folate from diet (alcohol, malnutrition).",
+                    whyWrong: "Option D is incorrect - folate deficiency is treated with oral supplementation (1000-2000 mcg daily), not injections, unless severe malabsorption. B12 deficiency requires lifelong injections/high-dose oral if cause is malabsorption, but folate does not."
+                },
+                {
+                    type: "Delegation",
+                    question: "A nurse is caring for a client receiving the first dose of iron dextran IV. Which action can be delegated to a licensed practical nurse (LPN/LVN)?",
+                    options: [
+                        "Administering the test dose and monitoring for anaphylaxis",
+                        "Assessing the client's vital signs and lung sounds before administration",
+                        "Monitoring vital signs every 15 minutes during the infusion",
+                        "Evaluating the client for signs of anaphylactic reaction"
+                    ],
+                    correct: [2],
+                    rationale: "LPN/LVN scope includes: monitoring stable clients, collecting data, performing routine procedures, administering medications (in most states, with established IV lines). Monitoring vital signs during infusion falls within LPN scope for data collection. However, the RN must perform initial assessment, administer the test dose, evaluate response, and intervene if complications occur.",
+                    whyWrong: "Test dose administration (A) requires RN - high risk medication. Initial assessment (B) requires RN judgment. Evaluating for anaphylaxis (D) requires critical thinking and immediate intervention - RN scope. LPNs can monitor/collect data, but RNs must assess, evaluate, and manage high-risk situations."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A client with folate deficiency anemia is prescribed folic acid 1 mg PO daily. After 2 weeks, the client reports continued fatigue and numbness in both feet. What is the PRIORITY nursing action?",
+                    options: [
+                        "Reassure the client that these symptoms take time to resolve",
+                        "Notify the provider - client may have concurrent B12 deficiency",
+                        "Increase the folic acid dose to 2 mg daily",
+                        "Add iron supplementation to the regimen"
+                    ],
+                    correct: [1],
+                    rationale: "CRITICAL SAFETY CONCERN: Numbness/paresthesias indicate neurologic symptoms, which do NOT occur in folate deficiency but DO occur in B12 deficiency. This client may have concurrent B12 deficiency that was masked by folate treatment. Folate can correct the anemia but NOT prevent progression of B12-related neurologic damage. Provider must evaluate B12 levels immediately - neurologic damage may become irreversible if untreated.",
+                    whyWrong: "Option A is dangerous - ignoring neuro symptoms could allow irreversible damage. Folate deficiency doesn't cause neuropathy in adults. Increasing folate (C) would worsen the masking effect. Adding iron (D) doesn't address the neurologic symptoms, which suggest B12, not iron, deficiency."
+                }
+            ],
+            level4: [
+                {
+                    type: "Priority",
+                    question: "A nurse receives report on four clients at the beginning of the shift. Which client should the nurse assess FIRST?",
+                    options: [
+                        "A client with COPD with SpO₂ 88% on 2L NC (baseline), eating breakfast",
+                        "A client with pneumonia receiving IV antibiotics, requesting pain medication",
+                        "A client with asthma with sudden onset of dyspnea, stridor, and SpO₂ 85% on room air",
+                        "A client with chronic anemia with Hgb 9.2 g/dL reporting fatigue"
+                    ],
+                    correct: [2],
+                    rationale: "Using ABCs and ACUTE vs CHRONIC framework: The asthma client shows signs of ACUTE severe bronchospasm or anaphylaxis (stridor indicates upper airway obstruction). Sudden onset + stridor + hypoxemia = EMERGENCY requiring immediate assessment and intervention (bronchodilators, epinephrine if anaphylaxis, possible intubation). This is an unstable, life-threatening airway compromise.",
+                    whyWrong: "Option A - SpO₂ 88% is this client's baseline with COPD, stable activity tolerance. Option B - pain needs addressing but not immediately life-threatening. Option D - chronic condition with expected symptoms, not urgent. Always prioritize acute respiratory distress with airway compromise over chronic stable conditions."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is caring for a client with acute respiratory distress. Which interventions should the nurse implement immediately? (Select all that apply)",
+                    clinicalData: "Client appears anxious, using accessory muscles, RR 32, SpO₂ 86%, HR 118",
+                    options: [
+                        "Place client in High Fowler's position",
+                        "Apply oxygen via nasal cannula",
+                        "Remain calm and provide reassurance",
+                        "Encourage deep breathing exercises",
+                        "Notify the provider immediately"
+                    ],
+                    correct: [0, 1, 2, 4],
+                    rationale: "Immediate interventions for respiratory distress: (1) High Fowler's optimizes lung expansion and reduces work of breathing; (2) O₂ therapy addresses hypoxemia (SpO₂ <90%); (3) Calm presence reduces anxiety which worsens dyspnea; (4) Notify provider - client is decompensating and may need escalated interventions. Address airway/breathing problems immediately while simultaneously calling for help.",
+                    whyWrong: "Deep breathing exercises (D) are inappropriate during acute respiratory distress - the client is already tachypneic and working hard to breathe. This would increase work of breathing and oxygen demand. Once stabilized with O₂ and positioning, respiratory therapies can be implemented."
+                },
+                {
+                    type: "Priority",
+                    question: "A nurse is caring for a client receiving oxygen via nasal cannula at 4 L/min. Which assessment finding requires immediate intervention?",
+                    clinicalData: "Client has history of COPD with baseline SpO₂ 88-92%",
+                    options: [
+                        "Client is sleeping comfortably with SpO₂ 94%",
+                        "Client is awake, alert, conversing normally with SpO₂ 95%",
+                        "Client has decreased responsiveness, RR 10, SpO₂ 98%",
+                        "Client reports dry nasal passages and slight headache"
+                    ],
+                    correct: [2],
+                    rationale: "CRITICAL SAFETY ISSUE in COPD: These clients with chronic hypercapnia (high CO₂) rely on HYPOXIC DRIVE (low O₂) to stimulate breathing. High O₂ concentrations (>3 L/min typically) can suppress respiratory drive → hypoventilation → respiratory depression → respiratory failure. Signs: decreased RR, decreased responsiveness, rising CO₂. Paradoxically, SpO₂ may be 'normal' but client is retaining CO₂ and at risk for arrest.",
+                    whyWrong: "Options A and B show appropriate response to O₂ therapy. Option D describes minor discomfort (address with humidification). The decreased responsiveness + bradypnea in option C indicates respiratory depression from excessive O₂ - requires immediate intervention (decrease O₂, stimulate client, possible ABG, notify provider)."
+                },
+                {
+                    type: "Delegation",
+                    question: "A charge nurse is making assignments for four clients with respiratory conditions. Which assignment is MOST appropriate for a newly licensed RN?",
+                    options: [
+                        "A client with ARDS requiring frequent ventilator adjustments and prone positioning",
+                        "A client with stable COPD receiving nebulizer treatments and patient education",
+                        "A client with tension pneumothorax requiring immediate chest tube insertion",
+                        "A client post-lung transplant in isolation requiring complex immunosuppressive medication management"
+                    ],
+                    correct: [1],
+                    rationale: "Assignment principles: Match client acuity and complexity to nurse experience. The stable COPD client requires standard care within new RN capabilities: routine treatments, basic assessments, standard teaching. This client is predictable and stable. New RNs should not be assigned: unstable clients, complex equipment, invasive procedures requiring specialized training, or high-risk medication regimens.",
+                    whyWrong: "Option A requires advanced skills (ventilator management, prone positioning). Option C is a medical emergency requiring immediate intervention and specialized chest tube skills. Option D involves complex post-transplant care, immunosuppression management, and strict infection control - all requiring experienced RN."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is caring for a client with iron deficiency anemia who is prescribed ferrous sulfate 325 mg TID. The client states, 'I've been taking this for 3 days but I don't feel any better. Should I double my dose?' What is the nurse's BEST response?",
+                    options: [
+                        "Yes, doubling the dose will help you feel better faster",
+                        "It takes 1-2 months before you'll notice significant improvement in your symptoms",
+                        "Stop taking the medication since it's not working and notify your provider",
+                        "Switch to IV iron since oral iron is ineffective for you"
+                    ],
+                    correct: [1],
+                    rationale: "Evidence-based timeline for iron therapy response: Reticulocytes increase in 4-7 days (first sign of response), Hemoglobin increases ≥2 g/dL in 1 month, Symptoms (fatigue, dyspnea) improve in 1-2 months, Iron stores replenish in 4-6 months. Client education about realistic expectations is crucial for adherence. Three days is too soon to expect improvement.",
+                    whyWrong: "Doubling dose (A) increases GI side effects and toxicity risk without improving therapeutic effect. Stopping after 3 days (C) prevents treatment effectiveness. Switching to IV (D) is inappropriate - oral iron is working, patient needs education about timeframe. Managing expectations prevents premature discontinuation."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is preparing to transfuse packed red blood cells to a client with severe anemia. Which actions are essential for safe blood transfusion? (Select all that apply)",
+                    clinicalData: "Hgb 5.8 g/dL, client symptomatic with tachycardia, dyspnea",
+                    options: [
+                        "Verify blood product and client identity with two nurses",
+                        "Initiate transfusion through the same IV line as the client's maintenance fluids",
+                        "Obtain baseline vital signs before starting transfusion",
+                        "Remain with the client for the first 15 minutes of transfusion",
+                        "Complete the transfusion within 4 hours of starting"
+                    ],
+                    correct: [0, 2, 3, 4],
+                    rationale: "Evidence-based transfusion safety: (1) Two-person verification prevents fatal transfusion reactions from misidentification; (2) Baseline vital signs establish comparison for detecting reactions; (3) Most severe reactions occur in first 15 minutes - nurse must monitor; (4) 4-hour maximum prevents bacterial growth. These are National Patient Safety Goals for transfusion.",
+                    whyWrong: "Option B is incorrect - blood must be transfused with 0.9% NS only. Other IV solutions (D5W, LR, medications) cause hemolysis or clumping. Use Y-tubing with NS or dedicated line. Mixing blood with other fluids is a critical safety violation."
+                },
+                {
+                    type: "Priority",
+                    question: "A client receiving a blood transfusion suddenly develops fever (101.2°F), chills, back pain, and hypotension. What is the nurse's PRIORITY action?",
+                    options: [
+                        "Slow the transfusion rate and monitor vital signs",
+                        "Stop the transfusion immediately and maintain IV access with normal saline",
+                        "Administer acetaminophen for fever and continue monitoring",
+                        "Complete the transfusion quickly and notify the provider"
+                    ],
+                    correct: [1],
+                    rationale: "These symptoms indicate ACUTE HEMOLYTIC TRANSFUSION REACTION - medical emergency from ABO incompatibility. Immediate actions: (1) STOP transfusion immediately; (2) Maintain IV with NS (new tubing); (3) Notify provider STAT; (4) Monitor vital signs; (5) Save blood bag and tubing for lab; (6) Collect blood/urine samples; (7) Insert Foley (monitor for hemoglobinuria/renal failure). Do NOT infuse any more incompatible blood - each additional mL worsens the reaction.",
+                    whyWrong: "Slowing the rate (A) continues infusing incompatible blood. Acetaminophen (C) won't stop the hemolytic reaction. Completing transfusion (D) could be fatal - adds more incompatible blood, increasing hemolysis and risk of renal failure, DIC, shock, and death."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is teaching a client with anemia about energy conservation techniques. Which statement by the client indicates effective teaching?",
+                    options: [
+                        "I should push through fatigue to build up my stamina",
+                        "I'll complete all my activities in the morning when I have the most energy",
+                        "I should alternate periods of activity with rest throughout the day",
+                        "I'll avoid all physical activity until my hemoglobin returns to normal"
+                    ],
+                    correct: [2],
+                    rationale: "Evidence-based energy conservation in anemia: Alternate activity with rest (pacing), Prioritize essential activities, Perform activities when most rested, Accept assistance, Plan for adequate rest periods. This approach prevents overexertion while maintaining safe activity levels. Tissue hypoxia in anemia limits oxygen available for activity - gradual activity with frequent rest prevents excessive oxygen debt.",
+                    whyWrong: "Pushing through fatigue (A) risks worsening hypoxia and complications. Clustering all activities (B) causes excessive oxygen demand and fatigue. Complete avoidance (D) leads to deconditioning, muscle weakness, and complications of immobility. Balance is key."
+                },
+                {
+                    type: "Delegation",
+                    question: "A nurse is caring for a client with pernicious anemia requiring vitamin B12 injection. Which task can be delegated to an LPN/LVN?",
+                    options: [
+                        "Teaching the client about the need for lifelong B12 supplementation",
+                        "Assessing the client's neurologic status for signs of B12 deficiency",
+                        "Administering the cyanocobalamin 1000 mcg IM injection",
+                        "Evaluating the effectiveness of B12 therapy based on lab results"
+                    ],
+                    correct: [2],
+                    rationale: "LPN/LVN scope of practice includes administering medications (including IM injections) to stable clients per provider orders. This is a standard, predictable procedure within LPN capabilities. RN responsibilities that cannot be delegated: initial/comprehensive assessment, patient teaching (beyond reinforcement), evaluation of therapy effectiveness, developing care plans.",
+                    whyWrong: "Teaching (A), assessment (B), and evaluation (D) require RN judgment and critical thinking - cannot be delegated. LPNs can reinforce teaching, collect data, and report findings, but cannot perform initial teaching, assessment, or evaluation. Medication administration is within LPN scope."
+                },
+                {
+                    type: "Priority",
+                    question: "A nurse is preparing to discharge a client newly diagnosed with iron deficiency anemia. Which statement by the client indicates a need for FURTHER teaching?",
+                    options: [
+                        "I'll take my iron supplement with orange juice to help it absorb better",
+                        "I know my stools will turn dark and that's normal with iron pills",
+                        "I'll keep the iron supplements on my kitchen counter so I remember to take them",
+                        "I should take my iron supplement 1-2 hours before meals if I can tolerate it"
+                    ],
+                    correct: [2],
+                    rationale: "CRITICAL SAFETY CONCERN: Iron is the leading cause of fatal poisoning in children (lethal dose 2-10 g elemental iron). Iron must be stored in childproof containers, out of reach and sight of children. Kitchen counters are easily accessible. This statement indicates dangerous practice requiring immediate correction - especially important teaching before discharge.",
+                    whyWrong: "Options A, B, and D demonstrate correct understanding: Orange juice (vitamin C) enhances absorption; dark stools are expected; taking between meals optimizes absorption (though can take with food if GI upset occurs). These statements show appropriate knowledge."
+                }
+            ],
+            level5: [
+                {
+                    type: "Priority",
+                    question: "A nurse receives multiple requests simultaneously. Using the ABCs and Maslow's hierarchy, which situation requires IMMEDIATE attention?",
+                    options: [
+                        "A client with chronic anemia requesting assistance to the bathroom",
+                        "A family member asking to speak with the nurse about discharge planning",
+                        "A client with COPD whose pulse oximeter is alarming with SpO₂ 82%",
+                        "A client with pneumonia who needs pain medication for chest discomfort"
+                    ],
+                    correct: [2],
+                    rationale: "Using triage principles and ABCs: Airway/Breathing problems take priority. SpO₂ 82% indicates severe hypoxemia requiring immediate assessment and intervention. While COPD clients may have lower baseline SpO₂, 82% is concerning even in chronic disease and the alarm indicates acute change. Immediate actions: assess client, increase O₂, evaluate respiratory status, notify provider if change from baseline.",
+                    whyWrong: "Option A addresses safety/elimination (important but not immediately life-threatening). Option B is psychosocial/educational (can be scheduled). Option D involves pain management (important but not immediately life-threatening). Remember: Physiologic needs > Safety needs > Psychosocial needs; and within physiologic: Airway > Breathing > Circulation."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is caring for a client with severe anemia (Hgb 6.2 g/dL) awaiting blood transfusion. Which findings indicate the client is developing complications requiring immediate intervention? (Select all that apply)",
+                    clinicalData: "VS: HR 128, RR 28, BP 88/52, SpO₂ 89%, client appears confused and restless",
+                    options: [
+                        "New onset confusion and restlessness",
+                        "Reports of fatigue and weakness",
+                        "Tachycardia with bounding pulses",
+                        "Hypotension with cool, clammy skin",
+                        "Tachypnea with dyspnea at rest"
+                    ],
+                    correct: [0, 3, 4],
+                    rationale: "These findings indicate SEVERE ANEMIA COMPLICATIONS with impending cardiovascular collapse: (1) Confusion/restlessness = cerebral hypoxia; (2) Hypotension + cool/clammy skin = decreased perfusion, possible shock; (3) Tachypnea + dyspnea = respiratory compensation failing. These require immediate intervention: high-flow O₂, possible emergent transfusion, IV fluid resuscitation, continuous monitoring. Client is decompensating.",
+                    whyWrong: "Fatigue and weakness (B) are expected symptoms of anemia - chronic, not acutely dangerous. Bounding pulses (C) would indicate hyperdynamic circulation (expected compensation), but option C pairs it with tachycardia which is concerning but less immediately critical than the signs of shock and cerebral hypoxia in the correct answers."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is reviewing arterial blood gases for four clients. Which client requires the MOST immediate intervention?",
+                    options: [
+                        "pH 7.38, PaCO₂ 44 mmHg, PaO₂ 88 mmHg, HCO₃ 24 mEq/L, SpO₂ 94%",
+                        "pH 7.32, PaCO₂ 50 mmHg, PaO₂ 58 mmHg, HCO₃ 28 mEq/L, SpO₂ 87%",
+                        "pH 7.35, PaCO₂ 48 mmHg, PaO₂ 65 mmHg, HCO₃ 26 mEq/L, SpO₂ 90%",
+                        "pH 7.42, PaCO₂ 38 mmHg, PaO₂ 92 mmHg, HCO₃ 25 mEq/L, SpO₂ 96%"
+                    ],
+                    correct: [1],
+                    rationale: "Option B shows SEVERE HYPOXEMIA (PaO₂ 58) with respiratory acidosis and inadequate oxygenation (SpO₂ 87%). This client is in respiratory failure with both ventilation problems (elevated CO₂, acidosis) and oxygenation problems (low PaO₂). Requires immediate intervention: high-flow O₂, possible non-invasive ventilation (BiPAP) or intubation, treat underlying cause. This represents impending respiratory arrest.",
+                    whyWrong: "Option A - normal ABG. Option C - consistent with chronic COPD (compensated respiratory acidosis), not acutely critical. Option D - normal ABG. While option C shows some abnormality, option B shows ACUTE respiratory failure with dangerous hypoxemia requiring emergent intervention."
+                },
+                {
+                    type: "Delegation",
+                    question: "A charge nurse is making team assignments. Which client assignment is MOST appropriate for an experienced LPN/LVN?",
+                    options: [
+                        "A newly admitted client with acute respiratory distress requiring initial assessment",
+                        "A stable client with chronic anemia receiving oral iron supplements and routine care",
+                        "A client with newly diagnosed diabetes requiring extensive teaching about insulin administration",
+                        "A client immediately post-operative from thoracotomy requiring complex pain management"
+                    ],
+                    correct: [1],
+                    rationale: "LPN/LVN scope includes: stable clients with predictable outcomes, routine procedures, medication administration, data collection, reinforcing teaching. The chronic anemia client receiving oral medications is stable and predictable - appropriate for experienced LPN. LPNs work under RN supervision and cannot perform initial assessments, develop care plans, or provide complex teaching.",
+                    whyWrong: "Initial assessment (A) requires RN - cannot delegate. Extensive patient teaching (C) requires RN - LPNs can reinforce but not provide initial teaching. Complex post-op care (D) requires RN for pain management protocols, assessment of complications, and frequent reassessment. Stable, chronic conditions = LPN; unstable, acute, teaching = RN."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is teaching infection control measures to a client with aplastic anemia (WBC 1,200/mm³). Which instructions should be included? (Select all that apply)",
+                    options: [
+                        "Avoid crowds and people with known infections",
+                        "Wash hands frequently, especially before eating",
+                        "Consume only well-cooked meats and thoroughly washed produce",
+                        "Report temperature greater than 100°F immediately",
+                        "Receive live vaccines to boost immune function"
+                    ],
+                    correct: [0, 1, 2, 3],
+                    rationale: "Neutropenic precautions for immunocompromised client (WBC <1,500): (1) Avoid infection sources (crowds, sick people); (2) Meticulous hand hygiene; (3) Food safety - no raw/undercooked foods that harbor bacteria; (4) Report fever >100-100.5°F immediately (may be only sign of serious infection in neutropenic patient). These are evidence-based measures to prevent life-threatening infections in clients with severe leukopenia.",
+                    whyWrong: "Live vaccines (E) are CONTRAINDICATED in immunocompromised clients - risk of causing vaccine-strain infection. Only inactivated vaccines should be given. Examples of live vaccines to avoid: MMR, varicella, intranasal influenza. This is a critical safety issue."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A client with vitamin B12 deficiency receiving monthly cyanocobalamin injections for 6 months reports persistent numbness in feet despite normalized hemoglobin. What is the nurse's BEST interpretation?",
+                    options: [
+                        "This is an expected side effect of the cyanocobalamin injections",
+                        "The neurologic damage may be irreversible from prolonged B12 deficiency",
+                        "The client needs to increase the frequency of B12 injections to weekly",
+                        "This indicates the client is not absorbing the injections properly"
+                    ],
+                    correct: [1],
+                    rationale: "CRITICAL CONCEPT: B12 deficiency causes demyelination of neurons (spinal cord, peripheral nerves, brain). If deficiency is prolonged before treatment, neurologic damage may be IRREVERSIBLE even after B12 repletion. Anemia can be corrected within weeks-months, but neurologic symptoms may persist. This is why early detection and treatment is crucial, and why folate supplementation alone (which masks B12 deficiency) is dangerous.",
+                    whyWrong: "Numbness is not a side effect of B12 (A). The treatment frequency is appropriate (C) - monthly maintenance is standard. IM bypasses absorption issues (D), so malabsorption isn't the problem. The most likely explanation is permanent damage from delayed diagnosis/treatment."
+                },
+                {
+                    type: "Priority",
+                    question: "A nurse is caring for four clients at 8:00 AM. Which medication should be administered FIRST?",
+                    options: [
+                        "Albuterol inhaler for a client with asthma scheduled for breathing treatment",
+                        "Ferrous sulfate for a client with iron deficiency anemia scheduled before breakfast",
+                        "Cyanocobalamin IM for a client with pernicious anemia scheduled monthly",
+                        "Folic acid for a pregnant client with folate deficiency scheduled daily"
+                    ],
+                    correct: [0],
+                    rationale: "Priority medication administration principles: (1) STAT and time-critical medications first; (2) Respiratory medications before meals/activities; (3) Consider physiologic need. Albuterol is a rescue bronchodilator for respiratory symptoms - addresses immediate Airway/Breathing needs. Administer before breathing treatment to optimize bronchodilation. Nutritional supplements (iron, B12, folate) are important but not immediately life-sustaining.",
+                    whyWrong: "Iron (B) is best 1-2 hours before meals but can be delayed slightly. B12 (C) and folate (D) have flexible timing within the day. Respiratory medications take priority due to ABCs - ensuring adequate oxygenation is more immediately critical than nutritional supplementation."
+                },
+                {
+                    type: "SATA",
+                    question: "A nurse is caring for a client receiving oxygen therapy via simple face mask at 8 L/min. Which assessment findings indicate the need to escalate oxygen delivery method? (Select all that apply)",
+                    options: [
+                        "SpO₂ remains 88% despite current oxygen therapy",
+                        "Client is able to speak in full sentences",
+                        "Respiratory rate increases from 18 to 32 breaths/min",
+                        "Client becomes increasingly confused and lethargic",
+                        "Nasal cannula provides equivalent oxygenation"
+                    ],
+                    correct: [0, 2, 3],
+                    rationale: "Indications for escalating O₂ delivery (from simple mask to non-rebreather or high-flow): (1) Persistent hypoxemia despite maximum flow for current device; (2) Increasing respiratory distress (tachypnea); (3) Worsening mental status (sign of hypoxia/hypercapnia). These indicate current therapy is inadequate. Next steps: non-rebreather mask (60-90% FiO₂) or high-flow nasal cannula, consider BiPAP/intubation if no improvement.",
+                    whyWrong: "Speaking in full sentences (B) indicates adequate oxygenation and work of breathing. If nasal cannula is equivalent (E), you would de-escalate, not escalate. Signs of respiratory failure requiring escalation: persistent hypoxemia, increased work of breathing, altered mental status."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is preparing discharge teaching for a client with a new prescription for iron supplements. Which statement demonstrates the HIGHEST priority safety concern?",
+                    options: [
+                        "I'll take my iron with milk to prevent stomach upset",
+                        "I understand I need to take this for several months",
+                        "I'll keep the bottle in my medicine cabinet away from my 2-year-old",
+                        "I know my stools might turn dark, but that's normal"
+                    ],
+                    correct: [2],
+                    rationale: "HIGHEST PRIORITY = SAFETY, especially child safety. Iron poisoning is the leading cause of fatal pediatric poisoning (lethal dose: 2-10 g elemental iron in children). Medicine cabinet may not be sufficient - needs childproof container + high/locked location. A 2-year-old in the home makes this the critical priority teaching point. Preventing fatal poisoning takes precedence over all other teaching.",
+                    whyWrong: "Taking iron with milk (A) is incorrect but won't cause immediate harm. Understanding duration (B) and stool changes (D) show good knowledge but aren't life-threatening if misunderstood. Child safety is the HIGHEST priority - preventing fatal poisoning supersedes optimizing absorption or preventing minor side effects."
+                },
+                {
+                    type: "Multiple Choice",
+                    question: "A nurse is evaluating the effectiveness of interventions for a client with impaired gas exchange. Which finding provides the BEST evidence of improved oxygenation?",
+                    clinicalData: "24 hours ago: pH 7.30, PaCO₂ 58, PaO₂ 54, SpO₂ 85%",
+                    options: [
+                        "Client reports feeling less short of breath",
+                        "Respiratory rate decreased from 32 to 22 breaths/min",
+                        "Current ABG: pH 7.36, PaCO₂ 44, PaO₂ 82, SpO₂ 94%",
+                        "Client is able to ambulate to bathroom without oxygen"
+                    ],
+                    correct: [2],
+                    rationale: "OBJECTIVE data provides the most reliable evidence of physiologic improvement. The ABG shows: pH normalized (was acidotic), PaCO₂ normalized (was elevated indicating ventilation failure), PaO₂ improved significantly (was severely hypoxemic), SpO₂ >93% (was critically low). This concrete lab evidence definitively shows both improved ventilation and oxygenation. Always prioritize objective over subjective data when evaluating physiologic outcomes.",
+                    whyWrong: "Subjective feeling (A) is important but not most reliable - clients may deny symptoms. RR improvement (B) is one indicator but doesn't confirm oxygenation. Ambulation without O₂ (D) is good but doesn't provide measurable data about gas exchange. ABGs are the gold standard for evaluating gas exchange effectiveness."
+                }
+            ]
+        };
+
+        let currentLevel = 1;
+        let levelProgress = {
+            level1: { completed: false, attempts: 0 },
+            level2: { completed: false, attempts: 0 },
+            level3: { completed: false, attempts: 0 },
+            level4: { completed: false, attempts: 0 },
+            level5: { completed: false, attempts: 0 }
+        };
+        let shuffledQuestions = {};
+        let questionResults = {};
+
+        function startLevel(level) {
+            if (!isLevelUnlocked(level)) {
+                return;
+            }
+
+            currentLevel = level;
+            questionResults = {};
+
+            // Shuffle questions for this level
+            const levelKey = `level${level}`;
+            shuffledQuestions[levelKey] = shuffleQuestionsWithAnswers(questions[levelKey]);
+
+            document.querySelector('.level-selector').style.display = 'none';
+            document.getElementById('quizContainer').classList.add('active');
+            document.getElementById('levelComplete').classList.remove('show');
+            document.getElementById('finalCompletion').classList.remove('show');
+
+            displayAllQuestions();
+        }
+
+        function shuffleQuestionsWithAnswers(questionsArray) {
+            return questionsArray.map((question, qIndex) => {
+                // Create array of option objects with original indices
+                const optionsWithIndices = question.options.map((opt, idx) => ({
+                    text: opt,
+                    originalIndex: idx
+                }));
+
+                // Shuffle the options
+                const shuffled = [...optionsWithIndices].sort(() => Math.random() - 0.5);
+
+                // Map old correct indices to new positions
+                const newCorrectIndices = question.correct.map(oldIdx => {
+                    return shuffled.findIndex(item => item.originalIndex === oldIdx);
+                });
+
+                return {
+                    ...question,
+                    shuffledOptions: shuffled.map(item => item.text),
+                    shuffledCorrect: newCorrectIndices,
+                    originalIndex: qIndex
+                };
+            });
+        }
+
+        function isLevelUnlocked(level) {
+            if (level === 1) return true;
+            return levelProgress[`level${level - 1}`].completed;
+        }
+
+        function displayAllQuestions() {
+            const levelKey = `level${currentLevel}`;
+            const levelQuestions = shuffledQuestions[levelKey];
+
+            let questionsHTML = `
+                <div class="level-header">
+                    <h2>🫁 Level ${currentLevel}: ${getLevelTitle(currentLevel)}</h2>
+                    <p>Answer ALL questions correctly to unlock the next level!</p>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar">0/10 Complete</div>
+                </div>
+            `;
+
+            levelQuestions.forEach((question, qIndex) => {
+                const inputType = question.shuffledCorrect.length > 1 ? 'checkbox' : 'radio';
+                
+                let optionsHTML = '';
+                question.shuffledOptions.forEach((option, oIndex) => {
+                    optionsHTML += `
+                        <label class="option" onclick="selectOption(${qIndex}, ${oIndex})">
+                            <input type="${inputType}" name="answer${qIndex}" value="${oIndex}" id="q${qIndex}option${oIndex}">
+                            <span>${option}</span>
+                        </label>
+                    `;
+                });
+
+                let clinicalDataHTML = question.clinicalData ? `
+                    <div class="clinical-data">
+                        <strong>Clinical Data:</strong> ${question.clinicalData}
+                    </div>
+                ` : '';
+
+                questionsHTML += `
+                    <div class="question-card" id="questionCard${qIndex}">
+                        <div class="question-header">
+                            <span class="question-number">Question ${qIndex + 1}</span>
+                            <span class="question-type">${question.type}</span>
+                        </div>
+                        <div class="question-text">${question.question}</div>
+                        ${clinicalDataHTML}
+                        <div class="options" id="options${qIndex}">
+                            ${optionsHTML}
+                        </div>
+                        <div class="button-group" style="margin-top: 15px;">
+                            <button class="btn btn-primary" onclick="checkSingleAnswer(${qIndex})" id="checkBtn${qIndex}">
+                                Check Answer ✓
+                            </button>
+                        </div>
+                        <div class="feedback" id="feedback${qIndex}"></div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('questionContainer').innerHTML = questionsHTML;
+            
+            document.getElementById('prevBtn').style.display = 'none';
+            document.getElementById('checkBtn').style.display = 'none';
+            document.getElementById('nextBtn').style.display = 'none';
+        }
+
+        function getLevelTitle(level) {
+            const titles = {
+                1: "Gas Exchange Basics",
+                2: "Anemia Assessment",
+                3: "Pharmacology",
+                4: "Priority Setting",
+                5: "Final Challenge"
+            };
+            return titles[level];
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            const levelKey = `level${currentLevel}`;
+            const question = shuffledQuestions[levelKey][questionIndex];
+            const checkbox = document.getElementById(`q${questionIndex}option${optionIndex}`);
+            
+            if (question.shuffledCorrect.length > 1) {
+                checkbox.checked = !checkbox.checked;
+            } else {
+                document.querySelectorAll(`input[name="answer${questionIndex}"]`).forEach(input => {
+                    input.checked = false;
+                    input.parentElement.classList.remove('selected');
+                });
+                checkbox.checked = true;
+            }
+
+            if (checkbox.checked) {
+                checkbox.parentElement.classList.add('selected');
+            } else {
+                checkbox.parentElement.classList.remove('selected');
+            }
+        }
+
+        function checkSingleAnswer(questionIndex) {
+            const levelKey = `level${currentLevel}`;
+            const question = shuffledQuestions[levelKey][questionIndex];
+            const selected = [];
+
+            document.querySelectorAll(`input[name="answer${questionIndex}"]:checked`).forEach(input => {
+                selected.push(parseInt(input.value));
+            });
+
+            if (selected.length === 0) {
+                alert('Please select an answer before checking.');
+                return;
+            }
+
+            const isCorrect = JSON.stringify(selected.sort()) === JSON.stringify(question.shuffledCorrect.sort());
+            
+            const feedback = document.getElementById(`feedback${questionIndex}`);
+            const optionsContainer = document.getElementById(`options${questionIndex}`);
+            const checkButton = document.getElementById(`checkBtn${questionIndex}`);
+            
+            feedback.classList.add('show');
+            feedback.classList.remove('correct', 'incorrect');
+            feedback.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+            optionsContainer.querySelectorAll('.option').forEach((option, index) => {
+                option.style.pointerEvents = 'none';
+                option.classList.remove('correct', 'incorrect');
+                if (question.shuffledCorrect.includes(index)) {
+                    option.classList.add('correct');
+                } else if (selected.includes(index)) {
+                    option.classList.add('incorrect');
+                }
+            });
+
+            feedback.innerHTML = `
+                <div class="feedback-title">
+                    ${isCorrect ? '✅ Correct!' : '❌ Incorrect'}
+                </div>
+                <div class="feedback-text">
+                    <strong>Rationale:</strong> ${question.rationale}
+                </div>
+                ${!isCorrect ? `<div class="why-wrong"><strong>Why other options are wrong:</strong> ${question.whyWrong}</div>` : ''}
+            `;
+
+            checkButton.style.display = 'none';
+
+            if (isCorrect) {
+                questionResults[questionIndex] = true;
+                updateProgress();
+                checkLevelCompletion();
+            } else {
+                levelProgress[levelKey].attempts++;
+                setTimeout(() => {
+                    alert('Incorrect! This question will reset. Remember: you must answer ALL questions correctly to escape!');
+                    resetQuestion(questionIndex);
+                }, 3000);
+            }
+        }
+
+        function resetQuestion(questionIndex) {
+            const feedback = document.getElementById(`feedback${questionIndex}`);
+            const optionsContainer = document.getElementById(`options${questionIndex}`);
+            const checkButton = document.getElementById(`checkBtn${questionIndex}`);
+
+            // Reset feedback
+            feedback.classList.remove('show', 'correct', 'incorrect');
+            feedback.innerHTML = '';
+
+            // Reset options
+            optionsContainer.querySelectorAll('.option').forEach(option => {
+                option.style.pointerEvents = 'auto';
+                option.classList.remove('correct', 'incorrect', 'selected');
+            });
+
+            // Reset checkboxes/radios
+            optionsContainer.querySelectorAll('input').forEach(input => {
+                input.checked = false;
+            });
+
+            // Show check button
+            checkButton.style.display = 'block';
+
+            // Remove from results
+            delete questionResults[questionIndex];
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const totalQuestions = 10;
+            const completed = Object.keys(questionResults).length;
+            const progressBar = document.getElementById('progressBar');
+            const percent = (completed / totalQuestions) * 100;
+            
+            progressBar.style.width = percent + '%';
+            progressBar.textContent = `${completed}/${totalQuestions} Complete`;
+        }
+
+        function checkLevelCompletion() {
+            const totalQuestions = 10;
+            const completed = Object.keys(questionResults).length;
+
+            if (completed === totalQuestions) {
+                setTimeout(() => {
+                    completeLevel();
+                }, 1000);
+            }
+        }
+
+        function completeLevel() {
+            levelProgress[`level${currentLevel}`].completed = true;
+
+            document.getElementById('quizContainer').classList.remove('active');
+            document.getElementById('levelComplete').classList.add('show');
+
+            const statsHTML = `
+                <div class="stat-card">
+                    <div class="stat-value">10/10</div>
+                    <div class="stat-label">Questions Mastered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">100%</div>
+                    <div class="stat-label">Accuracy Required</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">${levelProgress[`level${currentLevel}`].attempts + 10}</div>
+                    <div class="stat-label">Total Attempts</div>
+                </div>
+            `;
+
+            document.getElementById('levelStats').innerHTML = statsHTML;
+
+            if (currentLevel === 5) {
+                document.getElementById('levelComplete').classList.remove('show');
+                document.getElementById('finalCompletion').classList.add('show');
+            } else {
+                updateLevelButtons();
+            }
+        }
+
+        function continueToNext() {
+            if (currentLevel < 5) {
+                startLevel(currentLevel + 1);
+            }
+        }
+
+        function returnToMenu() {
+            document.getElementById('quizContainer').classList.remove('active');
+            document.getElementById('levelComplete').classList.remove('show');
+            document.querySelector('.level-selector').style.display = 'grid';
+            updateLevelButtons();
+        }
+
+        function updateLevelButtons() {
+            for (let i = 1; i <= 5; i++) {
+                const btn = document.getElementById(`level${i}Btn`);
+                
+                if (levelProgress[`level${i}`].completed) {
+                    btn.className = 'level-btn completed';
+                    btn.onclick = () => startLevel(i);
+                } else if (isLevelUnlocked(i)) {
+                    btn.className = 'level-btn unlocked';
+                    btn.onclick = () => startLevel(i);
+                } else {
+                    btn.className = 'level-btn locked';
+                    btn.onclick = null;
+                }
+            }
+        }
+
+        // Initialize
+        window.onload = function() {
+            updateLevelButtons();
+        };
+    </script>
+</body>
+</html>

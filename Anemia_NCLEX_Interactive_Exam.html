@@ -1,0 +1,2419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anemia & Gas Exchange NCLEX Exam - Interactive</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.05) 10px, rgba(255,255,255,0.05) 20px);
+            animation: slide 20s linear infinite;
+        }
+        @keyframes slide { 0% { transform: translate(0, 0); } 100% { transform: translate(50px, 50px); } }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); position: relative; z-index: 1; }
+        .header h2 { font-size: 1.5em; font-weight: 300; position: relative; z-index: 1; margin-top: 10px; }
+        
+        .score-tracker {
+            background: linear-gradient(90deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .instructions {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            padding: 30px;
+        }
+        .instructions h3 { font-size: 1.3em; margin-bottom: 15px; }
+        .instructions p { margin: 8px 0; }
+        .content { padding: 40px; }
+        
+        .question-card {
+            background: white;
+            border: 3px solid #DC143C;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .question-card.answered {
+            border-color: #10B981;
+        }
+        .question-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2); }
+        
+        .question-header {
+            background: linear-gradient(90deg, #DC143C 0%, #FF6B6B 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .question-number { font-size: 1.4em; font-weight: bold; }
+        .question-type {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .question-text { font-size: 1.1em; color: #1E3A8A; font-weight: 600; margin-bottom: 20px; line-height: 1.8; }
+        
+        .options { margin: 20px 0; }
+        .option-label {
+            background: #F0F9FF;
+            border-left: 4px solid #3B82F6;
+            padding: 12px 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+            color: #1E3A8A;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        .option-label:hover {
+            background: #DBEAFE;
+            border-left-width: 6px;
+        }
+        .option-label.selected {
+            background: #BFDBFE;
+            border-left-color: #DC143C;
+            border-left-width: 6px;
+        }
+        .option-label.correct-answer {
+            background: #D1FAE5;
+            border-left-color: #059669;
+        }
+        .option-label.incorrect-answer {
+            background: #FEE2E2;
+            border-left-color: #DC2626;
+        }
+        
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 15px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(90deg, #DC143C 0%, #FF6B6B 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(220, 20, 60, 0.3);
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(220, 20, 60, 0.4);
+        }
+        .submit-btn:disabled {
+            background: #9CA3AF;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .feedback {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        .feedback.show { display: block; }
+        .feedback.correct {
+            background: #D1FAE5;
+            color: #065F46;
+            border: 2px solid #059669;
+        }
+        .feedback.incorrect {
+            background: #FEE2E2;
+            color: #991B1B;
+            border: 2px solid #DC2626;
+        }
+        
+        .correct-answer-display {
+            display: none;
+            background: linear-gradient(90deg, #059669 0%, #10B981 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+        }
+        .correct-answer-display.show { display: block; }
+        
+        .rationales {
+            display: none;
+            background: #FEF2F2;
+            border: 2px solid #DC143C;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .rationales.show { display: block; }
+        .rationales-header {
+            color: #DC143C;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .rationales-header::before { content: '💡'; margin-right: 10px; font-size: 1.3em; }
+        
+        .rationale-item {
+            background: white;
+            border-left: 4px solid #DC143C;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            color: #333;
+            line-height: 1.7;
+        }
+        .rationale-item.correct { border-left-color: #059669; background: #F0FDF4; }
+        .rationale-item.correct::before { content: '✓ '; color: #059669; font-weight: bold; margin-right: 5px; }
+        .rationale-item.incorrect::before { content: '✗ '; color: #DC143C; font-weight: bold; margin-right: 5px; }
+        
+        .results-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .results-section h3 { font-size: 2em; margin-bottom: 20px; }
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .stat-number { font-size: 3em; font-weight: bold; margin-bottom: 10px; }
+        .stat-label { font-size: 1.1em; }
+        
+        .footer { background: #1F2937; color: white; padding: 20px; text-align: center; font-size: 0.9em; }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+        .scroll-to-top:hover { transform: translateY(-5px); }
+        
+        @media print { 
+            body { background: white; } 
+            .container { box-shadow: none; } 
+            .question-card { page-break-inside: avoid; }
+            .submit-btn, .scroll-to-top { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🩸 ANEMIA & GAS EXCHANGE 🩸</h1>
+            <h2>Interactive NCLEX-Style Practice Examination</h2>
+            <h2>50 Questions with Instant Feedback</h2>
+        </div>
+        
+        <div class="score-tracker" id="scoreTracker">
+            Questions Answered: <span id="answeredCount">0</span> / 50 | 
+            Correct: <span id="correctCount">0</span> | 
+            Score: <span id="scorePercent">0</span>%
+        </div>
+        
+        <div class="instructions">
+            <h3>📋 Instructions</h3>
+            <p><strong>How to Use:</strong> Select your answer(s) for each question, then click "Check Answer" to see if you're correct!</p>
+            <p><strong>Format:</strong> Multiple Choice (select one) and Select All That Apply (SATA - select multiple).</p>
+            <p><strong>Feedback:</strong> After submitting, you'll see the correct answer, your performance, and detailed rationales.</p>
+            <p><strong>Study Tip:</strong> Try to answer before checking! Review ALL rationales to strengthen your clinical reasoning.</p>
+        </div>
+        
+        <div class="content" id="questionsContainer">
+            <!-- Questions will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h3>🎉 Exam Complete! 🎉</h3>
+            <div class="results-stats">
+                <div class="stat-box">
+                    <div class="stat-number" id="finalCorrect">0</div>
+                    <div class="stat-label">Correct Answers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="finalIncorrect">0</div>
+                    <div class="stat-label">Incorrect Answers</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="finalScore">0%</div>
+                    <div class="stat-label">Final Score</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>💜 Created for UWG Nursing May 2027 Cohort 💜</p>
+            <p>This interactive examination was created from course materials on Anemia and Gas Exchange.</p>
+            <p>All questions align with NCLEX standards. Good luck! 📚✨</p>
+        </div>
+    </div>
+    
+    <a href="#" class="scroll-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">↑</a>
+
+    <script>
+        // Questions data
+        const questions = [
+            {
+                        "num": 1,
+                        "type": "mc",
+                        "question": "A nurse is reviewing laboratory values for a client with suspected anemia. Which laboratory value specifically measures the percentage of red blood cells in the total blood volume?",
+                        "options": [
+                                    "Hemoglobin",
+                                    "Hematocrit",
+                                    "Reticulocyte count",
+                                    "Mean corpuscular volume (MCV)"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Hemoglobin measures the oxygen-carrying protein within red blood cells, not the percentage of RBCs in blood volume."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Hematocrit specifically measures the percentage of red blood cells in the total blood volume, making it a key indicator in diagnosing anemia."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Reticulocyte count measures immature red blood cells made in bone marrow, indicating bone marrow activity rather than RBC percentage."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "MCV (mean corpuscular volume) measures the average size of red blood cells, not their percentage in blood volume."
+                                    }
+                        ]
+            },
+            {
+                        "num": 2,
+                        "type": "sata",
+                        "question": "A nurse is educating a client about anemia pathophysiology. Which statements accurately describe common causes of anemia? (Select all that apply)",
+                        "options": [
+                                    "Impaired erythrocyte production",
+                                    "Increased plasma volume only",
+                                    "Acute or chronic blood loss",
+                                    "Increased erythrocyte destruction",
+                                    "Excessive fluid intake"
+                        ],
+                        "correct": [
+                                    0,
+                                    2,
+                                    3
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Impaired erythrocyte production is a common cause of anemia, affecting the bone marrow's ability to produce adequate RBCs."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "While changes in plasma volume can affect the appearance of RBC counts, this alone does not cause true anemia\u2014it is the reduction in actual RBCs or hemoglobin that defines anemia."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Both acute and chronic blood loss are major causes of anemia, leading to decreased circulating RBCs."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "Increased erythrocyte destruction (hemolysis) causes anemia by prematurely destroying red blood cells."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": false,
+                                                "text": "Excessive fluid intake may dilute blood but does not cause true anemia; anemia involves actual reduction in RBC number or quality."
+                                    }
+                        ]
+            },
+            {
+                        "num": 3,
+                        "type": "mc",
+                        "question": "A client presents with large, abnormally shaped erythrocytes and normal hemoglobin concentrations. The nurse recognizes this finding is consistent with which morphologic classification of anemia?",
+                        "options": [
+                                    "Microcytic-hypochromic anemia",
+                                    "Macrocytic-normochromic anemia",
+                                    "Normocytic-normochromic anemia",
+                                    "Microcytic-normochromic anemia"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Microcytic-hypochromic describes small cells with reduced hemoglobin, characteristic of iron deficiency anemia."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Macrocytic-normochromic anemia features large, abnormally shaped erythrocytes with normal hemoglobin concentrations, seen in pernicious anemia and folate deficiency."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Normocytic-normochromic describes normal-sized cells with normal hemoglobin, seen in aplastic or hemolytic anemia."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Microcytic-normochromic is not a standard classification; microcytic anemias are typically hypochromic."
+                                    }
+                        ]
+            },
+            {
+                        "num": 4,
+                        "type": "mc",
+                        "question": "A nurse is caring for a client with severe anemia. Which cardiovascular manifestation should the nurse anticipate as a compensatory mechanism?",
+                        "options": [
+                                    "Decreased heart rate",
+                                    "Increased heart rate and stroke volume",
+                                    "Decreased stroke volume",
+                                    "Vasoconstriction of arterioles"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "The heart rate increases, not decreases, to compensate for reduced oxygen-carrying capacity."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Hypoxemia causes dilation of arterioles, capillaries, and venules, leading to increased heart rate and stroke volume to maintain tissue oxygenation."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Stroke volume increases, not decreases, as a compensatory mechanism."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Vasodilation, not vasoconstriction, occurs to improve blood flow to tissues."
+                                    }
+                        ]
+            },
+            {
+                        "num": 5,
+                        "type": "sata",
+                        "question": "A client with anemia reports fatigue and activity intolerance. Which additional clinical manifestations should the nurse assess for? (Select all that apply)",
+                        "options": [
+                                    "Pallor of skin and mucous membranes",
+                                    "Bradypnea",
+                                    "Dyspnea on exertion",
+                                    "Rapid and pounding heartbeat",
+                                    "Flushed, warm skin"
+                        ],
+                        "correct": [
+                                    0,
+                                    2,
+                                    3
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Pallor of skin, mucous membranes, lips, nail beds, and conjunctivae occurs due to reduced hemoglobin and oxygen delivery."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Tachypnea (increased respiratory rate), not bradypnea, occurs as the body attempts to increase oxygen intake."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Dyspnea (shortness of breath) is a common symptom, especially with physical exertion as oxygen demands increase."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "Rapid and pounding heartbeat results from cardiovascular compensation for decreased oxygen-carrying capacity."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": false,
+                                                "text": "Skin becomes pale and cool, not flushed and warm, due to decreased tissue perfusion."
+                                    }
+                        ]
+            },
+            {
+                        "num": 6,
+                        "type": "mc",
+                        "question": "Which complication of severe anemia poses the greatest immediate risk to client safety?",
+                        "options": [
+                                    "Developmental delays in children",
+                                    "Tissue hypoxia leading to organ failure",
+                                    "Premature birth",
+                                    "Mild confusion"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "While developmental delays are serious, they are chronic complications, not immediate safety threats."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Tissue hypoxia leading to organ failure represents the most immediate life-threatening complication, as vital organs require continuous oxygen supply to function."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Premature birth is a serious complication but specific to pregnant clients and not an immediate universal risk."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Mild confusion is concerning but delirium and severe neurologic changes pose greater immediate risk than mild symptoms."
+                                    }
+                        ]
+            },
+            {
+                        "num": 7,
+                        "type": "mc",
+                        "question": "A client has a history of chronic gastrointestinal bleeding from NSAID use. The nurse understands this client is at highest risk for developing which type of anemia?",
+                        "options": [
+                                    "Folate deficiency anemia",
+                                    "Iron deficiency anemia",
+                                    "Pernicious anemia",
+                                    "Aplastic anemia"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Folate deficiency results from poor nutrition, alcoholism, or malabsorption\u2014not chronic GI bleeding."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Chronic GI bleeding from NSAID use is a major cause of iron deficiency anemia due to ongoing blood loss depleting iron stores."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Pernicious anemia results from lack of intrinsic factor, not blood loss."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Aplastic anemia results from bone marrow failure, not chronic bleeding."
+                                    }
+                        ]
+            },
+            {
+                        "num": 8,
+                        "type": "sata",
+                        "question": "Which risk factors increase a client's likelihood of developing anemia? (Select all that apply)",
+                        "options": [
+                                    "Rheumatoid arthritis",
+                                    "Regular exercise",
+                                    "Chronic kidney disease",
+                                    "Inflammatory bowel disease",
+                                    "Balanced diet"
+                        ],
+                        "correct": [
+                                    0,
+                                    2,
+                                    3
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Rheumatoid arthritis and other autoimmune diseases increase risk for anemia of chronic disease."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Regular exercise promotes health and does not increase anemia risk."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Chronic kidney disease decreases erythropoietin production, leading to anemia."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "Inflammatory bowel disease (Crohn's disease, ulcerative colitis) increases risk through chronic inflammation and potential malabsorption."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": false,
+                                                "text": "A balanced diet helps prevent nutritional anemias rather than causing them."
+                                    }
+                        ]
+            },
+            {
+                        "num": 9,
+                        "type": "mc",
+                        "question": "A client with suspected vitamin B12 deficiency asks why they might need injections rather than oral supplementation. What is the nurse's best response?",
+                        "options": [
+                                    "\"Injections work faster than oral supplements.\"",
+                                    "\"Your body may lack intrinsic factor needed to absorb B12 from the intestines.\"",
+                                    "\"Oral B12 causes too many side effects.\"",
+                                    "\"Injections are cheaper than oral supplements.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "While injections may work faster, the primary reason is absorption issues, not speed of effect."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Vitamin B12 deficiency (pernicious anemia) often results from lack of intrinsic factor, which is required for intestinal absorption of B12. Injections bypass this absorption problem."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Oral B12 does not cause excessive side effects; the issue is absorption, not tolerability."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Cost is not the primary clinical reason for choosing injection route."
+                                    }
+                        ]
+            },
+            {
+                        "num": 10,
+                        "type": "mc",
+                        "question": "A nurse is assessing a client with pernicious anemia. Which symptom distinguishes this condition from folate deficiency anemia?",
+                        "options": [
+                                    "Pallor",
+                                    "Glossitis",
+                                    "Paresthesia in hands and feet",
+                                    "Fatigue"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Pallor occurs in both pernicious anemia and folate deficiency."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Glossitis (inflammation of the tongue) can occur in both conditions."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Paresthesia (numbness/tingling) in feet and hands is specific to vitamin B12 deficiency due to neurologic involvement; folate deficiency does not cause paresthesia."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Fatigue is a common symptom of both types of anemia."
+                                    }
+                        ]
+            },
+            {
+                        "num": 11,
+                        "type": "sata",
+                        "question": "A client is diagnosed with iron deficiency anemia. Which clinical manifestations should the nurse expect to observe? (Select all that apply)",
+                        "options": [
+                                    "Spoon-shaped, brittle fingernails",
+                                    "Increased exercise tolerance",
+                                    "Pale conjunctivae",
+                                    "Dysphagia",
+                                    "Fissures at corners of the mouth"
+                        ],
+                        "correct": [
+                                    0,
+                                    2,
+                                    3,
+                                    4
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Chronic iron deficiency causes nails to become brittle, thin, coarsely ridged, and spoon-shaped due to impaired capillary circulation."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Exercise tolerance is reduced, not increased, due to decreased oxygen-carrying capacity."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Pale conjunctivae result from decreased hemoglobin and are a hallmark sign of anemia."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "Dysphagia (difficulty swallowing) occurs in iron deficiency, worsened by hyposalivation."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": true,
+                                                "text": "Fissures at the corners of the mouth are characteristic of iron deficiency anemia."
+                                    }
+                        ]
+            },
+            {
+                        "num": 12,
+                        "type": "mc",
+                        "question": "The nurse is reviewing laboratory results for a client with anemia of chronic disease (ACD). Which underlying condition is most commonly associated with this type of anemia?",
+                        "options": [
+                                    "Acute viral infection",
+                                    "Dehydration",
+                                    "Rheumatoid arthritis",
+                                    "Vitamin deficiency"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "ACD is associated with chronic, not acute, conditions."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Dehydration affects plasma volume but does not cause anemia of chronic disease."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Anemia of chronic disease (also called anemia of inflammation) is commonly associated with chronic inflammatory conditions such as rheumatoid arthritis, as well as infections, cancer, and autoimmune diseases."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Vitamin deficiency causes specific nutritional anemias (B12, folate, iron), not anemia of chronic disease."
+                                    }
+                        ]
+            },
+            {
+                        "num": 13,
+                        "type": "mc",
+                        "question": "A client with sickle cell anemia asks why their red blood cells become misshapen. What is the nurse's most accurate response?",
+                        "options": [
+                                    "\"Your cells lack sufficient iron to maintain their shape.\"",
+                                    "\"Your hemoglobin is abnormal and sensitive to low oxygen levels, causing cells to sickle.\"",
+                                    "\"Your bone marrow produces too many red blood cells.\"",
+                                    "\"Your spleen destroys healthy red blood cells.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Iron deficiency causes microcytic cells, not sickling. Sickle cell is a genetic disorder affecting hemoglobin structure."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Sickle cell anemia is a genetic disorder resulting in abnormal hemoglobin (HbS) that is sensitive to low oxygen content, causing cells to fold and distort into sickle shapes."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "The bone marrow does not overproduce cells; the issue is abnormal hemoglobin causing cell deformity."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "While the spleen may sequester sickled cells, the primary problem is the genetic abnormality in hemoglobin, not splenic destruction."
+                                    }
+                        ]
+            },
+            {
+                        "num": 14,
+                        "type": "mc",
+                        "question": "Which laboratory test is most specific for evaluating the bone marrow's response to anemia?",
+                        "options": [
+                                    "Hemoglobin level",
+                                    "Reticulocyte count",
+                                    "Serum ferritin",
+                                    "Mean corpuscular hemoglobin concentration (MCHC)"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Hemoglobin level indicates the severity of anemia but does not measure bone marrow activity."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Reticulocyte count measures immature red blood cells made in the bone marrow, directly reflecting bone marrow activity and response to anemia."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Serum ferritin measures iron stores, not bone marrow function."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "MCHC measures hemoglobin concentration in cells, not bone marrow response."
+                                    }
+                        ]
+            },
+            {
+                        "num": 15,
+                        "type": "sata",
+                        "question": "A nurse is preparing to administer iron supplements to a client. Which instructions should be included in client teaching? (Select all that apply)",
+                        "options": [
+                                    "\"Take iron 1-2 hours before meals for best absorption.\"",
+                                    "\"Your stools may turn dark green or black.\"",
+                                    "\"Crush the tablet if you have difficulty swallowing.\"",
+                                    "\"If using liquid iron, mix it with juice and take through a straw.\"",
+                                    "\"Avoid taking iron with antacids or tetracycline.\""
+                        ],
+                        "correct": [
+                                    0,
+                                    1,
+                                    3,
+                                    4
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Iron should be taken 1-2 hours before meals on an empty stomach for optimal absorption, unless GI distress is severe."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Iron imparts a harmless dark green or black color to stools, and clients should be informed to prevent alarm."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Sustained-release iron preparations should NOT be crushed or chewed, as this alters the release mechanism."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "Liquid iron should be mixed with juice or water and taken through a straw, then the mouth should be rinsed to prevent teeth staining."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": true,
+                                                "text": "Antacids and tetracycline interfere with iron absorption and should not be taken together."
+                                    }
+                        ]
+            },
+            {
+                        "num": 16,
+                        "type": "mc",
+                        "question": "A parent calls the clinic concerned that their toddler ingested iron tablets. What is the nurse's priority action?",
+                        "options": [
+                                    "Reassure the parent that iron is not harmful",
+                                    "Instruct the parent to monitor for constipation",
+                                    "Advise immediate emergency evaluation",
+                                    "Recommend giving the child milk to neutralize the iron"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Iron is highly toxic to young children and can be fatal. Reassurance is inappropriate and dangerous."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "While constipation is a side effect of therapeutic iron, toxicity causes much more severe symptoms and is life-threatening."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Iron poisoning can be fatal in young children (lethal dose is 2-10g of elemental iron). Early signs include nausea, vomiting, diarrhea, and shock. This is a medical emergency requiring immediate evaluation."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Home remedies are inappropriate; professional emergency care is essential."
+                                    }
+                        ]
+            },
+            {
+                        "num": 17,
+                        "type": "mc",
+                        "question": "A client receiving parenteral iron dextran reports feeling flushed and having difficulty breathing immediately after injection. What is the nurse's priority intervention?",
+                        "options": [
+                                    "Document the reaction as expected",
+                                    "Stop the infusion and assess for anaphylaxis",
+                                    "Slow the infusion rate",
+                                    "Administer an antihistamine"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "These symptoms indicate a potentially fatal anaphylactic reaction, not an expected response."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Parenteral iron dextran can cause potentially fatal anaphylaxis. Flushing and difficulty breathing are signs of anaphylaxis requiring immediate cessation of the infusion and emergency intervention."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "The infusion must be stopped completely, not just slowed, as anaphylaxis is life-threatening."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "While antihistamines may be part of treatment, the priority is to stop the infusion and initiate emergency protocols."
+                                    }
+                        ]
+            },
+            {
+                        "num": 18,
+                        "type": "mc",
+                        "question": "Which route of administration is used for parenteral iron dextran to minimize local tissue damage?",
+                        "options": [
+                                    "Intradermal",
+                                    "Subcutaneous",
+                                    "Z-track intramuscular",
+                                    "Standard intramuscular"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Intradermal route is not appropriate for iron administration."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "While some iron can be given subcutaneously, IM iron dextran specifically requires Z-track technique."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Iron dextran injections are given deep into each buttock using the Z-track technique to prevent tissue staining and minimize local irritation."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Standard IM technique can cause tissue staining; Z-track method is required."
+                                    }
+                        ]
+            },
+            {
+                        "num": 19,
+                        "type": "sata",
+                        "question": "A nurse is monitoring a client receiving cyanocobalamin (vitamin B12) injections. Which assessments are priorities? (Select all that apply)",
+                        "options": [
+                                    "Serum potassium levels",
+                                    "Blood glucose levels",
+                                    "Signs of hypokalemia",
+                                    "Liver function tests",
+                                    "Reticulocyte count"
+                        ],
+                        "correct": [
+                                    0,
+                                    2,
+                                    4
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Serum potassium should be monitored as hypokalemia is an adverse effect of cyanocobalamin therapy."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Blood glucose is not affected by B12 therapy and is not a priority assessment."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "The nurse should assess for signs of hypokalemia (muscle weakness, irregular heartbeat) as this is a known adverse effect."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Liver function is not specifically affected by B12 therapy."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": true,
+                                                "text": "Reticulocyte count should be monitored to evaluate the therapeutic response to B12 therapy and bone marrow activity."
+                                    }
+                        ]
+            },
+            {
+                        "num": 20,
+                        "type": "mc",
+                        "question": "A client taking cyanocobalamin intranasally asks when they can eat breakfast. What is the nurse's best response?",
+                        "options": [
+                                    "\"You can eat immediately after taking the medication.\"",
+                                    "\"Wait at least 1 hour before consuming hot foods or liquids.\"",
+                                    "\"You must wait 4 hours after administration.\"",
+                                    "\"Timing of meals does not matter with intranasal administration.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Intranasal cyanocobalamin should not be administered close to hot food consumption."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Intranasal doses of cyanocobalamin should not be administered within 1 hour before or 1 hour after consuming hot foods or hot liquids to ensure proper absorption."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Four hours is unnecessarily long; 1 hour is the recommended time frame."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Timing does matter specifically with hot foods and liquids."
+                                    }
+                        ]
+            },
+            {
+                        "num": 21,
+                        "type": "mc",
+                        "question": "A nurse is educating a client about folic acid supplementation during pregnancy. What is the primary reason for this intervention?",
+                        "options": [
+                                    "To prevent maternal anemia only",
+                                    "To support normal fetal development and prevent neural tube defects",
+                                    "To increase maternal energy levels",
+                                    "To improve maternal appetite"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "While preventing maternal anemia is beneficial, it is not the primary reason for supplementation."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Folic acid is necessary for normal fetal development, and supplementation during pregnancy specifically prevents neural tube defects such as spina bifida."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Energy levels may improve if anemia is corrected, but this is not the primary purpose during pregnancy."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Appetite improvement is not the primary indication for folic acid supplementation."
+                                    }
+                        ]
+            },
+            {
+                        "num": 22,
+                        "type": "sata",
+                        "question": "A client with folate deficiency asks about dietary sources of folic acid. Which foods should the nurse recommend? (Select all that apply)",
+                        "options": [
+                                    "Green vegetables",
+                                    "White bread",
+                                    "Liver",
+                                    "Processed foods",
+                                    "Leafy greens"
+                        ],
+                        "correct": [
+                                    0,
+                                    2,
+                                    4
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Green vegetables are rich sources of folate and should be included in the diet."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "White bread is not a significant source of folate unless fortified."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Liver is an excellent source of folic acid and should be recommended."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Processed foods generally lack significant folate content."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": true,
+                                                "text": "Leafy greens are among the best dietary sources of folate."
+                                    }
+                        ]
+            },
+            {
+                        "num": 23,
+                        "type": "mc",
+                        "question": "A client taking both folic acid and cyanocobalamin asks why they need both medications. What is the nurse's most accurate response?",
+                        "options": [
+                                    "\"Folic acid helps your body absorb vitamin B12 better.\"",
+                                    "\"Folic acid can correct blood problems but not nerve damage from B12 deficiency, so both are needed.\"",
+                                    "\"They work better when taken together at the same time.\"",
+                                    "\"Folic acid replaces vitamin B12 in your body.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Folic acid does not enhance B12 absorption; in fact, B12 helps convert folic acid to its active form."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Folic acid can correct the hematologic effects of vitamin B12 deficiency but not the neurologic effects. Folic acid can mask ongoing B12 deficiency, potentially allowing neurologic damage to progress. Special care must be taken to ensure adequate cyanocobalamin dosage when both are used."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Timing of administration together is not the key issue; the concern is ensuring adequate B12 to prevent neurologic complications."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Folic acid does not replace B12; they have different roles in cellular function."
+                                    }
+                        ]
+            },
+            {
+                        "num": 24,
+                        "type": "mc",
+                        "question": "Which medication interaction requires the nurse to educate a client taking folic acid about the potential need for increased doses?",
+                        "options": [
+                                    "Acetaminophen",
+                                    "Phenytoin",
+                                    "Ibuprofen",
+                                    "Warfarin"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Acetaminophen does not significantly affect folic acid requirements."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Phenytoin (along with estrogen, phenobarbital, primidone, carbamazepine, and corticosteroids) increases folic acid requirements, potentially necessitating higher doses."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Ibuprofen does not increase folic acid requirements."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Warfarin does not directly affect folic acid requirements."
+                                    }
+                        ]
+            },
+            {
+                        "num": 25,
+                        "type": "mc",
+                        "question": "A client with a history of peptic ulcer disease asks if they can take iron supplements. What is the nurse's best response?",
+                        "options": [
+                                    "\"Iron supplements are completely safe for everyone.\"",
+                                    "\"You should use caution with iron supplements due to your ulcer history.\"",
+                                    "\"Iron supplements will help heal your ulcer.\"",
+                                    "\"You cannot take any form of iron supplementation.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Iron supplements are not safe for everyone; certain conditions require caution."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Caution should be exercised when administering iron to clients with a history of peptic ulcers, regional enteritis, or ulcerative colitis due to potential GI irritation."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Iron does not heal ulcers and may worsen GI symptoms."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Iron supplementation is not absolutely contraindicated but requires careful monitoring and dose adjustment."
+                                    }
+                        ]
+            },
+            {
+                        "num": 26,
+                        "type": "sata",
+                        "question": "Which signs of iron toxicity should prompt immediate emergency evaluation in a child? (Select all that apply)",
+                        "options": [
+                                    "Dark-colored stools",
+                                    "Nausea and vomiting",
+                                    "Diarrhea and shock",
+                                    "Constipation",
+                                    "Mild abdominal discomfort"
+                        ],
+                        "correct": [
+                                    1,
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Dark stools are an expected, harmless effect of therapeutic iron intake, not a sign of toxicity."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Nausea and vomiting are early signs of iron poisoning and require immediate medical attention."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Diarrhea and shock are early signs of potentially fatal iron poisoning in children."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Constipation is a common side effect of therapeutic iron, not a sign of toxicity."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": false,
+                                                "text": "Mild abdominal discomfort may occur with therapeutic doses but severe pain with other symptoms indicates toxicity."
+                                    }
+                        ]
+            },
+            {
+                        "num": 27,
+                        "type": "mc",
+                        "question": "A nurse is caring for a client with aplastic anemia. What is the primary pathophysiologic problem in this condition?",
+                        "options": [
+                                    "Premature destruction of red blood cells",
+                                    "Deficiency in dietary iron intake",
+                                    "Bone marrow failure reducing effective cell production",
+                                    "Abnormal hemoglobin synthesis"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Premature RBC destruction describes hemolytic anemia, not aplastic anemia."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Dietary iron deficiency causes iron deficiency anemia, not aplastic anemia."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Aplastic anemia is a hematopoietic failure or bone marrow aplasia with a reduction in the effective production of mature cells by the bone marrow."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Abnormal hemoglobin synthesis occurs in conditions like sickle cell anemia, not aplastic anemia."
+                                    }
+                        ]
+            },
+            {
+                        "num": 28,
+                        "type": "mc",
+                        "question": "A client with sickle cell anemia is experiencing a pain crisis. Which intervention is the priority?",
+                        "options": [
+                                    "Encourage increased physical activity",
+                                    "Administer oxygen therapy",
+                                    "Restrict fluid intake",
+                                    "Apply cold compresses"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Activity should be limited during a pain crisis to reduce oxygen demands."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Sickle cell crises are triggered by low oxygen levels. Oxygen therapy is a priority treatment to improve oxygenation and prevent further sickling."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Fluid intake should be increased, not restricted, to improve circulation and decrease blood viscosity."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Warm compresses, not cold, are used as cold can cause vasoconstriction and worsen sickling."
+                                    }
+                        ]
+            },
+            {
+                        "num": 29,
+                        "type": "mc",
+                        "question": "Which term refers to the production of red blood cells?",
+                        "options": [
+                                    "Erythropoiesis",
+                                    "Hematopoiesis",
+                                    "Thrombocytosis",
+                                    "Leukopoiesis"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Erythropoiesis refers specifically to the development of red blood cells, not their overall production."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Hematopoiesis is the production of red blood cells in the body."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Thrombocytosis refers to elevated platelet counts, not RBC production."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Leukopoiesis refers to white blood cell production."
+                                    }
+                        ]
+            },
+            {
+                        "num": 30,
+                        "type": "mc",
+                        "question": "A client's laboratory results show a low white blood cell count. The nurse documents this finding using which term?",
+                        "options": [
+                                    "Thrombocytopenia",
+                                    "Anemia",
+                                    "Leukopenia",
+                                    "Erythropenia"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Thrombocytopenia refers to low platelet count, not white blood cells."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Anemia refers to reduced red blood cells or hemoglobin."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Leukopenia is defined as a low white blood cell count in the blood."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Erythropenia refers to reduced red blood cells, not white blood cells."
+                                    }
+                        ]
+            },
+            {
+                        "num": 31,
+                        "type": "sata",
+                        "question": "A client asks what factors can affect red blood cell counts. Which responses by the nurse are accurate? (Select all that apply)",
+                        "options": [
+                                    "Dehydration can affect RBC concentration",
+                                    "Fluid retention can affect RBC concentration",
+                                    "Dietary protein has no effect on RBC production",
+                                    "Plasma volume changes affect total circulating RBCs",
+                                    "Only bone marrow function affects RBC counts"
+                        ],
+                        "correct": [
+                                    0,
+                                    1,
+                                    3
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Dehydration causes plasma volume to decrease, which can make RBC concentration appear elevated."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Fluid retention increases plasma volume, which can make RBC concentration appear lower than actual."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Dietary protein and nutrients (especially iron, B12, folate) are essential for RBC production."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "The total amount of circulating RBCs is affected by changes in plasma volume caused by dehydration and fluid retention."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": false,
+                                                "text": "While bone marrow function is critical, other factors like blood loss, destruction, and plasma volume also affect RBC counts."
+                                    }
+                        ]
+            },
+            {
+                        "num": 32,
+                        "type": "mc",
+                        "question": "The nurse is teaching a client about anemia classification. Which statement correctly describes the suffix \"-chromic\"?",
+                        "options": [
+                                    "It refers to red blood cell size",
+                                    "It refers to hemoglobin content",
+                                    "It refers to cell shape",
+                                    "It refers to cell maturity"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Terms ending in \"-cytic\" refer to cell size, not \"-chromic.\""
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Terms that end with \"-chromic\" refer to hemoglobin content (e.g., hypochromic means reduced hemoglobin, normochromic means normal hemoglobin)."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Cell shape is described using other terminology (e.g., sickle-shaped)."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Cell maturity is described using terms like reticulocyte (immature) or erythrocyte (mature)."
+                                    }
+                        ]
+            },
+            {
+                        "num": 33,
+                        "type": "mc",
+                        "question": "A client with chronic kidney disease develops anemia. The nurse understands this anemia is primarily caused by:",
+                        "options": [
+                                    "Iron deficiency from poor diet",
+                                    "Decreased erythropoietin production",
+                                    "Increased red blood cell destruction",
+                                    "Bone marrow infiltration"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "While diet may contribute, the primary cause of anemia in chronic kidney disease is hormonal, not nutritional."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Chronic kidney disease impairs the kidneys' ability to produce erythropoietin, a hormone that stimulates red blood cell production, leading to anemia of chronic disease."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Increased destruction is not the primary mechanism in CKD-related anemia."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Bone marrow infiltration occurs in conditions like leukemia, not typically in CKD."
+                                    }
+                        ]
+            },
+            {
+                        "num": 34,
+                        "type": "sata",
+                        "question": "A nurse is assessing a client for complications of anemia. Which findings indicate the need for immediate intervention? (Select all that apply)",
+                        "options": [
+                                    "Heart murmur",
+                                    "Orthostatic hypotension",
+                                    "Mild fatigue",
+                                    "Confusion and delirium",
+                                    "Pale nail beds"
+                        ],
+                        "correct": [
+                                    0,
+                                    1,
+                                    3
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "With severe anemia, abnormal heart sounds (murmurs and gallops) indicate cardiac stress and require immediate evaluation."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Orthostatic hypotension indicates significant cardiovascular compromise and fall risk, requiring immediate intervention."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Mild fatigue is expected in anemia but is not an emergency requiring immediate intervention."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "Confusion and delirium indicate severe cerebral hypoxia and are medical emergencies."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": false,
+                                                "text": "Pale nail beds are expected findings in anemia but do not indicate an immediate emergency."
+                                    }
+                        ]
+            },
+            {
+                        "num": 35,
+                        "type": "mc",
+                        "question": "Which laboratory finding would the nurse expect in a client with iron deficiency anemia?",
+                        "options": [
+                                    "Elevated serum ferritin",
+                                    "Low serum iron and low ferritin",
+                                    "Elevated transferrin saturation",
+                                    "Elevated mean corpuscular volume (MCV)"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Serum ferritin is low, not elevated, as it reflects depleted iron stores."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Iron deficiency anemia is characterized by lower than normal serum iron, ferritin, and transferrin saturation levels as iron stores become depleted."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Transferrin saturation is low, not elevated, in iron deficiency."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "MCV is low (microcytic cells) in iron deficiency, not elevated."
+                                    }
+                        ]
+            },
+            {
+                        "num": 36,
+                        "type": "mc",
+                        "question": "A client taking iron supplements reports severe constipation. What is the nurse's best recommendation?",
+                        "options": [
+                                    "\"Stop taking the iron immediately.\"",
+                                    "\"A stool softener may help manage this side effect.\"",
+                                    "\"This means you are having a toxic reaction.\"",
+                                    "\"Increase your intake of dairy products.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Iron therapy should not be stopped without provider consultation; constipation can be managed."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Constipation is a common side effect of iron therapy, and a stool softener may be needed to prevent or manage this problem."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Constipation is an expected side effect, not a sign of toxicity."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Dairy products can interfere with iron absorption and should not be taken together with iron."
+                                    }
+                        ]
+            },
+            {
+                        "num": 37,
+                        "type": "mc",
+                        "question": "A nurse is educating a client with folate deficiency about potential causes. Which factor is most commonly associated with this deficiency?",
+                        "options": [
+                                    "Excessive exercise",
+                                    "Chronic alcoholism",
+                                    "High protein diet",
+                                    "Frequent hand washing"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Exercise does not cause folate deficiency."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Folate deficiency anemia is commonly caused by alcoholism, poor nutrition, malabsorption, and certain medications."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "A high protein diet does not cause folate deficiency."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Hand hygiene practices do not affect folate levels."
+                                    }
+                        ]
+            },
+            {
+                        "num": 38,
+                        "type": "sata",
+                        "question": "Which findings on physical assessment are consistent with chronic anemia? (Select all that apply)",
+                        "options": [
+                                    "Cool skin temperature",
+                                    "Warm, flushed extremities",
+                                    "Brittle, concave nails",
+                                    "Intolerance to cold temperatures",
+                                    "Rapid capillary refill"
+                        ],
+                        "correct": [
+                                    0,
+                                    2,
+                                    3
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Skin becomes cool to the touch due to decreased perfusion in anemia."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Extremities become cool and pale, not warm and flushed."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "When chronic, nails become brittle and concave (spoon-shaped) due to impaired circulation."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "Clients with anemia do not tolerate cooler temperatures well due to decreased oxygen delivery and perfusion."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": false,
+                                                "text": "Capillary refill is typically delayed, not rapid, due to poor perfusion."
+                                    }
+                        ]
+            },
+            {
+                        "num": 39,
+                        "type": "mc",
+                        "question": "A client with anemia asks why they feel short of breath with minimal activity. What is the nurse's best explanation?",
+                        "options": [
+                                    "\"Your lungs are not working properly.\"",
+                                    "\"Your blood cannot carry enough oxygen to meet your body's needs during activity.\"",
+                                    "\"You need to exercise more to build stamina.\"",
+                                    "\"This is a sign that your anemia is improving.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "The lungs typically function normally; the problem is oxygen-carrying capacity of the blood."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Anemia reduces oxygen-carrying capacity. Symptoms typically begin with physical exertion as oxygen demands increase, causing dyspnea (shortness of breath) when the reduced red cells cannot meet metabolic needs."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Exercise should be limited until anemia improves; pushing activity will worsen symptoms."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Dyspnea is a symptom of anemia, not improvement."
+                                    }
+                        ]
+            },
+            {
+                        "num": 40,
+                        "type": "mc",
+                        "question": "Which action by a client taking liquid iron supplementation indicates the need for further teaching?",
+                        "options": [
+                                    "Mixing iron with orange juice",
+                                    "Taking iron directly from the bottle without dilution",
+                                    "Using a straw to drink the mixture",
+                                    "Rinsing mouth after administration"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Mixing liquid iron with juice is appropriate and enhances absorption."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Liquid iron should be mixed in juice or water and taken through a straw, then the mouth should be rinsed. Taking it directly can cause severe teeth staining."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Using a straw is correct technique to prevent tooth staining."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Rinsing the mouth after administration is correct technique."
+                                    }
+                        ]
+            },
+            {
+                        "num": 41,
+                        "type": "mc",
+                        "question": "A nurse is reviewing the Schilling test results for a client. This test is used to diagnose which type of anemia?",
+                        "options": [
+                                    "Iron deficiency anemia",
+                                    "Vitamin B12 deficiency (pernicious anemia)",
+                                    "Folate deficiency anemia",
+                                    "Sickle cell anemia"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Iron deficiency is diagnosed through iron studies (serum iron, ferritin, TIBC), not the Schilling test."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "The Schilling test is used for vitamin B12 testing to diagnose pernicious anemia."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Folate levels are measured through serum folate tests, not the Schilling test."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Sickle cell anemia is diagnosed through hemoglobin electrophoresis and sickle cell tests."
+                                    }
+                        ]
+            },
+            {
+                        "num": 42,
+                        "type": "sata",
+                        "question": "Which treatments may be used for anemia management? (Select all that apply)",
+                        "options": [
+                                    "Blood transfusion",
+                                    "Bone marrow transplant",
+                                    "Oxygen therapy",
+                                    "Antibiotics",
+                                    "Intravenous fluids (for sickle cell crisis)"
+                        ],
+                        "correct": [
+                                    0,
+                                    1,
+                                    2,
+                                    4
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Blood transfusion is a treatment option for severe anemia to rapidly increase RBC count."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Bone marrow transplant may be used for aplastic anemia and other severe forms."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Oxygen therapy is used to improve tissue oxygenation, especially in sickle cell anemia."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Antibiotics treat infections, not anemia itself, unless infection is the underlying cause."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": true,
+                                                "text": "Intravenous fluids are used in sickle cell crisis to improve circulation and decrease blood viscosity."
+                                    }
+                        ]
+            },
+            {
+                        "num": 43,
+                        "type": "mc",
+                        "question": "A pregnant client asks why she needs more folic acid than her husband. What is the nurse's best response?",
+                        "options": [
+                                    "\"Women always need more vitamins than men.\"",
+                                    "\"Folic acid needs increase during pregnancy and lactation for fetal development and maternal health.\"",
+                                    "\"Your husband doesn't need any folic acid.\"",
+                                    "\"This is only necessary if you have anemia.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Vitamin needs vary by physiologic state, not simply by gender."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Increased amounts of folate are required for lactating and pregnant females to support fetal development (particularly neural tube formation) and maternal RBC production."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Everyone needs folic acid for DNA synthesis; pregnancy increases requirements."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Folic acid is needed for neural tube defect prevention even in women without anemia."
+                                    }
+                        ]
+            },
+            {
+                        "num": 44,
+                        "type": "mc",
+                        "question": "Which statement by a client with iron deficiency anemia indicates understanding of medication teaching?",
+                        "options": [
+                                    "\"I should take my iron supplement with milk for better absorption.\"",
+                                    "\"If my stomach gets upset, I can take the iron with food.\"",
+                                    "\"I can crush my sustained-release tablet if I have trouble swallowing.\"",
+                                    "\"I'll take my iron supplement with my antacid.\""
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Milk and dairy products interfere with iron absorption and should be avoided."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "If GI distress is severe, the dosage may be reduced, or if absolutely necessary, iron may be administered with food, though absorption is better on an empty stomach."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Sustained-release iron preparations should never be crushed or chewed."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Antacids interfere with iron absorption and should not be taken together."
+                                    }
+                        ]
+            },
+            {
+                        "num": 45,
+                        "type": "mc",
+                        "question": "A client with thalassemia may require which treatment not commonly used in other anemias?",
+                        "options": [
+                                    "Iron supplementation",
+                                    "Removal of the spleen",
+                                    "Folic acid therapy",
+                                    "Vitamin B12 injections"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Iron supplementation is not indicated in thalassemia and may lead to iron overload."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Removal of the spleen (splenectomy) may be necessary in thalassemia due to splenic sequestration of abnormal RBCs."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "While folic acid may be given, it is not specific to thalassemia."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "B12 deficiency is not the primary problem in thalassemia."
+                                    }
+                        ]
+            },
+            {
+                        "num": 46,
+                        "type": "sata",
+                        "question": "Which medications or substances can interfere with folic acid absorption or utilization? (Select all that apply)",
+                        "options": [
+                                    "Methotrexate",
+                                    "Acetaminophen",
+                                    "Sulfonamides",
+                                    "Cholestyramine",
+                                    "Vitamin C"
+                        ],
+                        "correct": [
+                                    0,
+                                    2,
+                                    3
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": true,
+                                                "text": "Methotrexate (along with triamterene and pyrimethamine) prevents the activation of folic acid."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Acetaminophen does not significantly interfere with folic acid."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Sulfonamides decrease folic acid absorption."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": true,
+                                                "text": "Cholestyramine (and antacids) decreases folic acid absorption."
+                                    },
+                                    {
+                                                "letter": "E",
+                                                "correct": false,
+                                                "text": "Vitamin C does not interfere with folic acid and may enhance iron absorption."
+                                    }
+                        ]
+            },
+            {
+                        "num": 47,
+                        "type": "mc",
+                        "question": "A client with anemia has a hemoglobin of 6 g/dL. The nurse recognizes this indicates:",
+                        "options": [
+                                    "Mild anemia",
+                                    "Moderate anemia",
+                                    "Severe anemia",
+                                    "Normal hemoglobin levels"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Mild anemia typically involves hemoglobin levels slightly below normal (10-12 g/dL for women, 12-14 g/dL for men)."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Moderate anemia involves more significant reduction but not to critically low levels."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Hemoglobin of 6 g/dL indicates severe anemia requiring immediate intervention (normal is approximately 12-16 g/dL for women, 14-18 g/dL for men)."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "This is far below normal hemoglobin levels."
+                                    }
+                        ]
+            },
+            {
+                        "num": 48,
+                        "type": "mc",
+                        "question": "Which statement about vitamin B12 metabolism is accurate?",
+                        "options": [
+                                    "Vitamin B12 is rapidly excreted from the body",
+                                    "Most vitamin B12 is stored in the kidneys",
+                                    "Vitamin B12 is stored in the liver with slow excretion",
+                                    "Vitamin B12 does not require any special factors for absorption"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Vitamin B12 is excreted slowly, not rapidly, allowing the body to maintain stores."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Most B12 is stored in the liver, not the kidneys."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "After absorption, most vitamin B12 is stored in the liver, and excretion is slow, which is why deficiency takes years to develop after absorption stops."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Vitamin B12 requires intrinsic factor for absorption from the intestines."
+                                    }
+                        ]
+            },
+            {
+                        "num": 49,
+                        "type": "mc",
+                        "question": "The nurse is caring for a client with sickle cell anemia who reports bone pain. This pain is primarily caused by:",
+                        "options": [
+                                    "Bone fractures from falls",
+                                    "Calcium deficiency",
+                                    "Vaso-occlusion from sickled cells blocking blood flow",
+                                    "Excessive physical activity"
+                        ],
+                        "correct": [
+                                    2
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "The pain is not typically from trauma or fractures."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": false,
+                                                "text": "Calcium levels are not the primary issue in sickle cell pain."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": true,
+                                                "text": "Sickled cells are sticky and fragile, causing them to block blood flow and perfusion, leading to vaso-occlusive crises with severe pain, particularly in bones and joints."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Pain occurs due to cellular sickling and vaso-occlusion, not activity level."
+                                    }
+                        ]
+            },
+            {
+                        "num": 50,
+                        "type": "mc",
+                        "question": "A client is prescribed erythropoietin (epoetin alfa) for anemia of chronic disease. The nurse understands this medication works by:",
+                        "options": [
+                                    "Providing supplemental iron",
+                                    "Stimulating bone marrow to produce red blood cells",
+                                    "Destroying abnormal red blood cells",
+                                    "Replacing deficient intrinsic factor"
+                        ],
+                        "correct": [
+                                    1
+                        ],
+                        "rationales": [
+                                    {
+                                                "letter": "A",
+                                                "correct": false,
+                                                "text": "Erythropoietin does not provide iron; separate iron supplementation may be needed."
+                                    },
+                                    {
+                                                "letter": "B",
+                                                "correct": true,
+                                                "text": "Erythropoietin (epoetin alfa) stimulates the bone marrow to produce red blood cells, compensating for the decreased erythropoietin production seen in anemia of chronic disease, particularly in conditions like arthritis, malignancies, and AIDS."
+                                    },
+                                    {
+                                                "letter": "C",
+                                                "correct": false,
+                                                "text": "Erythropoietin stimulates RBC production; it does not destroy cells."
+                                    },
+                                    {
+                                                "letter": "D",
+                                                "correct": false,
+                                                "text": "Intrinsic factor deficiency is treated with B12, not erythropoietin."
+                                    }
+                        ]
+            }
+];
+
+        let stats = {
+            answered: 0,
+            correct: 0
+        };
+
+        function renderQuestions() {
+            const container = document.getElementById('questionsContainer');
+            
+            questions.forEach(q => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question-card';
+                questionDiv.id = `question-${q.num}`;
+                
+                const inputType = q.type === 'mc' ? 'radio' : 'checkbox';
+                const inputName = `q${q.num}`;
+                
+                let optionsHTML = '';
+                q.options.forEach((opt, idx) => {
+                    const letter = String.fromCharCode(65 + idx);
+                    optionsHTML += `
+                        <label class="option-label" data-index="${idx}">
+                            <input type="${inputType}" name="${inputName}" value="${idx}" 
+                                   onchange="handleOptionSelect(${q.num})">
+                            <span>${letter}) ${opt}</span>
+                        </label>
+                    `;
+                });
+                
+                let rationalesHTML = '';
+                q.rationales.forEach(rat => {
+                    const className = rat.correct ? 'correct' : 'incorrect';
+                    const status = rat.correct ? 'CORRECT' : 'INCORRECT';
+                    rationalesHTML += `
+                        <div class="rationale-item ${className}">
+                            <strong>${rat.letter}) ${status}:</strong> ${rat.text}
+                        </div>
+                    `;
+                });
+                
+                const correctAnswers = q.correct.map(idx => String.fromCharCode(65 + idx)).join(', ');
+                
+                questionDiv.innerHTML = `
+                    <div class="question-header">
+                        <span class="question-number">QUESTION ${q.num}</span>
+                        <span class="question-type">${q.type === 'mc' ? 'Multiple Choice' : 'Select All That Apply'}</span>
+                    </div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                    <button class="submit-btn" onclick="checkAnswer(${q.num})" id="submit-${q.num}">
+                        ✓ Check Answer
+                    </button>
+                    <div class="feedback" id="feedback-${q.num}"></div>
+                    <div class="correct-answer-display" id="correct-${q.num}">
+                        ✓ CORRECT ANSWER${q.correct.length > 1 ? 'S' : ''}: ${correctAnswers}
+                    </div>
+                    <div class="rationales" id="rationales-${q.num}">
+                        <div class="rationales-header">RATIONALES</div>
+                        ${rationalesHTML}
+                    </div>
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+        }
+
+        function handleOptionSelect(qNum) {
+            // Just visual feedback, no checking until submit
+            const question = questions.find(q => q.num === qNum);
+            const inputs = document.querySelectorAll(`input[name="q${qNum}"]`);
+            
+            inputs.forEach((input, idx) => {
+                const label = input.closest('.option-label');
+                if (input.checked) {
+                    label.classList.add('selected');
+                } else {
+                    label.classList.remove('selected');
+                }
+            });
+        }
+
+        function checkAnswer(qNum) {
+            const question = questions.find(q => q.num === qNum);
+            const inputs = document.querySelectorAll(`input[name="q${qNum}"]:checked`);
+            const selected = Array.from(inputs).map(input => parseInt(input.value));
+            
+            if (selected.length === 0) {
+                alert('Please select at least one answer!');
+                return;
+            }
+            
+            // Check if already answered
+            const questionCard = document.getElementById(`question-${qNum}`);
+            if (questionCard.classList.contains('answered')) {
+                return; // Already answered
+            }
+            
+            // Mark as answered
+            questionCard.classList.add('answered');
+            stats.answered++;
+            
+            // Check if correct
+            const isCorrect = JSON.stringify(selected.sort()) === JSON.stringify(question.correct.sort());
+            
+            if (isCorrect) {
+                stats.correct++;
+            }
+            
+            // Update score tracker
+            updateScoreTracker();
+            
+            // Show feedback
+            const feedback = document.getElementById(`feedback-${qNum}`);
+            feedback.className = 'feedback show ' + (isCorrect ? 'correct' : 'incorrect');
+            feedback.textContent = isCorrect ? 
+                '🎉 Correct! Great job!' : 
+                '❌ Incorrect. Review the rationales below to understand why.';
+            
+            // Show correct answer
+            document.getElementById(`correct-${qNum}`).classList.add('show');
+            
+            // Show rationales
+            document.getElementById(`rationales-${qNum}`).classList.add('show');
+            
+            // Disable submit button
+            document.getElementById(`submit-${qNum}`).disabled = true;
+            document.getElementById(`submit-${qNum}`).textContent = '✓ Answered';
+            
+            // Highlight correct/incorrect options
+            const allInputs = document.querySelectorAll(`input[name="q${qNum}"]`);
+            allInputs.forEach((input, idx) => {
+                const label = input.closest('.option-label');
+                if (question.correct.includes(idx)) {
+                    label.classList.add('correct-answer');
+                } else if (selected.includes(idx)) {
+                    label.classList.add('incorrect-answer');
+                }
+                input.disabled = true;
+            });
+            
+            // Check if all questions answered
+            if (stats.answered === 50) {
+                showFinalResults();
+            }
+            
+            // Smooth scroll to feedback
+            feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function updateScoreTracker() {
+            document.getElementById('answeredCount').textContent = stats.answered;
+            document.getElementById('correctCount').textContent = stats.correct;
+            const percentage = stats.answered > 0 ? Math.round((stats.correct / stats.answered) * 100) : 0;
+            document.getElementById('scorePercent').textContent = percentage;
+        }
+
+        function showFinalResults() {
+            const resultsSection = document.getElementById('resultsSection');
+            const incorrect = stats.answered - stats.correct;
+            const finalScore = Math.round((stats.correct / questions.length) * 100);
+            
+            document.getElementById('finalCorrect').textContent = stats.correct;
+            document.getElementById('finalIncorrect').textContent = incorrect;
+            document.getElementById('finalScore').textContent = finalScore + '%';
+            
+            resultsSection.style.display = 'block';
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize
+        window.onload = function() {
+            renderQuestions();
+        };
+    </script>
+</body>
+</html>
