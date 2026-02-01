@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patho/Pharm II Exam 1 Study Guide</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #7e22ce);
+    min-height: 100vh;
+    padding: 20px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+header {
+    text-align: center;
+    background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6);
+    padding: 30px;
+    border-radius: 15px;
+    color: white;
+    margin-bottom: 30px;
+}
+h1 { font-size: 2.5em; margin-bottom: 10px; }
+.subtitle { font-size: 1.1em; }
+.topic-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-left: 5px solid #3b82f6;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.topic-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+.topic-card.critical { border-left-color: #dc2626; background: linear-gradient(135deg, #fff, #fee2e2); }
+.topic-card.high-yield { border-left-color: #ea580c; background: linear-gradient(135deg, #fff, #ffedd5); }
+.topic-title { font-size: 1.5em; font-weight: bold; color: #333; margin-bottom: 15px; }
+.topic-content { display: none; margin-top: 15px; }
+.topic-content.show { display: block; }
+.memory-trick {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border-left: 4px solid #f59e0b;
+}
+.memory-trick-title { font-weight: bold; color: #92400e; margin-bottom: 5px; }
+.key-points {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+.key-points ul { margin-left: 20px; }
+.key-points li { margin: 5px 0; line-height: 1.5; }
+.danger-alert {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border-left: 4px solid #dc2626;
+    font-weight: bold;
+    color: #991b1b;
+}
+.test-tip {
+    background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border-left: 4px solid #6366f1;
+}
+.drug-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.drug-table th {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+.drug-table td { padding: 10px; border-bottom: 1px solid #e5e7eb; }
+.drug-table tr:hover { background: #f3f4f6; }
+.drug-name { font-weight: bold; color: #3b82f6; }
+.rescue { background: #dcfce7; font-weight: bold; color: #166534; }
+.dangerous { background: #fee2e2; font-weight: bold; color: #991b1b; }
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 25px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border-radius: 15px;
+    color: white;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h1>💊 Patho/Pharm II – Exam 1 Study Guide</h1>
+<p class="subtitle">Gas Exchange • Elimination • High-Yield Content</p>
+</header>
+
+<div class="topic-card critical" onclick="toggleTopic(this)">
+<div class="topic-title">🫁 Asthma Medications (CRITICAL)</div>
+<div class="topic-content">
+<div class="memory-trick">
+<div class="memory-trick-title">If they're shaking → it's working!</div>
+Albuterol causes tremors - that's EXPECTED
+</div>
+<div class="key-points">
+<strong>🚑 SABA - Albuterol (RESCUE):</strong>
+<ul>
+<li>Fast bronchodilation</li>
+<li>Use PRN for acute symptoms</li>
+<li>AE: tremor, tachycardia, nervousness</li>
+<li>LIFESAVING!</li>
+</ul>
+</div>
+<div class="danger-alert">
+🚨 LABA alone in asthma ↑ risk of DEATH! Always pair with ICS.
+</div>
+<div class="key-points">
+<strong>🌬️ LABA - Salmeterol:</strong>
+<ul>
+<li>NOT for acute attacks</li>
+<li>MUST use with inhaled corticosteroid</li>
+<li>OK alone in COPD, NEVER in asthma</li>
+</ul>
+</div>
+<div class="key-points">
+<strong>💨 Inhaled Corticosteroids - Beclomethasone:</strong>
+<ul>
+<li>↓ inflammation (prevention)</li>
+<li>Takes days-weeks to work</li>
+<li>Rinse mouth after use (prevent thrush)</li>
+<li>Not rescue - scheduled use only</li>
+</ul>
+</div>
+<div class="test-tip">
+🧠 Test Tip: Use SABA 5 minutes BEFORE ICS for better delivery
+</div>
+<div class="key-points">
+<strong>💊 Systemic Corticosteroids - Prednisone:</strong>
+<ul>
+<li>For severe exacerbations</li>
+<li>AE: hyperglycemia, infection risk, osteoporosis</li>
+<li><strong>NEVER stop abruptly - must taper!</strong></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="topic-card critical" onclick="toggleTopic(this)">
+<div class="topic-title">🫁 Asthma Pathophysiology</div>
+<div class="topic-content">
+<div class="memory-trick">
+<div class="memory-trick-title">Think: Tight, Inflamed, Mucus-Plugged Airways</div>
+</div>
+<div class="key-points">
+<strong>🔬 Core Pathophysiology:</strong>
+<ul>
+<li>Chronic airway inflammation</li>
+<li>Bronchoconstriction</li>
+<li>Mucus hypersecretion</li>
+<li><strong>REVERSIBLE</strong> airway obstruction</li>
+</ul>
+</div>
+<div class="danger-alert">
+🚨 Silent chest + low O₂ = COMPLETE OBSTRUCTION = EMERGENCY!
+</div>
+<div class="key-points">
+<strong>🚨 Status Asthmaticus:</strong>
+<ul>
+<li>Severe, life-threatening attack</li>
+<li>Does NOT respond to usual therapy</li>
+<li>Extreme dyspnea + accessory muscles</li>
+<li>Sudden absence of wheezing = BAD</li>
+<li>Prepare for: O₂, IV fluids, bronchodilators, steroids, intubation</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="topic-card high-yield" onclick="toggleTopic(this)">
+<div class="topic-title">💨 COPD Medications</div>
+<div class="topic-content">
+<div class="memory-trick">
+<div class="memory-trick-title">Can't Spit, Can't Pee, Can't See</div>
+Anticholinergic side effects: dry mouth, urinary retention, blurred vision
+</div>
+<div class="key-points">
+<strong>🌪️ Anticholinergics - Ipratropium/Tiotropium:</strong>
+<ul>
+<li>Bronchodilation by ↓ vagal tone</li>
+<li>Primarily for COPD (not asthma)</li>
+<li>AE: dry mouth, urinary retention, blurred vision</li>
+<li><strong>DO NOT use ipratropium + tiotropium together</strong></li>
+</ul>
+</div>
+<div class="danger-alert">
+🚨 Theophylline: Narrow range (10-20 mcg/mL). Toxicity = seizures & dysrhythmias!
+</div>
+<div class="key-points">
+<strong>⚠️ Theophylline:</strong>
+<ul>
+<li>Narrow therapeutic index</li>
+<li>Monitor levels closely</li>
+<li>Smoking ↓ levels, Caffeine ↑ toxicity</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="topic-card high-yield" onclick="toggleTopic(this)">
+<div class="topic-title">💨 COPD Pathophysiology</div>
+<div class="topic-content">
+<div class="memory-trick">
+<div class="memory-trick-title">Bronchitis = Mucus | Emphysema = Air Sacs Destroyed</div>
+</div>
+<div class="key-points">
+<strong>🔵 Chronic Bronchitis (Blue Bloater):</strong>
+<ul>
+<li>Affects airways only</li>
+<li>Productive cough</li>
+<li>Frequent infections</li>
+<li>Cyanosis + Edema</li>
+</ul>
+</div>
+<div class="key-points">
+<strong>🌸 Emphysema (Pink Puffer):</strong>
+<ul>
+<li>Alveolar destruction</li>
+<li>Loss of elastic recoil</li>
+<li>Air trapping → barrel chest</li>
+<li>Purse-lip breathing</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="topic-card high-yield" onclick="toggleTopic(this)">
+<div class="topic-title">🩸 Anemia Medications</div>
+<div class="topic-content">
+<div class="memory-trick">
+<div class="memory-trick-title">Black Poop = Expected with Iron!</div>
+</div>
+<div class="key-points">
+<strong>⚫ Iron Supplement - Ferrous Sulfate:</strong>
+<ul>
+<li>Take with vitamin C (↑ absorption)</li>
+<li>AE: constipation, black stools (NORMAL)</li>
+<li>Avoid antacids (↓ absorption)</li>
+</ul>
+</div>
+<div class="danger-alert">
+🚨 Iron is TOXIC to children! Iron dextran → anaphylaxis risk (test dose!)
+</div>
+<div class="key-points">
+<strong>🔴 Vitamin B12 - Cyanocobalamin:</strong>
+<ul>
+<li>Used in pernicious anemia</li>
+<li>Requires intrinsic factor</li>
+<li>Deficiency causes neurologic symptoms</li>
+<li>Lifelong injections if pernicious anemia</li>
+</ul>
+</div>
+<div class="test-tip">
+🧠 Test Tip: Folic acid can mask B12 deficiency anemia but NOT neuro damage!
+</div>
+</div>
+</div>
+
+<div class="topic-card high-yield" onclick="toggleTopic(this)">
+<div class="topic-title">🩸 Anemia Pathophysiology</div>
+<div class="topic-content">
+<div class="key-points">
+<strong>📊 Morphologic Classification:</strong>
+<ul>
+<li><strong>Microcytic hypochromic:</strong> Iron deficiency</li>
+<li><strong>Macrocytic:</strong> B12 or folate deficiency</li>
+<li><strong>Normocytic:</strong> Chronic disease, aplastic</li>
+</ul>
+</div>
+<div class="key-points">
+<strong>🧬 B12 Deficiency (Pernicious Anemia):</strong>
+<ul>
+<li>Neurologic symptoms: paresthesia, gait issues</li>
+<li>Requires intrinsic factor</li>
+<li>Lifelong B12 injections</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="topic-card high-yield" onclick="toggleTopic(this)">
+<div class="topic-title">🫘 CKD Medications</div>
+<div class="topic-content">
+<div class="key-points">
+<strong>🦴 Phosphate Binders - Sevelamer/Calcium Acetate:</strong>
+<ul>
+<li>Take WITH meals</li>
+<li>Prevents phosphate absorption</li>
+<li>↓ risk of bone disease</li>
+</ul>
+</div>
+<div class="danger-alert">
+🚨 Epoetin alfa: Risk of HTN & thrombosis! Monitor BP closely.
+</div>
+<div class="key-points">
+<strong>🩸 Anemia of CKD - Epoetin Alfa:</strong>
+<ul>
+<li>Stimulates RBC production</li>
+<li>AE: hypertension, thrombosis</li>
+<li>Monitor hemoglobin & hematocrit</li>
+</ul>
+</div>
+<div class="key-points">
+<strong>💧 Loop Diuretic - Furosemide:</strong>
+<ul>
+<li>Watch potassium levels</li>
+<li>Ototoxicity risk (hearing loss)</li>
+<li>Monitor I&O, daily weights</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="topic-card" onclick="toggleTopic(this)">
+<div class="topic-title">🫘 AKI vs CKD</div>
+<div class="topic-content">
+<div class="memory-trick">
+<div class="memory-trick-title">Before, During, After the Kidney</div>
+Prerenal, Intrarenal, Postrenal
+</div>
+<div class="key-points">
+<strong>⚡ Acute Kidney Injury (AKI):</strong>
+<ul>
+<li><strong>Sudden</strong> ↓ kidney function</li>
+<li><strong>Prerenal:</strong> ↓ perfusion (dehydration, shock)</li>
+<li><strong>Intrarenal:</strong> kidney damage (nephrotoxins)</li>
+<li><strong>Postrenal:</strong> obstruction (stones, BPH)</li>
+</ul>
+</div>
+<div class="key-points">
+<strong>🔄 Chronic Kidney Disease (CKD):</strong>
+<ul>
+<li><strong>Progressive, irreversible</strong> nephron loss</li>
+<li>Fluid overload</li>
+<li>Electrolyte imbalances (↑K⁺, ↑PO₄, ↓Ca²⁺)</li>
+<li>Anemia (↓ erythropoietin)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 style="text-align: center; margin: 40px 0 20px 0; color: #3b82f6;">💊 High-Yield Drug Comparison Tables</h2>
+
+<table class="drug-table">
+<thead>
+<tr>
+<th>Drug</th>
+<th>Class</th>
+<th>Key Exam Rule</th>
+<th>Critical Safety</th>
+</tr>
+</thead>
+<tbody>
+<tr class="rescue">
+<td class="drug-name">Albuterol</td>
+<td>SABA</td>
+<td>RESCUE, PRN, lifesaving</td>
+<td>Tremor expected</td>
+</tr>
+<tr class="dangerous">
+<td class="drug-name">Salmeterol</td>
+<td>LABA</td>
+<td>NEVER alone in asthma!</td>
+<td>↑ death risk if monotherapy</td>
+</tr>
+<tr>
+<td class="drug-name">Beclomethasone</td>
+<td>ICS</td>
+<td>Prevention only</td>
+<td>Rinse mouth (thrush)</td>
+</tr>
+<tr>
+<td class="drug-name">Prednisone</td>
+<td>Systemic steroid</td>
+<td>Severe exacerbations</td>
+<td>NEVER stop abruptly!</td>
+</tr>
+<tr class="dangerous">
+<td class="drug-name">Theophylline</td>
+<td>Methylxanthine</td>
+<td>Narrow range (10-20)</td>
+<td>Toxicity → seizures</td>
+</tr>
+<tr>
+<td class="drug-name">Ferrous Sulfate</td>
+<td>Iron</td>
+<td>With Vitamin C</td>
+<td>Black stools normal</td>
+</tr>
+<tr class="dangerous">
+<td class="drug-name">Epoetin Alfa</td>
+<td>Erythropoietin</td>
+<td>CKD anemia</td>
+<td>HTN & thrombosis risk</td>
+</tr>
+</tbody>
+</table>
+
+<div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 30px; border-radius: 15px; margin: 30px 0;">
+<h2 style="color: #92400e; margin-bottom: 15px;">🧠 Exam Strategy</h2>
+<div style="font-size: 1.1em; line-height: 2;">
+<strong>Ask yourself:</strong><br>
+1. What is the <strong>pathophysiology</strong>?<br>
+2. What <strong>drug</strong> fixes it?<br>
+3. What can go <strong>wrong</strong>? (adverse effects)<br>
+4. What do I <strong>teach</strong>?
+</div>
+</div>
+
+<div style="background: linear-gradient(135deg, #fee2e2, #fecaca); padding: 20px; border-radius: 15px; margin: 20px 0;">
+<h3 style="color: #991b1b; margin-bottom: 10px;">🚨 Critical Safety Alerts</h3>
+<ul style="margin-left: 20px; line-height: 2; font-weight: bold; color: #991b1b;">
+<li>LABA alone in asthma = ↑ death risk</li>
+<li>Never stop steroids abruptly</li>
+<li>Theophylline toxicity = seizures</li>
+<li>Silent chest = complete obstruction</li>
+<li>Epoetin alfa = HTN risk</li>
+<li>Iron dextran = anaphylaxis (test dose!)</li>
+<li>Folic acid masks B12 deficiency</li>
+</ul>
+</div>
+
+<footer>
+<h3>🌟 You've Got This! 🌟</h3>
+<p style="margin-top: 10px;">Master the concepts, stay safe with meds, ace that exam!</p>
+</footer>
+
+</div>
+
+<script>
+function toggleTopic(card) {
+    const content = card.querySelector('.topic-content');
+    content.classList.toggle('show');
+}
+</script>
+</body>
+</html>
